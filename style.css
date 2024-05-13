@@ -1,0 +1,62 @@
+/* General Styling */
+body {
+    font-family: 'Garamond', serif; /* Elegant serif font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f5f2; /* Soft, off-white background */
+    color: #3d3d3d; /* Dark gray text for contrast */
+}
+
+header {
+    background: linear-gradient(to bottom, #f2e6de, #e6d9ce); /* Pearl gradient */ 
+    color: #4d4d4d; /* Darker gray text for header */
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.logo {
+    background-image: url('path/to/pearl-logo.png'); /* Replace with your logo */
+    background-repeat: no-repeat;
+    background-position: center top;  
+    padding-top: 100px; /* Adjust as needed based on logo height */
+}
+
+
+h1, h2 {
+    margin: 0.5rem 0;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+ul {
+    list-style: none; 
+    padding: 0;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #e6d9ce; /* Softer pearl color */
+    color: #4d4d4d;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #e6d9ce;
+    color: #4d4d4d;
+}
+
