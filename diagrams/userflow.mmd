@@ -9,18 +9,18 @@ graph LR
   style page fill:#d3d3d3,stroke:#999
   style pubhf fill:#d3d3d3,stroke:#999
   style cllm fill:#d3d3d3,stroke:#999
-subgraph yc[your content]
-  lp("landing<br/>page")
-  b(blogs)
-  other(other)
+subgraph yc[Your Content]
+  lp("Landing<br/>Page")
+  b(Blogs)
+  other(Other)
 end
 subgraph pow[Pearls of Wisdom]
-  g(("generate<br/>instructions<br/>and responses"))
-  h(("human experts<br/>peer-review"))
+  g(("Generate<br/>Instructions<br/>and Responses"))
+  h(("Human Experts<br/>Peer-Review"))
 end
-page["your website<br/>(for crawlers)"]
-pubhf[("public dataset<br/>such as Hugging Face<br/>(for trainers and fine-tunners)")]
-cllm["fine-tune<br/>your custom LLM"]
+page["Your Website<br/>(for Crawlers)"]
+pubhf[("Public Dataset<br/>such as Hugging Face<br/>(for Trainers and Fine-Tunners)")]
+cllm["Fine-Tune Your Own<br/>Chat-Assistant"]
 lp-->g
 b-->g
 other-->g
