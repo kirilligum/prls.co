@@ -97,3 +97,9 @@ footer {
   width: auto;
   flex: 1 1 auto;
 }
+.section-separator {
+  text-align: center;
+  padding: 2rem 0;
+  color: #e6d9ce;
+  font-size: 1.2em;
+}
