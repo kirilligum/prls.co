@@ -2,8 +2,11 @@
 /*   background-color: black; */
 /* } */
 .label foreignObject {
-    /* font-size: 90%; */
-    overflow: visible;
+  /* font-size: 90%; */
+  overflow: visible;
 }
 
-
+.cluster-label foreignObject {
+  /* font-size: 90%; */
+  overflow: visible;
+}
