@@ -80,3 +80,18 @@ footer {
   background-color: #e6d9ce;
   color: #4d4d4d;
 }
+.customer-logos {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.customer-logo {
+  max-height: 100px;
+  width: auto;
+  flex: 1 1 auto;
+}
