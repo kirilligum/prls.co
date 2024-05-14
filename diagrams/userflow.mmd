@@ -1,0 +1,20 @@
+graph LR
+subgraph your content
+  lp("landing<br/>page")
+  b(blogs)
+  other(other)
+end
+subgraph Pearls of Wisdom
+  g(("generate<br/>instructions<br/>and responses"))
+  h(("human experts<br/>peer-review"))
+end
+page["your website<br/>(for crawlers)"]
+pubhf[("public dataset<br/>such as Hugging Face<br/>(for trainers and fine-tunners)")]
+cllm["fine-tune<br/>your custom LLM"]
+lp-->g
+b-->g
+other-->g
+g==>h
+h-->page
+h-->pubhf
+h-->cllm
