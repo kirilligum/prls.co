@@ -1,6 +1,6 @@
 /* General Styling */
 body {
-    font-family: 'Garamond', serif; /* Elegant serif font */
+    font-family: sans-serif; /* Standard HTML font */
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -23,7 +23,7 @@ header {
 }
 
 
-h1, h2 {
+header h1, header h2 {
     margin: 0.5rem 0;
 }
 
