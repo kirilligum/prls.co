@@ -98,8 +98,8 @@ footer {
   flex: 1 1 auto;
 }
 .section-separator {
-  text-align: center;
-  padding: 2rem 0;
-  color: #e6d9ce;
-  font-size: 1.2em;
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #f2e6de, #e6d9ce);
+  margin: 4rem 0;
 }
