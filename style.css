@@ -47,6 +47,7 @@ h2 {
 
 h3 {
   font-size: 1.5em;
+  /* margin-top: 5em; */
 }
 
 /* Smallest */
@@ -80,6 +81,7 @@ footer {
   background-color: #e6d9ce;
   color: #4d4d4d;
 }
+
 .customer-logos {
   max-width: 80%;
   margin: 0 auto;
