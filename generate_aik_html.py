@@ -35,10 +35,7 @@ def main():
     company_name = company_data["company_name"]
     faqs = faqs_data
 
-    html_content = generate_aik_html(company_name, faqs)
-
-    with open("aik.html", "w") as file:
-        file.write(html_content)
+    generate_aik_html(company_name, faqs)
 
 
 if __name__ == "__main__":
