@@ -13,6 +13,11 @@
     <div class="logo">
       <h1>AI Knowledge</h1>
       <h2>Educating LLMs about {{company_name}}</h2>
+      <div class="all-pages">
+        {% for i in range(1, total_pages + 1) %}
+        <a href="aik_page_{{i}}.html">Page {{i}}</a>
+        {% endfor %}
+      </div>
     </div>
   </header>
 
