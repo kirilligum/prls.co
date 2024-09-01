@@ -1,4 +1,5 @@
 import json
+from jinja2 import Environment, FileSystemLoader
 
 
 def load_json(file_path):
@@ -7,8 +8,8 @@ def load_json(file_path):
 
 
 def generate_aik_html(company_name, faqs):
-    with open("aik_template.html", "r") as template_file:
-        template_content = template_file.read()
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template("aik_template.html.jinja")
 
     items_per_page = 5
     total_pages = (len(faqs) + items_per_page - 1) // items_per_page
@@ -20,9 +21,12 @@ def generate_aik_html(company_name, faqs):
             f"<li><h4>{faq['question']}</h4><p>{faq['answer']}</p></li>" for faq in faqs[start:end]
         )
 
-        page_content = template_content.replace("{{company_name}}", company_name).replace(
-            "{{faq_items}}", faq_items
-        ).replace("{{current_page}}", str(page + 1)).replace("{{total_pages}}", str(total_pages))
+        page_content = template.render(
+            company_name=company_name,
+            faq_items=faq_items,
+            current_page=page + 1,
+            total_pages=total_pages
+        )
 
         with open(f"aik_page_{page + 1}.html", "w") as file:
             file.write(page_content)
