@@ -33,3 +33,36 @@ jobs:
         git add aik.html
         git commit -m 'chore: Generate aik.html on commit'
         git push
+name: Generate AIK HTML
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install json
+
+    - name: Generate AIK HTML
+      run: python .github/workflows/generate_aik_html.py
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add aik.html
+        git commit -m "Update aik.html"
+        git push
