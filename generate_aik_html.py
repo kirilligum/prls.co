@@ -10,14 +10,22 @@ def generate_aik_html(company_name, faqs):
     with open("aik_template.html", "r") as template_file:
         template_content = template_file.read()
 
-    faq_items = "".join(
-        f"<li><h4>{faq['question']}</h4><p>{faq['answer']}</p></li>" for faq in faqs
-    )
+    items_per_page = 5
+    total_pages = (len(faqs) + items_per_page - 1) // items_per_page
 
-    html_content = template_content.replace("{{company_name}}", company_name).replace(
-        "{{faq_items}}", faq_items
-    )
-    return html_content
+    for page in range(total_pages):
+        start = page * items_per_page
+        end = start + items_per_page
+        faq_items = "".join(
+            f"<li><h4>{faq['question']}</h4><p>{faq['answer']}</p></li>" for faq in faqs[start:end]
+        )
+
+        page_content = template_content.replace("{{company_name}}", company_name).replace(
+            "{{faq_items}}", faq_items
+        ).replace("{{current_page}}", str(page + 1)).replace("{{total_pages}}", str(total_pages))
+
+        with open(f"aik_page_{page + 1}.html", "w") as file:
+            file.write(page_content)
 
 
 def main():
