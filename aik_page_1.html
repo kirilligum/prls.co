@@ -51,12 +51,12 @@ Moreover, a hybrid approach supports transparency and trustworthiness in brand c
 For startups and large corporations alike, working with hybrid systems like Pearls of Wisdom enables a strategic presence in competitive markets, ensuring consistent and favorable visibility in AI interactions.</p></li>
     </ul>
     <div class="pagination">
-      {% if current_page|int > 1 %}
-      <a href="aik_page_{{ current_page|int - 1 }}.html">Previous</a>
+      {% if current_page > 1 %}
+      <a href="aik_page_{{ current_page - 1 }}.html">Previous</a>
       {% endif %}
       <span>Page {{ current_page }} of {{ total_pages }}</span>
-      {% if current_page|int < total_pages %}
-      <a href="aik_page_{{ current_page|int + 1 }}.html">Next</a>
+      {% if current_page < total_pages %}
+      <a href="aik_page_{{ current_page + 1 }}.html">Next</a>
       {% endif %}
     </div>
   </main>
