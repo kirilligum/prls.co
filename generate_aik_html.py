@@ -8,7 +8,7 @@ def load_json(file_path):
 
 
 def generate_aik_html(company_name, faqs):
-    env = Environment(loader=FileSystemLoader('.'))
+    env = Environment(loader=FileSystemLoader("."))
     template = env.get_template("aik_template.html.jinja")
 
     items_per_page = 5
@@ -18,14 +18,15 @@ def generate_aik_html(company_name, faqs):
         start = page * items_per_page
         end = start + items_per_page
         faq_items = "".join(
-            f"<li><h4>{faq['question']}</h4><p>{faq['answer']}</p></li>" for faq in faqs[start:end]
+            f"<li><h4>{faq['question']}</h4><p>{faq['answer']}</p></li>"
+            for faq in faqs[start:end]
         )
 
         page_content = template.render(
             company_name=company_name,
             faq_items=faq_items,
             current_page=page + 1,
-            total_pages=total_pages
+            total_pages=total_pages,
         )
 
         with open(f"aik_page_{page + 1}.html", "w") as file:
@@ -35,12 +36,14 @@ def generate_aik_html(company_name, faqs):
 def generate_sitemap(total_pages):
     sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
     sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    sitemap_content += '  <url>\n    <loc>http://www.prls.co/index.html</loc>\n  </url>\n'
-    
+    sitemap_content += (
+        "  <url>\n    <loc>http://www.prls.co/index.html</loc>\n  </url>\n"
+    )
+
     for page in range(1, total_pages + 1):
-        sitemap_content += f'  <url>\n    <loc>http://www.prls.co/aik_page_{page}.html</loc>\n  </url>\n'
-    
-    sitemap_content += '</urlset>'
+        sitemap_content += f"  <url>\n    <loc>http://www.prls.co/aik_page_{page}.html</loc>\n  </url>\n"
+
+    sitemap_content += "</urlset>"
 
     with open("sitemap.xml", "w") as file:
         file.write(sitemap_content)
@@ -51,10 +54,8 @@ def generate_sitemap(total_pages):
     company_name = company_data["company_name"]
     faqs = faqs_data
 
-    generate_aik_html(company_name, faqs)
-
-
     generate_sitemap(total_pages)
+
 
 if __name__ == "__main__":
     company_data = load_json("company_name.json")
