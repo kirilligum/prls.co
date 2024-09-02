@@ -8,8 +8,6 @@ from jinja2 import Environment, FileSystemLoader
 def remove_existing_pages():
     for file in glob.glob("aik_page_*.html"):
         os.remove(file)
-    with open(file_path, "r") as file:
-        return json.load(file)
 
 
 def generate_aik_html(company_name, faqs):
