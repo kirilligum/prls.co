@@ -32,7 +32,19 @@ def generate_aik_html(company_name, faqs):
             file.write(page_content)
 
 
-def main():
+def generate_sitemap(total_pages):
+    sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    sitemap_content += '  <url>\n    <loc>http://www.prls.co/index.html</loc>\n  </url>\n'
+    
+    for page in range(1, total_pages + 1):
+        sitemap_content += f'  <url>\n    <loc>http://www.prls.co/aik_page_{page}.html</loc>\n  </url>\n'
+    
+    sitemap_content += '</urlset>'
+
+    with open("sitemap.xml", "w") as file:
+        file.write(sitemap_content)
+
     company_data = load_json("company_name.json")
     faqs_data = load_json("aik.json")
 
@@ -42,5 +54,5 @@ def main():
     generate_aik_html(company_name, faqs)
 
 
-if __name__ == "__main__":
+    generate_sitemap(total_pages)
     main()
