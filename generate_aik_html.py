@@ -1,4 +1,5 @@
 import json
+import os
 import argparse
 from jinja2 import Environment, FileSystemLoader
 
@@ -8,7 +9,10 @@ def load_json(file_path):
         return json.load(file)
 
 
-def generate_aik_html(company_name, faqs):
+def remove_existing_pages():
+    for file in os.listdir("."):
+        if file.startswith("aik_page_") and file.endswith(".html"):
+            os.remove(file)
     env = Environment(loader=FileSystemLoader("."))
     template = env.get_template("aik_template.html.jinja")
 
@@ -64,5 +68,6 @@ if __name__ == "__main__":
     items_per_page = 5
     total_pages = (len(faqs) + items_per_page - 1) // items_per_page
 
+    remove_existing_pages()
     generate_aik_html(company_name, faqs)
     generate_sitemap(total_pages)
