@@ -56,6 +56,8 @@ if __name__ == "__main__":
 
     company_name = company_data["company_name"]
     faqs = faqs_data
+    items_per_page = 5
+    total_pages = (len(faqs) + items_per_page - 1) // items_per_page
 
     generate_aik_html(company_name, faqs)
     generate_sitemap(total_pages)
