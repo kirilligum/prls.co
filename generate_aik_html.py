@@ -55,3 +55,12 @@ def generate_sitemap(total_pages):
 
 
     generate_sitemap(total_pages)
+
+if __name__ == "__main__":
+    company_data = load_json("company_name.json")
+    faqs_data = load_json("aik.json")
+
+    company_name = company_data["company_name"]
+    faqs = faqs_data
+
+    generate_aik_html(company_name, faqs)
