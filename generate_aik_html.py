@@ -1,4 +1,5 @@
 import json
+import argparse
 from jinja2 import Environment, FileSystemLoader
 
 
@@ -11,7 +12,7 @@ def generate_aik_html(company_name, faqs):
     env = Environment(loader=FileSystemLoader("."))
     template = env.get_template("aik_template.html.jinja")
 
-    items_per_page = 5
+    items_per_page = args.items_per_page
     total_pages = (len(faqs) + items_per_page - 1) // items_per_page
 
     for page in range(total_pages):
@@ -51,6 +52,10 @@ def generate_sitemap(total_pages):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate AIK HTML pages and sitemap.")
+    parser.add_argument("--items-per-page", type=int, default=5, help="Number of items per page")
+    args = parser.parse_args()
+
     company_data = load_json("company_name.json")
     faqs_data = load_json("aik.json")
 
