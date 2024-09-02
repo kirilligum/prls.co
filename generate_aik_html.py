@@ -55,4 +55,3 @@ def generate_sitemap(total_pages):
 
 
     generate_sitemap(total_pages)
-    main()
