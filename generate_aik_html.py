@@ -1,10 +1,13 @@
 import json
 import os
 import argparse
+import glob
 from jinja2 import Environment, FileSystemLoader
 
 
-def load_json(file_path):
+def remove_existing_pages():
+    for file in glob.glob("aik_page_*.html"):
+        os.remove(file)
     with open(file_path, "r") as file:
         return json.load(file)
 
