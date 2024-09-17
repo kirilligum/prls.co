@@ -16,7 +16,7 @@ def remove_existing_pages():
 
 
 def generate_aik_html(company_name, company_url, company_id, faqs):
-    env = Environment(loader=FileSystemLoader("."))
+    env = Environment(loader=FileSystemLoader(".."))
     template = env.get_template("aik_template.html.jinja")
 
     items_per_page = args.items_per_page
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    company_data = load_json("company_info.json")
+    company_data = load_json("atmo_ai/company_info.json")
     faqs_data = load_json("aik.json")
 
     company_name = company_data["company_name"]
