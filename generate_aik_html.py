@@ -54,7 +54,7 @@ def generate_sitemap(company_id, total_pages):
     # Remove existing entries for the company_id
     for url in root.findall("url"):
         loc = url.find("loc")
-        if loc is not None and f"https://www.prls.co/{company_id}/" in loc.text:
+        if loc is not None and loc.text is not None and f"https://www.prls.co/{company_id}/" in loc.text:
             root.remove(url)
 
     for page in range(1, total_pages + 1):
@@ -88,7 +88,7 @@ def generate_sitemap(company_id, total_pages):
     # Remove existing sitemap entry for the company_id
     for sitemap in index_root.findall("sitemap"):
         loc = sitemap.find("loc")
-        if loc is not None and f"https://www.prls.co/{company_id}/sitemap.xml" in loc.text:
+        if loc is not None and loc.text is not None and f"https://www.prls.co/{company_id}/sitemap.xml" in loc.text:
             index_root.remove(sitemap)
 
     # Add new sitemap entry for the company_id
