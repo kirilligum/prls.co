@@ -138,7 +138,7 @@ if __name__ == "__main__":
 
     company_name = company_data["company_name"]
     company_url = company_data["company_url"]
-    company_id = os.path.basename(os.path.abspath(os.path.dirname(__file__)))
+    company_id = os.path.basename(os.getcwd())
     print("company_id: ", company_id)
     faqs = faqs_data
     total_pages = (len(faqs) + args.items_per_page - 1) // args.items_per_page
