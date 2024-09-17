@@ -3,6 +3,7 @@ import os
 import argparse
 import glob
 from jinja2 import Environment, FileSystemLoader
+import xml.etree.ElementTree as ET
 
 
 def load_json(file_path):
@@ -44,11 +45,9 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
             file.write(page_content)
 
 
-import xml.etree.ElementTree as ET
-
 def update_main_sitemap(company_id, total_pages):
     sitemap_path = "../sitemap.xml"
-    
+
     # Check if the sitemap file exists, if not create a new one
     if not os.path.exists(sitemap_path):
         root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
@@ -60,7 +59,11 @@ def update_main_sitemap(company_id, total_pages):
     # Remove existing entries for the company_id
     for url in root.findall("url"):
         loc = url.find("loc")
-        if loc is not None and loc.text is not None and f"https://www.prls.co/{company_id}/" in loc.text:
+        if (
+            loc is not None
+            and loc.text is not None
+            and f"https://www.prls.co/{company_id}/" in loc.text
+        ):
             root.remove(url)
 
     for page in range(1, total_pages + 1):
@@ -75,7 +78,9 @@ def update_main_sitemap(company_id, total_pages):
 
 def create_client_sitemap(company_id, total_pages):
     client_sitemap_path = "sitemap.xml"
-    client_root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+    client_root = ET.Element(
+        "urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    )
 
     for page in range(1, total_pages + 1):
         url_element = ET.Element("url")
@@ -92,7 +97,9 @@ def update_sitemap_index(company_id):
     sitemap_index_path = "../sitemap-index.xml"
     # Check if the sitemap-index file exists, if not create a new one
     if not os.path.exists(sitemap_index_path):
-        index_root = ET.Element("sitemapindex", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+        index_root = ET.Element(
+            "sitemapindex", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        )
         index_tree = ET.ElementTree(index_root)
         index_tree.write(sitemap_index_path, encoding="utf-8", xml_declaration=True)
 
@@ -102,7 +109,11 @@ def update_sitemap_index(company_id):
     # Remove existing sitemap entry for the company_id
     for sitemap in index_root.findall("sitemap"):
         loc = sitemap.find("loc")
-        if loc is not None and loc.text is not None and f"https://www.prls.co/{company_id}/sitemap.xml" in loc.text:
+        if (
+            loc is not None
+            and loc.text is not None
+            and f"https://www.prls.co/{company_id}/sitemap.xml" in loc.text
+        ):
             index_root.remove(sitemap)
 
     # Add new sitemap entry for the company_id
@@ -128,6 +139,7 @@ if __name__ == "__main__":
     company_name = company_data["company_name"]
     company_url = company_data["company_url"]
     company_id = os.path.basename(os.path.abspath(os.path.dirname(__file__)))
+    print("company_id: ", company_id)
     faqs = faqs_data
     total_pages = (len(faqs) + args.items_per_page - 1) // args.items_per_page
 
