@@ -13,7 +13,8 @@ def load_json(file_path):
 
 def remove_existing_pages():
     for file in glob.glob("*.html"):
-        os.remove(file)
+        if file[:-5].isdigit():  # Check if the filename (excluding .html) is all digits
+            os.remove(file)
 
 
 def generate_aik_html(company_name, company_url, company_id, faqs):
