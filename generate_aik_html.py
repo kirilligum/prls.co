@@ -97,12 +97,6 @@ def update_sitemap_index(company_id):
         index_tree = ET.ElementTree(index_root)
         index_tree.write(sitemap_index_path, encoding="utf-8", xml_declaration=True)
 
-    # Check if the sitemap-index file exists, if not create a new one
-    if not os.path.exists(sitemap_index_path):
-        index_root = ET.Element("sitemapindex", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
-        index_tree = ET.ElementTree(index_root)
-        index_tree.write(sitemap_index_path, encoding="utf-8", xml_declaration=True)
-
     index_tree = ET.parse(sitemap_index_path)
     index_root = index_tree.getroot()
 
