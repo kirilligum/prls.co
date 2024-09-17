@@ -66,7 +66,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    company_data = load_json("atmo_ai/company_info.json")
+    company_data = load_json("company_info.json")
     faqs_data = load_json("aik.json")
 
     company_name = company_data["company_name"]
