@@ -21,7 +21,7 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
     template = env.get_template("aik_template.html.jinja")
 
     items_per_page = args.items_per_page
-    total_pages = (len(faqs) + items_per_page - 1) // items_per_page
+    total_pages = (len(faqs) + args.items_per_page - 1) // args.items_per_page
 
     for page in range(total_pages):
         start = page * items_per_page
