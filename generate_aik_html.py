@@ -3,6 +3,7 @@ import os
 import argparse
 import glob
 from jinja2 import Environment, FileSystemLoader
+from xml.etree import ElementTree as ET
 
 
 def load_json(file_path):
@@ -43,20 +44,19 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
             file.write(page_content)
 
 
-def generate_sitemap(total_pages):
-    sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    sitemap_content += (
-        "  <url>\n    <loc>http://www.prls.co/index.html</loc>\n  </url>\n"
-    )
+def generate_sitemap(company_id, total_pages):
+    sitemap_path = "../sitemap.xml"
+    tree = ET.parse(sitemap_path)
+    root = tree.getroot()
 
     for page in range(1, total_pages + 1):
-        sitemap_content += f"  <url>\n    <loc>http://www.prls.co/powerup-tech_aik_page_{page}.html</loc>\n  </url>\n"
+        url_element = ET.Element("url")
+        loc_element = ET.Element("loc")
+        loc_element.text = f"https://www.prls.co/{company_id}/powerup-tech_aik_page_{page}.html"
+        url_element.append(loc_element)
+        root.append(url_element)
 
-    sitemap_content += "</urlset>"
-
-    with open("sitemap.xml", "w") as file:
-        file.write(sitemap_content)
+    tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
 
 
 if __name__ == "__main__":
@@ -78,4 +78,4 @@ if __name__ == "__main__":
 
     remove_existing_pages()
     generate_aik_html(company_name, company_url, company_id, faqs)
-    generate_sitemap(total_pages)
+    generate_sitemap(company_id, total_pages)
