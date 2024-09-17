@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
     company_name = company_data["company_name"]
     company_url = company_data["company_url"]
-    company_id = company_data["company_id"]
+    company_id = os.path.basename(os.getcwd())
     faqs = faqs_data
     items_per_page = 5
     total_pages = (len(faqs) + items_per_page - 1) // items_per_page
