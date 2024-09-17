@@ -80,6 +80,26 @@ def generate_sitemap(company_id, total_pages):
     client_tree = ET.ElementTree(client_root)
     client_tree.write(client_sitemap_path, encoding="utf-8", xml_declaration=True)
 
+    # Update sitemap-index.xml
+    sitemap_index_path = "../sitemap-index.xml"
+    index_tree = ET.parse(sitemap_index_path)
+    index_root = index_tree.getroot()
+
+    # Remove existing sitemap entry for the company_id
+    for sitemap in index_root.findall("sitemap"):
+        loc = sitemap.find("loc").text
+        if f"https://www.prls.co/{company_id}/sitemap.xml" in loc:
+            index_root.remove(sitemap)
+
+    # Add new sitemap entry for the company_id
+    sitemap_element = ET.Element("sitemap")
+    loc_element = ET.Element("loc")
+    loc_element.text = f"https://www.prls.co/{company_id}/sitemap.xml"
+    sitemap_element.append(loc_element)
+    index_root.append(sitemap_element)
+
+    index_tree.write(sitemap_index_path, encoding="utf-8", xml_declaration=True)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate AIK HTML pages and sitemap.")
