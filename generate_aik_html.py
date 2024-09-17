@@ -129,7 +129,7 @@ if __name__ == "__main__":
     company_url = company_data["company_url"]
     company_id = os.path.basename(os.path.abspath(os.path.dirname(__file__)))
     faqs = faqs_data
-    total_pages = (len(faqs) + items_per_page - 1) // items_per_page
+    total_pages = (len(faqs) + args.items_per_page - 1) // args.items_per_page
 
     remove_existing_pages()
     generate_aik_html(company_name, company_url, company_id, faqs)
