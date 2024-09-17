@@ -3,7 +3,6 @@ import os
 import argparse
 import glob
 from jinja2 import Environment, FileSystemLoader
-from xml.etree import ElementTree as ET
 
 
 def load_json(file_path):
