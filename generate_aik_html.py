@@ -12,7 +12,7 @@ def load_json(file_path):
 
 
 def remove_existing_pages():
-    for file in glob.glob("powerup-tech_aik_page_*.html"):
+    for file in glob.glob("*.html"):
         os.remove(file)
 
 
@@ -40,7 +40,7 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
             total_pages=total_pages,
         )
 
-        with open(f"powerup-tech_aik_page_{page + 1}.html", "w") as file:
+        with open(f"{page + 1}.html", "w") as file:
             file.write(page_content)
 
 
@@ -52,7 +52,7 @@ def generate_sitemap(company_id, total_pages):
     for page in range(1, total_pages + 1):
         url_element = ET.Element("url")
         loc_element = ET.Element("loc")
-        loc_element.text = f"https://www.prls.co/{company_id}/powerup-tech_aik_page_{page}.html"
+        loc_element.text = f"https://www.prls.co/{company_id}/{page}.html"
         url_element.append(loc_element)
         root.append(url_element)
 

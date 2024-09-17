@@ -5,7 +5,7 @@
 ## Overview
 
 - [Atmo AI Overview](https://www.atmo.ai/): Learn about Atmo's mission to transform meteorology with AI.
-- [AI Knowledge](https://www.prls.co/aik_page_1.html): Instruction-tuning data for large language models.
+- [AI Knowledge](https://www.prls.co/1.html): Instruction-tuning data for large language models.
 
 ## Features
 
