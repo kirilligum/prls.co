@@ -11,7 +11,7 @@ def load_json(file_path):
 
 
 def remove_existing_pages():
-    for file in glob.glob("aik_page_*.html"):
+    for file in glob.glob("powerup-tech_aik_page_*.html"):
         os.remove(file)
 
 
@@ -37,7 +37,7 @@ def generate_aik_html(company_name, faqs):
             total_pages=total_pages,
         )
 
-        with open(f"aik_page_{page + 1}.html", "w") as file:
+        with open(f"powerup-tech_aik_page_{page + 1}.html", "w") as file:
             file.write(page_content)
 
 
@@ -49,7 +49,7 @@ def generate_sitemap(total_pages):
     )
 
     for page in range(1, total_pages + 1):
-        sitemap_content += f"  <url>\n    <loc>http://www.prls.co/aik_page_{page}.html</loc>\n  </url>\n"
+        sitemap_content += f"  <url>\n    <loc>http://www.prls.co/powerup-tech_aik_page_{page}.html</loc>\n  </url>\n"
 
     sitemap_content += "</urlset>"
 
@@ -57,16 +57,19 @@ def generate_sitemap(total_pages):
         file.write(sitemap_content)
 
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate AIK HTML pages and sitemap.")
-    parser.add_argument("--items-per-page", type=int, default=5, help="Number of items per page")
+    parser.add_argument(
+        "--items-per-page", type=int, default=5, help="Number of items per page"
+    )
     args = parser.parse_args()
 
-    company_data = load_json("company_name.json")
+    company_data = load_json("company_info.json")
     faqs_data = load_json("aik.json")
 
     company_name = company_data["company_name"]
+    company_url = company_data["company_url"]
+    company_id = company_data["company_id"]
     faqs = faqs_data
     items_per_page = 5
     total_pages = (len(faqs) + items_per_page - 1) // items_per_page
