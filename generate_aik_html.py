@@ -54,7 +54,6 @@ def update_main_sitemap(company_id, total_pages):
         root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
         tree = ET.ElementTree(root)
         tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
-    sitemap_path = "../sitemap.xml"
     tree = ET.parse(sitemap_path)
     root = tree.getroot()
 
@@ -128,9 +127,8 @@ if __name__ == "__main__":
 
     company_name = company_data["company_name"]
     company_url = company_data["company_url"]
-    company_id = os.path.basename(os.getcwd())
+    company_id = os.path.basename(os.path.abspath(os.path.dirname(__file__)))
     faqs = faqs_data
-    items_per_page = 5
     total_pages = (len(faqs) + items_per_page - 1) // items_per_page
 
     remove_existing_pages()
