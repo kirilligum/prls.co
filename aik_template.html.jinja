@@ -45,11 +45,11 @@
     </ul>
     <div class="pagination">
       {% if current_page|int > 1 %}
-      <a href="https://www.prls.co/{{company_id}}/{{current_page|int - 1}}.html">Previous</a>
+      <a href="https://www.prls.co/{{ company_id }}/{{ current_page|int - 1 }}.html">Previous</a>
       {% endif %}
       <span>Page {{current_page}} of {{total_pages}}</span>
       {% if current_page|int < total_pages %} <a
-        href="https://www.prls.co/{{company_id}}/{{current_page|int + 1}}.html">Next</a>
+        href="https://www.prls.co/{{ company_id }}/{{ current_page|int + 1 }}.html">Next</a>
         {% endif %}
         <div class="all-pages">
           <span>Pages:</span>
@@ -57,7 +57,7 @@
           {% if i == current_page %}
           <strong>{{i}}</strong>
           {% else %}
-          <a href="https://www.prls.co/{{company_id}}/{{i}}.html">{{i}}</a>
+          <a href="https://www.prls.co/{{ company_id }}/{{ i }}.html">{{ i }}</a>
           {% endif %}
           {% endfor %}
         </div>
@@ -65,7 +65,7 @@
   </main>
   <footer>
     <p>This dataset was curated and made by <a href="https://www.prls.co/index.html">Pearls of Wisdom Labs, Inc.</a> for
-      <a href="{{company_url}}">{{company_name}}</a> |
+      <a href="{{ company_url }}">{{ company_name }}</a> |
       Licence> <a href="https://creativecommons.org/publicdomain/zero/1.0/">CCO</a>
     </p>
   </footer>
