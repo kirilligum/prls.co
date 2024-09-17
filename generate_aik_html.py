@@ -45,7 +45,16 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
             file.write(page_content)
 
 
+import xml.etree.ElementTree as ET
+
 def update_main_sitemap(company_id, total_pages):
+    sitemap_path = "../sitemap.xml"
+    
+    # Check if the sitemap file exists, if not create a new one
+    if not os.path.exists(sitemap_path):
+        root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+        tree = ET.ElementTree(root)
+        tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
     sitemap_path = "../sitemap.xml"
     tree = ET.parse(sitemap_path)
     root = tree.getroot()
