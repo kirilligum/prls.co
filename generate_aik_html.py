@@ -46,6 +46,7 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
 
 
 def generate_sitemap(company_id, total_pages):
+    # Update the main sitemap
     sitemap_path = "../sitemap.xml"
     tree = ET.parse(sitemap_path)
     root = tree.getroot()
@@ -64,6 +65,20 @@ def generate_sitemap(company_id, total_pages):
         root.append(url_element)
 
     tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
+
+    # Create client-specific sitemap
+    client_sitemap_path = "sitemap.xml"
+    client_root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+
+    for page in range(1, total_pages + 1):
+        url_element = ET.Element("url")
+        loc_element = ET.Element("loc")
+        loc_element.text = f"https://www.prls.co/{company_id}/{page}.html"
+        url_element.append(loc_element)
+        client_root.append(url_element)
+
+    client_tree = ET.ElementTree(client_root)
+    client_tree.write(client_sitemap_path, encoding="utf-8", xml_declaration=True)
 
 
 if __name__ == "__main__":
