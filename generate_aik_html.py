@@ -50,6 +50,12 @@ def generate_sitemap(company_id, total_pages):
     tree = ET.parse(sitemap_path)
     root = tree.getroot()
 
+    # Remove existing entries for the company_id
+    for url in root.findall("url"):
+        loc = url.find("loc").text
+        if f"https://www.prls.co/{company_id}/" in loc:
+            root.remove(url)
+
     for page in range(1, total_pages + 1):
         url_element = ET.Element("url")
         loc_element = ET.Element("loc")
