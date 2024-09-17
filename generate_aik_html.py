@@ -45,8 +45,7 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
             file.write(page_content)
 
 
-def generate_sitemap(company_id, total_pages):
-    # Update the main sitemap
+def update_main_sitemap(company_id, total_pages):
     sitemap_path = "../sitemap.xml"
     tree = ET.parse(sitemap_path)
     root = tree.getroot()
@@ -66,7 +65,8 @@ def generate_sitemap(company_id, total_pages):
 
     tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
 
-    # Create client-specific sitemap
+
+def create_client_sitemap(company_id, total_pages):
     client_sitemap_path = "sitemap.xml"
     client_root = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
 
@@ -80,7 +80,8 @@ def generate_sitemap(company_id, total_pages):
     client_tree = ET.ElementTree(client_root)
     client_tree.write(client_sitemap_path, encoding="utf-8", xml_declaration=True)
 
-    # Update sitemap-index.xml
+
+def update_sitemap_index(company_id):
     sitemap_index_path = "../sitemap-index.xml"
     index_tree = ET.parse(sitemap_index_path)
     index_root = index_tree.getroot()
@@ -120,4 +121,6 @@ if __name__ == "__main__":
 
     remove_existing_pages()
     generate_aik_html(company_name, company_url, company_id, faqs)
-    generate_sitemap(company_id, total_pages)
+    update_main_sitemap(company_id, total_pages)
+    create_client_sitemap(company_id, total_pages)
+    update_sitemap_index(company_id)
