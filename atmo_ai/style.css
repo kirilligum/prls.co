@@ -1,4 +1,11 @@
 /* General Styling */
+@font-face {
+  font-family: 'Denim INK';
+  src: url('denimink.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: 'Denim INK', sans-serif;
   margin: 0;
