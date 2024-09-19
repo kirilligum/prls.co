@@ -108,3 +108,12 @@ footer {
   background: linear-gradient(to right, #f2e6de, #e6d9ce);
   margin: 4rem 0;
 }
+.customer-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.customer-link:hover {
+  text-decoration: underline;
+}
