@@ -93,9 +93,14 @@ footer {
 }
 
 .customer-logo {
-  height: 3em;
+  max-height: 200px;
   width: auto;
   flex: 1 1 auto;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
 }
 .section-separator {
   border: none;
