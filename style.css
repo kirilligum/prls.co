@@ -87,15 +87,18 @@ footer {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
+.customer-item {
+  text-align: center;
+}
+
 .customer-logo {
-  max-height: 100px;
+  max-height: 80px;
   width: auto;
-  flex: 0 1 150px;
 }
 
 .responsive-image {
