@@ -97,7 +97,7 @@ footer {
 }
 
 .customer-logo {
-  max-height: 80px;
+  max-height: 40px;
   width: auto;
 }
 
@@ -105,12 +105,14 @@ footer {
   max-width: 100%;
   height: auto;
 }
+
 .section-separator {
   border: none;
   height: 2px;
   background: linear-gradient(to right, #f2e6de, #e6d9ce);
   margin: 4rem 0;
 }
+
 .customer-link {
   color: inherit;
   text-decoration: none;
