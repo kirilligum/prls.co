@@ -1,0 +1,24 @@
+graph TD
+landing_page["Landing Page,<br/>Blogs, and News"] -->ws_clean["filter out duplicates,<br/>spam, quality, non-html"]
+ws_clean -->page_rank
+ws_clean -->topic_extraction
+page_rank -->ml_model
+topic_extraction -->ml_model
+search_query -->ml_model
+ml_model -->list_relevant_pages
+list_relevant_pages -->user_looks_over_results
+user_looks_over_results -->satisfied
+user_looks_over_results -->unsatisfied
+unsatisfied -->search_query
+
+landing_page -->get_text
+get_text -->clean_for_ai
+clean_for_ai -->llm_training
+llm_training -->llm_model
+user_instruction -->llm_model
+llm_model -->response
+response -->user_reads
+user_reads -->llm_satisfied
+user_reads -->llm_unsatisfied
+llm_unsatisfied -->user_instruction
+
