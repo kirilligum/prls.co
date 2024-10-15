@@ -1,3 +1,9 @@
+body {
+  background-color: black;
+  color: white;
+  /* Sets the text color to white for contrast */
+}
+
 .label foreignObject {
   overflow: visible;
 }
