@@ -1,11 +1,26 @@
 graph TD
-landing_page["Landing Page,<br/>Blogs, and News"] -->indexing
-indexing -->matching
-search_query -->matching
-matching -->list_relevant_pages
+subgraph search["google, bing"]
+indexing
+matching
+end
+landing_page["Landing Page,<br/>Blogs, and News"]
+landing_page -->indexing
+indexing o--o matching
+search_user["user"] ==>|search|matching
+matching -->|ranked_results|search_user
 
-landing_page -->train_ai_brain
-user_instruction -->thinking["thinking<br/>and reasoning"]
-train_ai_brain -->thinking
-thinking -->response
+style search_user stroke:#333,stroke-width:4px
 
+
+subgraph ai["openai, google, other LLMs"]
+train_ai_brain
+thinking["thinking<br/>and reasoning"]
+end
+ai_landing_page -->train_ai_brain
+ai_user["user"] ==>|question|thinking
+ca["copilot or<br/>agents"] ==>|query|thinking
+train_ai_brain o--o thinking
+thinking -->|response|ai_user
+thinking -->|response|ca
+
+style ai_user stroke:#333,stroke-width:4px
