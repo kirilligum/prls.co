@@ -2,35 +2,33 @@
 graph TD
 
 subgraph content
-ai_landing_page["Landing Page,<br/>Blogs, and News"]
+ai_landing_page["Your landing page,<br/>blogs, and news"]
 www
-sota_llms_knowledge
-instruction_tuning_dataset
 end
 
-subgraph step_1__extract
-customer_archetypes
-problems
-facts
+subgraph extract["<b>Step 1:</b> Extract"]
+customer_archetypes["Your customer<br/>archetypes"]
+problems["The problems<br/>that you solve"]
+knowledge["Knowledge<br/>statements"]
 end
 
-simulated_user_question["<b>Step 2:</b><br/>Simulate a <b>question</b><br/>that a user would<br/>ask ChatGPT"]
+simulated_user_question["<b>Step 3:</b><br/>Simulate a <b>question</b><br/>that the customer with<br/>the problem would ask ChatGPT"]
+answer["<b>Step 4:</b><br/>Answer"]
+quality_check["<b>Step 5:</b><br/>Quality check"]
 
 ai_landing_page --> customer_archetypes
 ai_landing_page --> problems
-ai_landing_page --> facts
-facts --> knowledge_graph[(knowledge_graph)]
-www --> knowledge_graph
-sota_llms_knowledge --> knowledge_graph
+ai_landing_page --> knowledge
+knowledge -->knowledge_graph[("<b>Step 2:</b><br/>Agents create<br/>our proprietery<br/><b>knowledge graph</b>")]
+www --> knowledge
 customer_archetypes --> simulated_user_question
 problems --> simulated_user_question
 knowledge_graph --> simulated_user_question
 simulated_user_question --> answer
 knowledge_graph --> answer
-simulated_user_question --> instruction_tuning_dataset
-answer --> instruction_tuning_dataset
-instruction_tuning_dataset --> www
-instruction_tuning_dataset -->sota_llms_knowledge
+answer --> quality_check
+quality_check --> instruction_tuning_dataset
+instruction_tuning_dataset -.-> |"Share with<br/>LLMs and <br/>search engines"| content
 
 
 style ai_landing_page stroke:#ffffff,stroke-width:4px,fill:#111111
