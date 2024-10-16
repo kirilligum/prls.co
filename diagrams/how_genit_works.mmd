@@ -1,7 +1,7 @@
 %%{init: {'theme':'dark', 'themeVariables': {'background': '#212121'}}}%%
 graph TD
 
-subgraph content
+subgraph Content
 ai_landing_page["Your landing page,<br/>blogs, and news"]
 www
 end
@@ -12,9 +12,10 @@ problems["The problems<br/>that you solve"]
 knowledge["Knowledge<br/>statements"]
 end
 
-simulated_user_question["<b>Step 3:</b><br/>Simulate a <b>question</b><br/>that a customer<br/>with the problem<br/>would ask ChatGPT."]
+simulated_user_question["<b>Step 3:</b><br/>Simulate a <b>question</b><br/>that a customer<br/>with the problem<br/>would ask ChatGPT"]
 answer["<b>Step 4:</b><br/>Answer"]
 quality_check["<b>Step 5:</b><br/>Quality check"]
+instruction_tuning_dataset["Instruction-tuning dataset"]
 
 ai_landing_page --> customer_archetypes
 ai_landing_page --> problems
@@ -28,7 +29,7 @@ simulated_user_question --> answer
 knowledge_graph --> answer
 answer --> quality_check
 quality_check --> instruction_tuning_dataset
-instruction_tuning_dataset -.-> |"Share with<br/>LLMs and <br/>search engines."| content
+instruction_tuning_dataset -.-> |"Share with<br/>LLMs and <br/>search engines"| Content
 
 
 style ai_landing_page stroke:#ffffff,stroke-width:4px,fill:#111111
