@@ -1,0 +1,23 @@
+%%{init: {'theme':'dark'}}%%
+graph TD
+
+ai_landing_page["Landing Page,<br/>Blogs, and News"]
+ai_landing_page --> customer_archetypes
+ai_landing_page --> problems
+ai_landing_page --> facts
+facts --> knowledge_graph
+www --> knowledge_graph
+sota_llms --> knowledge_graph
+customer_archetypes --> simulated_user_question
+problems --> simulated_user_question
+knowledge_graph --> simulated_user_question
+simulated_user_question --> answer
+knowledge_graph --> answer
+simulated_user_question --> instruction_tuning_dataset
+answer --> instruction_tuning_dataset
+instruction_tuning_dataset --> www
+instruction_tuning_dataset -->sota_llms
+
+
+style ai_landing_page stroke:#ffffff,stroke-width:4px,fill:#111111
+style instruction_tuning_dataset stroke:#ffffff,stroke-width:4px,fill:#111111
