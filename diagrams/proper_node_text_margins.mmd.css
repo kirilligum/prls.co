@@ -4,6 +4,10 @@ body {
   /* Sets the text color to white for contrast */
 }
 
+svg {
+  background-color: #212121;
+}
+
 .label foreignObject {
   overflow: visible;
 }
