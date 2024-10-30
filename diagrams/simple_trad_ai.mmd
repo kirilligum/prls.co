@@ -1,0 +1,20 @@
+%%{init: {'theme':'dark'}}%%
+graph TD
+
+indexing["Search Engine<br/>(Google, Bing, ...)"]
+landing_page["Landing Page,<br/>Blogs, and News"]
+landing_page -->indexing
+search_user["Potential Customer"] ==>|search|indexing
+indexing -->|ranked_results|search_user
+
+style search_user stroke:#ffffff,stroke-width:4px,fill:#111111
+
+train_ai_brain["Large Language Model<br/>(Google AI, ChatGPT, Claude, ...)"]
+ai_landing_page["Landing Page,<br/>Blogs, and News"]
+ai_landing_page -->train_ai_brain
+ai_user["Potential Customer"] ==>|question|train_ai_brain
+ca["AI agents"] ==>|query|train_ai_brain
+train_ai_brain -->|response|ai_user
+train_ai_brain -->|response|ca
+
+style ai_user stroke:#ffffff,stroke-width:4px,fill:#111111

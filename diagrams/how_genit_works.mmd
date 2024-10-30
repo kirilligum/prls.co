@@ -1,0 +1,36 @@
+%%{init: {'theme':'dark', 'themeVariables': {'background': '#212121'}}}%%
+graph TD
+
+subgraph Content
+ai_landing_page["Your landing page,<br/>blogs, and news"]
+www
+end
+
+subgraph extract["<b>Step 1:</b> Extraction"]
+customer_archetypes["Your customer<br/>archetypes"]
+problems["The problems<br/>that you solve"]
+knowledge["Knowledge<br/>statements"]
+end
+
+simulated_user_question["<b>Step 3:</b><br/>Simulate a <b>question</b><br/>that a customer<br/>with the problem<br/>would ask ChatGPT"]
+answer["<b>Step 4:</b><br/>Answer"]
+quality_check["<b>Step 5:</b><br/>Quality check"]
+instruction_tuning_dataset["Instruction-tuning dataset"]
+
+ai_landing_page --> customer_archetypes
+ai_landing_page --> problems
+ai_landing_page --> knowledge
+knowledge --> knowledge_graph[("<b>Step 2:</b><br/>Agents create<br/>our proprietary<br/><b>knowledge graph</b>")]
+www --> knowledge
+customer_archetypes --> simulated_user_question
+problems --> simulated_user_question
+knowledge_graph --> simulated_user_question
+simulated_user_question --> answer
+knowledge_graph --> answer
+answer --> quality_check
+quality_check --> instruction_tuning_dataset
+instruction_tuning_dataset -.-> |"Share with<br/>LLMs and <br/>search engines"| Content
+
+
+style ai_landing_page stroke:#ffffff,stroke-width:4px,fill:#111111
+style instruction_tuning_dataset stroke:#ffffff,stroke-width:4px,fill:#111111
