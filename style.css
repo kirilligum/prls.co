@@ -43,6 +43,7 @@ h1 {
 /* Largest */
 h2 {
   font-size: 3em;
+  color: #000000;
 }
 
 h3 {
@@ -64,6 +65,7 @@ li {
 
 button {
   background-color: #e6d9ce;
+  color: #000000;
   /* Softer pearl color */
   color: #4d4d4d;
   padding: 1rem 2rem;
