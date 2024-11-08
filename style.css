@@ -38,6 +38,9 @@ header h2 {
 
 header h3 {
   font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 h1 {
