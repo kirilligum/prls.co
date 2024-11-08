@@ -16,9 +16,13 @@ header {
   color: #4d4d4d;
   padding: 2rem;
   text-align: right;
+  width: 100%;
+}
+
+.header-content {
   max-width: 480px;
   margin-left: auto;
-  /* border-bottom-left-radius: 50px; */
+  margin-right: 2rem;
 }
 
 .logo {
