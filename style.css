@@ -13,20 +13,15 @@ body {
 
 header {
   background: linear-gradient(to bottom, #f2e6de, #e6d9ce);
-  /* Pearl gradient */
   color: #4d4d4d;
-  /* Darker gray text for header */
-  padding: 2rem 0;
-  text-align: center;
+  padding: 2rem;
+  text-align: right;
+  max-width: 480px;
+  margin-left: auto;
 }
 
 .logo {
-  /* background-image: url('path/to/pearl-logo.png'); */
-  /* Replace with your logo */
-  background-repeat: no-repeat;
-  background-position: center top;
-  padding-top: 100px;
-  /* Adjust as needed based on logo height */
+  padding: 1rem 0;
 }
 
 
