@@ -26,9 +26,18 @@ header {
 
 
 header h1,
+header h2,
+header h3 {
+  margin: 0.5rem 0;
+}
+
+header h1,
 header h2 {
   font-family: 'Garamond', serif;
-  margin: 0.5rem 0;
+}
+
+header h3 {
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
