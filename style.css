@@ -43,6 +43,10 @@ header h3 {
   letter-spacing: 0.05em;
 }
 
+header h3 span {
+  white-space: nowrap;
+}
+
 h1 {
   font-size: 4em;
 }
