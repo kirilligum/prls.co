@@ -18,6 +18,8 @@ header {
   text-align: right;
   max-width: 480px;
   margin-left: auto;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .logo {
