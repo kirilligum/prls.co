@@ -64,11 +64,12 @@ body {
 
   .pearl-container {
     position: relative;
-    left: auto;
+    left: 50%;
     top: auto;
-    transform: none;
+    transform: translateX(-50%);
     padding-top: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
   }
 
   .hero-content {
