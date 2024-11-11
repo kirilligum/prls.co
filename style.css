@@ -106,6 +106,12 @@ main {
   margin: 0 auto;
 }
 
+.intro-text {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 li {
   margin-bottom: 0.5rem;
 }
