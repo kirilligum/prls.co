@@ -17,29 +17,25 @@ body {
   /* Dark gray text for contrast */
 }
 
-header {
+.hero-container {
   background: linear-gradient(to bottom, #f2e6de, #e6d9ce);
   color: #4d4d4d;
   /* padding: 2rem; */
   width: 100%;
-}
-
-.header-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: flex-end;
-  max-width: 1200px;
   /* margin: 0 auto; */
 }
 
-.header-bullets {
+.hero-bullets {
   flex: 1;
   padding: 2rem;
   /* min-width: 480px; */
 }
 
-.header-content {
+.hero-content {
   flex: 1;
   text-align: right;
   /* min-width: 480px; */
@@ -50,42 +46,42 @@ header {
 }
 
 @media (max-width: 768px) {
-  .header-container {
+  .hero-container {
     flex-direction: column;
   }
 
-  .header-content {
+  .hero-content {
     width: 100%;
     text-align: right;
     margin-bottom: 2rem;
   }
 
-  .header-bullets {
+  .hero-bullets {
     width: 100%;
     padding: 1rem;
   }
 }
 
 
-header h1,
-header h2,
-header h3 {
+.hero-container h1,
+.hero-container h2,
+.hero-container h3 {
   margin: 0.5rem 0;
 }
 
-header h1,
-header h2 {
+.hero-container h1,
+.hero-container h2 {
   font-family: 'Garamond', serif;
 }
 
-header h3 {
+.hero-container h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-header h3 span {
+.hero-container h3 span {
   white-space: nowrap;
 }
 
@@ -107,8 +103,8 @@ h3 {
 /* Smallest */
 
 main {
-  padding: 2rem;
-  max-width: 800px;
+  /* padding: 2rem; */
+  /* max-width: 800px; */
   margin: 0 auto;
 }
 
