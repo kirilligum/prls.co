@@ -30,6 +30,7 @@ header {
 .header-bullets {
   flex: 1;
   padding: 2rem;
+  max-width: 480px;
 }
 
 .header-content {
@@ -93,7 +94,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 1.4em;
   /* margin-top: 5em; */
 }
 
