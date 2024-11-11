@@ -226,6 +226,28 @@ footer {
   color: #4d4d4d;
 }
 
+.use-case-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.use-case-before,
+.use-case-after {
+  flex: 1;
+  min-width: 300px;
+}
+
+.use-case-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .customer-logos {
   max-width: 80%;
   margin: 0 auto;
