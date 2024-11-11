@@ -22,7 +22,7 @@ header {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
