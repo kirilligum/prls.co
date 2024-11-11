@@ -106,11 +106,40 @@ main {
   margin: 0 auto;
 }
 
+.intro-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.contact-button {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .intro-text {
   font-family: 'Raleway', sans-serif;
-  max-width: 480px;
-  margin: 0 auto;
+  flex: 2;
   padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column-reverse;
+  }
+  
+  .contact-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .intro-text {
+    width: 100%;
+    padding: 1rem;
+  }
 }
 
 li {
