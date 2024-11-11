@@ -30,13 +30,13 @@ header {
 .header-bullets {
   flex: 1;
   padding: 2rem;
-  min-width: 480px;
+  /* min-width: 480px; */
 }
 
 .header-content {
   flex: 1;
   text-align: right;
-  min-width: 480px;
+  /* min-width: 480px; */
 }
 
 .logo {
@@ -107,6 +107,7 @@ main {
 }
 
 .intro-text {
+  font-family: 'Raleway', sans-serif;
   max-width: 480px;
   margin: 0 auto;
   padding: 2rem;
