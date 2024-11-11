@@ -1,11 +1,13 @@
 .pearl-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: absolute;
   left: 50%;
+  top: 0;
   transform: translateX(-50%);
   z-index: 1;
+  padding-top: 2rem;
 }
 
 .pearl-symbol {
@@ -63,8 +65,10 @@ body {
   .pearl-container {
     position: relative;
     left: auto;
+    top: auto;
     transform: none;
-    margin: 2rem 0;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .hero-content {
