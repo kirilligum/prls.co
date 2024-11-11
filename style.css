@@ -54,7 +54,7 @@ body {
 }
 
 .pearl-container {
-  align-self: center;
+  align-self: flex-start;
 }
 
 .logo-title-short {
