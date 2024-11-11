@@ -53,6 +53,10 @@ body {
   margin: 0 auto;
 }
 
+.pearl-container {
+  align-self: center;
+}
+
 .logo-title-short {
   flex-direction: row;
   display: flex;
