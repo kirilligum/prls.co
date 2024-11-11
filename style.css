@@ -1,3 +1,8 @@
+.pearl-symbol {
+  font-size: 2em;
+  vertical-align: middle;
+}
+
 /* General Styling */
 body {
   /* font-family: sans-serif; */
