@@ -60,6 +60,13 @@ body {
     flex-direction: column;
   }
 
+  .pearl-container {
+    position: relative;
+    left: auto;
+    transform: none;
+    margin: 2rem 0;
+  }
+
   .hero-content {
     width: 100%;
     text-align: right;
