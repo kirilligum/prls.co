@@ -1,6 +1,7 @@
 /* General Styling */
 body {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  font-family: 'Raleway', sans-serif;
   /* Standard HTML font */
   margin: 0;
   padding: 0;
@@ -131,12 +132,12 @@ main {
   .intro-section {
     flex-direction: column-reverse;
   }
-  
+
   .contact-button {
     width: 100%;
     justify-content: center;
   }
-  
+
   .intro-text {
     width: 100%;
     padding: 1rem;
