@@ -146,6 +146,13 @@ body {
   font-family: 'Garamond', serif;
 }
 
+h3 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .hero-container h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
@@ -179,21 +186,21 @@ h3 {
 /* Smallest */
 
 main {
-  padding: 2rem;
+  /* padding: 2rem; */
   max-width: 800px;
   margin: 0 auto;
 }
 
-main>.use-cases {
-  margin-left: -2rem;
-  margin-right: -2rem;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
+/* main>.use-cases { */
+/*   margin-left: -2rem; */
+/*   margin-right: -2rem; */
+/*   width: 100vw; */
+/*   position: relative; */
+/*   left: 50%; */
+/*   right: 50%; */
+/*   margin-left: -50vw; */
+/*   margin-right: -50vw; */
+/* } */
 
 .intro-section {
   display: flex;
@@ -264,8 +271,10 @@ footer {
 .use-cases {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  padding: 2rem;
+  /* width: 100%; */
+  /* max-width: 100vw; */
+  /* gap: 3rem; */
+  /* padding: 2rem; */
 }
 
 .use-case-container {
@@ -274,18 +283,18 @@ footer {
   align-items: stretch;
   gap: 40px;
   flex-wrap: wrap;
-  width: 90%;
+  /* width: 80%; */
 }
 
 .use-case-before,
 .use-case-after {
   flex: 1;
   min-width: 300px;
-  min-height: 600px;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .use-case-text {
