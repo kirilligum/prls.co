@@ -165,7 +165,7 @@ main {
   margin: 0 auto;
 }
 
-main > .use-cases {
+main>.use-cases {
   margin-left: -2rem;
   margin-right: -2rem;
   width: 100vw;
@@ -255,6 +255,7 @@ footer {
   align-items: flex-start;
   gap: 40px;
   flex-wrap: wrap;
+  width: 90%;
 }
 
 .use-case-before,
