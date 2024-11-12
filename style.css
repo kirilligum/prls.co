@@ -271,10 +271,11 @@ footer {
 .use-case-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: stretch;
   gap: 40px;
   flex-wrap: wrap;
   width: 90%;
+  min-height: 400px;
 }
 
 .use-case-before,
