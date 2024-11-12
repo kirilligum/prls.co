@@ -226,13 +226,19 @@ footer {
   color: #4d4d4d;
 }
 
+.use-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+}
+
 .use-case-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 40px;
   flex-wrap: wrap;
-  padding: 2rem;
 }
 
 .use-case-before,
