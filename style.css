@@ -286,6 +286,14 @@ footer {
   justify-content: space-between;
 }
 
+.use-case-text {
+  margin-bottom: 1rem;
+}
+
+.use-case-img {
+  margin-top: auto;
+}
+
 .use-case-image {
   width: 100%;
   height: auto;
