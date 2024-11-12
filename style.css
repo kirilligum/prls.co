@@ -283,6 +283,7 @@ footer {
   min-width: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .use-case-image {
