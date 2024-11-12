@@ -165,6 +165,17 @@ main {
   margin: 0 auto;
 }
 
+main > .use-cases {
+  margin-left: -2rem;
+  margin-right: -2rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 .intro-section {
   display: flex;
   justify-content: space-between;
