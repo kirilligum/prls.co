@@ -31,6 +31,11 @@ body {
   /* Dark gray text for contrast */
 }
 
+.main-header {
+  text-align: right;
+  padding: 1rem 2rem;
+}
+
 .hero-container {
   background: linear-gradient(to bottom, #f2e6de, #e6d9ce);
   color: #4d4d4d;
