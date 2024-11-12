@@ -343,6 +343,7 @@ footer {
   height: 2px;
   background: linear-gradient(to right, #f2e6de, #e6d9ce);
   margin: 4rem 0;
+  max-width: 800px;
 }
 
 .customer-link {
