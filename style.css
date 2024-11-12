@@ -32,8 +32,19 @@ body {
 }
 
 .main-header {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
+}
+
+.header-pearl {
+  font-size: 1.5em;
+  color: #4d4d4d;
+}
+
+.header-links {
+  text-align: right;
 }
 
 .hero-container {
