@@ -302,6 +302,7 @@ footer {
 .use-case-text {
   margin-bottom: 1rem;
   align-self: flex-start;
+  text-align: center;
 }
 
 .use-case-img {
