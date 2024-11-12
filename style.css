@@ -186,16 +186,8 @@ h3 {
 /* Smallest */
 
 main {
-  max-width: 800px;
+  /* max-width: 800px; */
   margin: 0 auto;
-}
-
-main > .use-cases {
-  max-width: 100vw;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  position: relative;
 }
 
 .intro-section {
@@ -267,10 +259,16 @@ footer {
 .use-cases {
   display: flex;
   flex-direction: column;
+  /* margin-left: calc(-50vw + 50%); */
+  /* margin-right: calc(-50vw + 50%); */
+  position: relative;
+  /* width: 100vw; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   /* width: 100%; */
   /* max-width: 100vw; */
   /* gap: 3rem; */
-  /* padding: 2rem; */
+  padding: 2rem;
 }
 
 .use-case-container {
@@ -279,9 +277,9 @@ footer {
   align-items: stretch;
   gap: 40px;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
 }
 
 .use-case-before,
