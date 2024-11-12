@@ -186,21 +186,17 @@ h3 {
 /* Smallest */
 
 main {
-  /* padding: 2rem; */
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* main>.use-cases { */
-/*   margin-left: -2rem; */
-/*   margin-right: -2rem; */
-/*   width: 100vw; */
-/*   position: relative; */
-/*   left: 50%; */
-/*   right: 50%; */
-/*   margin-left: -50vw; */
-/*   margin-right: -50vw; */
-/* } */
+main > .use-cases {
+  max-width: 100vw;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+}
 
 .intro-section {
   display: flex;
@@ -283,7 +279,9 @@ footer {
   align-items: stretch;
   gap: 40px;
   flex-wrap: wrap;
-  /* width: 80%; */
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .use-case-before,
