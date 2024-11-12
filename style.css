@@ -271,7 +271,7 @@ footer {
 .use-case-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 40px;
   flex-wrap: wrap;
   width: 90%;
@@ -281,6 +281,8 @@ footer {
 .use-case-after {
   flex: 1;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .use-case-image {
