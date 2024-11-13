@@ -98,6 +98,11 @@ body {
   text-align: right;
 }
 
+.hero-bullets ul {
+  text-align: right;
+  list-style-position: inside;
+}
+
 @media (max-width: 768px) {
   .hero-container {
     flex-direction: column;
