@@ -91,16 +91,11 @@ body {
 }
 
 .hero-bullets {
-  flex: 1;
   padding: 2rem;
   font-size: 1.0em;
-  max-width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 400px;
-  /* max-width: 480px; */
-  /* min-width: 480px; */
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: right;
 }
 
 @media (max-width: 768px) {
