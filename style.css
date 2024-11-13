@@ -320,17 +320,26 @@ footer {
 }
 
 .customer-logos {
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   gap: 40px;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  padding: 20px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.customer-logos::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 .customer-item {
   text-align: center;
+  flex: 0 0 auto;
+  min-width: 200px;
 }
 
 .customer-logo {
