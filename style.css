@@ -58,16 +58,9 @@ body {
   text-align: right;
 }
 
-.logo-title-short {
-  /* flex-direction: row; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: flex-end; */
-}
+.logo-title-short {}
 
-.title-short {
-  /* flex-direction: column; */
-}
+.title-short {}
 
 .hero-bullets {
   /* padding: 2rem; */
@@ -84,7 +77,7 @@ body {
 
 .hero-bullets li {
   /* text-align: right; */
-  /* position: relative; */
+  position: relative;
 }
 
 .hero-bullets li::after {
