@@ -219,7 +219,7 @@ main {
   font-family: 'Raleway', sans-serif;
   /* flex: 2; */
   padding: 2rem;
-  text-align: right;
+  text-align: left;
 }
 
 @media (max-width: 768px) {
