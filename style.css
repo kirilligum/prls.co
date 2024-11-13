@@ -195,6 +195,10 @@ main {
   padding: 0 2rem;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .intro-section {
   display: flex;
   justify-content: space-between;
