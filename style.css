@@ -100,7 +100,19 @@ body {
 
 .hero-bullets ul {
   text-align: right;
-  list-style-position: inside;
+  list-style: none;
+}
+
+.hero-bullets li {
+  text-align: right;
+  position: relative;
+}
+
+.hero-bullets li::after {
+  content: "•";
+  position: absolute;
+  right: -1.5em;
+  top: 0;
 }
 
 @media (max-width: 768px) {
