@@ -310,6 +310,10 @@ footer {
   text-align: center;
 }
 
+.use-case-text h4 {
+  text-align: left;
+}
+
 .use-case-img {
   margin-top: auto;
 }
