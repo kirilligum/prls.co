@@ -16,12 +16,20 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.25rem 1rem;
 }
 
 .header-pearl {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  margin-top: -1.6em;
+  margin-bottom: -1.0em;
   color: #4d4d4d;
+}
+
+.header-symbol {
+  font-size: 2.0em;
+  /* margin-top: -1.2em; */
+  /* margin-bottom: -0.0em; */
 }
 
 .header-links {
