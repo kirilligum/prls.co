@@ -291,7 +291,7 @@ footer {
 .use-case {
   flex: 0 0 auto;
   width: calc(50% - 20px);
-  min-width: 300px;
+  width: 1024px-1em;
   scroll-snap-align: start;
 }
 
@@ -307,11 +307,12 @@ footer {
 
 .use-case-text {
   margin-bottom: 1rem;
-  text-align: center;
+  text-align: left;
 }
 
 .use-case-text h4 {
-  text-align: left;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
 }
 
 .use-case-img {
