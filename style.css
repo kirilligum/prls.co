@@ -17,6 +17,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.25rem 1rem;
+  background-color: #ebf5f7;
 }
 
 .header-pearl {
@@ -264,7 +265,7 @@ button {
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #e6d9ce;
+  background-color: #ebf5f7;
   color: #4d4d4d;
 }
 
