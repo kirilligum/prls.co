@@ -284,7 +284,9 @@ footer {
   margin: 0 auto;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 20px 0;
+  padding: 20px;
+  padding-left: calc(30vw - 20px);
+  scroll-padding-left: 30%;
 }
 
 .use-case {
