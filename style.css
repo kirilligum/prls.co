@@ -81,7 +81,7 @@ body {
 }
 
 .hero-bullets li::after {
-  content: "•";
+  content: "◦";
   /* position: absolute; */
   /* right: -1.5em; */
   /* top: 0; */
