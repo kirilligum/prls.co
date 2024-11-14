@@ -20,15 +20,19 @@ body {
 }
 
 .header-pearl {
-  font-size: 1.2em;
-  margin-top: -1.6em;
-  margin-bottom: -1.0em;
+  font-family: 'Garamond', serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-top: -1.0em;
+  margin-bottom: -0.7em;
   color: #4d4d4d;
 }
 
 .header-symbol {
-  font-size: 2.0em;
-  margin-top: -0.5em;
+  font-size: 1.5em;
+  position: relative;
+  top: -0.05em;
+  /* margin-top: -0.5em; */
   /* margin-bottom: -0.0em; */
 }
 
