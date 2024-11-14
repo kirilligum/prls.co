@@ -32,7 +32,7 @@ body {
   font-size: 1.5em;
   position: relative;
   top: -0.05em;
-  margin-right: 0.3em;
+  margin-right: 0.25em;
   /* margin-top: -0.5em; */
   /* margin-bottom: -0.0em; */
 }
@@ -47,13 +47,14 @@ body {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  /* padding: 1rem 2rem; */
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 1rem 2rem;
+  padding: 8rem 2rem;
   max-width: 32em;
 }
 
@@ -64,7 +65,7 @@ body {
   text-align: center;
   display: block;
   margin-bottom: -0.2em;
-  margin-top: -0.4em;
+  margin-top: -0.5em;
 }
 
 .logo {
@@ -117,11 +118,8 @@ body {
   font-family: 'Garamond', serif;
 }
 
-.hero-container h3 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.hero-container h2 {
+  color: #000000;
 }
 
 .hero-container h3 span {
@@ -179,7 +177,6 @@ h1 {
 /* Largest */
 h2 {
   font-size: 3em;
-  color: #000000;
 }
 
 h3 {
