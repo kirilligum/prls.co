@@ -245,7 +245,9 @@ li {
 
 button {
   background-color: #e6d9ce;
-  color: #00b3b3;
+  color: #4d4d4d;
+  /* color: #00b3b3; */
+  /* color: #006c6c; */
   width: 100px;
   height: 100px;
   border: none;
