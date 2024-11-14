@@ -82,6 +82,7 @@ body {
 
 .hero-bullets li::after {
   content: "◦";
+  font-size: 3.0em;
   /* position: absolute; */
   /* right: -1.5em; */
   /* top: 0; */
