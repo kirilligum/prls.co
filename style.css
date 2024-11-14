@@ -283,13 +283,12 @@ footer {
 
 .use-case-before,
 .use-case-after {
-  flex: 1;
+  flex: 0 0 auto;
   min-width: 300px;
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
-  /* height: 100%; */
+  scroll-snap-align: start;
 }
 
 .use-case-text {
@@ -353,9 +352,13 @@ footer {
 
 .comparison-tables {
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 40px;
+  width: 100%;
   margin: 2rem 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 0;
 }
 
 .comparison-table {
