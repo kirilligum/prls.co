@@ -80,15 +80,18 @@ body {
   position: relative;
 }
 
+.hero-bullets li {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.2em;
+}
+
 .hero-bullets li::after {
   content: "◦";
   font-size: 3.0em;
-  display: inline-block;
   line-height: 0;
-  vertical-align: middle;
-  margin-left: 0.1em;
-  position: relative;
-  top: -0.1em;
+  order: 2;
 }
 
 .hero-container h1,
