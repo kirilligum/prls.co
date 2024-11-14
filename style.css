@@ -271,12 +271,7 @@ footer {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  padding-bottom: 20px; /* Space for potential scrollbar */
-}
-
-.use-case-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  padding: 20px 0;
 }
 
 .use-case {
