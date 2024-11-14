@@ -43,7 +43,8 @@ body {
 }
 
 .hero-container {
-  background: linear-gradient(to bottom, #ebd7dd, #ebd7dd);
+  /* background: linear-gradient(to bottom, #ebd7dd, #ebd7dd); */
+  background: linear-gradient(to bottom, #f2e6de, #e6d9ce);
   color: #4d4d4d;
   width: 100%;
   display: flex;
