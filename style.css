@@ -63,16 +63,15 @@ body {
 .title-short {}
 
 .hero-bullets {
-  /* padding: 2rem; */
-  /* font-size: 1.0em; */
-  /* max-width: 800px; */
-  /* margin: 0 auto; */
+  width: 100%;
   text-align: right;
 }
 
 .hero-bullets ul {
-  /* text-align: right; */
   list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .hero-bullets li {
