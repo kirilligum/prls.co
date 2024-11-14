@@ -291,7 +291,7 @@ footer {
 .use-case {
   flex: 0 0 auto;
   width: calc(50% - 20px);
-  width: 1024px-1em;
+  width: calc(1024px - 1em);
   scroll-snap-align: start;
 }
 
