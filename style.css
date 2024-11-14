@@ -83,9 +83,12 @@ body {
 .hero-bullets li::after {
   content: "◦";
   font-size: 3.0em;
-  /* position: absolute; */
-  /* right: -1.5em; */
-  /* top: 0; */
+  display: inline-block;
+  line-height: 0;
+  vertical-align: middle;
+  margin-left: 0.1em;
+  position: relative;
+  top: -0.1em;
 }
 
 .hero-container h1,
