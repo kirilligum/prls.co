@@ -283,7 +283,6 @@ footer {
   width: 100%;
   margin: 0 auto;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding: 20px 0;
 }
@@ -292,7 +291,6 @@ footer {
   flex: 0 0 auto;
   /* width: calc(50% - 20px); */
   /* width: calc(1024px - 1em); */
-  scroll-snap-align: start;
 }
 
 .use-case-before,
