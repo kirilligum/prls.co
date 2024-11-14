@@ -83,7 +83,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  /* gap: 0.2em; */
+  gap: 0.5em;
 }
 
 .hero-bullets li::after {
