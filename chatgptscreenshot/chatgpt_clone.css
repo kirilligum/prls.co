@@ -32,6 +32,13 @@
   margin-left: auto;
 }
 
+.kkccirc-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
 .kkccirc {
   align-items: center;
   border-bottom-left-radius: 9999px;
