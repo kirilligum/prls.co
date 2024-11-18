@@ -231,6 +231,55 @@ footer {
 
 .knowledge-visual {
   padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.knowledge-visual-text {
+  flex: 1;
+}
+
+.knowledge-visual-img {
+  flex: 1;
+}
+
+.knowledge-visual-image {
+  width: 100%;
+  height: auto;
+}
+
+.knowledge-lead {
+  font-size: 1.2em;
+  margin: 1.5rem 0;
+  color: #4d4d4d;
+}
+
+.knowledge-visual-text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.knowledge-visual-text li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.knowledge-visual-text li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4d4d4d;
+}
+
+@media (max-width: 768px) {
+  .knowledge-visual {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 .use-cases {
