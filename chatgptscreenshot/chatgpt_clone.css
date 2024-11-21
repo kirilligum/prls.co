@@ -6,6 +6,13 @@
 
 .kkicon {
   color: #5d5d5d;
+  height: 24px;
+  width: 24px;
+  stroke-width: 1.5;
+}
+
+.kkicon18 {
+  color: #5d5d5d;
   height: 18px;
   width: 18px;
   stroke-width: 1.5;
@@ -39,6 +46,40 @@
   gap: 1rem;
 }
 
+.kicon-md {
+  height: 18px;
+  width: 18px;
+}
+.kgizmo-bot-avatar {
+  outline: solid 1px #ececec;
+}
+
+.icon-md {
+  height: 18px;
+  width: 18px;
+}
+.gizmo-bot-avatar {
+  outline: solid 1px #ececec;
+}
+.flex {
+  display: flex;
+}
+.h-8 {
+  height: 2rem;
+}
+.w-8 {
+  width: 2rem;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+
 .kkccirc {
   align-items: center;
   border-bottom-left-radius: 9999px;
@@ -48,12 +89,12 @@
   color: rgb(13, 13, 13);
   display: flex;
   height: 32px;
+  width: 32px;
   justify-content: center;
   line-height: 24px;
   outline-color: rgb(236, 236, 236);
   outline-style: solid;
   outline-width: 0.666667px;
-  width: 32px;
 }
 
 .kkthoughts {
@@ -61,6 +102,9 @@
   justify-content: flex-start;
   align-items: center;
   display: flex;
+}
+
+.response {
 }
 
 .kkiconrow {
@@ -82,3 +126,7 @@
   height: 16px;
   width: 16px;
 }
+
+/* .ml-3 { */
+/*   margin-left: 0.75rem; */
+/* } */
