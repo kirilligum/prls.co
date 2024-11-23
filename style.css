@@ -173,8 +173,8 @@ main {
 .contact-button {
   flex: 1;
   display: flex;
-  justify-content: flex-start;
-  align-items: right;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .intro-text {
