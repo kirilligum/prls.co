@@ -57,17 +57,18 @@ body {
   flex-direction: column;
   align-items: flex-end;
   padding: 8rem 2rem;
-  max-width: 32em;
+  max-width: 600px;
 }
 
 .pearl-symbol {
-  font-size: 10em;
+  font-size: 15em;
   font-weight: bold;
   color: #4d4d4d;
   text-align: center;
   display: block;
   margin-bottom: -0.2em;
   margin-top: -0.5em;
+  padding-right: 48px;
 }
 
 .logo {
@@ -96,6 +97,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   gap: 0.3em;
+  font-size: 1.3em;
 }
 
 .hero-bullets li::after {
@@ -127,7 +129,7 @@ body {
 h3 {
   font-family: "Raleway", sans-serif;
   font-weight: 300;
-  font-size: 1.4em;
+  font-size: 1.5em;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -142,7 +144,7 @@ h1 {
 
 /* Largest */
 h2 {
-  font-size: 3em;
+  font-size: 4em;
 }
 
 /* Smallest */
@@ -171,6 +173,9 @@ main {
 }
 
 .contact-button {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-right: 24px;
   flex: 1;
   display: flex;
   justify-content: flex-end;
@@ -185,19 +190,19 @@ main {
 }
 
 @media (max-width: 768px) {
-  .intro-section {
-    flex-direction: column-reverse;
-  }
-
-  .contact-button {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .intro-text {
-    width: 100%;
-    padding: 1rem;
-  }
+  /* .intro-section { */
+  /*   flex-direction: column-reverse; */
+  /* } */
+  /**/
+  /* .contact-button { */
+  /*   width: 100%; */
+  /*   justify-content: center; */
+  /* } */
+  /**/
+  /* .intro-text { */
+  /*   width: 100%; */
+  /*   padding: 1rem; */
+  /* } */
 }
 
 li {
@@ -277,10 +282,10 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .knowledge-visual {
-    flex-direction: column;
-    gap: 2rem;
-  }
+  /* .knowledge-visual { */
+  /*   flex-direction: column; */
+  /*   gap: 2rem; */
+  /* } */
 }
 
 .use-cases {
