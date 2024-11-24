@@ -47,8 +47,8 @@ body {
   background: linear-gradient(to bottom, #f2e6de, #e6d9ce);
   color: #4d4d4d;
   width: 100%;
-  display: flex;
-  justify-content: flex-end;
+  /* display: flex; */
+  /* justify-content: space-between; */
   /* padding: 1rem 2rem; */
 }
 
@@ -234,12 +234,17 @@ footer {
   color: #4d4d4d;
 }
 
-.knowledge-visual {
+.knowledge-visual-container {
+  /* padding: 8rem 2rem; */
   padding: 2rem;
+  width: 400px;
+}
+.knowledge-visual {
+  /* padding: 2rem; */
   display: flex;
   align-items: center;
   gap: 4rem;
-  max-width: 1200px;
+  width: 400px;
   margin: 0 auto;
 }
 
@@ -249,7 +254,9 @@ footer {
 
 .knowledge-visual-img {
   flex: 1;
-  background-color: #ffffff;
+  background-color: #fff;
+  /* padding: 1rem; */
+  border-radius: 8px;
 }
 
 .knowledge-visual-image {
