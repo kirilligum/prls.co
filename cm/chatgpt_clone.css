@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 html {
+  --text-secondary: #5d5d5d;
+  --text-tertiary: #b4b4b4;
+  --main-surface-primary: #fff;
+  --main-surface-tertiary: #ececec;
   font-feature-settings: normal;
   font-family:
     ui-sans-serif,
