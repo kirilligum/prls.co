@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import KnowledgeVisual from "~/components/KnowledgeVisual";
 
 export const meta: MetaFunction = () => {
   return [
@@ -21,14 +22,7 @@ export default function Index() {
       </header>
 
       <div className="hero-container">
-        <div className="knowledge-visual-container">
-          <div className="knowledge-visual-img">
-            <iframe
-              src="cm/chatgpt_clone.html"
-              style={{ width: '100%', height: '480px', border: 'none', display: 'block' }}
-            />
-          </div>
-        </div>
+        <KnowledgeVisual />
         <div className="hero-content">
           <div className="pearl-container">
             <span className="pearl-symbol">༜</span>
