@@ -288,7 +288,7 @@ export default function Index() {
                 <b>Today</b>'s marketing content is designed for humans and search
                 engines, but that's <b>not enough in the age of AI</b>. We help
                 your brand and products
-                <b>rank higher in ChatGPT and other LLMs</b> (Large Language
+                <b> rank higher in ChatGPT and other LLMs</b> (Large Language
                 Models). We do this using <b>AI knowledge graph technology</b> to
                 create high-quality instruction-tuning datasets that enhance the
                 relevance and understanding of your content. Our process leverages
