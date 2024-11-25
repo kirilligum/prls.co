@@ -30,7 +30,42 @@ export default function Index() {
           </div>
         </div>
         <div className="hero-content">
-          {/* Rest of the hero content */}
+          <div className="pearl-container">
+            <span className="pearl-symbol">༜</span>
+          </div>
+          <div className="logo">
+            <div className="logo-title-short">
+              <div className="title-short">
+                <h2>SEO for LLMs</h2>
+              </div>
+            </div>
+            <h3>
+              Semantic knowledge <span>graph AI</span> technolodgy that helps your
+              company rank in ChatGPT and <span>Google's AI answers</span>
+            </h3>
+          </div>
+          <div className="hero-bullets">
+            <ul>
+              <li>
+                When your ideal customer turns to ChatGPT, will your brand be the
+                answer?
+              </li>
+              <li>
+                Pearls' Knowledge ensures you're featured in AI responses, driving
+                visibility and leads.
+              </li>
+              <li>
+                Our AI analyzes your content and teaches ChatGPT about your
+                products.
+              </li>
+              <li>The result? AI recommends your brand as the solution.</li>
+            </ul>
+          </div>
+          <div className="contact-button">
+            <button onClick={() => window.location.href='mailto:info@prls.co'}>
+              <b>Contact</b>
+            </button>
+          </div>
         </div>
       </div>
 
