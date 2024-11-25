@@ -1,2 +1,2 @@
 /* Import all styles from style.css */
-@import '../../../style.css';
+@import '../../public/styles/global.css';
