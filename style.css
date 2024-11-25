@@ -255,8 +255,11 @@ footer {
 .knowledge-visual-img {
   flex: 1;
   background-color: #fff;
-  /* padding: 1rem; */
   border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
+  display: flex;
 }
 
 .knowledge-visual-image {
