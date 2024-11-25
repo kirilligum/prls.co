@@ -40,7 +40,7 @@ export default function Index() {
               </div>
             </div>
             <h3>
-              Semantic knowledge <span>graph AI</span> technolodgy that helps your
+              Semantic knowledge <span>graph AI</span> technology that helps your
               company rank in ChatGPT and <span>Google's AI answers</span>
             </h3>
           </div>
