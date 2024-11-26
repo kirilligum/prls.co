@@ -56,7 +56,7 @@ export default function Index() {
             </ul>
           </div>
           <div className="contact-button">
-            <button onClick={() => window.location.href='mailto:info@prls.co'}>
+            <button onClick={() => window.location.href = 'mailto:info@prls.co'}>
               <b>Contact</b>
             </button>
           </div>
@@ -273,7 +273,7 @@ export default function Index() {
         <div className="section-800">
           <div className="intro-section">
             <div className="contact-button">
-              <button onClick={() => window.location.href='mailto:info@prls.co'}>
+              <button onClick={() => window.location.href = 'mailto:info@prls.co'}>
                 <b>Contact</b>
               </button>
             </div>
@@ -374,7 +374,7 @@ export default function Index() {
               </p>
             </div>
             <div className="contact-button">
-              <button onClick={() => window.location.href='mailto:info@prls.co'}>
+              <button onClick={() => window.location.href = 'mailto:info@prls.co'}>
                 <b>Contact</b>
               </button>
             </div>
