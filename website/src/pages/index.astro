@@ -1,0 +1,805 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <div class="hero-container">
+      <div class="knowledge-visual-container">
+        <div
+          class="knowledge-visual-img"
+          style="width: 100%; height: 480px; border: none; display: block;"
+        >
+          <Card
+            query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
+            response="ChatGPT mentions the benefits of <b>your product</b> while helpfully and factually explaining how to solve the problem."
+          />
+        </div>
+      </div>
+      <div class="hero-content">
+        <div class="pearl-container">
+          <span class="pearl-symbol">༜</span>
+        </div>
+        <div class="logo">
+          <div class="logo-title-short">
+            <div class="title-short">
+              <h2>SEO for LLMs</h2>
+            </div>
+          </div>
+          <h3>
+            Semantic knowledge <span>graph AI</span> technolodgy that helps your
+            company rank in ChatGPT and <span>Google's AI answers</span>
+          </h3>
+        </div>
+        <div class="hero-bullets">
+          <ul>
+            <li>
+              When your ideal customer turns to ChatGPT, will your brand be the
+              answer?
+            </li>
+            <li>
+              Pearls' Knowledge ensures you're featured in AI responses, driving
+              visibility and leads.
+            </li>
+            <li>
+              Our AI analyzes your content and teaches ChatGPT about your
+              products.
+            </li>
+            <li>The result? AI recommends your brand as the solution.</li>
+          </ul>
+        </div>
+        <div class="contact-button">
+          <button onclick="location.href='mailto:info@prls.co'">
+            <b>Contact</b>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="use-cases">
+      <div class="use-case-container">
+        <div class="use-case">
+          <div class="use-case-text">
+            <h3>Now:</h3>
+            AI probabilistically recommends commonly mentioned
+            <b>wrong</b> product
+          </div>
+          <div class="use-case-img">
+            <div class="use-case-emotion">:-(</div>
+            <img
+              src="images/powerup-chatgpt-original.png"
+              alt="PowerUp before using Pearls of Wisdom"
+              class="use-case-image"
+            />
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-text">
+            <h3>With Pearls' Knowledge:</h3>
+            AI reasons and recommends the <b>correct</b> product -- your product.
+          </div>
+          <div class="use-case-img">
+            <Image
+              src={PowerupChatgptPrls}
+              alt="PowerUp after using Pearls of Wisdom"
+              class="use-case-image"
+            />
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-text">
+            <h3>Now:</h3>
+            The query asks for low-noise generator but the AI recommends louder (52dB)
+            diesel generators.
+          </div>
+          <div class="use-case-img">
+            <img
+              src="images/powerup-google-original.png"
+              alt="Google results before using Pearls of Wisdom"
+              class="use-case-image"
+            />
+          </div>
+        </div>
+        <div class="use-case">
+          <div class="use-case-text">
+            <h3>With Pearls' Knowledge:</h3>
+            With Pearls, AI correctly recommends the quite (45dB) hydrogen generators.
+            Help AI to be right.
+          </div>
+          <div class="use-case-img">
+            <img
+              src="images/powerup-google-prls.png"
+              alt="Google results after using Pearls of Wisdom"
+              class="use-case-image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="section-separator" />
+    <div class="lp-section">
+      <h3>
+        Pearl's Analytics analyzes the relative strength of competing brands.
+      </h3>
+      <div class="comparison-tables">
+        <div class="use-case-before">
+          <h4>Before:</h4>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Companies</th>
+                <th>Mentions %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Honda</td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td>Yamaha</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                <td>WEN</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td>deWalts</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td>Generac</td>
+                <td>13</td>
+              </tr>
+              <tr>
+                <td>Cummins</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td>Briggs &amp; Stratton</td>
+                <td>11</td>
+              </tr>
+              <tr class="highlight">
+                <td>PowerUP</td>
+                <td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="use-case-after">
+          <h4>After:</h4>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Companies</th>
+                <th>Mentions %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td>PowerUP</td>
+                <td>32</td>
+              </tr>
+              <tr>
+                <td>Honda</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td>Yamaha</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td>WEN</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>deWalts</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>Generac</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>Cummins</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>Briggs &amp; Stratton</td>
+                <td>8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <hr class="section-separator" />
+    <div class="lp-section">
+      <h3>Trusted by Our Customers</h3>
+      <div class="customer-logos">
+        <div class="customer-item">
+          <a href="https://www.atmo.ai/">
+            <img
+              src="atmo_ai/logo-atmo.webp"
+              alt="Logo of Atmo.ai"
+              class="customer-logo"
+            />
+          </a>
+          <p>
+            <a href="atmo_ai/1.html" class="customer-link"
+              >Atmo's AI Knowledge</a
+            >
+          </p>
+        </div>
+        <div class="customer-item">
+          <a href="https://powerup-tech.com/">
+            <img
+              src="powerup-tech_com/powerup_primary_logo_horizontal_color.svg"
+              alt="Logo of PowerUP"
+              class="customer-logo"
+            />
+          </a>
+          <p>
+            <a href="powerup-tech_com/1.html" class="customer-link"
+              >PowerUp's AI Knowledge</a
+            >
+          </p>
+        </div>
+        <div class="customer-item">
+          <a href="https://bennudata.com/">
+            <img
+              src="bennudata_com/logo-bennudata.svg"
+              alt="Logo of Bennudata"
+              class="customer-logo"
+            />
+          </a>
+          <p>
+            <a href="bennudata_com/1.html" class="customer-link"
+              >Bennudata's AI Knowledge</a
+            >
+          </p>
+        </div>
+        <!-- <img src="images/logo-teamgpt.png" alt="Team-GPT Logo" class="customer-logo" -->
+        <!--   style="max-height: 100px; width: auto;"> -->
+      </div>
+    </div>
+    <hr class="section-separator" />
+    <div class="lp-section">
+      <div class="intro-section">
+        <div class="contact-button">
+          <button onclick="location.href='mailto:info@prls.co'">
+            <b>Contact</b>
+          </button>
+        </div>
+        <div class="intro-text">
+          <p>
+            <b>Today</b>'s marketing content is designed for humans and search
+            engines, but that's <b>not enough in the age of AI</b>. We help your
+            brand and products
+            <b>rank higher in ChatGPT and other LLMs</b> (Large Language Models).
+            We do this using <b>AI knowledge graph technology</b> to create high-quality
+            instruction-tuning datasets that enhance the relevance and understanding
+            of your content. Our process leverages a hybrid AI-human system. Unlike
+            HubSpot, we specialize in
+            <b
+              ><span class="text-nowrap">AI assistants</span>, not search
+              engines</b
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="lp-section"> -->
+    <!--   <h3>Elevate Your Marketing Strategy in the AI Era</h3> -->
+    <!--   <ul> -->
+    <!--   <li>Imagine AI that doesn't just mention your brand but understands its essence</li> -->
+    <!--   <li>Drastically reduce hallucinations about your company</li> -->
+    <!--   <li>Your content will appear in responses that use reasoning, abstraction, and generalization</li> -->
+    <!--   <li>LLMs will cite your page in responses where available</li> -->
+    <!--   <li>Your brand will be the AI-recommended solution for complex problems</li> -->
+    <!--   </ul> -->
+    <!-- </div> -->
+    <!-- <hr class="section-separator"> -->
+    <!-- <div class="lp-section"> -->
+    <!--   <h3>How We Teach Leading AI Models to Become Your Brand Advocate</h3> -->
+    <!--   <p>Our unique AI and human-powered approach ensures that your brand and products are accurately represented, -->
+    <!--     understood, and recommended by leading AI assistants. </p> -->
+    <!-- <img src="diagrams/userflow.svg" alt="A diagram showing the product workflow" class="responsive-image"> -->
+    <!-- <ol> -->
+    <!--   <li> -->
+    <!--     <h4>Gather and Analyze</h4> -->
+    <!--     <p>We collect your brand and product content, including webpages, product descriptions, marketing -->
+    <!--       materials, and any other relevant information.</p> -->
+    <!--   </li> -->
+    <!--   <li> -->
+    <!--     <h4>Create Instruction Datasets</h4> -->
+    <!--     <p>Our AI-powered tools and expert team craft high-quality instruction-tuning datasets from your content.</p> -->
+    <!--   </li> -->
+    <!--   <li> -->
+    <!--     <h4>Train AI Models</h4> -->
+    <!--     <p>Leading AI companies use these datasets to train their LLMs, like ChatGPT, to understand -->
+    <!--       your brand and offerings.</p> -->
+    <!--   </li> -->
+    <!--   <li> -->
+    <!--     <h4>Refine and Optimize</h4> -->
+    <!--     <p>We continuously monitor and refine the process to ensure that AI responses align perfectly with your brand's -->
+    <!--       messaging and values.</p> -->
+    <!--   </li> -->
+    <!-- </ol> -->
+    <!-- </div> -->
+    <!-- <hr class="section-separator"> -->
+    <hr class="section-separator" />
+    <div class="lp-section">
+      <h3>Who Can Benefit from Pearls</h3>
+      <ul>
+        <li>
+          <strong>Large Corporations:</strong> Optimize extensive digital content
+          for AI platforms, ensuring accurate and effective communication of your
+          brand's value.
+        </li>
+        <li>
+          <strong>Growth-Stage Startups:</strong> Utilize cutting-edge technologies
+          to enhance your visibility and inbound effectiveness, standing out in a
+          competitive market.
+        </li>
+        <li>
+          <strong>Digital Marketing Agencies:</strong> Elevate your client engagement
+          with advanced AI tools that enhance content relevance and impact.
+        </li>
+      </ul>
+    </div>
+    <hr class="section-separator" />
+    <div class="lp-section">
+      <h3>How Are We Different?</h3>
+      <p>
+        AI is changing how your customers discover you. Our mission is to help
+        you be on the cutting edge of this change. Here is how we stand out:
+      </p>
+      <ul>
+        <li>
+          <strong>No Model Training:</strong> Unlike OpenAI (ChatGPT), Anthropic
+          (Claude), and other model training companies, we don't build AI models.
+          Our expertise lies in providing the high-quality data that fuels these
+          models.
+        </li>
+        <li>
+          <strong>Open-Source Data:</strong> Unlike clients of Scale.ai, SurgeHQ.ai,
+          Toloka.ai, and other data-labeling companies who primarily provide data
+          for model trainers, our clients are content creators. Therefore, the high-quality
+          datasets that we create for you are not kept secret but freely available,
+          pushing collective AI research and practical applications to the next level.
+        </li>
+        <li>
+          <strong>LLM Focus:</strong> Unlike HubSpot, Salesforce, Marketo, and other
+          companies that prioritize optimizing content for marketing and sales automation,
+          our focus is on enhancing the capabilities of LLMs themselves.
+        </li>
+      </ul>
+    </div>
+    <hr class="section-separator" />
+    <div class="lp-section">
+      <!-- <h3>Your Future With Pearls of Wisdom</h3> -->
+      <div class="intro-section">
+        <div class="intro-text">
+          <p>
+            "You are what you eat" -- high-quality transparent AI starts with
+            high-quality transparent data.
+          </p>
+          <ul>
+            <li>
+              We are committed to building a future where AI is transparent,
+              trustworthy, and equitable for all.
+            </li>
+            <li>
+              AI will play an increasingly vital role in communicating your
+              brand's value to customers.
+            </li>
+            <li>
+              Our platform is continuously evolving to encompass a wider range
+              of knowledge beyond marketing.
+            </li>
+          </ul>
+          <p>
+            Join us in shaping a future where AI and human expertise work
+            together.
+          </p>
+        </div>
+        <div class="contact-button">
+          <button onclick="location.href='mailto:info@prls.co'">
+            <b>Contact</b>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: 0 auto;
+    background-color: var(--prls-main-surface-primary);
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 4em;
+  }
+  h3 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .lp-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hero-container {
+    background: linear-gradient(
+      to bottom,
+      #f2e6de,
+      var(--prls-main-surface-secondary)
+    );
+    color: var(--hf-color);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 8rem 2rem;
+    max-width: 600px;
+    flex: 1 1 400px;
+  }
+
+  .pearl-symbol {
+    font-size: 15em;
+    font-weight: bold;
+    color: var(--hf-color);
+    text-align: center;
+    display: block;
+    margin-bottom: -0.2em;
+    margin-top: -0.5em;
+    padding-right: 48px;
+  }
+  .logo {
+    text-align: right;
+  }
+
+  .hero-bullets {
+    width: 100%;
+    text-align: right;
+  }
+
+  .hero-bullets ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .hero-bullets li {
+    /* text-align: right; */
+    position: relative;
+  }
+
+  .hero-bullets li {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.3em;
+    font-size: 1.3em;
+  }
+
+  .hero-bullets li::after {
+    content: "◦";
+    font-size: 2em;
+    line-height: 0;
+    order: 2;
+  }
+
+  .hero-container h1,
+  .hero-container h2,
+  .hero-container h3 {
+    margin: 0.5rem 0;
+  }
+
+  .hero-container h1,
+  .hero-container h2 {
+    font-family: "Garamond", serif;
+  }
+
+  .hero-container h2 {
+    color: #000000;
+  }
+
+  .hero-container h3 span {
+    white-space: nowrap;
+  }
+
+  .intro-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 0 2rem;
+  }
+
+  .contact-button {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-right: 24px;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .intro-text {
+    font-family: "Raleway", sans-serif;
+    /* flex: 2; */
+    padding: 2rem;
+    text-align: left;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-container {
+      flex-direction: column;
+    }
+
+    .knowledge-visual-container {
+      align-self: flex-start;
+    }
+
+    .hero-content {
+      align-self: flex-end;
+      padding: 2rem;
+    }
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    background-color: #ebf5f7;
+    color: var(--hf-color);
+    width: 100px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .knowledge-visual-container {
+    padding: 2rem;
+    width: 400px;
+    flex: 0 0 auto;
+  }
+  .knowledge-visual {
+    /* padding: 2rem; */
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .knowledge-visual-text {
+    flex: 1;
+  }
+
+  .knowledge-visual-img {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .knowledge-visual-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .knowledge-lead {
+    font-size: 1.2em;
+    margin: 1.5rem 0;
+    color: var(--hf-color);
+  }
+
+  .knowledge-visual-text ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .knowledge-visual-text li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5em;
+  }
+
+  .knowledge-visual-text li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--hf-color);
+  }
+
+  @media (max-width: 768px) {
+    /* .knowledge-visual { */
+    /*   flex-direction: column; */
+    /*   gap: 2rem; */
+    /* } */
+  }
+
+  .use-cases {
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .use-case-container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* padding: 20px; */
+    /* padding-left: calc(30vw - 20px); */
+    scroll-padding-right: 50%;
+  }
+
+  .use-case {
+    flex: 0 0 auto;
+    /* width: calc(50% - 20px); */
+    /* width: calc(1024px - 1em); */
+  }
+
+  .use-case-before,
+  .use-case-after {
+    flex: 0 0 auto;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    scroll-snap-align: start;
+  }
+
+  .use-case-text {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .use-case-text h3 {
+    /* h4 { */
+    /* font-size: 2.0em; */
+    /* font-weight: 200; */
+    margin-bottom: 0.5rem;
+    margin-top: 0rem;
+  }
+
+  .use-case-img {
+    margin-top: auto;
+  }
+
+  .use-case-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .customer-logos {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    overflow-x: auto;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .customer-logos::-webkit-scrollbar {
+    display: none;
+  }
+
+  .customer-item {
+    text-align: center;
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
+
+  .customer-logo {
+    max-height: 40px;
+    width: auto;
+  }
+
+  .responsive-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .section-separator {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #f2e6de, #e6d9ce);
+    margin: 4rem auto;
+    max-width: 800px;
+  }
+
+  .comparison-tables {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    margin: 2rem 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 0;
+  }
+
+  .comparison-table {
+    flex: 1;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e6d9ce;
+  }
+
+  .comparison-table th {
+    /* background-color: #f2e6de; */
+    font-weight: bold;
+  }
+
+  .comparison-table tr:last-child td {
+    border-bottom: 2px solid #e6d9ce;
+  }
+
+  .comparison-table tr.highlight td {
+    background-color: #f2e6de;
+    font-weight: bold;
+  }
+
+  .customer-link {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1em;
+  }
+
+  .customer-link:hover {
+    text-decoration: underline;
+  }
+</style>

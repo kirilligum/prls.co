@@ -1,0 +1,98 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="Astro description" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <header class="main-header">
+    <span class="header-pearl text-nowrap"
+      ><span class="header-symbol">༜</span>Pearls of Wisdom</span
+    >
+    <span class="header-links"
+      >Home | Pearls' Knowledge | Pearls' Analytics | Blog | About |
+      <b>Contact</b> | App</span
+    >
+  </header>
+  <body>
+    <slot />
+  </body>
+  <footer>
+    <p>
+      &copy; 2024 Pearls of Wisdom | <a href="prls_co/1.html">AI Knowledge</a>
+    </p>
+  </footer>
+
+  <style is:global>
+    html {
+      --hf-color: #4d4d4d;
+      --hf-bg-color: #ebf5f7;
+      --prls-main-surface-primary: #f7f5f2;
+      --prls-main-surface-secondary: #e6d9ce;
+      --prls-text-primary: #3d3d3d;
+      /* --prls-main-surface-tertiary: #ececec; */
+    }
+    body {
+      font-family: "Raleway", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: var(--prls-main-surface-primary);
+      color: var(--prls-text-primary);
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.25rem 1rem;
+      background-color: var(--hf-bg-color);
+    }
+
+    .header-pearl {
+      font-family: "Garamond", serif;
+      font-size: 1.5em;
+      font-weight: 500;
+      margin-top: -1em;
+      margin-bottom: -0.7em;
+      color: var(--hf-color);
+    }
+
+    .header-symbol {
+      font-size: 1.5em;
+      position: relative;
+      top: -0.05em;
+      margin-right: 0.25em;
+      /* margin-top: -0.5em; */
+      /* margin-bottom: -0.0em; */
+    }
+
+    .header-links {
+      text-align: right;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--hf-bg-color);
+      color: var(--hf-color);
+    }
+  </style>
+
+
+</html>
