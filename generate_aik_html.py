@@ -129,7 +129,7 @@ def update_sitemap_index(company_id):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate AIK HTML pages and sitemap.")
     parser.add_argument(
-        "--items-per-page", type=int, default=5, help="Number of items per page"
+        "--items-per-page", type=int, default=20, help="Number of items per page"
     )
     args = parser.parse_args()
 
