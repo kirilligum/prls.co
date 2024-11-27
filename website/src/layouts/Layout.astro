@@ -11,10 +11,9 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Questrial&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet">
     <meta name="description" content="Astro description" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -48,7 +47,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       /* --prls-main-surface-tertiary: #ececec; */
     }
     body {
-      font-family: "Raleway", sans-serif;
+      font-family: "Questrial", sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.6;
@@ -65,7 +64,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     }
 
     .header-pearl {
-      font-family: "Garamond", serif;
+      font-family: "Libre Baskerville", serif;
       font-size: 1.5em;
       font-weight: 500;
       margin-top: -1em;
