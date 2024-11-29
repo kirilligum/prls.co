@@ -8,7 +8,8 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
 
 <Layout title="Welcome to Astro.">
   <main>
-    <div class="hero-container">
+    <div class="hero-background">
+      <div class="hero-container">
       <div class="knowledge-visual-container">
         <div
           class="knowledge-visual-img"
@@ -57,6 +58,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
             <b>Contact</b>
           </button>
         </div>
+      </div>
       </div>
     </div>
     <div class="use-cases">
@@ -435,12 +437,16 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     padding: 0 2rem;
   }
 
-  .hero-container {
+  .hero-background {
     background: linear-gradient(
       to bottom,
       #f2e6de,
       var(--prls-main-surface-secondary)
     );
+    width: 100%;
+  }
+
+  .hero-container {
     color: var(--hf-color);
     width: 100%;
     display: flex;
@@ -448,9 +454,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     justify-content: center;
     align-items: flex-start;
     max-width: 2160px;
-    /* margin: 0 auto; */
     margin: 0 auto;
-    /* gap: 2rem; */
   }
 
   .hero-content {
