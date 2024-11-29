@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import MockOpenAI from "../components/Card.astro";
+import MockGoogle from "../components/MockGoogle.astro";
 import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
 ---
 
@@ -10,55 +11,64 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
   <main>
     <div class="hero-background">
       <div class="hero-container">
-      <div class="knowledge-visual-container">
-        <div
-          class="knowledge-visual-img"
-          style="width: 100%; height: 480px; border: none; display: block;"
-        >
-          <Card
-            query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
-            response="ChatGPT mentions the benefits of <b>your product</b> while helpfully and factually explaining how to solve the problem."
-          />
-        </div>
-      </div>
-      <div class="hero-content">
-        <div class="pearl-container">
-          <span class="pearl-symbol">༜</span>
-        </div>
-        <div class="logo">
-          <div class="logo-title-short">
-            <div class="title-short">
-              <h2>SEO for LLMs</h2>
-            </div>
+        <div class="knowledge-visual-container">
+          <div
+            class="knowledge-visual-img"
+            style="width: 100%; height: 480px; border: none; display: block;"
+          >
+            <MockOpenAI
+              query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
+              response="ChatGPT mentions the benefits of <b>your product</b> while helpfully and factually explaining how to solve the problem."
+            />
           </div>
-          <h3>
-            Semantic knowledge <span>graph AI</span> technolodgy that helps your
-            company rank in ChatGPT and <span>Google's AI answers</span>
-          </h3>
+          <div
+            class="knowledge-visual-img"
+            style="width: 100%; height: 480px; border: none; display: block;"
+          >
+            <MockGoogle
+              query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
+              response="ChatGPT mentions the benefits of <b>your product</b> while helpfully and factually explaining how to solve the problem."
+            />
+          </div>
         </div>
-        <div class="hero-bullets">
-          <ul>
-            <li>
-              When your ideal customer turns to ChatGPT, will your brand be the
-              answer?
-            </li>
-            <li>
-              Pearls' Knowledge ensures you're featured in AI responses, driving
-              visibility and leads.
-            </li>
-            <li>
-              Our AI analyzes your content and teaches ChatGPT about your
-              products.
-            </li>
-            <li>The result? AI recommends your brand as the solution.</li>
-          </ul>
+        <div class="hero-content">
+          <div class="pearl-container">
+            <span class="pearl-symbol">༜</span>
+          </div>
+          <div class="logo">
+            <div class="logo-title-short">
+              <div class="title-short">
+                <h2>SEO for LLMs</h2>
+              </div>
+            </div>
+            <h3>
+              Semantic knowledge <span>graph AI</span> technolodgy that helps your
+              company rank in ChatGPT and <span>Google's AI Overview</span>
+            </h3>
+          </div>
+          <div class="hero-bullets">
+            <ul>
+              <li>
+                When your ideal customer turns to ChatGPT, will your brand be
+                the answer?
+              </li>
+              <li>
+                Pearls' Knowledge ensures you're featured in AI responses,
+                driving visibility and leads.
+              </li>
+              <li>
+                Our AI analyzes your content and teaches ChatGPT about your
+                products.
+              </li>
+              <li>The result? AI recommends your brand as the solution.</li>
+            </ul>
+          </div>
+          <div class="contact-button">
+            <button onclick="location.href='mailto:info@prls.co'">
+              <b>Contact</b>
+            </button>
+          </div>
         </div>
-        <div class="contact-button">
-          <button onclick="location.href='mailto:info@prls.co'">
-            <b>Contact</b>
-          </button>
-        </div>
-      </div>
       </div>
     </div>
     <div class="use-cases">
@@ -453,7 +463,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    max-width: 2160px;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
