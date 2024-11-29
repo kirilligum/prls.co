@@ -74,6 +74,7 @@ const { query, response } = Astro.props;
 			<strong>Search Labs | </strong><strong>AI Overview</strong>
 		</div>
 	</div>
+	<div class="response-container" set:html={response} />
 </div>
 
 <style>
@@ -178,5 +179,12 @@ const { query, response } = Astro.props;
 		align-items: center;
 		white-space: nowrap;
 		gap: 0.25rem;
+	}
+
+	.response-container {
+		padding: 1rem 2rem;
+		line-height: 1.5;
+		color: #202124;
+		font-size: 0.875rem;
 	}
 </style>
