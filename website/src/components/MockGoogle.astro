@@ -76,13 +76,21 @@ const { query, response } = Astro.props;
 	</div>
 	<div class="response-container" set:html={response} />
 	<div class="search-sections">
-		<div class="section-header">Sponsored</div>
-		<div class="section-header">Top Stories</div>
+		<div class="section-header">
+			Sponsored <svg
+				xmlns="http://www.w3.org/2000/svg"
+				height="18"
+				width="18"
+				viewBox="0 0 18 18"
+				><path
+					d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+				></path></svg
+			>
+		</div>
+		<div class="section-header">First result</div>
 		<div class="section-header">People also ask</div>
-		<div class="section-header">Top 10 results</div>
-		<div class="section-header">Videos</div>
 		<div class="section-header">Discussion forums</div>
-		<div class="section-header">Related searches</div>
+		<div class="section-header">Other results</div>
 	</div>
 </div>
 
@@ -123,15 +131,11 @@ const { query, response } = Astro.props;
 		padding: 0.3125rem 0.5rem;
 		gap: 0.5rem;
 		align-items: center;
-		transition:
-			box-shadow 0.2s,
-			border-color 0.2s;
-	}
-
-	.search-input-container:hover,
-	.search-input-container:focus-within {
 		box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
 		border-color: transparent;
+		/* transition: */
+		/* 	box-shadow 0.2s, */
+		/* 	border-color 0.2s; */
 	}
 
 	.search-input {
