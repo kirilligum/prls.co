@@ -200,32 +200,26 @@ const { query, response } = Astro.props;
 	</div>
 </div>
 <style>
-	*,
-	:after,
-	:before {
-		border: 0 solid #e3e3e3;
-		box-sizing: border-box;
+	/* Layout */
+	.card-container {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
 	}
-	html {
-		--text-secondary: #5d5d5d;
-		--text-tertiary: #b4b4b4;
-		--main-surface-primary: #fff;
-		--main-surface-tertiary: #ececec;
-		font-feature-settings: normal;
-		font-family:
-			ui-sans-serif,
-			-apple-system,
-			system-ui,
-			Segoe UI,
-			Helvetica,
-			Apple Color Emoji,
-			Arial,
-			sans-serif,
-			Segoe UI Emoji,
-			Segoe UI Symbol;
-		font-variation-settings: normal;
-		line-height: 1.5;
-		tab-size: 4;
+
+	.card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 60px;
+		padding: var(--spacing-xs) var(--spacing-md);
+	}
+
+	/* Typography */
+	.card-title {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--prls-text-secondary);
 	}
 	body {
 		line-height: inherit;
