@@ -7,34 +7,12 @@ interface Props {
 const { query, response } = Astro.props;
 ---
 
-<div>
-	<div
-		class="top-0 z-10 flex min-h-[60px] items-center justify-between border-transparent pl-0"
-	>
-		<div jsmodel="b5W85 vNzKHd" jsdata="MuIEvd;_;Ak7egE">
-			<div
-				jscontroller="cnjECf"
-				jsmodel="VYkzu kjkykd EPRt9d LM7wx Qlyryb EtCx8b Ip3Erc L97mud           "
-				class="A8SBwf"
-				data-alt="true"
-				data-biboe="false"
-				data-efaql="false"
-				data-hp="false"
-				jsdata="LVplcb;_;"
-				jsaction="lX6RWd:w3Wsmc;aaFXSd:k0wtTd;ocDSvd:duwfG;XmGRxb:mVw6nb;DkpM0b:d3sQLd;IQOavd:dFyQEf;XzZZPe:jI3wzf;Aghsf:AVsnlb;iHd9U:Q7Cnrc;f5hEHe:G0jgYd;vmxUb:j3bJnb;XBqW7:ihYaWc;UkQk6c:VSb4De;nTzfpf:YPRawb;R2c5O:LuRugf;qiCkJd:ANdidc;Q3vWPd:FtWxqb;htNNz:SNIJTd;NOg9L:HLgh3;uGoIkd:epUokb;zLdLw:eaGBS;H9muVd:J4e6lb;djyPCf:nMeUJf;hBEIVb:nUZ9le;CudXPd:iu9yrc;TsIFpc:aGAD7e;rcuQ6b:npT2md"
-			>
-				<div class="logo">
-					<a
-						href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwiQ67nMuoKKAxWGGTQIHTKCEg0QPAgI"
-						title="Go to Google Home"
-						id="logo"
-						data-hveid="8"
-						><svg
-							height="30"
-							viewBox="0 0 92 30"
-							width="92"
-							xmlns="http://www.w3.org/2000/svg"
-						>
+<div class="google-mock">
+	<div class="search-container">
+			<div class="search-box">
+				<div class="google-logo">
+					<a href="#" title="Google">
+						<svg height="30" viewBox="0 0 92 30" width="92" xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M38.9 15.51c0 4.26-3.32 7.39-7.4 7.39s-7.4-3.14-7.4-7.39c0-4.28 3.32-7.39 7.4-7.39s7.4 3.1 7.4 7.39zm-3.24 0c0-2.66-1.93-4.48-4.16-4.48-2.23 0-4.16 1.82-4.16 4.48 0 2.63 1.93 4.48 4.16 4.48 2.23 0 4.16-1.85 4.16-4.48z"
 								fill="#EA4335"></path>
@@ -54,213 +32,42 @@ const { query, response } = Astro.props;
 						></a
 					>
 				</div>
-				<div jsname="RNNXgb" class="RNNXgb">
-					<div class="SDkEP">
-						<div jsname="uFMOof" class="iblpc">
-							<div class="CcAdNb">
-								<span
-									class="QCzoEc z1asCe MZy1Rb"
-									style="height: 20px; line-height: 20px; width: 20px"
-									><svg
-										focusable="false"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
-									>
-										<path
-											d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-										></path></svg
-									></span
-								>
-							</div>
-						</div>
-						<div
-							jscontroller="vZr2rb"
-							jsname="gLFyf"
-							class="a4bIc"
-							data-hpmde="false"
-							data-mnr="4"
-							jsaction="h5M12e;input:d3sQLd;blur:jI3wzf"
-						>
-							<div jsname="vdLsw" class="YacQv"></div>
-							<div
-								jsname="aJyGR"
-								jscontroller="xMclgd"
-								class="gLFyf i4ySpb"
-								jsaction="rcuQ6b:npT2md"
-							>
-								<g-snackbar
-									jsname="nH91he"
-									jscontroller="OZLguc"
-									style="display: none"
-									data-dismiss=""
-									jsshadow=""
-									jsaction="rcuQ6b:npT2md"
-									id="ow12"
-									__is_owner="true"
-									><div
-										jsname="Ng57nc"
-										class="Wu0v9b v0rrvd"
-										data-ved="0ahUKEwiQ67nMuoKKAxWGGTQIHTKCEg0Q4G8ICg"
-										jsowner="ow12"
-									>
-										<div class="b77HKf">
-											<div class="rIxsve" jsslot="">
-												<span class="Txngnb wHYlTd yUTMj Sxjlmb"
-													>Press <span class="qfY0Jf">/</span> to jump to the search
-													box</span
-												>
-											</div>
-										</div>
-									</div>
-									<div jsname="sM5MNb" aria-live="polite" class="jhZvod">
-									</div></g-snackbar
-								>
-							</div>
-							<textarea
-								class="gLFyf"
-								aria-controls="Alh6id"
-								aria-owns="Alh6id"
-								value="What are some reliable and low-noise generators suitable for construction sites?"
-								jsaction="paste:puy29d; mouseenter:MJEKMe; mouseleave:iFHZnf;"
-								aria-label="Search"
-								placeholder=""
-								aria-autocomplete="both"
-								aria-expanded="false"
-								aria-haspopup="false"
-								autocapitalize="off"
-								autocomplete="off"
-								autocorrect="off"
-								id="APjFqb"
-								maxlength="2048"
-								name="q"
-								role="combobox"
-								rows="1"
-								spellcheck="false"
-								data-ved="0ahUKEwiQ67nMuoKKAxWGGTQIHTKCEg0Q39UDCAs"
-							>
-								What are some reliable and low-noise generators suitable for
-								construction sites?</textarea
-							>
-						</div>
-						<div class="fM33ce dRYYxd">
-							<div jscontroller="PymCCe" jsname="RP0xob" class="BKRPef">
-								<div
-									class="M2vV3 vOY7J"
-									tabindex="0"
-									jsname="pkjasb"
-									aria-label=" Clear"
-									role="button"
-									jsaction="AVsnlb;rcuQ6b:npT2md"
-									data-ved="0ahUKEwiQ67nMuoKKAxWGGTQIHTKCEg0Q05YFCAw"
-								>
-									<span jsname="itVqKe" class="ExCKkf z1asCe rzyADb"
-										><svg
-											focusable="false"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 24 24"
-										>
-											<path
-												d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-											></path></svg
-										></span
-									>
-								</div>
-								<span jsname="s1VaRe" class="ACRAdd M2vV3"></span>
-							</div>
-							<div
-								jscontroller="unV4T"
-								jsname="F7uqIe"
-								class="XDyW0e"
-								aria-label="Search by voice"
-								role="button"
-								tabindex="0"
-								jsaction="h5M12e;rcuQ6b:npT2md"
-								data-ved="0ahUKEwiQ67nMuoKKAxWGGTQIHTKCEg0Qvs8DCA0"
-							>
-								<svg
-									class="goxjub"
-									focusable="false"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										fill="#4285f4"
-										d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"
-									></path>
+				<div class="search-input-container">
+					<div class="search-icon">
+						<svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+						</svg>
+					</div>
+					<div class="search-input">
+						<textarea 
+							class="search-textarea"
+							aria-label="Search"
+							placeholder="Search Google"
+							rows="1"
+							spellcheck="false"
+						>{query}</textarea>
+						<div class="search-actions">
+							<button class="voice-search" aria-label="Search by voice">
+								<svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+									<path fill="#4285f4" d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"></path>
 									<path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
-									<path
-										fill="#fbbc04"
-										d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z"
-									></path>
-									<path
-										fill="#ea4335"
-										d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"
-									></path>
+									<path fill="#fbbc04" d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z"></path>
+									<path fill="#ea4335" d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"></path>
 								</svg>
-							</div>
-							<div
-								jscontroller="lpsUAf"
-								class="nDcEnd"
-								data-base-lens-url="https://lens.google.com"
-								data-image-processor-enabled="true"
-								data-is-images-mode="false"
-								data-preferred-mime-type="image/jpeg"
-								data-propagated-experiment-ids=""
-								jsname="R5mgy"
-								aria-label="Search by image"
-								role="button"
-								tabindex="0"
-								jsaction="rcuQ6b:npT2md;h5M12e"
-								data-ved="0ahUKEwiQ67nMuoKKAxWGGTQIHTKCEg0QhqEICA4"
-							>
-								<svg
-									class="Gdd5U"
-									focusable="false"
-									viewBox="0 0 192 192"
-									xmlns="http://www.w3.org/2000/svg"
-								>
+							</button>
+							<button class="image-search" aria-label="Search by image">
+								<svg focusable="false" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
 									<rect fill="none" height="192" width="192"></rect>
 									<g>
 										<circle fill="#34a853" cx="144.07" cy="144" r="16"></circle>
 										<circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle>
-										<path
-											fill="#ea4335"
-											d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z"
-										></path>
-										<path
-											fill="#fbbc04"
-											d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116l20,16c8.8,0,16,8.29,16,18v30h16V72.8z"
-										></path>
-										<path
-											fill="#4285f4"
-											d="M112,24l-32,0L68,40H56.8C38.69,40,24,54.69,24,72.8V92h16V74c0-9.71,7.2-18,16-18h80L112,24z"
-										></path>
+										<path fill="#ea4335" d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z"></path>
+										<path fill="#fbbc04" d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116l20,16c8.8,0,16,8.29,16,18v30h16V72.8z"></path>
+										<path fill="#4285f4" d="M112,24l-32,0L68,40H56.8C38.69,40,24,54.69,24,72.8V92h16V74c0-9.71,7.2-18,16-18h80L112,24z"></path>
 									</g>
 								</svg>
-							</div>
+							</button>
 						</div>
-					</div>
-					<button
-						class="HZVG1b Tg7LZd"
-						jsname="Tg7LZd"
-						aria-label="Search"
-						type="submit"
-						data-ved="0ahUKEwiQ67nMuoKKAxWGGTQIHTKCEg0Q4dUDCA8"
-					>
-						<div class="zgAlFc">
-							<span class="KlpaXd z1asCe MZy1Rb"
-								><svg
-									focusable="false"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-									></path></svg
-								></span
-							>
-						</div>
-					</button>
 					<div
 						jsname="mvaK7d"
 						class="M8H8pb"
@@ -268,7 +75,8 @@ const { query, response } = Astro.props;
 					>
 					</div>
 				</div>
-				<div id="_Vi5KZ5DoGoaz0PEPsoTKaA_1">
+				<div class="search-results">
+					<div class="result-content" set:html={response} />
 					<div
 						jscontroller="Dvn7fe"
 						jsname="UUbT9"
@@ -854,4 +662,97 @@ const { query, response } = Astro.props;
 		</div>
 	</div>
 </div>
-<style></style>
+<style>
+.google-mock {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-container {
+  max-width: 632px;
+  margin: 0 auto;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.google-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-input-container {
+  display: flex;
+  height: 44px;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  padding: 5px 8px;
+  gap: 8px;
+  align-items: center;
+}
+
+.search-input-container:hover {
+  box-shadow: 0 1px 6px rgba(32,33,36,.28);
+  border-color: rgba(223,225,229,0);
+}
+
+.search-icon {
+  padding: 0 8px;
+  height: 20px;
+  width: 20px;
+  color: #9aa0a6;
+}
+
+.search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.search-textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  color: #202124;
+  resize: none;
+  padding: 0;
+  font-family: arial, sans-serif;
+}
+
+.search-actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.voice-search,
+.image-search {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-results {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.result-content {
+  color: #202124;
+  font-family: arial, sans-serif;
+  line-height: 1.58;
+}
+</style>
