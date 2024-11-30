@@ -8,13 +8,13 @@
     <thead>
       <tr>
         <th>Brand</th>
-        <th>First Mention (%)</th>
-        <th>Monthly Change (%)</th>
+        <th>First<br>Mention<br>(%)</th>
+        <th>Monthly<br>Change<br>(%)</th>
       </tr>
     </thead>
     <tbody>
       <tr class="highlight">
-        <td>Your Brand</td>
+        <td class="text-nowrap">Your Brand</td>
         <td>83</td>
         <td class="positive">+3</td>
       </tr>
@@ -80,6 +80,10 @@
     padding: 0.75rem;
     text-align: left;
     border-bottom: 1px solid #eee;
+  }
+
+  .text-nowrap {
+    white-space: nowrap;
   }
 
   .analytics-table th {
