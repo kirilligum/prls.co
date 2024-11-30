@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import MockOpenAI from "../components/Card.astro";
 import MockGoogle from "../components/MockGoogle.astro";
+import MockAnalytics from "../components/MockAnalytics.astro";
 import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
 ---
 
@@ -25,10 +26,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
             />
           </div>
           <div class="knowledge-visual-img">
-            <MockGoogle
-              query="Customer asks about their <b>problem</b>"
-              response="Google's AI mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
-            />
+            <MockAnalytics />
           </div>
         </div>
         <div class="hero-content">
