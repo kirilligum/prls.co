@@ -69,6 +69,75 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
         </div>
       </div>
     </div>
+
+    <div class="section problems">
+      <div class="section-content">
+        <h2>Problems We Solve</h2>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <h3>AI Misrepresentation</h3>
+            <p>ChatGPT and other AI assistants may provide inaccurate or outdated information about your products and services.</p>
+          </div>
+          <div class="problem-card">
+            <h3>Lost Opportunities</h3>
+            <p>When AI doesn't recommend your solution, you miss valuable leads and potential customers.</p>
+          </div>
+          <div class="problem-card">
+            <h3>Brand Dilution</h3>
+            <p>Competitors might be mentioned more frequently, even when your solution is more relevant.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section target-audience">
+      <div class="section-content">
+        <h2>Who Is It For?</h2>
+        <div class="audience-grid">
+          <div class="audience-card">
+            <h3>Tech Companies</h3>
+            <p>Ensure AI accurately represents your complex products and technical innovations.</p>
+          </div>
+          <div class="audience-card">
+            <h3>Service Providers</h3>
+            <p>Help AI understand and recommend your unique service offerings.</p>
+          </div>
+          <div class="audience-card">
+            <h3>E-commerce</h3>
+            <p>Get your products recommended in relevant AI shopping suggestions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section solution">
+      <div class="section-content">
+        <h2>Our Solution</h2>
+        <div class="solution-steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Analysis</h3>
+            <p>We analyze how AI currently represents your brand and identify gaps.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Knowledge Creation</h3>
+            <p>Create structured knowledge that helps AI understand your offerings.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Integration</h3>
+            <p>Ensure AI models incorporate accurate information about your products.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Monitoring</h3>
+            <p>Track and optimize how AI represents your brand over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="use-cases">
       <div class="use-case-container">
         <div class="use-case">
@@ -774,6 +843,91 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     background: linear-gradient(to right, #f2e6de, #e6d9ce);
     margin: 4rem auto;
     max-width: 800px;
+  }
+
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  .section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section h2 {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--prls-text-primary);
+  }
+
+  .problem-grid,
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .problem-card,
+  .audience-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .problem-card h3,
+  .audience-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--prls-text-primary);
+  }
+
+  .solution-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .step {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--hf-bg-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    color: var(--hf-color);
+  }
+
+  .step h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--prls-text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding: 2rem 1rem;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+    }
   }
 
   .comparison-tables {
