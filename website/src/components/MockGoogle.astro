@@ -44,8 +44,9 @@ const { query, response } = Astro.props;
 						placeholder="Search Google"
 						rows="1"
 						wrap="off"
+						spellcheck="false"
 						set:html={query}
-					/>
+					></textarea>
 				</div>
 			</div>
 		</div>
