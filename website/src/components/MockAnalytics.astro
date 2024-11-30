@@ -2,6 +2,86 @@
 
 ---
 
-<div style="height: 100%; width: 100%;"></div>
+<div class="analytics-container">
+  <h3 class="analytics-title">Analytics</h3>
+  <table class="analytics-table">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>First Mention (%)</th>
+        <th>Monthly Change (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="highlight">
+        <td>Your Brand</td>
+        <td>83</td>
+        <td class="positive">+3</td>
+      </tr>
+      <tr>
+        <td>Brand A</td>
+        <td>7</td>
+        <td class="negative">-1</td>
+      </tr>
+      <tr>
+        <td>Brand B</td>
+        <td>6</td>
+        <td class="negative">-1</td>
+      </tr>
+      <tr>
+        <td>Brand C</td>
+        <td>4</td>
+        <td class="negative">-1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<style></style>
+<style>
+  .analytics-container {
+    height: 100%;
+    width: 100%;
+    padding: 1.25rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .analytics-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--prls-text-primary);
+  }
+
+  .analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .analytics-table th,
+  .analytics-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .analytics-table th {
+    font-weight: bold;
+    color: var(--prls-text-secondary);
+  }
+
+  .highlight {
+    background-color: #f8f8f8;
+    font-weight: 500;
+  }
+
+  .positive {
+    color: #2d8a39;
+  }
+
+  .negative {
+    color: #d14343;
+  }
+</style>
