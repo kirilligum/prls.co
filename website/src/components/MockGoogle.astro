@@ -38,15 +38,14 @@ const { query, response } = Astro.props;
 		<div class="search-box">
 			<div class="search-input-container">
 				<div class="search-input">
-					<textarea
+					<div
 						class="search-textarea"
 						aria-label="Search"
-						placeholder="Search Google"
-						rows="1"
-						wrap="off"
+						role="textbox"
+						contenteditable="true"
 						spellcheck="false"
 						set:html={query}
-					></textarea>
+					></div>
 				</div>
 			</div>
 		</div>
@@ -157,15 +156,11 @@ const { query, response } = Astro.props;
 		font-size: 1rem;
 		background: transparent;
 		color: #202124;
-		resize: none;
 		padding: 0;
 		font-family: inherit;
-		overflow-x: hidden;
-		scrollbar-width: none; /* Firefox */
-	}
-
-	.search-textarea::-webkit-scrollbar {
-		display: none; /* Chrome, Safari, Edge */
+		white-space: nowrap;
+		overflow: hidden;
+		min-height: 24px;
 	}
 
 	.nav-tabs {
