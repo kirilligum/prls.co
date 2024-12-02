@@ -702,19 +702,24 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
 
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
     transform: translateX(5%);
+    max-width: 1200px;
   }
 
   .content-card {
     background: white;
     padding: 2.5rem;
-    border-radius: 1rem;
+    border-radius: 8px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid var(--prls-main-surface-secondary);
+    border: none;
   }
 
   .content-card:hover {
