@@ -627,41 +627,55 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
   }
 
   .traditional-seo-problems {
-    margin-top: 2rem;
-    transform: translateX(5%);
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin-left: auto;
   }
 
   .traditional-seo-problems ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
   }
 
   .traditional-seo-problems li {
     text-align: right;
-    margin-bottom: 2rem;
     position: relative;
-    padding-right: 2rem;
+    padding-right: 3rem;
+    transition: transform 0.2s ease;
+  }
+
+  .traditional-seo-problems li:hover {
+    transform: translateX(-8px);
   }
 
   .traditional-seo-problems li::after {
-    content: "•";
+    content: "◦";
     position: absolute;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5em;
-    color: var(--prls-text-primary);
+    top: 1.2rem;
+    font-size: 2em;
+    line-height: 0;
+    color: var(--hf-color);
   }
 
   .traditional-seo-problems h3 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     color: var(--prls-text-primary);
   }
 
   .traditional-seo-problems p {
     color: var(--prls-text-secondary);
+    line-height: 1.6;
+    font-size: 1.1em;
   }
 
   .solution-steps {
