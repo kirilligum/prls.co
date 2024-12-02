@@ -70,28 +70,21 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     <div class="content-section">
       <div class="section-content">
         <h2>Traditional SEO and landing pages don't work for AI</h2>
-        <div class="card-grid">
-          <div class="content-card">
-            <h3>AI Misrepresentation</h3>
-            <p>
-              ChatGPT and other AI assistants may provide inaccurate or outdated
-              information about your products and services.
-            </p>
-          </div>
-          <div class="content-card">
-            <h3>Lost Opportunities</h3>
-            <p>
-              When AI doesn't recommend your solution, you miss valuable leads
-              and potential customers.
-            </p>
-          </div>
-          <div class="content-card">
-            <h3>Brand Dilution</h3>
-            <p>
-              Competitors might be mentioned more frequently, even when your
-              solution is more relevant.
-            </p>
-          </div>
+        <div class="traditional-seo-problems">
+          <ul>
+            <li>
+              <h3>AI Misrepresentation</h3>
+              <p>ChatGPT and other AI assistants may provide inaccurate or outdated information about your products and services.</p>
+            </li>
+            <li>
+              <h3>Lost Opportunities</h3>
+              <p>When AI doesn't recommend your solution, you miss valuable leads and potential customers.</p>
+            </li>
+            <li>
+              <h3>Brand Dilution</h3>
+              <p>Competitors might be mentioned more frequently, even when your solution is more relevant.</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -624,26 +617,42 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     padding-right: 2rem;
   }
 
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+  .traditional-seo-problems {
     margin-top: 2rem;
     transform: translateX(5%);
   }
 
-  .content-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  .traditional-seo-problems ul {
+    list-style: none;
+    padding: 0;
   }
 
-  .content-card h3 {
+  .traditional-seo-problems li {
+    text-align: right;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-right: 2rem;
+  }
+
+  .traditional-seo-problems li::after {
+    content: "•";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    color: var(--prls-text-primary);
+  }
+
+  .traditional-seo-problems h3 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--prls-text-primary);
+  }
+
+  .traditional-seo-problems p {
+    color: var(--prls-text-secondary);
   }
 
   .solution-steps {
