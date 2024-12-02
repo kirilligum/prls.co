@@ -243,6 +243,21 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
 </Layout>
 
 <style>
+  :root {
+    /* Spacing */
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    --spacing-2xl: 8rem;
+      
+    /* Sizes */
+    --content-width: 800px;
+      
+    /* Colors */
+    --hero-gradient-start: #f2e6de;
+      
+    /* Typography */
+    --text-3xl: 3em;
+  }
   main {
     margin: 0 auto;
     background-color: var(--prls-main-surface-primary);
@@ -259,32 +274,36 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     padding: 0 2rem;
   }
 
+  /* Hero Section */
   .hero-background {
     background: linear-gradient(
       to bottom,
-      #f2e6de,
+      var(--hero-gradient-start),
       var(--prls-main-surface-secondary)
     );
     width: 100%;
   }
 
   .hero-container {
+    --hero-max-width: 1440px;
+    
     color: var(--hf-color);
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    max-width: 1440px;
+    max-width: var(--hero-max-width);
     margin: 0 auto;
   }
 
   .hero-content {
+    --hero-padding: var(--spacing-2xl);
+    
     display: flex;
     flex-direction: column;
-    /* max-width: 600px; */
     align-items: flex-end;
-    padding: 8rem 2rem;
+    padding: var(--hero-padding);
     flex: 1 1 400px;
   }
 
