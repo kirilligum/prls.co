@@ -702,7 +702,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
 
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(3, 400px);
     gap: 2rem;
     margin-top: 2rem;
     transform: translateX(5%);
@@ -710,21 +710,34 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
   }
 
   .content-card {
+    width: 400px;
+    height: 480px;
     background: white;
     padding: 2.5rem;
     border-radius: 8px;
-    height: 480px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
     border: none;
   }
 
   .content-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 1400px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 400px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .card-grid {
+      grid-template-columns: 400px;
+    }
   }
 
   .content-card h3 {
