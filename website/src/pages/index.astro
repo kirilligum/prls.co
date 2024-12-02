@@ -64,6 +64,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
             </button>
           </div>
         </div>
+        </div>
       </div>
     </div>
 
@@ -165,7 +166,8 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     <div class="content-section">
       <div class="section-content">
         <h2>Trusted by Our Customers</h2>
-      <div class="customer-logos">
+      <div class="section-content">
+        <div class="customer-logos">
         <div class="customer-item">
           <a href="https://www.atmo.ai/">
             <img
@@ -216,11 +218,12 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     <div class="content-section">
       <div class="section-content">
         <h2>How Are We Different?</h2>
-      <p>
-        AI is changing how your customers discover you. Our mission is to help
-        you be on the cutting edge of this change. Here is how we stand out:
-      </p>
-      <ul>
+      <div class="section-content">
+        <p class="section-intro">
+          AI is changing how your customers discover you. Our mission is to help
+          you be on the cutting edge of this change. Here is how we stand out:
+        </p>
+        <div class="feature-list">
         <li>
           <strong>No Model Training:</strong> Unlike OpenAI (ChatGPT), Anthropic
           (Claude), and other model training companies, we don't build AI models.
@@ -239,7 +242,8 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
           companies that prioritize optimizing content for marketing and sales automation,
           our focus is on enhancing the capabilities of LLMs themselves.
         </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </main>
 </Layout>
@@ -565,15 +569,47 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
+  .section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+
+  .feature-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .feature-list ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .feature-list li {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1.5em;
+  }
+
+  .feature-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--hf-color);
+  }
+
   .customer-logos {
-    max-width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 4rem;
     overflow-x: auto;
-    padding: 20px 0;
+    padding: 2rem 0;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
