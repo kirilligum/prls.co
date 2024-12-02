@@ -67,25 +67,25 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       </div>
     </div>
 
-    <div class="section problems">
+    <div class="content-section">
       <div class="section-content">
         <h2>Traditional SEO and landing pages don't work for AI</h2>
-        <div class="problem-grid">
-          <div class="problem-card">
+        <div class="card-grid">
+          <div class="content-card">
             <h3>AI Misrepresentation</h3>
             <p>
               ChatGPT and other AI assistants may provide inaccurate or outdated
               information about your products and services.
             </p>
           </div>
-          <div class="problem-card">
+          <div class="content-card">
             <h3>Lost Opportunities</h3>
             <p>
               When AI doesn't recommend your solution, you miss valuable leads
               and potential customers.
             </p>
           </div>
-          <div class="problem-card">
+          <div class="content-card">
             <h3>Brand Dilution</h3>
             <p>
               Competitors might be mentioned more frequently, even when your
@@ -96,25 +96,25 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       </div>
     </div>
 
-    <div class="section target-audience">
+    <div class="content-section">
       <div class="section-content">
         <h2>Who Is It For?</h2>
-        <div class="audience-grid">
-          <div class="audience-card">
+        <div class="card-grid">
+          <div class="content-card">
             <h3>Large Corporations</h3>
             <p>
               Optimize extensive digital content for AI platforms, ensuring
               accurate and effective communication of your brand's value.
             </p>
           </div>
-          <div class="audience-card">
+          <div class="content-card">
             <h3>Growth-Stage Startups</h3>
             <p>
               Utilize cutting-edge technologies to enhance your visibility and
               inbound effectiveness, standing out in a competitive market.
             </p>
           </div>
-          <div class="audience-card">
+          <div class="content-card">
             <h3>Digital Marketing Agencies</h3>
             <p>
               Elevate your client engagement with advanced AI tools that enhance
@@ -125,7 +125,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       </div>
     </div>
 
-    <div class="section solution">
+    <div class="content-section">
       <div class="section-content">
         <h2>Our Solution</h2>
         <div class="solution-steps">
@@ -162,7 +162,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       </div>
     </div>
     <hr class="section-separator" />
-    <div class="lp-section">
+    <div class="content-section">
       <h3>Trusted by Our Customers</h3>
       <div class="customer-logos">
         <div class="customer-item">
@@ -607,7 +607,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     max-width: 800px;
   }
 
-  .section {
+  .content-section {
     padding: 4rem 2rem;
   }
 
@@ -616,7 +616,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     margin: 0 auto;
   }
 
-  .section h2 {
+  .section-content h2 {
     text-align: center;
     font-family: var(--font-heading);
     font-size: 2.5rem;
@@ -624,24 +624,21 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     color: var(--prls-text-primary);
   }
 
-  .problem-grid,
-  .audience-grid {
+  .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
   }
 
-  .problem-card,
-  .audience-card {
+  .content-card {
     background: white;
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
-  .problem-card h3,
-  .audience-card h3 {
+  .content-card h3 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     margin-bottom: 1rem;
