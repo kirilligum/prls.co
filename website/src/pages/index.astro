@@ -68,10 +68,14 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       </div>
     </div>
 
-    <div class="content-section">
+    <div class="content-section section-challenge">
       <div class="section-content">
         <h2>Traditional SEO and landing pages don't work for AI</h2>
-        <div class="card-grid">
+        <div class="section-illustration">
+          <!-- Placeholder for illustration: "A split screen showing traditional SEO methods fading/breaking apart on one side, 
+               and AI/LLM content glowing/emerging on the other. Use muted colors matching the site's palette." -->
+        </div>
+        <div class="card-grid challenges-grid">
           <div class="content-card">
             <h3>AI Misrepresentation</h3>
             <p>
@@ -97,10 +101,14 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       </div>
     </div>
 
-    <div class="content-section">
+    <div class="content-section section-audience">
       <div class="section-content">
         <h2>Who Is It For?</h2>
-        <div class="card-grid">
+        <div class="section-illustration">
+          <!-- Placeholder for illustration: "Three interconnected circular icons representing corporations, 
+               startups, and agencies, with subtle connecting lines forming a triangle. Use elegant line art style." -->
+        </div>
+        <div class="card-grid audience-grid">
           <div class="content-card">
             <h3>Large Corporations</h3>
             <p>
@@ -126,9 +134,13 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       </div>
     </div>
 
-    <div class="content-section">
+    <div class="content-section section-solution">
       <div class="section-content">
         <h2>Our Solution</h2>
+        <div class="section-illustration">
+          <!-- Placeholder for illustration: "A flowing diagram showing the four steps (Analysis, Knowledge Creation, 
+               Integration, Monitoring) connected by elegant curved lines, with subtle iconography for each step" -->
+        </div>
         <div class="solution-steps">
           <div class="step">
             <div class="step-number">1</div>
@@ -643,7 +655,37 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
   }
 
   .content-section {
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-challenge {
+    background: linear-gradient(180deg, var(--prls-main-surface-primary) 0%, var(--prls-main-surface-secondary) 100%);
+  }
+
+  .section-audience {
+    background-color: var(--prls-main-surface-primary);
+  }
+
+  .section-solution {
+    background: linear-gradient(180deg, var(--prls-main-surface-secondary) 0%, var(--prls-main-surface-primary) 100%);
+  }
+
+  .section-illustration {
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    margin: 0 auto 4rem;
+    background-color: #f0f0f0; /* Placeholder color */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    color: #666;
+    text-align: center;
+    padding: 2rem;
   }
 
   .section-content {
@@ -664,6 +706,16 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    position: relative;
+  }
+
+  .challenges-grid .content-card {
+    border-left: 4px solid var(--hf-color);
+  }
+
+  .audience-grid .content-card {
+    border-radius: 16px;
+    background: linear-gradient(145deg, #ffffff 0%, var(--prls-main-surface-secondary) 100%);
   }
 
   .content-card {
@@ -683,8 +735,20 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
   .solution-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
     margin-top: 2rem;
+    position: relative;
+  }
+
+  .solution-steps::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--hf-color);
+    opacity: 0.2;
   }
 
   .step {
