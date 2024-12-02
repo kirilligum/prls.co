@@ -700,6 +700,52 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     }
   }
 
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    transform: translateX(5%);
+  }
+
+  .content-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--prls-main-surface-secondary);
+  }
+
+  .content-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .content-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--prls-text-primary);
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+
+  .content-card h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--prls-main-surface-secondary);
+  }
+
+  .content-card p {
+    color: var(--prls-text-secondary);
+    line-height: 1.6;
+  }
+
   .comparison-tables {
     display: flex;
     gap: 40px;
