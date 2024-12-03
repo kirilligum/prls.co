@@ -101,82 +101,11 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       </div>
     </div>
 
-    <!-- Original Card Layout -->
-    <div class="content-section">
-      <div class="section-content">
-        <h2>Who Is It For? - Card Layout</h2>
-        <div class="card-grid">
-          <div class="content-card">
-            <span class="material-icons card-icon">rocket_launch</span>
-            <h3>Growth-Stage Startups</h3>
-            <p>
-              Utilize cutting-edge technologies to enhance your visibility and
-              inbound effectiveness, standing out in a competitive market.
-            </p>
-          </div>
-          <div class="content-card">
-            <span class="material-icons card-icon">campaign</span>
-            <h3>Digital Marketing Agencies</h3>
-            <p>
-              Elevate your client engagement with advanced AI tools that enhance
-              content relevance and impact.
-            </p>
-          </div>
-          <div class="content-card">
-            <span class="material-icons card-icon">corporate_fare</span>
-            <h3>Large Corporations</h3>
-            <p>
-              Optimize extensive digital content for AI platforms, ensuring
-              accurate and effective communication of your brand's value.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right-aligned List Layout -->
-    <div class="content-section bg-alt">
-      <div class="section-content">
-        <h2>Who Is It For? - List Layout</h2>
-        <div class="audience-list">
-          <div class="audience-item">
-            <div class="audience-content">
-              <h3>Growth-Stage Startups</h3>
-              <p>
-                Utilize cutting-edge technologies to enhance your visibility and
-                inbound effectiveness, standing out in a competitive market.
-              </p>
-            </div>
-            <span class="material-icons audience-icon">rocket_launch</span>
-          </div>
-          <div class="audience-item">
-            <div class="audience-content">
-              <h3>Digital Marketing Agencies</h3>
-              <p>
-                Elevate your client engagement with advanced AI tools that enhance
-                content relevance and impact.
-              </p>
-            </div>
-            <span class="material-icons audience-icon">campaign</span>
-          </div>
-          <div class="audience-item">
-            <div class="audience-content">
-              <h3>Large Corporations</h3>
-              <p>
-                Optimize extensive digital content for AI platforms, ensuring
-                accurate and effective communication of your brand's value.
-              </p>
-            </div>
-            <span class="material-icons audience-icon">corporate_fare</span>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Alternating Layout -->
     <div class="content-section">
       <div class="section-content">
-        <h2>Who Is It For? - Alternating Layout</h2>
+        <h2>Who Is It For?</h2>
         <div class="audience-alternating">
           <div class="audience-row">
             <span class="material-icons audience-icon-large">rocket_launch</span>
@@ -814,76 +743,6 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     }
   }
 
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 320px);
-    gap: 2rem;
-    margin-top: 2rem;
-    margin-left: auto;
-    max-width: 1200px;
-    justify-content: end;
-  }
-
-  .content-card {
-    width: 320px;
-    height: 480px;
-    background: white;
-    padding: 2.5rem;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    border: none;
-  }
-
-  .content-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  @media (max-width: 1400px) {
-    .card-grid {
-      grid-template-columns: repeat(2, 320px);
-    }
-  }
-
-  @media (max-width: 900px) {
-    .card-grid {
-      grid-template-columns: 320px;
-    }
-  }
-
-  .card-icon {
-    font-size: 2.5rem;
-    color: var(--prls-text-primary);
-    margin-bottom: 1rem;
-  }
-
-  .content-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-    color: var(--prls-text-primary);
-    position: relative;
-    padding-bottom: 0.75rem;
-  }
-
-  .content-card h3::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background-color: var(--prls-main-surface-secondary);
-  }
-
-  .content-card p {
-    color: var(--prls-text-secondary);
-    line-height: 1.6;
-  }
 
   .comparison-tables {
     display: flex;
@@ -933,34 +792,6 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     text-decoration: underline;
   }
 
-  /* Right-aligned List Layout */
-  .bg-alt {
-    background-color: var(--prls-main-surface-secondary);
-  }
-
-  .audience-list {
-    max-width: 800px;
-    margin-left: auto;
-    padding-right: 2rem;
-  }
-
-  .audience-item {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 4rem;
-    text-align: right;
-  }
-
-  .audience-content {
-    flex: 1;
-  }
-
-  .audience-icon {
-    font-size: 3rem;
-    color: var(--prls-text-primary);
-  }
 
   /* Alternating Layout */
   .audience-alternating {
