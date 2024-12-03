@@ -73,6 +73,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
         <div class="traditional-seo-problems">
           <ul>
             <li>
+              <span class="material-icons problem-icon">error_outline</span>
               <h3>AI Misrepresentation</h3>
               <p>
                 ChatGPT and other AI assistants may provide inaccurate or
@@ -80,6 +81,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
               </p>
             </li>
             <li>
+              <span class="material-icons problem-icon">psychology</span>
               <h3>Shallow Thinking</h3>
               <p>
                 LLMs can not connect your to the problem through multi-step
@@ -87,6 +89,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
               </p>
             </li>
             <li>
+              <span class="material-icons problem-icon">trending_down</span>
               <h3>Brand Dilution</h3>
               <p>
                 Competitors might be mentioned more frequently, even when your
@@ -649,6 +652,15 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     position: relative;
     padding-right: 3rem;
     transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .problem-icon {
+    font-size: 2rem;
+    color: var(--prls-text-primary);
   }
 
   .traditional-seo-problems li:hover {
