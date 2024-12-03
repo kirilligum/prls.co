@@ -181,8 +181,8 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     <div class="content-section">
       <div class="section-content">
         <h2>Trusted by Our Customers</h2>
-        <div class="testimonials">
-          <div class="testimonial">
+        <ul class="testimonials">
+          <li class="testimonial">
             <div class="testimonial-logo">
               <a href="https://www.atmo.ai/">
                 <img
@@ -198,9 +198,9 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
             <div class="testimonial-author">Sarah Chen</div>
             <div class="testimonial-title">CTO, Atmo.ai</div>
             <a href="atmo_ai/1.html" class="customer-link">Atmo's AI Knowledge</a>
-          </div>
+          </li>
 
-          <div class="testimonial">
+          <li class="testimonial">
             <div class="testimonial-logo">
               <a href="https://powerup-tech.com/">
                 <img
@@ -216,9 +216,9 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
             <div class="testimonial-author">Michael Torres</div>
             <div class="testimonial-title">CEO, PowerUP</div>
             <a href="powerup-tech_com/1.html" class="customer-link">PowerUp's AI Knowledge</a>
-          </div>
+          </li>
 
-          <div class="testimonial">
+          <li class="testimonial">
             <div class="testimonial-logo">
               <a href="https://bennudata.com/">
                 <img
@@ -234,7 +234,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
             <div class="testimonial-author">David Park</div>
             <div class="testimonial-title">Founder, Bennudata</div>
             <a href="bennudata_com/1.html" class="customer-link">Bennudata's AI Knowledge</a>
-          </div>
+          </li>
           <!-- <img src="images/logo-teamgpt.png" alt="Team-GPT Logo" class="customer-logo" -->
           <!--   style="max-height: 100px; width: auto;"> -->
         </div>
@@ -601,20 +601,24 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
   }
 
   .testimonials {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 4rem;
-    padding: 2rem;
+    list-style: none;
+    padding: 0;
   }
 
   .testimonial {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     gap: 1.5rem;
+    padding: 2rem;
+    border-bottom: 1px solid var(--prls-main-surface-secondary);
+  }
+
+  .testimonial:last-child {
+    border-bottom: none;
   }
 
   .testimonial-logo {
