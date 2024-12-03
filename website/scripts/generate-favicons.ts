@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const SOURCE_FAVICON = join(__dirname, '../src/images/favicon.png');
-const PUBLIC_DIR = join(__dirname, '../src/images');
+const PUBLIC_DIR = join(__dirname, '../public');
 
 async function main() {
   try {
