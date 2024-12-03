@@ -1,5 +1,9 @@
 import { generateFavicons } from '../src/utils/favicon';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const SOURCE_FAVICON = join(__dirname, '../src/images/favicon.png');
 const PUBLIC_DIR = join(__dirname, '../public');
