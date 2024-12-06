@@ -104,10 +104,8 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     <div class="content-section">
       <div class="section-content">
         <h2>Who Is It For?</h2>
-        <div class="audience-alternating">
-          <div class="audience-row">
-            <span class="material-icons audience-icon-large">rocket_launch</span
-            >
+        <div class="audience-right-aligned">
+          <div class="audience-item">
             <div class="audience-text">
               <h3>Growth-Stage Startups</h3>
               <p>
@@ -115,9 +113,9 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
                 inbound effectiveness, standing out in a competitive market.
               </p>
             </div>
+            <span class="material-icons audience-icon-large">rocket_launch</span>
           </div>
-          <div class="audience-row reverse">
-            <span class="material-icons audience-icon-large">campaign</span>
+          <div class="audience-item">
             <div class="audience-text">
               <h3>Digital Marketing Agencies</h3>
               <p>
@@ -125,11 +123,9 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
                 enhance content relevance and impact.
               </p>
             </div>
+            <span class="material-icons audience-icon-large">campaign</span>
           </div>
-          <div class="audience-row">
-            <span class="material-icons audience-icon-large"
-              >corporate_fare</span
-            >
+          <div class="audience-item">
             <div class="audience-text">
               <h3>Large Corporations</h3>
               <p>
@@ -137,6 +133,7 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
                 accurate and effective communication of your brand's value.
               </p>
             </div>
+            <span class="material-icons audience-icon-large">corporate_fare</span>
           </div>
         </div>
       </div>
@@ -900,22 +897,35 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
   }
 
   /* Alternating Layout */
-  .audience-alternating {
-    max-width: 1000px;
-    margin-left: auto;
+  .audience-right-aligned {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
     padding-right: 2rem;
   }
 
-  .audience-row {
+  .audience-staggered {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 2rem;
+  }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-right: 2rem;
+  }
+
+  .audience-item {
     display: flex;
     align-items: center;
-    gap: 4rem;
-    margin-bottom: 6rem;
-    padding-right: 2rem;
+    gap: 1rem;
   }
 
-  .audience-row.reverse {
-    flex-direction: row-reverse;
+  .audience-item .audience-text {
     text-align: right;
   }
 
@@ -1020,3 +1030,77 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     }
   }
 </style>
+    <div class="content-section">
+      <div class="section-content">
+        <h2>Who Is It For? (Design 2)</h2>
+        <div class="audience-staggered">
+          <div class="audience-item">
+            <span class="material-icons audience-icon-large">rocket_launch</span>
+            <div class="audience-text">
+              <h3>Growth-Stage Startups</h3>
+              <p>
+                Utilize cutting-edge technologies to enhance your visibility and
+                inbound effectiveness, standing out in a competitive market.
+              </p>
+            </div>
+          </div>
+          <div class="audience-item">
+            <div class="audience-text">
+              <h3>Digital Marketing Agencies</h3>
+              <p>
+                Elevate your client engagement with advanced AI tools that
+                enhance content relevance and impact.
+              </p>
+            </div>
+            <span class="material-icons audience-icon-large">campaign</span>
+          </div>
+          <div class="audience-item">
+            <span class="material-icons audience-icon-large">corporate_fare</span>
+            <div class="audience-text">
+              <h3>Large Corporations</h3>
+              <p>
+                Optimize extensive digital content for AI platforms, ensuring
+                accurate and effective communication of your brand's value.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-section">
+      <div class="section-content">
+        <h2>Who Is It For? (Design 3)</h2>
+        <div class="audience-grid">
+          <div class="audience-item">
+            <span class="material-icons audience-icon-large">rocket_launch</span>
+            <div class="audience-text">
+              <h3>Growth-Stage Startups</h3>
+              <p>
+                Utilize cutting-edge technologies to enhance your visibility and
+                inbound effectiveness, standing out in a competitive market.
+              </p>
+            </div>
+          </div>
+          <div class="audience-item">
+            <span class="material-icons audience-icon-large">campaign</span>
+            <div class="audience-text">
+              <h3>Digital Marketing Agencies</h3>
+              <p>
+                Elevate your client engagement with advanced AI tools that
+                enhance content relevance and impact.
+              </p>
+            </div>
+          </div>
+          <div class="audience-item">
+            <span class="material-icons audience-icon-large">corporate_fare</span>
+            <div class="audience-text">
+              <h3>Large Corporations</h3>
+              <p>
+                Optimize extensive digital content for AI platforms, ensuring
+                accurate and effective communication of your brand's value.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
