@@ -243,35 +243,132 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
 
       </div>
     </div>
-    <div class="content-section">
+    <!-- Design 1: Cards with Icons -->
+    <div class="content-section difference-section-1">
       <div class="section-content">
         <h2>How Are We Different?</h2>
-        <p>
+        <p class="section-intro">
           AI is changing how your customers discover you. Our mission is to help
-          you stay on the cutting edge of this change. Here's how we stand out:
+          you stay on the cutting edge of this change.
         </p>
-        <ul>
-          <li>
-            <strong>No Model Training:</strong> Unlike OpenAI (ChatGPT), Anthropic
-            (Claude), and other model training companies, we don't build AI models.
-            Our expertise lies in providing the high-quality data that fuels these
-            models.
-          </li>
-          <li>
-            <strong>Open-Source Data:</strong> Unlike clients of Scale.ai, SurgeHQ.ai,
-            Toloka.ai, and other data-labeling companies who primarily provide data
-            for model trainers, our clients are content creators. Therefore, the
-            high-quality datasets that we create for you are not kept secret but
-            freely available, pushing collective AI research and practical applications
-            to the next level.
-          </li>
-          <li>
-            <strong>LLM Focus:</strong> Unlike HubSpot, Salesforce, Marketo, and
-            other companies that prioritize optimizing content for marketing and
-            sales automation, our focus is on enhancing the capabilities of LLMs
-            themselves.
-          </li>
-        </ul>
+        <div class="difference-cards">
+          <div class="difference-card">
+            <span class="material-icons card-icon">model_training</span>
+            <h3>No Model Training</h3>
+            <p>
+              Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build AI models.
+              Our expertise lies in providing the high-quality data that fuels these models.
+            </p>
+          </div>
+          <div class="difference-card">
+            <span class="material-icons card-icon">public</span>
+            <h3>Open-Source Data</h3>
+            <p>
+              Unlike Scale.ai and other data-labeling companies, our clients are content creators.
+              The datasets we create are freely available, advancing AI research.
+            </p>
+          </div>
+          <div class="difference-card">
+            <span class="material-icons card-icon">psychology</span>
+            <h3>LLM Focus</h3>
+            <p>
+              Unlike HubSpot and Salesforce, we don't just optimize for marketing automation.
+              We enhance the capabilities of LLMs themselves.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Design 2: Timeline Style -->
+    <div class="content-section difference-section-2">
+      <div class="section-content">
+        <h2>How Are We Different?</h2>
+        <p class="section-intro">
+          AI is changing how your customers discover you. Our mission is to help
+          you stay on the cutting edge of this change.
+        </p>
+        <div class="difference-timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-marker"></div>
+              <h3>No Model Training</h3>
+              <p>
+                Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build AI models.
+                Our expertise lies in providing the high-quality data that fuels these models.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-marker"></div>
+              <h3>Open-Source Data</h3>
+              <p>
+                Unlike Scale.ai and other data-labeling companies, our clients are content creators.
+                The datasets we create are freely available, advancing AI research.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-marker"></div>
+              <h3>LLM Focus</h3>
+              <p>
+                Unlike HubSpot and Salesforce, we don't just optimize for marketing automation.
+                We enhance the capabilities of LLMs themselves.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Design 3: Alternating Sides -->
+    <div class="content-section difference-section-3">
+      <div class="section-content">
+        <h2>How Are We Different?</h2>
+        <p class="section-intro">
+          AI is changing how your customers discover you. Our mission is to help
+          you stay on the cutting edge of this change.
+        </p>
+        <div class="difference-alternating">
+          <div class="difference-item">
+            <div class="difference-icon">
+              <span class="material-icons">model_training</span>
+            </div>
+            <div class="difference-text">
+              <h3>No Model Training</h3>
+              <p>
+                Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build AI models.
+                Our expertise lies in providing the high-quality data that fuels these models.
+              </p>
+            </div>
+          </div>
+          <div class="difference-item reverse">
+            <div class="difference-icon">
+              <span class="material-icons">public</span>
+            </div>
+            <div class="difference-text">
+              <h3>Open-Source Data</h3>
+              <p>
+                Unlike Scale.ai and other data-labeling companies, our clients are content creators.
+                The datasets we create are freely available, advancing AI research.
+              </p>
+            </div>
+          </div>
+          <div class="difference-item">
+            <div class="difference-icon">
+              <span class="material-icons">psychology</span>
+            </div>
+            <div class="difference-text">
+              <h3>LLM Focus</h3>
+              <p>
+                Unlike HubSpot and Salesforce, we don't just optimize for marketing automation.
+                We enhance the capabilities of LLMs themselves.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -949,6 +1046,185 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     .audience-item {
       flex-direction: column-reverse;
       text-align: center;
+    }
+  }
+
+  /* Design 1: Cards with Icons */
+  .difference-section-1 .section-intro {
+    text-align: right;
+    max-width: 800px;
+    margin-left: auto;
+    margin-bottom: 3rem;
+    font-size: 1.2em;
+    color: var(--prls-text-secondary);
+  }
+
+  .difference-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+  }
+
+  .difference-card {
+    background: var(--prls-main-surface-primary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    text-align: center;
+  }
+
+  .difference-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    color: var(--prls-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .difference-card h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    color: var(--prls-text-primary);
+  }
+
+  .difference-card p {
+    color: var(--prls-text-secondary);
+    line-height: 1.6;
+    font-size: 1.2em;
+  }
+
+  /* Design 2: Timeline Style */
+  .difference-section-2 .section-intro {
+    text-align: right;
+    max-width: 800px;
+    margin-left: auto;
+    margin-bottom: 3rem;
+    font-size: 1.2em;
+    color: var(--prls-text-secondary);
+  }
+
+  .difference-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .difference-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--prls-main-surface-secondary);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .timeline-content {
+    background: var(--prls-main-surface-primary);
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+    width: calc(50% - 30px);
+    margin-left: auto;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--prls-main-surface-secondary);
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  .timeline-content h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    color: var(--prls-text-primary);
+  }
+
+  .timeline-content p {
+    color: var(--prls-text-secondary);
+    line-height: 1.6;
+    font-size: 1.2em;
+  }
+
+  /* Design 3: Alternating Sides */
+  .difference-section-3 .section-intro {
+    text-align: right;
+    max-width: 800px;
+    margin-left: auto;
+    margin-bottom: 3rem;
+    font-size: 1.2em;
+    color: var(--prls-text-secondary);
+  }
+
+  .difference-alternating {
+    max-width: 1000px;
+    margin-left: auto;
+    padding: 2rem;
+  }
+
+  .difference-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 6rem;
+    padding-right: 2rem;
+  }
+
+  .difference-item.reverse {
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  .difference-icon {
+    flex-shrink: 0;
+  }
+
+  .difference-icon .material-icons {
+    font-size: 4rem;
+    color: var(--prls-text-primary);
+  }
+
+  .difference-text {
+    flex: 1;
+  }
+
+  .difference-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--prls-text-primary);
+  }
+
+  .difference-text p {
+    color: var(--prls-text-secondary);
+    line-height: 1.6;
+    font-size: 1.2em;
+  }
+
+  @media (max-width: 768px) {
+    .difference-item,
+    .difference-item.reverse {
+      flex-direction: column;
+      text-align: center;
+      padding-right: 0;
     }
   }
 </style>
