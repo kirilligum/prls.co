@@ -357,6 +357,12 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     padding-right: var(--spacing-2xl);
     padding-top: var(--spacing-xl);
     overflow-x: auto;
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+  }
+
+  .knowledge-visual-container::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
   }
 
   .knowledge-visual-container .knowledge-visual-img:first-child {
