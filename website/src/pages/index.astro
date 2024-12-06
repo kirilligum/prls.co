@@ -182,83 +182,63 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
       <div class="section-content">
         <h2>Trusted by Our Customers</h2>
 
-        <!-- Classic Magazine Style -->
-        <div class="testimonials-c">
-          <div class="testimonial-magazine">
-            <div class="magazine-header">
-              <div class="testimonial-logo">
-                <a href="https://www.atmo.ai/">
-                  <img
-                    src="atmo_ai/logo-atmo.webp"
-                    alt="Logo of Atmo.ai"
-                    class="customer-logo"
-                  />
+        <div class="testimonials-flow">
+          <article class="testimonial-item">
+            <div class="testimonial-content">
+              <blockquote>
+                "Since nothing like this existed, we've been building tools to get
+                inside ChatGPT inhouse. Pearls of Wisdom product made sense right
+                away and we started using it."
+              </blockquote>
+              <footer>
+                <div class="testimonial-meta">
+                  <cite>Sarah Chen</cite>
+                  <span>CTO, Atmo.ai</span>
+                </div>
+                <a href="https://www.atmo.ai/" class="company-link">
+                  <img src="atmo_ai/logo-atmo.webp" alt="Atmo.ai" />
                 </a>
-              </div>
-              <div class="magazine-meta">
-                <div class="testimonial-author">Sarah Chen</div>
-                <div class="testimonial-title">CTO, Atmo.ai</div>
-              </div>
+              </footer>
             </div>
-            <blockquote class="testimonial-quote">
-              "Since nothing like this existed, we've been building tools to get
-              inside ChatGPT inhouse. Pearls of Wisdom product made sense right
-              away and we started using it."
-            </blockquote>
-            <a href="atmo_ai/1.html" class="magazine-link">Continue Reading</a>
-          </div>
+          </article>
 
-          <div class="testimonial-magazine">
-            <div class="magazine-header">
-              <div class="testimonial-logo">
-                <a href="https://powerup-tech.com/">
-                  <img
-                    src="powerup-tech_com/powerup_primary_logo_horizontal_color.svg"
-                    alt="Logo of PowerUP"
-                    class="customer-logo"
-                  />
+          <article class="testimonial-item">
+            <div class="testimonial-content">
+              <blockquote>
+                "We are disrupting a big traditional industry of mobile power.
+                Pearls is the way for us to break through the vast amount of
+                accumulated outdated content."
+              </blockquote>
+              <footer>
+                <div class="testimonial-meta">
+                  <cite>Michael Torres</cite>
+                  <span>CEO, PowerUP</span>
+                </div>
+                <a href="https://powerup-tech.com/" class="company-link">
+                  <img src="powerup-tech_com/powerup_primary_logo_horizontal_color.svg" alt="PowerUP" />
                 </a>
-              </div>
-              <div class="magazine-meta">
-                <div class="testimonial-author">Michael Torres</div>
-                <div class="testimonial-title">CEO, PowerUP</div>
-              </div>
+              </footer>
             </div>
-            <blockquote class="testimonial-quote">
-              "We are disrupting a big traditional industry of mobile power.
-              Pearls is the way for us to break through the vast amount of
-              accumulated outdated content."
-            </blockquote>
-            <a href="powerup-tech_com/1.html" class="magazine-link"
-              >Continue Reading</a
-            >
-          </div>
+          </article>
 
-          <div class="testimonial-magazine">
-            <div class="magazine-header">
-              <div class="testimonial-logo">
-                <a href="https://bennudata.com/">
-                  <img
-                    src="bennudata_com/logo-bennudata.svg"
-                    alt="Logo of Bennudata"
-                    class="customer-logo"
-                  />
+          <article class="testimonial-item">
+            <div class="testimonial-content">
+              <blockquote>
+                "As a data analytics platform, we understand the importance of
+                accurate AI representation. Pearls helps ensure our advanced
+                capabilities are properly conveyed to potential clients."
+              </blockquote>
+              <footer>
+                <div class="testimonial-meta">
+                  <cite>David Park</cite>
+                  <span>Founder, Bennudata</span>
+                </div>
+                <a href="https://bennudata.com/" class="company-link">
+                  <img src="bennudata_com/logo-bennudata.svg" alt="Bennudata" />
                 </a>
-              </div>
-              <div class="magazine-meta">
-                <div class="testimonial-author">David Park</div>
-                <div class="testimonial-title">Founder, Bennudata</div>
-              </div>
+              </footer>
             </div>
-            <blockquote class="testimonial-quote">
-              "As a data analytics platform, we understand the importance of
-              accurate AI representation. Pearls helps ensure our advanced
-              capabilities are properly conveyed to potential clients."
-            </blockquote>
-            <a href="bennudata_com/1.html" class="magazine-link"
-              >Continue Reading</a
-            >
-          </div>
+          </article>
         </div>
 
       </div>
@@ -623,58 +603,82 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  /* Magazine Style Variations */
-  /* Classic Magazine Style */
-  .testimonials-c {
-    max-width: 800px;
+  /* Flowing Testimonials Style */
+  .testimonials-flow {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
   }
 
-  .testimonial-magazine {
-    margin-bottom: 4rem;
-    padding: 2rem;
-    background: white;
+  .testimonial-item {
+    margin-bottom: 6rem;
+    position: relative;
+    padding-left: 3rem;
+  }
+
+  .testimonial-item:nth-child(even) {
+    margin-left: 15%;
+  }
+
+  .testimonial-content {
     position: relative;
   }
 
-  .testimonial-magazine::before {
+  .testimonial-content blockquote {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    line-height: 1.6;
+    color: var(--prls-text-primary);
+    margin: 0;
+    font-style: italic;
+    position: relative;
+  }
+
+  .testimonial-content blockquote::before {
     content: '"';
     position: absolute;
-    left: -1rem;
-    top: 2rem;
+    left: -2rem;
+    top: -0.5rem;
     font-size: 4em;
-    font-family: var(--font-heading);
     color: var(--prls-main-surface-secondary);
-    opacity: 0.5;
-  }
-
-  .magazine-header {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2rem;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
-
-  .magazine-meta {
-    text-align: left;
-    border-left: 3px solid var(--prls-main-surface-secondary);
-    padding-left: 1rem;
-  }
-
-  .magazine-link {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: var(--prls-text-primary);
-    text-decoration: none;
     font-family: var(--font-heading);
-    font-weight: bold;
-    transition: color 0.2s ease;
   }
 
-  .magazine-link:hover {
+  .testimonial-content footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--prls-main-surface-secondary);
+  }
+
+  .testimonial-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .testimonial-meta cite {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--prls-text-primary);
+  }
+
+  .testimonial-meta span {
     color: var(--prls-text-secondary);
+  }
+
+  .company-link img {
+    height: 40px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .company-link:hover img {
+    opacity: 1;
   }
 
 
