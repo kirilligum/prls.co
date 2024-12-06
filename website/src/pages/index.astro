@@ -25,6 +25,9 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
               response="Google's AI mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
             />
           </div>
+          <div class="knowledge-visual-img">
+            <MockAnalytics />
+          </div>
         </div>
         <div class="hero-content">
           <div class="pearl-container">
@@ -113,7 +116,8 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
                 inbound effectiveness, standing out in a competitive market.
               </p>
             </div>
-            <span class="material-icons audience-icon-large">rocket_launch</span>
+            <span class="material-icons audience-icon-large">rocket_launch</span
+            >
           </div>
           <div class="audience-item">
             <div class="audience-text">
@@ -133,7 +137,9 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
                 accurate and effective communication of your brand's value.
               </p>
             </div>
-            <span class="material-icons audience-icon-large">corporate_fare</span>
+            <span class="material-icons audience-icon-large"
+              >corporate_fare</span
+            >
           </div>
         </div>
       </div>
@@ -183,9 +189,9 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
           <article class="testimonial-item">
             <div class="testimonial-content">
               <blockquote>
-                "Since nothing like this existed, we've been building tools to get
-                inside ChatGPT inhouse. Pearls of Wisdom product made sense right
-                away and we started using it."
+                "Since nothing like this existed, we've been building tools to
+                get inside ChatGPT inhouse. Pearls of Wisdom product made sense
+                right away and we started using it."
               </blockquote>
               <footer>
                 <div class="testimonial-meta">
@@ -212,7 +218,10 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
                   <span>Founder & CEO, PowerUP</span>
                 </div>
                 <a href="https://powerup-tech.com/" class="company-link">
-                  <img src="powerup-tech_com/powerup_primary_logo_horizontal_color.svg" alt="PowerUP" />
+                  <img
+                    src="powerup-tech_com/powerup_primary_logo_horizontal_color.svg"
+                    alt="PowerUP"
+                  />
                 </a>
               </footer>
             </div>
@@ -237,7 +246,6 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
             </div>
           </article>
         </div>
-
       </div>
     </div>
 
@@ -253,28 +261,36 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
           <div class="diagonal-item">
             <div class="diagonal-content">
               <h3>No Model Training</h3>
-              <p>Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build AI models.
-                Our expertise lies in providing the high-quality data that fuels these models.</p>
+              <p>
+                Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build
+                AI models. Our expertise lies in providing the high-quality data
+                that fuels these models.
+              </p>
             </div>
           </div>
           <div class="diagonal-item">
             <div class="diagonal-content">
               <h3>Open-Source Data</h3>
-              <p>Unlike Scale.ai and other data-labeling companies, our clients are content creators.
-                The datasets we create are freely available, advancing AI research.</p>
+              <p>
+                Unlike Scale.ai and other data-labeling companies, our clients
+                are content creators. The datasets we create are freely
+                available, advancing AI research.
+              </p>
             </div>
           </div>
           <div class="diagonal-item">
             <div class="diagonal-content">
               <h3>LLM Focus</h3>
-              <p>Unlike HubSpot and Salesforce, we don't just optimize for marketing automation.
-                We enhance the capabilities of LLMs themselves.</p>
+              <p>
+                Unlike HubSpot and Salesforce, we don't just optimize for
+                marketing automation. We enhance the capabilities of LLMs
+                themselves.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </main>
 </Layout>
 
@@ -328,9 +344,73 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     max-width: var(--hero-max-width);
     margin: 0 auto;
+    flex-direction: column;
+  }
+
+  .knowledge-visual-container {
+    padding: 2rem;
+    width: 400px;
+    flex: 0 0 auto;
+    margin-left: 2rem;
+    margin-right: 128px;
+  }
+  .knowledge-visual {
+    /* padding: 2rem; */
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .knowledge-visual-text {
+    flex: 1;
+  }
+
+  .knowledge-visual-img {
+    width: 100%;
+    height: 480px;
+    border: none;
+    display: flex;
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    max-width: 100%;
+    /* flex-direction: row; */
+  }
+
+  .knowledge-visual-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .knowledge-lead {
+    font-size: 1em;
+    margin: 1.5rem 0;
+    color: var(--hf-color);
+  }
+
+  .knowledge-visual-text ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .knowledge-visual-text li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5em;
+  }
+
+  .knowledge-visual-text li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--hf-color);
   }
 
   .hero-content {
@@ -477,67 +557,6 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     justify-content: center;
   }
 
-  .knowledge-visual-container {
-    padding: 2rem;
-    width: 400px;
-    flex: 0 0 auto;
-    margin-left: 2rem;
-  }
-  .knowledge-visual {
-    /* padding: 2rem; */
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    width: 400px;
-    margin: 0 auto;
-  }
-
-  .knowledge-visual-text {
-    flex: 1;
-  }
-
-  .knowledge-visual-img {
-    width: 100%;
-    height: 480px;
-    border: none;
-    display: flex;
-    flex: 1;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    max-width: 100%;
-  }
-
-  .knowledge-visual-image {
-    width: 100%;
-    height: auto;
-  }
-
-  .knowledge-lead {
-    font-size: 1em;
-    margin: 1.5rem 0;
-    color: var(--hf-color);
-  }
-
-  .knowledge-visual-text ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .knowledge-visual-text li {
-    margin-bottom: 1rem;
-    position: relative;
-    padding-left: 1.5em;
-  }
-
-  .knowledge-visual-text li:before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--hf-color);
-  }
-
   @media (max-width: 768px) {
     /* .knowledge-visual { */
     /*   flex-direction: column; */
@@ -681,7 +700,6 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
   .company-link:hover img {
     opacity: 1;
   }
-
 
   /* Common styles for all layouts */
   .customer-logo {
@@ -966,7 +984,6 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     }
   }
 
-
   /* Design 2: Diagonal Split */
   .difference-diagonal .section-intro {
     text-align: right;
@@ -1008,7 +1025,6 @@ import PowerupChatgptPrls from "../images/powerup-chatgpt-prls.png";
     line-height: 1.6;
     font-size: 1.2em;
   }
-
 
   @media (max-width: 768px) {
     .step-item {
