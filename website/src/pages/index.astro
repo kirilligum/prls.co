@@ -11,23 +11,6 @@ import MockAnalytics from "../components/MockAnalytics.astro";
   <main>
     <div class="hero-background">
       <div class="hero-container">
-        <div class="knowledge-visual-container">
-          <div class="knowledge-visual-img">
-            <MockOpenAI
-              query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
-              response="ChatGPT mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
-            />
-          </div>
-          <div class="knowledge-visual-img">
-            <MockGoogle
-              query="Customer asks about their <b>problem</b>"
-              response="Google's AI mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
-            />
-          </div>
-          <div class="knowledge-visual-img">
-            <MockAnalytics />
-          </div>
-        </div>
         <div class="hero-content">
           <div class="pearl-container">
             <span class="pearl-symbol">༜</span>
@@ -42,6 +25,23 @@ import MockAnalytics from "../components/MockAnalytics.astro";
               Semantic knowledge <span>graph AI</span> technology that helps your
               company rank in ChatGPT and <span>Google's AI Overview</span>
             </h3>
+          </div>
+          <div class="knowledge-visual-container">
+            <div class="knowledge-visual-img">
+              <MockOpenAI
+                query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
+                response="ChatGPT mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
+              />
+            </div>
+            <div class="knowledge-visual-img">
+              <MockGoogle
+                query="Customer asks about their <b>problem</b>"
+                response="Google's AI mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
+              />
+            </div>
+            <div class="knowledge-visual-img">
+              <MockAnalytics />
+            </div>
           </div>
           <div class="hero-bullets">
             <ul>
