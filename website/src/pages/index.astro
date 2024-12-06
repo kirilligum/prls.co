@@ -386,14 +386,18 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     display: flex;
     justify-content: flex-start;
     gap: 2rem;
+    /* width: 100%; */
+    /* padding-right: var(--spacing-2xl); */
+    /* padding-left: var(--spacing-lg); */
+    /* padding-top: var(--spacing-xl); */
     overflow-x: auto;
-    /* Standard properties */
-    scrollbar-width: thin;
-    scrollbar-color: var(--prls-main-surface-secondary) transparent;
-    /* Add padding to prevent content from being hidden under the scrollbar */
-    padding-bottom: 1rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
 
+  .knowledge-visual-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
 
   .knowledge-visual-container .knowledge-visual-img:first-child {
     margin-left: auto;
