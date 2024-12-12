@@ -1,0 +1,112 @@
+---
+interface Props {
+  items: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="section">
+  <h1>Traditional SEO and landing pages<br />don't work for AI</h1>
+  <div class="section-content">
+    <ul>
+      {
+        items.map((item) => (
+          <li>
+            <span class="material-icons section-icon">{item.icon}</span>
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  :root {
+    /* Spacing */
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    --spacing-2xl: 8rem;
+
+    /* Sizes */
+    --content-width: 800px;
+
+    /* Typography */
+    --text-3xl: 3em;
+  }
+  main {
+    margin: 0 auto;
+    background-color: var(--prls-main-surface-primary);
+  }
+
+  h1 {
+    color: var(--prls-text-primary);
+    font-family: var(--font-heading);
+    /* text-align: right; */
+  }
+
+  h2 {
+    font-family: var(--font-heading);
+    /* text-align: right; */
+  }
+
+  .section {
+    padding: 4rem 0;
+    h1 {
+      font-size: 2.5rem;
+      /* margin-bottom: 3rem; */
+      /* padding-right: 2rem; */
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      /* margin-bottom: 0.75rem; */
+    }
+
+    p {
+      font-size: var(--text-lg);
+      /* line-height: 1.6; */
+    }
+    max-width: 1280px;
+  }
+
+  .section-content {
+    margin: 3rem 0;
+    /* padding: 2rem; */
+    max-width: 800px;
+    /* margin-left: auto; */
+    ul {
+      /* list-style: none; */
+      /* padding: 0; */
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    li {
+      /* text-align: right; */
+      /* position: relative; */
+      /* padding-right: 3rem; */
+      /* transition: transform 0.2s ease; */
+      display: flex;
+      /* flex-direction: row-reverse; */
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+
+  .section-icon {
+    font-size: 2rem;
+    /* color: var(--prls-text-primary); */
+  }
+
+  .section-content li:hover {
+    transform: translateX(8px);
+  }
+</style>

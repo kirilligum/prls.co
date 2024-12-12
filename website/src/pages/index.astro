@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import MockOpenAI from "../components/Card.astro";
 import MockGoogle from "../components/MockGoogle.astro";
 import MockAnalytics from "../components/MockAnalytics.astro";
+import Section from "../components/Section.astro";
 ---
 
 <Layout title="Pearls of Wisdom -- SEO for LLMs">
@@ -62,13 +63,34 @@ import MockAnalytics from "../components/MockAnalytics.astro";
         </div>
       </div>
     </div>
-
+    <Section
+      items={[
+        {
+          icon: "error_outline",
+          title: "Brand Misrepresentation",
+          description:
+            "ChatGPT and other AI assistants may provide inaccurate or outdated information about your product and services.",
+        },
+        {
+          icon: "psychology",
+          title: "Lost Leads",
+          description:
+            "LLMs can not connect your to the problem through multi-step thinking making you loose long-tail leads.",
+        },
+        {
+          icon: "trending_down",
+          title: "Loud Competitors",
+          description:
+            "Competitors might be mentioned more frequently, even when your solution is more relevant.",
+        },
+      ]}
+    />
     <div class="section">
       <h1>Traditional SEO and landing pages<br />don't work for AI</h1>
       <div class="section-content">
         <ul>
           <li>
-            <span class="material-icons problem-icon">error_outline</span>
+            <span class="material-icons section-icon">error_outline</span>
             <h2>Brand Misrepresentation</h2>
             <p>
               ChatGPT and other AI assistants may provide inaccurate or outdated
@@ -76,7 +98,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
             </p>
           </li>
           <li>
-            <span class="material-icons problem-icon">psychology</span>
+            <span class="material-icons section-icon">psychology</span>
             <h2>Lost Leads</h2>
             <p>
               LLMs can not connect your to the problem through multi-step
@@ -84,7 +106,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
             </p>
           </li>
           <li>
-            <span class="material-icons problem-icon">trending_down</span>
+            <span class="material-icons section-icon">trending_down</span>
             <h2>Loud Competitors</h2>
             <p>
               Competitors might be mentioned more frequently, even when your
@@ -518,7 +540,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
       }
     }
 
-    .problem-icon {
+    .section-icon {
       font-size: 2rem;
       /* color: var(--prls-text-primary); */
     }
