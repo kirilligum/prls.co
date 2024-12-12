@@ -26,7 +26,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <header class="main-header">
+  <header class="main-header" style="background-color: var(--hf-bg-color);">
     <span class="header-pearl text-nowrap"
       ><span class="header-symbol">༜</span>Pearls of Wisdom</span
     >
@@ -74,7 +74,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
   <body>
     <slot />
   </body>
-  <footer>
+  <footer style="background-color: var(--hf-bg-color);">
     <p>
       &copy; 2024 Pearls of Wisdom | <a href="prls_co/1.html">AI Knowledge</a>
     </p>
@@ -136,7 +136,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     body {
       margin: 0;
       padding: 0;
-      background-color: var(--prls-main-surface-primary);
+      background-color: var(--hf-bg-color);
     }
 
     .main-header {
@@ -144,7 +144,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       justify-content: space-between;
       align-items: center;
       padding: 0.25rem 1rem;
-      background-color: var(--hero-gradient-start);
+      background-color: var(--hf-bg-color);
     }
 
     .header-pearl {
