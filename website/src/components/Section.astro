@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   items: {
-    icon: string;
+    iconHtml: string;
     title: string;
     description: string;
   }[];
@@ -18,7 +18,7 @@ const { title, items } = Astro.props;
       {
         items.map((item) => (
           <li>
-            <span class="material-icons section-icon">{item.icon}</span>
+            <Fragment set:html={item.iconHtml} />
             <h2>{item.title}</h2>
             <p>{item.description}</p>
           </li>
