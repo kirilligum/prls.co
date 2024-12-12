@@ -356,6 +356,8 @@ import Section from "../components/Section.astro";
         max-width: 100%;
         scrollbar-width: thin;
         -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        flex-wrap: nowrap;
       }
 
       /* .knowledge-visual-container { */
@@ -377,11 +379,10 @@ import Section from "../components/Section.astro";
         height: 480px;
         min-height: 480px;
         border: none;
-        /* display: flex; */
         background-color: #fff;
         border-radius: 8px;
         overflow: hidden;
-        /* max-width: 100%; */
+        flex: 0 0 auto;
       }
 
       .hero-bullets {
