@@ -12,7 +12,7 @@ const { title, items } = Astro.props;
 ---
 
 <div class="section">
-  <h1>{title}</h1>
+  <h1><Fragment set:html={title} /></h1>
   <div class="section-content">
     <ul>
       {
