@@ -140,16 +140,18 @@ import MockAnalytics from "../components/MockAnalytics.astro";
 
     <div class="content-section">
       <div class="section-content">
-        <h1>Our Solution</h1>
         <div class="solution-benefits">
-          <h2>First</h2>
-          <h2>Often</h2>
-          <h2>Accurate</h2>
+          <h1>Our Solution:</h1>
+        </div>
+        <div class="solution-benefits">
+          Be <h1>First</h1>
+          Show up <h1>Often</h1>
+          Sound <h1>Accurate</h1>
         </div>
         <div class="solution-steps">
           <div class="step">
             <div class="step-number">1</div>
-            <h2>Analysis</h2>
+            <h2>Analyze</h2>
             <p>
               We analyze how AI currently represents your brand and identify
               gaps.
@@ -157,7 +159,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
           </div>
           <div class="step">
             <div class="step-number">2</div>
-            <h2>Creation</h2>
+            <h2>Create</h2>
             <p>
               Create structured knowledge that helps AI understand your
               offerings.
@@ -165,7 +167,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
           </div>
           <div class="step">
             <div class="step-number">3</div>
-            <h2>Integration</h2>
+            <h2>Publish</h2>
             <p>
               Ensure AI models incorporate accurate information about your
               products.
@@ -173,7 +175,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
           </div>
           <div class="step">
             <div class="step-number">4</div>
-            <h2>Monitoring</h2>
+            <h2>Teach</h2>
             <p>Track and optimize how AI represents your brand over time.</p>
           </div>
         </div>
@@ -605,6 +607,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     .solution-benefits {
       display: flex;
       justify-content: flex-end;
+      align-items: center;
       gap: 2rem;
       /* margin: 2rem 0; */
       /* margin-right: 2rem; */
@@ -615,14 +618,14 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     .solution-steps {
       display: grid;
       grid-template-columns: repeat(4, minmax(280px, 1fr));
+      gap: 2rem;
       max-width: 1400px;
       margin-left: auto;
-      padding-right: 2rem;
+      /* padding-right: 2rem; */
     }
 
     .step {
       text-align: center;
-      padding: 2.5rem;
       min-width: 280px;
       justify-self: center;
     }
