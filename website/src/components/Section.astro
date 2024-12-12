@@ -1,5 +1,6 @@
 ---
 interface Props {
+  title: string;
   items: {
     icon: string;
     title: string;
@@ -7,11 +8,11 @@ interface Props {
   }[];
 }
 
-const { items } = Astro.props;
+const { title, items } = Astro.props;
 ---
 
 <div class="section">
-  <h1>Traditional SEO and landing pages<br />don't work for AI</h1>
+  <h1>{title}</h1>
   <div class="section-content">
     <ul>
       {
