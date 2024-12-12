@@ -30,10 +30,34 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     <span class="header-pearl text-nowrap"
       ><span class="header-symbol">༜</span>Pearls of Wisdom</span
     >
-    <span class="header-links"
-      >Home | Pearls' Knowledge | Pearls' Analytics | Blog | About |
-      <b>Contact</b> | App</span
-    >
+    <div class="header-content">
+      <span class="header-links">
+        Home | Pearls' Knowledge | Pearls' Analytics | Blog | About |
+        <b>Contact</b> | App
+      </span>
+      <div class="color-controls">
+        <div class="color-input">
+          <label for="hf-color">Header/Footer (#4d4d4d)</label>
+          <input type="color" id="hf-color" value="#4d4d4d">
+        </div>
+        <div class="color-input">
+          <label for="surface-primary">Surface Primary (#f7f5f2)</label>
+          <input type="color" id="surface-primary" value="#f7f5f2">
+        </div>
+        <div class="color-input">
+          <label for="surface-secondary">Surface Secondary (#e6d9ce)</label>
+          <input type="color" id="surface-secondary" value="#e6d9ce">
+        </div>
+        <div class="color-input">
+          <label for="text-primary">Text Primary (#3d3d3d)</label>
+          <input type="color" id="text-primary" value="#3d3d3d">
+        </div>
+        <div class="color-input">
+          <label for="text-secondary">Text Secondary (#5d5d5d)</label>
+          <input type="color" id="text-secondary" value="#5d5d5d">
+        </div>
+      </div>
+    </div>
   </header>
   <body>
     <slot />
@@ -43,6 +67,29 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       &copy; 2024 Pearls of Wisdom | <a href="prls_co/1.html">AI Knowledge</a>
     </p>
   </footer>
+
+  <script>
+    function updateColor(varName, value) {
+      document.documentElement.style.setProperty(`--${varName}`, value);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const colorInputs = {
+        'hf-color': 'hf-color',
+        'surface-primary': 'prls-main-surface-primary',
+        'surface-secondary': 'prls-main-surface-secondary', 
+        'text-primary': 'prls-text-primary',
+        'text-secondary': 'prls-text-secondary'
+      };
+
+      Object.entries(colorInputs).forEach(([inputId, varName]) => {
+        const input = document.getElementById(inputId);
+        input.addEventListener('input', (e) => {
+          updateColor(varName, e.target.value);
+        });
+      });
+    });
+  </script>
 
   <style is:global>
     :root {
@@ -103,8 +150,42 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       /* margin-bottom: -0.0em; */
     }
 
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
     .header-links {
       text-align: right;
+    }
+
+    .color-controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .color-input {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8em;
+    }
+
+    .color-input label {
+      color: var(--hf-color);
+    }
+
+    .color-input input {
+      width: 40px;
+      height: 24px;
+      padding: 0;
+      border: 1px solid var(--prls-main-surface-secondary);
+      border-radius: 4px;
+      cursor: pointer;
     }
 
     footer {
