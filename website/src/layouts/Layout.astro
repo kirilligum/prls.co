@@ -56,6 +56,18 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
           <label for="text-secondary">Text Secondary (#5d5d5d)</label>
           <input type="color" id="text-secondary" value="#5d5d5d">
         </div>
+        <div class="color-input">
+          <label for="text-tertiary">Text Tertiary (#b4b4b4)</label>
+          <input type="color" id="text-tertiary" value="#b4b4b4">
+        </div>
+        <div class="color-input">
+          <label for="hf-bg">Header/Footer BG (#ebf5f7)</label>
+          <input type="color" id="hf-bg" value="#ebf5f7">
+        </div>
+        <div class="color-input">
+          <label for="hero-gradient">Hero Gradient (#f2e6de)</label>
+          <input type="color" id="hero-gradient" value="#f2e6de">
+        </div>
       </div>
     </div>
   </header>
@@ -76,10 +88,13 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     document.addEventListener('DOMContentLoaded', () => {
       const colorInputs = {
         'hf-color': 'hf-color',
+        'hf-bg': 'hf-bg-color',
         'surface-primary': 'prls-main-surface-primary',
         'surface-secondary': 'prls-main-surface-secondary', 
         'text-primary': 'prls-text-primary',
-        'text-secondary': 'prls-text-secondary'
+        'text-secondary': 'prls-text-secondary',
+        'text-tertiary': 'prls-text-tertiary',
+        'hero-gradient': 'hero-gradient-start'
       };
 
       Object.entries(colorInputs).forEach(([inputId, varName]) => {
