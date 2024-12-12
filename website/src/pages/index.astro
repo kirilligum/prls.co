@@ -297,14 +297,9 @@ import Section from "../components/Section.astro";
       .hero-container {
         color: var(--hf-color);
         padding: 0rem 2rem;
-        /* width: 100%; */
-        /* display: flex; */
-        /* flex-wrap: wrap; */
-        /* justify-content: center; */
-        /* align-items: flex-end; */
         max-width: 1440px;
-        /* margin: 0 auto; */
-        /* flex-direction: column; */
+        width: 100%;
+        box-sizing: border-box;
         h1,
         h2 {
           /* margin: 0.5rem 0; */
@@ -358,6 +353,9 @@ import Section from "../components/Section.astro";
         -webkit-overflow-scrolling: touch;
         white-space: nowrap;
         flex-wrap: nowrap;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       /* .knowledge-visual-container { */
