@@ -627,18 +627,19 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     }
 
     .solution-steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1400px;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      max-width: 800px;
       margin-left: auto;
-      /* padding-right: 2rem; */
+      padding-right: 2rem;
     }
 
     .step {
-      text-align: center;
-      min-width: 280px;
-      justify-self: center;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      text-align: right;
     }
 
     .step-number {
@@ -649,14 +650,16 @@ import MockAnalytics from "../components/MockAnalytics.astro";
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1rem auto;
+      flex-shrink: 0;
       font-family: var(--font-heading);
       font-weight: bold;
       font-size: 2em;
+      order: 2;
     }
 
     .step h2 {
-      text-align: center;
+      text-align: right;
+      margin-top: 0;
     }
 
     .testimonials-flow {
