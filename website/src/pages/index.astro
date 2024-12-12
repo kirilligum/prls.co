@@ -640,6 +640,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
       align-items: center;
       gap: 2rem;
       text-align: right;
+      justify-content: flex-end;
     }
 
     .step-number {
@@ -654,7 +655,6 @@ import MockAnalytics from "../components/MockAnalytics.astro";
       font-family: var(--font-heading);
       font-weight: bold;
       font-size: 2em;
-      order: 2;
     }
 
     .step h2 {
@@ -885,13 +885,15 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     }
 
     @media (max-width: 768px) {
-      .step-item {
+      .step {
         flex-direction: column;
         text-align: center;
+        align-items: center;
       }
 
       .step-number {
         margin: 0 auto 1rem;
+        order: 1;
       }
 
       .diagonal-content,
