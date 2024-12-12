@@ -117,60 +117,36 @@ import Section from "../components/Section.astro";
       ]}
     />
 
-    <div class="section">
-      <div class="solution-benefits">
-        <h1>Our Solution:</h1>
-      </div>
-      <div class="solution-steps">
-        <div class="step">
-          <div class="step-content">
-            <h2>Analyze</h2>
-            <p>
-              Our AI performs deep analysis of how language models currently
-              understand and represent your brand.
-            </p>
-          </div>
-          <div class="step-number">1</div>
-        </div>
-        <div class="step">
-          <div class="step-content">
-            <h2>Create</h2>
-            <p>
-              We develop structured knowledge graphs that capture your product's
-              unique value proposition.
-            </p>
-          </div>
-          <div class="step-number">2</div>
-        </div>
-        <div class="step">
-          <div class="step-content">
-            <h2>Publish</h2>
-            <p>
-              Your knowledge is published in format that is 100x more effective
-              for training AI model.
-            </p>
-          </div>
-          <div class="step-number">3</div>
-        </div>
-        <div class="step">
-          <div class="step-content">
-            <h2>Teach</h2>
-            <p>
-              LLM trainers use your knowledge for training and LLM users use it
-              in RAG.
-            </p>
-          </div>
-          <div class="step-number">4</div>
-        </div>
-        <div class="step">
-          <div class="step-content">
-            <h2>Access</h2>
-            <p>LLM interface companies access your knowledge as RAG.</p>
-          </div>
-          <div class="step-number">5</div>
-        </div>
-      </div>
-    </div>
+    <Section
+      title="Our Solution:"
+      items={[
+        {
+          iconHtml: '<div class="step-number">1</div>',
+          title: "Analyze",
+          description: "Our AI performs deep analysis of how language models currently understand and represent your brand."
+        },
+        {
+          iconHtml: '<div class="step-number">2</div>',
+          title: "Create",
+          description: "We develop structured knowledge graphs that capture your product's unique value proposition."
+        },
+        {
+          iconHtml: '<div class="step-number">3</div>',
+          title: "Publish",
+          description: "Your knowledge is published in format that is 100x more effective for training AI model."
+        },
+        {
+          iconHtml: '<div class="step-number">4</div>',
+          title: "Teach",
+          description: "LLM trainers use your knowledge for training and LLM users use it in RAG."
+        },
+        {
+          iconHtml: '<div class="step-number">5</div>',
+          title: "Access",
+          description: "LLM interface companies access your knowledge as RAG."
+        }
+      ]}
+    />
     <div class="section">
       <h1>Trusted by Our Customers</h1>
 
@@ -534,41 +510,6 @@ import Section from "../components/Section.astro";
         font-size: 5rem;
       }
 
-      .solution-benefits {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 2rem;
-        /* margin: 2rem 0; */
-        /* margin-right: 2rem; */
-        /* max-width: 1400px; */
-        /* margin-left: auto; */
-      }
-
-      .solution-steps {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        max-width: 800px;
-        margin-left: auto;
-        padding-right: 2rem;
-      }
-
-      .step {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        text-align: right;
-        justify-content: flex-end;
-      }
-
-      .step-content {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        max-width: 360px;
-      }
-
       .step-number {
         width: 80px;
         height: 80px;
@@ -581,11 +522,6 @@ import Section from "../components/Section.astro";
         font-family: var(--font-heading);
         font-weight: bold;
         font-size: 2em;
-      }
-
-      .step h2 {
-        text-align: right;
-        margin-top: 0;
       }
 
       .testimonials-flow {
