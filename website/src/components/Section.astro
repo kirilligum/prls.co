@@ -1,6 +1,7 @@
 ---
 interface Props {
   title: string;
+  subtitle?: string;
   items: {
     iconHtml: string;
     title: string;
@@ -8,11 +9,12 @@ interface Props {
   }[];
 }
 
-const { title, items } = Astro.props;
+const { title, subtitle, items } = Astro.props;
 ---
 
 <div class="section">
   <h1><Fragment set:html={title} /></h1>
+  {subtitle && <p class="section-intro">{subtitle}</p>}
   <div class="section-content">
     <ul>
       {

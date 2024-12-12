@@ -217,46 +217,27 @@ import Section from "../components/Section.astro";
       </div>
     </div>
 
-    <!-- Design 2: Diagonal Split -->
-    <div class="section difference-diagonal">
-      <h1>How Are We Different?</h1>
-      <p class="section-intro">
-        AI is changing how your customers discover you. Our mission is to help
-        you stay on the cutting edge of this change.
-      </p>
-      <div class="diagonal-container">
-        <div class="diagonal-item">
-          <div class="diagonal-content">
-            <h2>No Model Training</h2>
-            <p>
-              Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build AI
-              models. Our expertise lies in providing the high-quality data that
-              fuels these models.
-            </p>
-          </div>
-        </div>
-        <div class="diagonal-item">
-          <div class="diagonal-content">
-            <h2>Open-Source Data</h2>
-            <p>
-              Unlike Scale.ai and other data-labeling companies, our clients are
-              content creators. The datasets we create are freely available,
-              advancing AI research.
-            </p>
-          </div>
-        </div>
-        <div class="diagonal-item">
-          <div class="diagonal-content">
-            <h2>LLM Focus</h2>
-            <p>
-              Unlike HubSpot and Salesforce, we don't just optimize for
-              marketing automation. We enhance the capabilities of LLMs
-              themselves.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Section
+      title="How Are We Different?"
+      subtitle="AI is changing how your customers discover you. Our mission is to help you stay on the cutting edge of this change."
+      items={[
+        {
+          iconHtml: '<span class="material-icons section-icon">model_training</span>',
+          title: "No Model Training",
+          description: "Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build AI models. Our expertise lies in providing the high-quality data that fuels these models.",
+        },
+        {
+          iconHtml: '<span class="material-icons section-icon">data_object</span>',
+          title: "Open-Source Data",
+          description: "Unlike Scale.ai and other data-labeling companies, our clients are content creators. The datasets we create are freely available, advancing AI research.",
+        },
+        {
+          iconHtml: '<span class="material-icons section-icon">psychology_alt</span>',
+          title: "LLM Focus",
+          description: "Unlike HubSpot and Salesforce, we don't just optimize for marketing automation. We enhance the capabilities of LLMs themselves.",
+        },
+      ]}
+    />
 
     <style>
       :root {
@@ -685,47 +666,6 @@ import Section from "../components/Section.astro";
       /* Alternating Layout */
 
       /* Design 2: Diagonal Split */
-      .difference-diagonal .section-intro {
-        text-align: right;
-        max-width: 800px;
-        margin-left: auto;
-        margin-bottom: 3rem;
-        padding-right: 2rem;
-        font-size: 1.2em;
-        color: var(--prls-text-secondary);
-      }
-
-      .diagonal-container {
-        max-width: 1000px;
-        margin-left: auto;
-        padding: 2rem;
-      }
-
-      .diagonal-item {
-        position: relative;
-        margin-bottom: 4rem;
-        padding: 3rem;
-        background: var(--prls-main-surface-primary);
-      }
-
-      .diagonal-content {
-        max-width: 600px;
-        margin-left: auto;
-        text-align: right;
-      }
-
-      .diagonal-content h2 {
-        font-family: var(--font-heading);
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-        color: var(--prls-text-primary);
-      }
-
-      .diagonal-content p {
-        color: var(--prls-text-secondary);
-        line-height: 1.6;
-        font-size: 1.2em;
-      }
     </style>
   </main>
 </Layout>
