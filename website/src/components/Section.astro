@@ -31,27 +31,10 @@ const { title, subtitle, items } = Astro.props;
 </div>
 
 <style>
-  :root {
-    /* Spacing */
-    --spacing-lg: 2rem;
-    --spacing-xl: 4rem;
-    --spacing-2xl: 8rem;
-
-    /* Sizes */
-    --content-width: 800px;
-
-    /* Typography */
-    --text-3xl: 3em;
-  }
-  main {
-    margin: 0 auto;
-    background-color: var(--prls-main-surface-primary);
-  }
-
   h1 {
     color: var(--prls-text-primary);
     font-family: var(--font-heading);
-    /* text-align: right; */
+    text-align: center;
   }
 
   h2 {
@@ -60,7 +43,11 @@ const { title, subtitle, items } = Astro.props;
   }
 
   .section {
-    padding: 4rem 2rem;
+    padding: 12rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     h1 {
       font-size: 2.5rem;
       /* margin-bottom: 3rem; */
@@ -84,6 +71,7 @@ const { title, subtitle, items } = Astro.props;
     /* padding: 2rem; */
     max-width: 800px;
     /* margin-left: auto; */
+    padding-top: 2rem;
     ul {
       /* list-style: none; */
       /* padding: 0; */
@@ -101,6 +89,7 @@ const { title, subtitle, items } = Astro.props;
       /* flex-direction: row-reverse; */
       align-items: center;
       gap: 3rem;
+      padding: 2rem 0;
     }
   }
 
@@ -121,9 +110,5 @@ const { title, subtitle, items } = Astro.props;
     font-family: var(--font-heading);
     font-weight: bold;
     font-size: 2em;
-  }
-
-  .section-content li:hover {
-    transform: translateX(8px);
   }
 </style>
