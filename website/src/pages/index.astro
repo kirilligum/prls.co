@@ -153,41 +153,51 @@ import MockAnalytics from "../components/MockAnalytics.astro";
         </div>
         <div class="solution-steps">
           <div class="step">
+            <div class="step-content">
+              <h2>Analyze</h2>
+              <p>
+                Our AI performs deep analysis of how language models currently
+                understand and represent your brand.
+              </p>
+            </div>
             <div class="step-number">1</div>
-            <h2>Analyze</h2>
-            <p>
-              Our AI performs deep analysis of how language models currently
-              understand and represent your brand.
-            </p>
           </div>
           <div class="step">
+            <div class="step-content">
+              <h2>Create</h2>
+              <p>
+                We develop structured knowledge graphs that capture your product's
+                unique value proposition.
+              </p>
+            </div>
             <div class="step-number">2</div>
-            <h2>Create</h2>
-            <p>
-              We develop structured knowledge graphs that capture your product's
-              unique value proposition.
-            </p>
           </div>
           <div class="step">
+            <div class="step-content">
+              <h2>Publish</h2>
+              <p>
+                Your knowledge is published in format that is 100x more effective
+                for training AI model.
+              </p>
+            </div>
             <div class="step-number">3</div>
-            <h2>Publish</h2>
-            <p>
-              Your knowledge is published in format that is 100x more effective
-              for training AI model.
-            </p>
           </div>
           <div class="step">
+            <div class="step-content">
+              <h2>Teach</h2>
+              <p>
+                LLM trainers use your knowledge for training and LLM users use it
+                in RAG.
+              </p>
+            </div>
             <div class="step-number">4</div>
-            <h2>Teach</h2>
-            <p>
-              LLM trainers use your knowledge for training and LLM users use it
-              in RAG.
-            </p>
           </div>
           <div class="step">
+            <div class="step-content">
+              <h2>Access</h2>
+              <p>LLM interface companies access your knowledge as RAG.</p>
+            </div>
             <div class="step-number">5</div>
-            <h2>Access</h2>
-            <p>LLM interface companies access your knowledge as RAG.</p>
           </div>
         </div>
       </div>
@@ -643,6 +653,12 @@ import MockAnalytics from "../components/MockAnalytics.astro";
       justify-content: flex-end;
     }
 
+    .step-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
     .step-number {
       width: 80px;
       height: 80px;
@@ -889,6 +905,10 @@ import MockAnalytics from "../components/MockAnalytics.astro";
         flex-direction: column;
         text-align: center;
         align-items: center;
+      }
+
+      .step-content {
+        order: 2;
       }
 
       .step-number {
