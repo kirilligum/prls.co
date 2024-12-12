@@ -32,12 +32,12 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     >
     <div class="header-content">
       <span class="header-links">
-        Home | Pearls' Knowledge | Pearls' Analytics | Blog | About |
+        <a href="#" id="home-link">Home</a> | Pearls' Knowledge | Pearls' Analytics | Blog | About |
         <b>Contact</b> | App
       </span>
     </div>
   </header>
-      <div class="color-controls" style="background-color: var(--hero-gradient-start);">
+      <div id="color-controls" class="color-controls" style="background-color: var(--hero-gradient-start); display: none;">
         <div class="color-input">
           <label for="hf-color">Header/Footer (#4d4d4d)</label>
           <input type="color" id="hf-color" value="#4d4d4d" />
@@ -86,6 +86,14 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     }
 
     document.addEventListener("DOMContentLoaded", () => {
+      const homeLink = document.getElementById("home-link");
+      const colorControls = document.getElementById("color-controls");
+      
+      homeLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        colorControls.style.display = colorControls.style.display === "none" ? "flex" : "none";
+      });
+
       const colorInputs = {
         "hf-color": "hf-color",
         "hf-bg": "hf-bg-color",
