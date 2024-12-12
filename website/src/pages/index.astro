@@ -124,7 +124,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
           </div>
           <div class="audience-item">
             <div class="audience-text">
-              <h2>Large Corporations</h2>
+              <h2>Enterprise</h2>
               <p>
                 Optimize extensive digital content for AI platforms, ensuring
                 accurate and effective communication of your brand's value.
@@ -315,6 +315,7 @@ import MockAnalytics from "../components/MockAnalytics.astro";
   }
 
   h2 {
+    font-family: var(--font-heading);
     text-align: right;
   }
 
@@ -389,8 +390,9 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     overflow-x: auto;
     /* Standard scrollbar properties */
     scrollbar-width: none;
-    scrollbar-color: var(--prls-main-surface-secondary) transparent;
-    padding-bottom: 0.5rem;
+    /* scrollbar-color: var(--prls-main-surface-secondary) transparent; */
+    /* padding-bottom: 0.5rem; */
+    margin-bottom: 2rem;
   }
 
   /* .knowledge-visual-container { */
@@ -412,32 +414,32 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     height: 480px;
     min-height: 480px;
     border: none;
-    display: flex;
+    /* display: flex; */
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 2rem;
-    max-width: 100%;
+    /* max-width: 100%; */
   }
 
   .hero-bullets {
-    width: 100%;
+    /* width: 100%; */
     text-align: right;
     ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      width: 100%;
+      /* list-style: none; */
+      /* padding: 0; */
+      /* margin: 0; */
+      /* width: 100%; */
     }
 
     li {
       /* text-align: right; */
-      position: relative;
+      /* position: relative; */
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: 0.3em;
       font-size: 1.2em;
+      margin-bottom: 0.5rem;
     }
 
     li::after {
@@ -448,15 +450,6 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     }
   }
 
-  .intro-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    margin: 2rem 0;
-    padding: 0 2rem;
-  }
-
   .contact-button {
     padding-top: 2em;
     padding-bottom: 2em;
@@ -465,30 +458,6 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-  }
-
-  .intro-text {
-    padding: 2rem;
-    text-align: left;
-  }
-
-  @media (max-width: 1024px) {
-    .hero-container {
-      flex-direction: column;
-    }
-
-    .knowledge-visual-container {
-      align-self: flex-start;
-    }
-
-    .hero-content {
-      align-self: flex-end;
-      padding: 2rem;
-    }
-  }
-
-  li {
-    margin-bottom: 0.5rem;
   }
 
   button {
@@ -507,6 +476,21 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     justify-content: center;
   }
 
+  @media (max-width: 1024px) {
+    .hero-container {
+      flex-direction: column;
+    }
+
+    .knowledge-visual-container {
+      align-self: flex-start;
+    }
+
+    .hero-content {
+      align-self: flex-end;
+      padding: 2rem;
+    }
+  }
+
   @media (max-width: 768px) {
     /* .knowledge-visual { */
     /*   flex-direction: column; */
@@ -514,66 +498,105 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     /* } */
   }
 
-  .use-cases {
-    position: relative;
-    padding: 2rem;
-    text-align: center;
-    overflow: hidden;
+  .content-section {
+    padding: 4rem 0;
+    h1 {
+      font-size: 2.5rem;
+      /* margin-bottom: 3rem; */
+      /* padding-right: 2rem; */
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      /* margin-bottom: 0.75rem; */
+    }
+
+    p {
+      font-size: var(--text-lg);
+      /* line-height: 1.6; */
+    }
   }
 
-  .use-case-container {
-    display: flex;
-    gap: 40px;
-    width: 100%;
-    margin: 0 auto;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    /* padding: 20px; */
-    /* padding-left: calc(30vw - 20px); */
-    scroll-padding-right: 50%;
+  .section-content {
+    max-width: 1280px;
+    /* margin: 0 auto; */
+    /* padding-left: 15%; */
   }
 
-  .use-case {
-    flex: 0 0 auto;
-    /* width: calc(50% - 20px); */
-    /* width: calc(1024px - 1em); */
+  .traditional-seo-problems {
+    margin: 3rem 0;
+    /* padding: 2rem; */
+    max-width: 800px;
+    margin-left: auto;
   }
 
-  .use-case-before,
-  .use-case-after {
-    flex: 0 0 auto;
-    min-width: 300px;
+  .traditional-seo-problems ul {
+    /* list-style: none; */
+    /* padding: 0; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    scroll-snap-align: start;
+    gap: 2.5rem;
   }
 
-  .use-case-text {
-    margin-bottom: 1rem;
-    text-align: left;
+  .traditional-seo-problems li {
+    text-align: right;
+    /* position: relative; */
+    /* padding-right: 3rem; */
+    /* transition: transform 0.2s ease; */
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .use-case-text h2 {
-    /* h4 { */
-    /* font-size: 2.0em; */
-    /* font-weight: 200; */
-    margin-bottom: 0.5rem;
-    margin-top: 0rem;
+  .problem-icon {
+    font-size: 2rem;
+    /* color: var(--prls-text-primary); */
   }
 
-  .use-case-img {
-    margin-top: auto;
+  /* .traditional-seo-problems li:hover { */
+  /*   transform: translateX(-8px); */
+  /* } */
+
+  /* .traditional-seo-problems li::after { */
+  /*   display: none; */
+  /* } */
+
+  .audience-right-aligned {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+    margin: 3rem 0;
+    /* padding: 2rem; */
+    max-width: 800px;
+    margin-left: auto;
+    text-align: right;
   }
 
-  .use-case-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .audience-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
-  /* Flowing Testimonials Style */
+  .audience-icon-large {
+    font-size: 5rem;
+  }
+
+  @media (max-width: 768px) {
+    .audience-row,
+    .audience-row.reverse {
+      flex-direction: column;
+      text-align: center;
+      padding-right: 0;
+    }
+
+    .audience-item {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+  }
   .testimonials-flow {
     max-width: 1200px;
     margin: 0 auto;
@@ -693,76 +716,6 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     height: auto;
   }
 
-  .content-section {
-    padding: 4rem 2rem;
-  }
-
-  .section-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 15%;
-  }
-
-  .section-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    padding-right: 2rem;
-  }
-
-  .traditional-seo-problems {
-    margin: 3rem 0;
-    padding: 2rem;
-    max-width: 800px;
-    margin-left: auto;
-  }
-
-  .traditional-seo-problems ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  .traditional-seo-problems li {
-    text-align: right;
-    position: relative;
-    padding-right: 3rem;
-    transition: transform 0.2s ease;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .problem-icon {
-    font-size: 2rem;
-    color: var(--prls-text-primary);
-  }
-
-  .traditional-seo-problems li:hover {
-    transform: translateX(-8px);
-  }
-
-  .traditional-seo-problems li::after {
-    display: none;
-  }
-
-  .traditional-seo-problems {
-    h2 {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: var(--prls-text-primary);
-    }
-
-    p {
-      color: var(--prls-text-secondary);
-      line-height: var(--line-height-body);
-      font-size: var(--text-lg);
-    }
-  }
-
   .solution-steps {
     display: grid;
     grid-template-columns: repeat(4, minmax(280px, 1fr));
@@ -864,74 +817,6 @@ import MockAnalytics from "../components/MockAnalytics.astro";
   }
 
   /* Alternating Layout */
-  .audience-right-aligned {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 2rem;
-    padding-right: 2rem;
-  }
-
-  .audience-staggered {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding-right: 2rem;
-  }
-
-  .audience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding-right: 2rem;
-  }
-
-  .audience-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .audience-item .audience-text {
-    text-align: right;
-  }
-
-  .audience-icon-large {
-    font-size: 5rem;
-    color: var(--prls-text-primary);
-    flex-shrink: 0;
-  }
-
-  .audience-text {
-    flex: 1;
-  }
-
-  .audience-text h2 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--prls-text-primary);
-  }
-
-  .audience-text p {
-    color: var(--prls-text-secondary);
-    line-height: 1.6;
-    font-size: 1.2em;
-  }
-
-  @media (max-width: 768px) {
-    .audience-row,
-    .audience-row.reverse {
-      flex-direction: column;
-      text-align: center;
-      padding-right: 0;
-    }
-
-    .audience-item {
-      flex-direction: column-reverse;
-      text-align: center;
-    }
-  }
 
   /* Design 2: Diagonal Split */
   .difference-diagonal .section-intro {
