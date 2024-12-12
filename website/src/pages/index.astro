@@ -141,6 +141,11 @@ import MockAnalytics from "../components/MockAnalytics.astro";
     <div class="content-section">
       <div class="section-content">
         <h1>Our Solution</h1>
+        <div class="solution-benefits">
+          <span class="benefit-word">First</span>
+          <span class="benefit-word">Often</span>
+          <span class="benefit-word">Accurate</span>
+        </div>
         <div class="solution-steps">
           <div class="step">
             <div class="step-number">1</div>
@@ -714,6 +719,23 @@ import MockAnalytics from "../components/MockAnalytics.astro";
   .responsive-image {
     max-width: 100%;
     height: auto;
+  }
+
+  .solution-benefits {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin: 2rem 0;
+    margin-right: 2rem;
+    max-width: 1400px;
+    margin-left: auto;
+  }
+
+  .benefit-word {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--prls-text-primary);
+    font-style: italic;
   }
 
   .solution-steps {
