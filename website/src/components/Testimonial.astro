@@ -8,7 +8,7 @@ interface Props {
     company: string;
     logoSrc: string;
     logoAlt: string;
-    links: number[];
+    links: string[];
     companyUrl: string;
   }[];
 }
@@ -34,11 +34,9 @@ const { title, testimonials } = Astro.props;
                     </span>
                   </div>
                   <div class="customer-links">
-                    {testimonial.links.map((i) => (
-                      <a
-                        href={`https://www.prls.co/${testimonial.company.toLowerCase().replace(/\s+/g, "-")}/${i}`}
-                      >
-                        {i}
+                    {testimonial.links.map((url) => (
+                      <a href={url}>
+                        {url.split('/').pop()}
                       </a>
                     ))}
                   </div>
