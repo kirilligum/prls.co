@@ -98,7 +98,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
   </footer>
 
   <script>
-    function updateColor(varName, value) {
+    function updateColor(varName: string, value: string) {
       document.documentElement.style.setProperty(`--${varName}`, value);
     }
 
@@ -120,7 +120,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     function getColorsFromURL() {
       const params = new URLSearchParams(window.location.search);
       const colors = {};
-      params.forEach((value, key) => {
+      params.forEach((value: string, key: string) => {
         colors[key] = `#${value}`;
       });
       return colors;
@@ -171,7 +171,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
           try {
             const match = line.match(/\s*--([^:]+):\s*(#[0-9a-fA-F]{6});/);
             if (match) {
-              const [_, varName, value] = match;
+              const [_, varName, value]: [string, string, string] = match;
               // Validate hex color
               if (!/^#[0-9a-fA-F]{6}$/.test(value)) {
                 return;
