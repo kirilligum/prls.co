@@ -6,6 +6,7 @@ import MockOpenAI from "../components/Card.astro";
 import MockGoogle from "../components/MockGoogle.astro";
 import MockAnalytics from "../components/MockAnalytics.astro";
 import Section from "../components/Section.astro";
+import Testimonial from "../components/Testimonial.astro";
 ---
 
 <Layout title="Pearls of Wisdom -- SEO for LLMs">
@@ -151,96 +152,41 @@ import Section from "../components/Section.astro";
         },
       ]}
     />
-    <div class="testimonials-wrapper">
-      <div class="section">
-        <h1>Trusted by Our Customers</h1>
-        <div class="testimonials-container">
-        <article class="testimonial-card">
-          <div class="testimonial-content">
-            <blockquote>
-              "Since nothing like this existed, we've been building tools to get
-              inside ChatGPT inhouse. Pearls of Wisdom product made sense right
-              away and we started using it."
-            </blockquote>
-            <footer>
-              <div class="testimonial-meta">
-                <cite>Johan Mathe</cite>
-                <span>CTO, Atmo.ai</span>
-              </div>
-              <a href="https://www.atmo.ai/" class="company-link">
-                <img src="atmo_ai/logo-atmo.webp" alt="Atmo.ai" />
-              </a>
-              <div class="customer-links">
-                {
-                  Array.from({ length: 10 }, (_, i) => (
-                    <a href={`https://www.prls.co/atmo_ai/${i + 1}`}>{i + 1}</a>
-                  ))
-                }
-              </div>
-            </footer>
-          </div>
-        </article>
-
-        <article class="testimonial-card">
-          <div class="testimonial-content">
-            <blockquote>
-              "We are disrupting a big traditional industry of mobile power.
-              Pearls is the way for us to break through the vast amount of
-              accumulated outdated content."
-            </blockquote>
-            <footer>
-              <div class="testimonial-meta">
-                <cite>Ivar Kruusenberg</cite>
-                <span>Founder & CEO, PowerUP</span>
-              </div>
-              <a href="https://powerup-tech.com/" class="company-link">
-                <img
-                  src="powerup-tech_com/powerup_primary_logo_horizontal_color.svg"
-                  alt="PowerUP"
-                />
-              </a>
-              <div class="customer-links">
-                {
-                  Array.from({ length: 10 }, (_, i) => (
-                    <a href={`https://www.prls.co/powerup-tech_com/${i + 1}`}>
-                      {i + 1}
-                    </a>
-                  ))
-                }
-              </div>
-            </footer>
-          </div>
-        </article>
-
-        <article class="testimonial-card">
-          <div class="testimonial-content">
-            <blockquote>
-              "As a data analytics platform, we understand the importance of
-              accurate AI representation. Pearls helps ensure our advanced
-              capabilities are properly conveyed to potential clients."
-            </blockquote>
-            <footer>
-              <div class="testimonial-meta">
-                <cite>Pavel Danilov</cite>
-                <span>Founder, Bennudata</span>
-              </div>
-              <a href="https://bennudata.com/" class="company-link">
-                <img src="bennudata_com/logo-bennudata.svg" alt="Bennudata" />
-              </a>
-              <div class="customer-links">
-                {
-                  Array.from({ length: 10 }, (_, i) => (
-                    <a href={`https://www.prls.co/bennudata_com/${i + 1}`}>
-                      {i + 1}
-                    </a>
-                  ))
-                }
-              </div>
-            </footer>
-          </div>
-        </article>
-      </div>
-    </div>
+    <Testimonial
+      title="Trusted by Our Customers"
+      testimonials={[
+        {
+          quote: "Since nothing like this existed, we've been building tools to get inside ChatGPT inhouse. Pearls of Wisdom product made sense right away and we started using it.",
+          author: "Johan Mathe",
+          title: "CTO",
+          company: "Atmo.ai",
+          logoSrc: "atmo_ai/logo-atmo.webp",
+          logoAlt: "Atmo.ai",
+          links: Array.from({ length: 10 }, (_, i) => i + 1),
+          companyUrl: "https://www.atmo.ai/"
+        },
+        {
+          quote: "We are disrupting a big traditional industry of mobile power. Pearls is the way for us to break through the vast amount of accumulated outdated content.",
+          author: "Ivar Kruusenberg",
+          title: "Founder & CEO",
+          company: "PowerUP",
+          logoSrc: "powerup-tech_com/powerup_primary_logo_horizontal_color.svg",
+          logoAlt: "PowerUP",
+          links: Array.from({ length: 10 }, (_, i) => i + 1),
+          companyUrl: "https://powerup-tech.com/"
+        },
+        {
+          quote: "As a data analytics platform, we understand the importance of accurate AI representation. Pearls helps ensure our advanced capabilities are properly conveyed to potential clients.",
+          author: "Pavel Danilov",
+          title: "Founder",
+          company: "Bennudata",
+          logoSrc: "bennudata_com/logo-bennudata.svg",
+          logoAlt: "Bennudata",
+          links: Array.from({ length: 10 }, (_, i) => i + 1),
+          companyUrl: "https://bennudata.com/"
+        }
+      ]}
+    />
     <Section
       title="How Are We Different?"
       subtitle="AI is changing how your customers discover you. Our mission is to help you stay on the cutting edge of this change."
@@ -468,136 +414,6 @@ import Section from "../components/Section.astro";
         }
       }
 
-      .testimonials-wrapper {
-        width: 100%;
-        max-width: 1440px;
-        box-sizing: border-box;
-        padding: 0 2rem;
-      }
-
-      .testimonials-container {
-        display: flex;
-        gap: 2rem;
-        margin-bottom: 2rem;
-        padding: 6rem 0;
-        overflow-x: auto;
-        width: 100%;
-        max-width: 100%;
-        scrollbar-width: none;
-      }
-
-      .testimonial-card {
-        width: 480px;
-        min-width: 480px;
-        /* height: 480px; */
-        /* min-height: 480px; */
-        padding: 2rem;
-        border: none;
-        overflow: hidden;
-        flex: 0 0 auto;
-      }
-
-      .testimonial-content {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .testimonial-content blockquote {
-        flex: 1;
-        font-family: var(--font-heading);
-        font-size: 1.2em;
-        line-height: 1.6;
-        color: var(--prls-text-primary);
-        margin: 0;
-        font-style: italic;
-        position: relative;
-        padding-left: 2rem;
-      }
-
-      .testimonial-content blockquote::before {
-        content: '"';
-        position: absolute;
-        left: 0;
-        top: -0.5rem;
-        font-size: 4em;
-        color: var(--prls-main-surface-secondary);
-        font-family: var(--font-heading);
-      }
-
-      .testimonial-content footer {
-        margin-top: 2rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--prls-main-surface-secondary);
-        padding-bottom: 0;
-      }
-
-      .testimonial-meta {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .testimonial-meta cite {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 1.2em;
-        color: var(--prls-text-primary);
-      }
-
-      .testimonial-meta span {
-        color: var(--prls-text-secondary);
-      }
-
-      .customer-links {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-      }
-      .customer-links a {
-        color: var(--prls-text-secondary);
-        text-decoration: none;
-        font-size: 0.8em;
-      }
-      .customer-links a:hover {
-        color: var(--prls-text-primary);
-      }
-
-      .company-link img {
-        height: 40px;
-        width: auto;
-        opacity: 0.8;
-        transition: opacity 0.2s ease;
-      }
-
-      .company-link:hover img {
-        opacity: 1;
-      }
-
-      /* Common styles for all layouts */
-      .customer-logo {
-        max-height: 40px;
-        width: auto;
-      }
-
-      .testimonial-quote {
-        font-family: var(--font-heading);
-        font-size: 1.2em;
-        line-height: 1.6;
-        color: var(--prls-text-primary);
-        margin: 1.5rem 0;
-        font-style: italic;
-      }
-
-      .testimonial-author {
-        font-weight: bold;
-        color: var(--prls-text-primary);
-      }
-
-      .testimonial-title {
-        color: var(--prls-text-secondary);
-        font-size: 0.9em;
-      }
     </style>
   </main>
 </Layout>

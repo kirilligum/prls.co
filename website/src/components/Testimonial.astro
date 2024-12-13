@@ -1,0 +1,158 @@
+---
+interface Props {
+  title: string;
+  testimonials: {
+    quote: string;
+    author: string;
+    title: string;
+    company: string;
+    logoSrc: string;
+    logoAlt: string;
+    links: number[];
+    companyUrl: string;
+  }[];
+}
+
+const { title, testimonials } = Astro.props;
+---
+
+<div class="testimonials-wrapper">
+  <div class="section">
+    <h1>{title}</h1>
+    <div class="testimonials-container">
+      {testimonials.map((testimonial) => (
+        <article class="testimonial-card">
+          <div class="testimonial-content">
+            <blockquote>
+              {testimonial.quote}
+            </blockquote>
+            <footer>
+              <div class="testimonial-meta">
+                <cite>{testimonial.author}</cite>
+                <span>{testimonial.title}, {testimonial.company}</span>
+              </div>
+              <a href={testimonial.companyUrl} class="company-link">
+                <img src={testimonial.logoSrc} alt={testimonial.logoAlt} />
+              </a>
+              <div class="customer-links">
+                {testimonial.links.map((i) => (
+                  <a href={`https://www.prls.co/${testimonial.company.toLowerCase().replace(/\s+/g, '-')}/${i}`}>
+                    {i}
+                  </a>
+                ))}
+              </div>
+            </footer>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .testimonials-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    box-sizing: border-box;
+    padding: 0 2rem;
+  }
+
+  .testimonials-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 6rem 0;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    scrollbar-width: none;
+  }
+
+  .testimonial-card {
+    width: 480px;
+    min-width: 480px;
+    padding: 2rem;
+    border: none;
+    overflow: hidden;
+    flex: 0 0 auto;
+  }
+
+  .testimonial-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-content blockquote {
+    flex: 1;
+    font-family: var(--font-heading);
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: var(--prls-text-primary);
+    margin: 0;
+    font-style: italic;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .testimonial-content blockquote::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+    font-size: 4em;
+    color: var(--prls-main-surface-secondary);
+    font-family: var(--font-heading);
+  }
+
+  .testimonial-content footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--prls-main-surface-secondary);
+    padding-bottom: 0;
+  }
+
+  .testimonial-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .testimonial-meta cite {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--prls-text-primary);
+  }
+
+  .testimonial-meta span {
+    color: var(--prls-text-secondary);
+  }
+
+  .customer-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .customer-links a {
+    color: var(--prls-text-secondary);
+    text-decoration: none;
+    font-size: 0.8em;
+  }
+
+  .customer-links a:hover {
+    color: var(--prls-text-primary);
+  }
+
+  .company-link img {
+    height: 40px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .company-link:hover img {
+    opacity: 1;
+  }
+</style>
