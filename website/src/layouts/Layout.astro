@@ -105,7 +105,9 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     function updateURL(colors) {
       const params = new URLSearchParams();
       Object.entries(colors).forEach(([key, value]) => {
-        params.set(key, value.replace('#', ''));
+        if (typeof value === 'string') {
+          params.set(key, value.replace('#', ''));
+        }
       });
       const newURL = `${window.location.pathname}?${params.toString()}`;
       window.history.pushState({}, '', newURL);
