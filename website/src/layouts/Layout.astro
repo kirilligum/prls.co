@@ -109,23 +109,29 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
         "hero-gradient": "hero-gradient-start",
       };
 
-      Object.entries(colorInputs).forEach(([inputId, varName]) => {
-        const input = document.getElementById(inputId);
-        input.addEventListener("input", (e) => {
-          updateColor(varName, e.target.value);
-        });
-      });
-
-      const copyButton = document.getElementById("copy-colors");
       const colorsOutput = document.getElementById("colors-output");
+      const copyButton = document.getElementById("copy-colors");
 
-      copyButton.addEventListener("click", () => {
+      function updateColorsOutput() {
         const colors = Object.entries(colorInputs).map(([inputId, varName]) => {
           const input = document.getElementById(inputId);
           return `      --${varName}: ${input.value};`;
         }).join('\n');
-        
         colorsOutput.value = colors;
+      }
+
+      Object.entries(colorInputs).forEach(([inputId, varName]) => {
+        const input = document.getElementById(inputId);
+        input.addEventListener("input", (e) => {
+          updateColor(varName, e.target.value);
+          updateColorsOutput();
+        });
+      });
+
+      // Initial colors output
+      updateColorsOutput();
+
+      copyButton.addEventListener("click", () => {
         colorsOutput.select();
         document.execCommand('copy');
       });
