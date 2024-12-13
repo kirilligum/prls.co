@@ -169,6 +169,11 @@ import Section from "../components/Section.astro";
               <a href="https://www.atmo.ai/" class="company-link">
                 <img src="atmo_ai/logo-atmo.webp" alt="Atmo.ai" />
               </a>
+              <div class="customer-links">
+                {Array.from({length: 10}, (_, i) => (
+                  <a href={`https://www.prls.co/atmo_ai/${i+1}`}>{i+1}</a>
+                ))}
+              </div>
             </footer>
           </div>
         </article>
@@ -191,6 +196,9 @@ import Section from "../components/Section.astro";
                   alt="PowerUP"
                 />
               </a>
+              <div class="customer-links">
+                <a href="https://www.prls.co/powerup-tech_com/1">1</a>
+              </div>
             </footer>
           </div>
         </article>
@@ -210,11 +218,30 @@ import Section from "../components/Section.astro";
               <a href="https://bennudata.com/" class="company-link">
                 <img src="bennudata_com/logo-bennudata.svg" alt="Bennudata" />
               </a>
+              <div class="customer-links">
+                <a href="https://www.prls.co/bennudata_com/1">1</a>
+              </div>
             </footer>
           </div>
         </article>
       </div>
     </div>
+
+    <style>
+      .customer-links {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .customer-links a {
+        color: var(--prls-text-secondary);
+        text-decoration: none;
+        font-size: 0.8em;
+      }
+      .customer-links a:hover {
+        color: var(--prls-text-primary);
+      }
+    </style>
 
     <Section
       title="How Are We Different?"
