@@ -253,13 +253,14 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 
     .colors-output {
       flex-grow: 1;
-      height: 3rem;
+      height: 8rem;
       padding: 0.5rem;
       font-family: monospace;
       border: 1px solid var(--prls-main-surface-secondary);
       border-radius: 4px;
       background: white;
-      resize: none;
+      resize: vertical;
+      min-height: 6rem;
     }
 
     .color-input {
