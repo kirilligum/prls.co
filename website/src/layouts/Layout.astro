@@ -3,6 +3,8 @@ interface Props {
   title: string;
 }
 
+import ColorControls from "../components/ColorControls.astro";
+
 const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 ---
 
@@ -41,53 +43,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       </span>
     </div>
   </header>
-  <div
-    id="color-controls"
-    class="color-controls"
-    style="background-color: var(--hero-gradient-start); display: none;"
-  >
-    <div class="color-controls-header">
-      <div>
-        <button id="copy-colors" class="copy-button">Copy Colors</button>
-        <textarea id="colors-output" class="colors-output" spellcheck="false"
-        ></textarea>
-      </div>
-      <div class="color-inputs-container">
-        <div class="color-input">
-          <label for="hf-color">Header/Footer (#4d4d4d)</label>
-          <input type="color" id="hf-color" value="#4d4d4d" />
-        </div>
-        <div class="color-input">
-          <label for="surface-primary">Surface Primary (#f7f5f2)</label>
-          <input type="color" id="surface-primary" value="#f7f5f2" />
-        </div>
-        <div class="color-input">
-          <label for="surface-secondary">Surface Secondary (#e6d9ce)</label>
-          <input type="color" id="surface-secondary" value="#e6d9ce" />
-        </div>
-        <div class="color-input">
-          <label for="text-primary">Text Primary (#3d3d3d)</label>
-          <input type="color" id="text-primary" value="#3d3d3d" />
-        </div>
-        <div class="color-input">
-          <label for="text-secondary">Text Secondary (#5d5d5d)</label>
-          <input type="color" id="text-secondary" value="#5d5d5d" />
-        </div>
-        <div class="color-input">
-          <label for="text-tertiary">Text Tertiary (#b4b4b4)</label>
-          <input type="color" id="text-tertiary" value="#b4b4b4" />
-        </div>
-        <div class="color-input">
-          <label for="hf-bg">Header/Footer BG (#ebf5f7)</label>
-          <input type="color" id="hf-bg" value="#ebf5f7" />
-        </div>
-        <div class="color-input">
-          <label for="hero-gradient">Hero Gradient (#f2e6de)</label>
-          <input type="color" id="hero-gradient" value="#f2e6de" />
-        </div>
-      </div>
-    </div>
-  </div>
+  <ColorControls />
   <body>
     <slot />
   </body>
@@ -97,142 +53,6 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     </p>
   </footer>
 
-  <script>
-    function updateColor(varName: string, value: string) {
-      document.documentElement.style.setProperty(`--${varName}`, value);
-    }
-
-    interface ColorMap {
-      [key: string]: string;
-    }
-
-    function updateURL(colors: ColorMap) {
-      const params = new URLSearchParams();
-      Object.entries(colors).forEach(([key, value]) => {
-        if (typeof value === 'string') {
-          params.set(key, value.replace('#', ''));
-        }
-      });
-      const newURL = `${window.location.pathname}?${params.toString()}`;
-      window.history.pushState({}, '', newURL);
-    }
-
-    function getColorsFromURL() {
-      const params = new URLSearchParams(window.location.search);
-      const colors = {};
-      params.forEach((value: string, key: string) => {
-        colors[key] = `#${value}`;
-      });
-      return colors;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      // Initialize colors from URL if present
-      const urlColors = getColorsFromURL();
-      const homeLink = document.getElementById("home-link");
-      const colorControls = document.getElementById("color-controls");
-
-      homeLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        colorControls.style.display =
-          colorControls.style.display === "none" ? "flex" : "none";
-      });
-
-      const colorInputs = {
-        "hf-color": "hf-color",
-        "hf-bg": "hf-bg-color",
-        "surface-primary": "prls-main-surface-primary",
-        "surface-secondary": "prls-main-surface-secondary",
-        "text-primary": "prls-text-primary",
-        "text-secondary": "prls-text-secondary",
-        "text-tertiary": "prls-text-tertiary",
-        "hero-gradient": "hero-gradient-start",
-      };
-
-      const colorsOutput = document.getElementById("colors-output");
-      const copyButton = document.getElementById("copy-colors");
-
-      function updateColorsOutput() {
-        const colors = Object.entries(colorInputs)
-          .map(([inputId, varName]) => {
-            const input = document.getElementById(inputId);
-            const inputElement = input as HTMLInputElement;
-            return `      --${varName}: ${inputElement.value};`;
-          })
-          .join("\n");
-        (colorsOutput as HTMLTextAreaElement).value = colors;
-      }
-
-      // Parse and apply colors from textarea
-      colorsOutput.addEventListener("input", () => {
-        const text = (colorsOutput as HTMLTextAreaElement).value;
-        const colorLines = text.split("\n");
-        colorLines.forEach((line) => {
-          try {
-            const match = line.match(/\s*--([^:]+):\s*(#[0-9a-fA-F]{6});/);
-            if (match) {
-              const matches = match as RegExpMatchArray;
-              const [_, varName, value] = matches;
-              // Validate hex color
-              if (!/^#[0-9a-fA-F]{6}$/.test(value)) {
-                return;
-              }
-              // Update the corresponding input and apply the color
-              Object.entries(colorInputs).forEach(
-                ([inputId, mappedVarName]) => {
-                  if (mappedVarName === varName) {
-                    const input = document.getElementById(inputId);
-                    if (input) {
-                      (input as HTMLInputElement).value = value;
-                      updateColor(varName, value);
-                    }
-                  }
-                },
-              );
-            }
-          } catch (err) {
-            console.error("Error parsing color line:", err);
-          }
-        });
-      });
-
-      // Initialize inputs and colors from URL if present
-      Object.entries(colorInputs).forEach(([inputId, varName]) => {
-        const input = document.getElementById(inputId);
-        if (urlColors[inputId]) {
-          (input as HTMLInputElement).value = urlColors[inputId];
-          updateColor(varName, urlColors[inputId]);
-        }
-        input.addEventListener("input", (e) => {
-          const target = e.target as HTMLInputElement;
-          updateColor(varName, target.value);
-          updateColorsOutput();
-          
-          // Update URL with current colors
-          const currentColors = Object.fromEntries(
-            Object.entries(colorInputs).map(([id]) => [
-              id,
-              (document.getElementById(id) as HTMLInputElement).value
-            ])
-          );
-          updateURL(currentColors);
-        });
-      });
-
-      // Initial colors output
-      updateColorsOutput();
-
-      copyButton.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(
-            (colorsOutput as HTMLTextAreaElement).value,
-          );
-        } catch (err) {
-          console.error("Failed to copy text:", err);
-        }
-      });
-    });
-  </script>
 
   <style is:global>
     :root {
@@ -304,66 +124,6 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       text-align: right;
     }
 
-    .color-controls {
-      display: flex;
-      padding: 1rem;
-    }
-
-    .color-inputs-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem;
-      margin-left: 1rem;
-      padding-left: 1rem;
-      border-left: 1px solid var(--prls-main-surface-secondary);
-    }
-
-    .color-controls-header {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .copy-button {
-      padding: 0.5rem 1rem;
-      background: var(--prls-main-surface-primary);
-      border: 1px solid var(--prls-main-surface-secondary);
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .colors-output {
-      width: 400px;
-      height: 12rem;
-      padding: 0.5rem;
-      font-family: monospace;
-      border: 1px solid var(--prls-main-surface-secondary);
-      border-radius: 4px;
-      background: white;
-      resize: vertical;
-      min-height: 6rem;
-    }
-
-    .color-input {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8em;
-    }
-
-    .color-input label {
-      color: var(--hf-color);
-    }
-
-    .color-input input {
-      width: 40px;
-      height: 24px;
-      padding: 0;
-      border: 1px solid var(--prls-main-surface-secondary);
-      border-radius: 4px;
-      cursor: pointer;
-    }
 
     footer {
       text-align: center;
