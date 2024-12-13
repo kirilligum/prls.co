@@ -169,7 +169,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 
       copyButton.addEventListener("click", async () => {
         try {
-          await navigator.clipboard.writeText(colorsOutput.value);
+          await navigator.clipboard.writeText((colorsOutput as HTMLTextAreaElement).value);
         } catch (err) {
           console.error('Failed to copy text:', err);
         }
