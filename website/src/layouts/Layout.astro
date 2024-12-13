@@ -40,7 +40,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       <div id="color-controls" class="color-controls" style="background-color: var(--hero-gradient-start); display: none;">
         <div class="color-controls-header">
           <button id="copy-colors" class="copy-button">Copy Colors</button>
-          <textarea id="colors-output" class="colors-output" readonly></textarea>
+          <textarea id="colors-output" class="colors-output" spellcheck="false"></textarea>
         </div>
         <div class="color-input">
           <label for="hf-color">Header/Footer (#4d4d4d)</label>
@@ -119,6 +119,26 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
         }).join('\n');
         colorsOutput.value = colors;
       }
+
+      // Parse and apply colors from textarea
+      colorsOutput.addEventListener("input", () => {
+        const text = colorsOutput.value;
+        const colorLines = text.split('\n');
+        colorLines.forEach(line => {
+          const match = line.match(/\s*--([^:]+):\s*(#[0-9a-fA-F]{6});/);
+          if (match) {
+            const [_, varName, value] = match;
+            // Update the corresponding input and apply the color
+            Object.entries(colorInputs).forEach(([inputId, mappedVarName]) => {
+              if (mappedVarName === varName) {
+                const input = document.getElementById(inputId);
+                input.value = value;
+                updateColor(varName, value);
+              }
+            });
+          }
+        });
+      });
 
       Object.entries(colorInputs).forEach(([inputId, varName]) => {
         const input = document.getElementById(inputId);
