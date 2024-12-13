@@ -26,13 +26,14 @@ const { title, testimonials } = Astro.props;
             <div class="testimonial-content">
               <blockquote>{testimonial.quote}</blockquote>
               <footer>
-                <div class="testimonial-meta">
-                  <cite>{testimonial.author}</cite>
-                  <span>
-                    {testimonial.title}, {testimonial.company}
-                  </span>
-                </div>
-                <div class="customer-links">
+                <div class="meta-container">
+                  <div class="testimonial-meta">
+                    <cite>{testimonial.author}</cite>
+                    <span>
+                      {testimonial.title}, {testimonial.company}
+                    </span>
+                  </div>
+                  <div class="customer-links">
                   {testimonial.links.map((i) => (
                     <a
                       href={`https://www.prls.co/${testimonial.company.toLowerCase().replace(/\s+/g, "-")}/${i}`}
@@ -40,6 +41,7 @@ const { title, testimonials } = Astro.props;
                       {i}
                     </a>
                   ))}
+                  </div>
                 </div>
                 <a href={testimonial.companyUrl} class="company-link">
                   <img src={testimonial.logoSrc} alt={testimonial.logoAlt} />
@@ -123,8 +125,14 @@ const { title, testimonials } = Astro.props;
     padding-bottom: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 1rem;
+  }
+
+  .meta-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
   }
 
   .testimonial-meta {
@@ -150,6 +158,8 @@ const { title, testimonials } = Astro.props;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin: 0;
+    justify-content: flex-end;
+    max-width: 50%;
   }
 
   .customer-links a {
