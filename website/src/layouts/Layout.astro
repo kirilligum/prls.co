@@ -126,7 +126,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 
       // Parse and apply colors from textarea
       colorsOutput.addEventListener("input", () => {
-        const text = colorsOutput.value;
+        const text = (colorsOutput as HTMLTextAreaElement).value;
         const colorLines = text.split('\n');
         colorLines.forEach(line => {
           try {
