@@ -129,17 +129,27 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
         const text = colorsOutput.value;
         const colorLines = text.split('\n');
         colorLines.forEach(line => {
-          const match = line.match(/\s*--([^:]+):\s*(#[0-9a-fA-F]{6});/);
-          if (match) {
-            const [_, varName, value] = match;
-            // Update the corresponding input and apply the color
-            Object.entries(colorInputs).forEach(([inputId, mappedVarName]) => {
-              if (mappedVarName === varName) {
-                const input = document.getElementById(inputId);
-                input.value = value;
-                updateColor(varName, value);
+          try {
+            const match = line.match(/\s*--([^:]+):\s*(#[0-9a-fA-F]{6});/);
+            if (match) {
+              const [_, varName, value] = match;
+              // Validate hex color
+              if (!/^#[0-9a-fA-F]{6}$/.test(value)) {
+                return;
               }
-            });
+              // Update the corresponding input and apply the color
+              Object.entries(colorInputs).forEach(([inputId, mappedVarName]) => {
+                if (mappedVarName === varName) {
+                  const input = document.getElementById(inputId);
+                  if (input) {
+                    input.value = value;
+                    updateColor(varName, value);
+                  }
+                }
+              });
+            }
+          } catch (err) {
+            console.error('Error parsing color line:', err);
           }
         });
       });
@@ -155,9 +165,12 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       // Initial colors output
       updateColorsOutput();
 
-      copyButton.addEventListener("click", () => {
-        colorsOutput.select();
-        document.execCommand('copy');
+      copyButton.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(colorsOutput.value);
+        } catch (err) {
+          console.error('Failed to copy text:', err);
+        }
       });
     });
   </script>
