@@ -119,7 +119,8 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       function updateColorsOutput() {
         const colors = Object.entries(colorInputs).map(([inputId, varName]) => {
           const input = document.getElementById(inputId);
-          return `      --${varName}: ${input.value};`;
+          const inputElement = input as HTMLInputElement;
+          return `      --${varName}: ${inputElement.value};`;
         }).join('\n');
         colorsOutput.value = colors;
       }
