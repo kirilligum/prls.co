@@ -122,7 +122,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
           const inputElement = input as HTMLInputElement;
           return `      --${varName}: ${inputElement.value};`;
         }).join('\n');
-        colorsOutput.value = colors;
+        (colorsOutput as HTMLTextAreaElement).value = colors;
       }
 
       // Parse and apply colors from textarea
