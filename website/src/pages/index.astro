@@ -65,6 +65,7 @@ import Section from "../components/Section.astro";
             </button>
           </div>
         </div>
+        </div>
       </div>
     </div>
 
@@ -150,10 +151,10 @@ import Section from "../components/Section.astro";
         },
       ]}
     />
-    <div class="section">
-      <h1>Trusted by Our Customers</h1>
-
-      <div class="testimonials-container">
+    <div class="testimonials-wrapper">
+      <div class="section">
+        <h1>Trusted by Our Customers</h1>
+        <div class="testimonials-container">
         <article class="testimonial-card">
           <div class="testimonial-content">
             <blockquote>
@@ -465,6 +466,13 @@ import Section from "../components/Section.astro";
           text-align: center;
           text-wrap: wrap;
         }
+      }
+
+      .testimonials-wrapper {
+        width: 100%;
+        max-width: 1440px;
+        box-sizing: border-box;
+        padding: 0 2rem;
       }
 
       .testimonials-container {
