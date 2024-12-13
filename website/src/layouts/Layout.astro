@@ -26,25 +26,34 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <header class="main-header" style="background-color: var(--hero-gradient-start);">
+  <header
+    class="main-header"
+    style="background-color: var(--hero-gradient-start);"
+  >
     <span class="header-pearl text-nowrap"
       ><span class="header-symbol">༜</span>Pearls of Wisdom</span
     >
     <div class="header-content">
       <span class="header-links">
-        <a href="#" id="home-link">Home</a> | Pearls' Knowledge | Pearls' Analytics | Blog | About |
+        <a href="#" id="home-link">Home</a> | Pearls' Knowledge | Pearls' Analytics
+        | Blog | About |
         <b>Contact</b> | App
       </span>
     </div>
   </header>
-      <div id="color-controls" class="color-controls" style="background-color: var(--hero-gradient-start); display: none;">
-        <div class="color-controls-header">
-          <div>
-            <button id="copy-colors" class="copy-button">Copy Colors</button>
-            <textarea id="colors-output" class="colors-output" spellcheck="false"></textarea>
-          </div>
-          <div class="color-inputs-container">
-            <div class="color-input">
+  <div
+    id="color-controls"
+    class="color-controls"
+    style="background-color: var(--hero-gradient-start); display: none;"
+  >
+    <div class="color-controls-header">
+      <div>
+        <button id="copy-colors" class="copy-button">Copy Colors</button>
+        <textarea id="colors-output" class="colors-output" spellcheck="false"
+        ></textarea>
+      </div>
+      <div class="color-inputs-container">
+        <div class="color-input">
           <label for="hf-color">Header/Footer (#4d4d4d)</label>
           <input type="color" id="hf-color" value="#4d4d4d" />
         </div>
@@ -75,10 +84,10 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
         <div class="color-input">
           <label for="hero-gradient">Hero Gradient (#f2e6de)</label>
           <input type="color" id="hero-gradient" value="#f2e6de" />
-            </div>
-          </div>
         </div>
       </div>
+    </div>
+  </div>
   <body>
     <slot />
   </body>
@@ -96,10 +105,11 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     document.addEventListener("DOMContentLoaded", () => {
       const homeLink = document.getElementById("home-link");
       const colorControls = document.getElementById("color-controls");
-      
+
       homeLink.addEventListener("click", (e) => {
         e.preventDefault();
-        colorControls.style.display = colorControls.style.display === "none" ? "flex" : "none";
+        colorControls.style.display =
+          colorControls.style.display === "none" ? "flex" : "none";
       });
 
       const colorInputs = {
@@ -117,19 +127,21 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       const copyButton = document.getElementById("copy-colors");
 
       function updateColorsOutput() {
-        const colors = Object.entries(colorInputs).map(([inputId, varName]) => {
-          const input = document.getElementById(inputId);
-          const inputElement = input as HTMLInputElement;
-          return `      --${varName}: ${inputElement.value};`;
-        }).join('\n');
+        const colors = Object.entries(colorInputs)
+          .map(([inputId, varName]) => {
+            const input = document.getElementById(inputId);
+            const inputElement = input as HTMLInputElement;
+            return `      --${varName}: ${inputElement.value};`;
+          })
+          .join("\n");
         (colorsOutput as HTMLTextAreaElement).value = colors;
       }
 
       // Parse and apply colors from textarea
       colorsOutput.addEventListener("input", () => {
         const text = (colorsOutput as HTMLTextAreaElement).value;
-        const colorLines = text.split('\n');
-        colorLines.forEach(line => {
+        const colorLines = text.split("\n");
+        colorLines.forEach((line) => {
           try {
             const match = line.match(/\s*--([^:]+):\s*(#[0-9a-fA-F]{6});/);
             if (match) {
@@ -139,18 +151,20 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
                 return;
               }
               // Update the corresponding input and apply the color
-              Object.entries(colorInputs).forEach(([inputId, mappedVarName]) => {
-                if (mappedVarName === varName) {
-                  const input = document.getElementById(inputId);
-                  if (input) {
-                    (input as HTMLInputElement).value = value;
-                    updateColor(varName, value);
+              Object.entries(colorInputs).forEach(
+                ([inputId, mappedVarName]) => {
+                  if (mappedVarName === varName) {
+                    const input = document.getElementById(inputId);
+                    if (input) {
+                      (input as HTMLInputElement).value = value;
+                      updateColor(varName, value);
+                    }
                   }
-                }
-              });
+                },
+              );
             }
           } catch (err) {
-            console.error('Error parsing color line:', err);
+            console.error("Error parsing color line:", err);
           }
         });
       });
@@ -169,9 +183,11 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 
       copyButton.addEventListener("click", async () => {
         try {
-          await navigator.clipboard.writeText((colorsOutput as HTMLTextAreaElement).value);
+          await navigator.clipboard.writeText(
+            (colorsOutput as HTMLTextAreaElement).value,
+          );
         } catch (err) {
-          console.error('Failed to copy text:', err);
+          console.error("Failed to copy text:", err);
         }
       });
     });
@@ -263,6 +279,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 
     .color-controls-header {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
       margin-bottom: 1rem;
     }
@@ -318,4 +335,3 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 
 
 </html>
-
