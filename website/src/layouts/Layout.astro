@@ -157,7 +157,8 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       Object.entries(colorInputs).forEach(([inputId, varName]) => {
         const input = document.getElementById(inputId);
         input.addEventListener("input", (e) => {
-          updateColor(varName, e.target.value);
+          const target = e.target as HTMLInputElement;
+          updateColor(varName, target.value);
           updateColorsOutput();
         });
       });
