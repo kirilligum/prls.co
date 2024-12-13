@@ -102,7 +102,27 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       document.documentElement.style.setProperty(`--${varName}`, value);
     }
 
+    function updateURL(colors) {
+      const params = new URLSearchParams();
+      Object.entries(colors).forEach(([key, value]) => {
+        params.set(key, value.replace('#', ''));
+      });
+      const newURL = `${window.location.pathname}?${params.toString()}`;
+      window.history.pushState({}, '', newURL);
+    }
+
+    function getColorsFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const colors = {};
+      params.forEach((value, key) => {
+        colors[key] = `#${value}`;
+      });
+      return colors;
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
+      // Initialize colors from URL if present
+      const urlColors = getColorsFromURL();
       const homeLink = document.getElementById("home-link");
       const colorControls = document.getElementById("color-controls");
 
@@ -169,12 +189,26 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
         });
       });
 
+      // Initialize inputs and colors from URL if present
       Object.entries(colorInputs).forEach(([inputId, varName]) => {
         const input = document.getElementById(inputId);
+        if (urlColors[inputId]) {
+          (input as HTMLInputElement).value = urlColors[inputId];
+          updateColor(varName, urlColors[inputId]);
+        }
         input.addEventListener("input", (e) => {
           const target = e.target as HTMLInputElement;
           updateColor(varName, target.value);
           updateColorsOutput();
+          
+          // Update URL with current colors
+          const currentColors = Object.fromEntries(
+            Object.entries(colorInputs).map(([id]) => [
+              id,
+              (document.getElementById(id) as HTMLInputElement).value
+            ])
+          );
+          updateURL(currentColors);
         });
       });
 
