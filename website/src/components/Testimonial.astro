@@ -34,13 +34,13 @@ const { title, testimonials } = Astro.props;
                     </span>
                   </div>
                   <div class="customer-links">
-                  {testimonial.links.map((i) => (
-                    <a
-                      href={`https://www.prls.co/${testimonial.company.toLowerCase().replace(/\s+/g, "-")}/${i}`}
-                    >
-                      {i}
-                    </a>
-                  ))}
+                    {testimonial.links.map((i) => (
+                      <a
+                        href={`https://www.prls.co/${testimonial.company.toLowerCase().replace(/\s+/g, "-")}/${i}`}
+                      >
+                        {i}
+                      </a>
+                    ))}
                   </div>
                 </div>
                 <a href={testimonial.companyUrl} class="company-link">
@@ -156,7 +156,7 @@ const { title, testimonials } = Astro.props;
   .customer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.2rem;
     margin: 0;
     justify-content: flex-end;
     max-width: 50%;
@@ -166,8 +166,6 @@ const { title, testimonials } = Astro.props;
     color: var(--prls-text-secondary);
     text-decoration: none;
     font-size: 0.8em;
-    border: 1px solid var(--prls-main-surface-secondary);
-    padding: 0.2em 0.5em;
     border-radius: 4px;
     transition: all 0.2s ease;
   }
