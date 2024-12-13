@@ -121,12 +121,17 @@ const { title, testimonials } = Astro.props;
     padding-top: 1rem;
     border-top: 1px solid var(--prls-main-surface-secondary);
     padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
   .testimonial-meta {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    text-align: left;
   }
 
   .testimonial-meta cite {
@@ -142,18 +147,28 @@ const { title, testimonials } = Astro.props;
 
   .customer-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 0.5rem;
+    margin: 0;
   }
 
   .customer-links a {
     color: var(--prls-text-secondary);
     text-decoration: none;
     font-size: 0.8em;
+    border: 1px solid var(--prls-main-surface-secondary);
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    transition: all 0.2s ease;
   }
 
   .customer-links a:hover {
     color: var(--prls-text-primary);
+    border-color: var(--prls-text-secondary);
+  }
+
+  .company-link {
+    margin-top: 0.5rem;
   }
 
   .company-link img {
