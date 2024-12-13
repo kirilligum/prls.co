@@ -153,8 +153,8 @@ import Section from "../components/Section.astro";
     <div class="section">
       <h1>Trusted by Our Customers</h1>
 
-      <div class="testimonials-flow">
-        <article class="testimonial-item">
+      <div class="testimonials-container">
+        <article class="testimonial-card">
           <div class="testimonial-content">
             <blockquote>
               "Since nothing like this existed, we've been building tools to get
@@ -476,27 +476,36 @@ import Section from "../components/Section.astro";
         max-width: 1280px;
       }
 
-      .testimonials-flow {
-        max-width: 1200px;
-        margin: 0 auto;
+
+      .testimonials-container {
+        display: flex;
+        gap: 2rem;
+        margin: 2rem 0;
+        padding: 6rem 0;
+        overflow-x: auto;
+        width: 100%;
+        max-width: 100%;
+        scrollbar-width: none;
+      }
+
+      .testimonial-card {
+        min-width: 400px;
+        width: 400px;
+        background: white;
+        border-radius: 8px;
         padding: 2rem;
-      }
-
-      .testimonial-item {
-        margin-bottom: 6rem;
-        position: relative;
-        padding-left: 3rem;
-      }
-
-      .testimonial-item:nth-child(even) {
-        margin-left: 15%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        flex: 0 0 auto;
       }
 
       .testimonial-content {
-        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
       }
 
       .testimonial-content blockquote {
+        flex: 1;
         font-family: var(--font-heading);
         font-size: 1.2em;
         line-height: 1.6;
@@ -504,12 +513,13 @@ import Section from "../components/Section.astro";
         margin: 0;
         font-style: italic;
         position: relative;
+        padding-left: 2rem;
       }
 
       .testimonial-content blockquote::before {
         content: '"';
         position: absolute;
-        left: -2rem;
+        left: 0;
         top: -0.5rem;
         font-size: 4em;
         color: var(--prls-main-surface-secondary);
@@ -517,12 +527,10 @@ import Section from "../components/Section.astro";
       }
 
       .testimonial-content footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         margin-top: 2rem;
         padding-top: 1rem;
         border-top: 1px solid var(--prls-main-surface-secondary);
+        padding-bottom: 0;
       }
 
       .testimonial-meta {
