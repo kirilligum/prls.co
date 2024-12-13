@@ -20,31 +20,35 @@ const { title, testimonials } = Astro.props;
   <div class="section">
     <h1><Fragment set:html={title} /></h1>
     <div class="testimonials-container">
-      {testimonials.map((testimonial) => (
-        <article class="testimonial-card">
-          <div class="testimonial-content">
-            <blockquote>
-              {testimonial.quote}
-            </blockquote>
-            <footer>
-              <div class="testimonial-meta">
-                <cite>{testimonial.author}</cite>
-                <span>{testimonial.title}, {testimonial.company}</span>
-              </div>
-              <a href={testimonial.companyUrl} class="company-link">
-                <img src={testimonial.logoSrc} alt={testimonial.logoAlt} />
-              </a>
-              <div class="customer-links">
-                {testimonial.links.map((i) => (
-                  <a href={`https://www.prls.co/${testimonial.company.toLowerCase().replace(/\s+/g, '-')}/${i}`}>
-                    {i}
-                  </a>
-                ))}
-              </div>
-            </footer>
-          </div>
-        </article>
-      ))}
+      {
+        testimonials.map((testimonial) => (
+          <article class="testimonial-card">
+            <div class="testimonial-content">
+              <blockquote>{testimonial.quote}</blockquote>
+              <footer>
+                <div class="testimonial-meta">
+                  <cite>{testimonial.author}</cite>
+                  <span>
+                    {testimonial.title}, {testimonial.company}
+                  </span>
+                </div>
+                <div class="customer-links">
+                  {testimonial.links.map((i) => (
+                    <a
+                      href={`https://www.prls.co/${testimonial.company.toLowerCase().replace(/\s+/g, "-")}/${i}`}
+                    >
+                      {i}
+                    </a>
+                  ))}
+                </div>
+                <a href={testimonial.companyUrl} class="company-link">
+                  <img src={testimonial.logoSrc} alt={testimonial.logoAlt} />
+                </a>
+              </footer>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </div>
