@@ -18,7 +18,7 @@ const { title, testimonials } = Astro.props;
 
 <div class="testimonials-wrapper">
   <div class="section">
-    <h1>{title}</h1>
+    <h1><Fragment set:html={title} /></h1>
     <div class="testimonials-container">
       {testimonials.map((testimonial) => (
         <article class="testimonial-card">
@@ -55,6 +55,13 @@ const { title, testimonials } = Astro.props;
     max-width: 1440px;
     box-sizing: border-box;
     padding: 0 2rem;
+  }
+
+  .section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--prls-text-primary);
+    font-family: var(--font-heading);
   }
 
   .testimonials-container {
