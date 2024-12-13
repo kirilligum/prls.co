@@ -171,7 +171,8 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
           try {
             const match = line.match(/\s*--([^:]+):\s*(#[0-9a-fA-F]{6});/);
             if (match) {
-              const [_, varName, value]: [string, string, string] = match;
+              const matches = match as RegExpMatchArray;
+              const [_, varName, value] = matches;
               // Validate hex color
               if (!/^#[0-9a-fA-F]{6}$/.test(value)) {
                 return;
