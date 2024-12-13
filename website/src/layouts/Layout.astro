@@ -143,7 +143,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
                 if (mappedVarName === varName) {
                   const input = document.getElementById(inputId);
                   if (input) {
-                    input.value = value;
+                    (input as HTMLInputElement).value = value;
                     updateColor(varName, value);
                   }
                 }
