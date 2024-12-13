@@ -102,7 +102,11 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       document.documentElement.style.setProperty(`--${varName}`, value);
     }
 
-    function updateURL(colors) {
+    interface ColorMap {
+      [key: string]: string;
+    }
+
+    function updateURL(colors: ColorMap) {
       const params = new URLSearchParams();
       Object.entries(colors).forEach(([key, value]) => {
         if (typeof value === 'string') {
