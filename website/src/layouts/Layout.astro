@@ -38,6 +38,10 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     </div>
   </header>
       <div id="color-controls" class="color-controls" style="background-color: var(--hero-gradient-start); display: none;">
+        <div class="color-controls-header">
+          <button id="copy-colors" class="copy-button">Copy Colors</button>
+          <textarea id="colors-output" class="colors-output" readonly></textarea>
+        </div>
         <div class="color-input">
           <label for="hf-color">Header/Footer (#4d4d4d)</label>
           <input type="color" id="hf-color" value="#4d4d4d" />
@@ -110,6 +114,20 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
         input.addEventListener("input", (e) => {
           updateColor(varName, e.target.value);
         });
+      });
+
+      const copyButton = document.getElementById("copy-colors");
+      const colorsOutput = document.getElementById("colors-output");
+
+      copyButton.addEventListener("click", () => {
+        const colors = Object.entries(colorInputs).map(([inputId, varName]) => {
+          const input = document.getElementById(inputId);
+          return `      --${varName}: ${input.value};`;
+        }).join('\n');
+        
+        colorsOutput.value = colors;
+        colorsOutput.select();
+        document.execCommand('copy');
       });
     });
   </script>
@@ -189,6 +207,33 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: flex-end;
+      padding: 1rem;
+    }
+
+    .color-controls-header {
+      width: 100%;
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .copy-button {
+      padding: 0.5rem 1rem;
+      background: var(--prls-main-surface-primary);
+      border: 1px solid var(--prls-main-surface-secondary);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .colors-output {
+      flex-grow: 1;
+      height: 3rem;
+      padding: 0.5rem;
+      font-family: monospace;
+      border: 1px solid var(--prls-main-surface-secondary);
+      border-radius: 4px;
+      background: white;
+      resize: none;
     }
 
     .color-input {
