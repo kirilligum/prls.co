@@ -26,19 +26,19 @@ import Section from "../components/Section.astro";
             >
           </h2>
           <div class="knowledge-visual-container">
-            <div class="knowledge-visual-img">
+            <div class="knowledge-visual-card">
               <MockOpenAI
                 query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
                 response="ChatGPT mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
               />
             </div>
-            <div class="knowledge-visual-img">
+            <div class="knowledge-visual-card">
               <MockGoogle
                 query="Customer asks about their <b>problem</b>"
                 response="Google's AI mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
               />
             </div>
-            <div class="knowledge-visual-img">
+            <div class="knowledge-visual-card">
               <MockAnalytics />
             </div>
           </div>
@@ -170,9 +170,11 @@ import Section from "../components/Section.astro";
                 <img src="atmo_ai/logo-atmo.webp" alt="Atmo.ai" />
               </a>
               <div class="customer-links">
-                {Array.from({length: 10}, (_, i) => (
-                  <a href={`https://www.prls.co/atmo_ai/${i+1}`}>{i+1}</a>
-                ))}
+                {
+                  Array.from({ length: 10 }, (_, i) => (
+                    <a href={`https://www.prls.co/atmo_ai/${i + 1}`}>{i + 1}</a>
+                  ))
+                }
               </div>
             </footer>
           </div>
@@ -197,9 +199,13 @@ import Section from "../components/Section.astro";
                 />
               </a>
               <div class="customer-links">
-                {Array.from({length: 10}, (_, i) => (
-                  <a href={`https://www.prls.co/powerup-tech_com/${i+1}`}>{i+1}</a>
-                ))}
+                {
+                  Array.from({ length: 10 }, (_, i) => (
+                    <a href={`https://www.prls.co/powerup-tech_com/${i + 1}`}>
+                      {i + 1}
+                    </a>
+                  ))
+                }
               </div>
             </footer>
           </div>
@@ -221,32 +227,19 @@ import Section from "../components/Section.astro";
                 <img src="bennudata_com/logo-bennudata.svg" alt="Bennudata" />
               </a>
               <div class="customer-links">
-                {Array.from({length: 10}, (_, i) => (
-                  <a href={`https://www.prls.co/bennudata_com/${i+1}`}>{i+1}</a>
-                ))}
+                {
+                  Array.from({ length: 10 }, (_, i) => (
+                    <a href={`https://www.prls.co/bennudata_com/${i + 1}`}>
+                      {i + 1}
+                    </a>
+                  ))
+                }
               </div>
             </footer>
           </div>
         </article>
       </div>
     </div>
-
-    <style>
-      .customer-links {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-      }
-      .customer-links a {
-        color: var(--prls-text-secondary);
-        text-decoration: none;
-        font-size: 0.8em;
-      }
-      .customer-links a:hover {
-        color: var(--prls-text-primary);
-      }
-    </style>
-
     <Section
       title="How Are We Different?"
       subtitle="AI is changing how your customers discover you. Our mission is to help you stay on the cutting edge of this change."
@@ -393,11 +386,11 @@ import Section from "../components/Section.astro";
       /*   display: none; */
       /* } */
 
-      /* .knowledge-visual-container .knowledge-visual-img:first-child { */
+      /* .knowledge-visual-container .knowledge-visual-card:first-child { */
       /*   margin-left: auto; */
       /* } */
 
-      .knowledge-visual-img {
+      .knowledge-visual-card {
         width: 320px;
         min-width: 320px;
         height: 480px;
@@ -470,12 +463,9 @@ import Section from "../components/Section.astro";
         h1 {
           font-size: 2.5rem;
           text-align: center;
-          /* margin-bottom: 3rem; */
-          /* padding-right: 2rem; */
+          text-wrap: wrap;
         }
-        max-width: 1280px;
       }
-
 
       .testimonials-container {
         display: flex;
@@ -494,6 +484,8 @@ import Section from "../components/Section.astro";
         height: 480px;
         min-height: 480px;
         padding: 2rem;
+        border: none;
+        overflow: hidden;
         flex: 0 0 auto;
       }
 
@@ -549,6 +541,20 @@ import Section from "../components/Section.astro";
         color: var(--prls-text-secondary);
       }
 
+      .customer-links {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .customer-links a {
+        color: var(--prls-text-secondary);
+        text-decoration: none;
+        font-size: 0.8em;
+      }
+      .customer-links a:hover {
+        color: var(--prls-text-primary);
+      }
+
       .company-link img {
         height: 40px;
         width: auto;
@@ -587,3 +593,4 @@ import Section from "../components/Section.astro";
     </style>
   </main>
 </Layout>
+
