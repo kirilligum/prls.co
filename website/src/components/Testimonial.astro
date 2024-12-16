@@ -1,8 +1,5 @@
 ---
-import ContactButton from "./ContactButton.astro";
-
 interface Props {
-  title: string;
   testimonials: {
     quote: string;
     author: string;
@@ -18,10 +15,7 @@ interface Props {
 const { title, testimonials } = Astro.props;
 ---
 
-<div class="testimonials-wrapper">
-  <div class="section">
-    <h1><Fragment set:html={title} /></h1>
-    <div class="testimonials-container">
+<div class="testimonials-container">
       {
         testimonials.map((testimonial) => (
           <article class="testimonial-card">
@@ -49,25 +43,9 @@ const { title, testimonials } = Astro.props;
           </article>
         ))
       }
-    </div>
-    <ContactButton />
-  </div>
 </div>
 
 <style>
-  .testimonials-wrapper {
-    width: 100%;
-    max-width: 1440px;
-    box-sizing: border-box;
-    padding: 0 2rem;
-  }
-
-  .section h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--prls-text-primary);
-    font-family: var(--font-heading);
-  }
 
   .testimonials-container {
     display: flex;
