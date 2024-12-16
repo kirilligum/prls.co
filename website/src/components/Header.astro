@@ -6,7 +6,7 @@ interface Props {
 const { title = "Pearls of Wisdom" } = Astro.props;
 ---
 
-<header class="main-header" style="background-color: var(--hero-gradient-start);">
+<div class="main-header" style="background-color: var(--hero-gradient-start);">
   <span class="header-pearl text-nowrap">
     <span class="header-symbol">༜</span>{title}
   </span>
@@ -15,7 +15,7 @@ const { title = "Pearls of Wisdom" } = Astro.props;
       <slot />
     </span>
   </div>
-</header>
+</div>
 
 <style>
   .main-header {

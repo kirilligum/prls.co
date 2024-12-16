@@ -1,8 +1,9 @@
 ---
-
+import Header from "../components/Header.astro";
 ---
 
 <div class="analytics-container">
+  <Header />
   <h3 class="analytics-title">Your Analytics</h3>
   <table class="analytics-table">
     <thead>
@@ -51,16 +52,18 @@
   .analytics-container {
     height: 100%;
     width: 100%;
-    padding: 1.25rem;
+    /* padding: 1.25rem; */
     background: #fff;
     border-radius: 0.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
   .analytics-title {
+    padding: 0 0.75rem;
+    padding-top: 0.75rem;
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     color: var(--prls-text-primary);
   }
 

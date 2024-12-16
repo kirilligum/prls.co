@@ -29,9 +29,11 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <Header>
-    <a href="#" id="home-link">Contact</a>
-  </Header>
+  <header>
+    <Header>
+      <a href="#" id="home-link">Contact</a>
+    </Header>
+  </header>
   <ColorControls />
   <body>
     <slot />
@@ -74,7 +76,6 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       padding: 0;
       background-color: var(--hf-bg-color);
     }
-
 
     footer {
       text-align: center;
