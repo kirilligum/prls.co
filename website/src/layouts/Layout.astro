@@ -4,6 +4,7 @@ interface Props {
 }
 
 import ColorControls from "../components/ColorControls.astro";
+import Header from "../components/Header.astro";
 
 const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 ---
@@ -28,22 +29,9 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <header
-    class="main-header"
-    style="background-color: var(--hero-gradient-start);"
-  >
-    <span class="header-pearl text-nowrap"
-      ><span class="header-symbol">༜</span>Pearls of Wisdom</span
-    >
-    <div class="header-content">
-      <span class="header-links">
-        <!-- <a href="#" id="home-link">Home</a> | Pearls' Knowledge | Pearls' Analytics -->
-        <!-- | Blog | About | -->
-        <!-- <b>Contact</b> | App -->
-        <a href="#" id="home-link">Contact</a>
-      </span>
-    </div>
-  </header>
+  <Header>
+    <a href="#" id="home-link">Contact</a>
+  </Header>
   <ColorControls />
   <body>
     <slot />
@@ -87,42 +75,6 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       background-color: var(--hf-bg-color);
     }
 
-    .main-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.25rem 1rem;
-      background-color: var(--prls-main-surface-primary);
-    }
-
-    .header-pearl {
-      font-family: var(--font-heading);
-      font-size: 1.5em;
-      font-weight: 500;
-      margin-top: -1em;
-      margin-bottom: -0.7em;
-      color: var(--hf-color);
-    }
-
-    .header-symbol {
-      font-size: 1.5em;
-      position: relative;
-      top: -0.12em;
-      margin-right: 0.25em;
-      /* margin-top: -0.5em; */
-      /* margin-bottom: -0.0em; */
-    }
-
-    .header-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 1rem;
-    }
-
-    .header-links {
-      text-align: right;
-    }
 
     footer {
       text-align: center;
