@@ -59,7 +59,9 @@ import ContactButton from "../components/ContactButton.astro";
               <li>The result? AI recommends your brand as the solution.</li>
             </ul>
           </div>
-          <ContactButton />
+          <div class="hero-contact">
+            <ContactButton />
+          </div>
         </div>
       </div>
     </div>
@@ -395,6 +397,12 @@ import ContactButton from "../components/ContactButton.astro";
           line-height: 0;
           /* order: 2; */
         }
+      }
+
+      .hero-contact {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: flex-start;
       }
 
     </style>
