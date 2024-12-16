@@ -96,58 +96,63 @@ import ContactButton from "../components/ContactButton.astro";
     </Section>
 
     <Section title="Who Is It For?">
-      <SectionList items={[
-        {
-          iconHtml:
-            '<span class="material-icons section-icon">rocket_launch</span>',
-          title: "Growth-Stage Startups",
-          description:
-            "Utilize cutting-edge technologies to enhance your visibility and inbound effectiveness, standing out in a competitive market.",
-        },
-        {
-          iconHtml: '<span class="material-icons section-icon">campaign</span>',
-          title: "Digital Marketing Agencies",
-          description:
-            "Elevate your client engagement with advanced AI tools that enhance content relevance and impact.",
-        },
-        {
-          iconHtml:
-            '<span class="material-icons section-icon">corporate_fare</span>',
-          title: "Enterprise",
-          description:
-            "Optimize extensive digital content for AI platforms, ensuring accurate and effective communication of your brand's value.",
-        },
-      ]} />
+      <SectionList
+        items={[
+          {
+            iconHtml:
+              '<span class="material-icons section-icon">rocket_launch</span>',
+            title: "Growth-Stage Startups",
+            description:
+              "Utilize cutting-edge technologies to enhance your visibility and inbound effectiveness, standing out in a competitive market.",
+          },
+          {
+            iconHtml:
+              '<span class="material-icons section-icon">campaign</span>',
+            title: "Digital Marketing Agencies",
+            description:
+              "Elevate your client engagement with advanced AI tools that enhance content relevance and impact.",
+          },
+          {
+            iconHtml:
+              '<span class="material-icons section-icon">corporate_fare</span>',
+            title: "Enterprise",
+            description:
+              "Optimize extensive digital content for AI platforms, ensuring accurate and effective communication of your brand's value.",
+          },
+        ]}
+      />
     </Section>
 
     <Section title="Our Solution">
-      <SectionList items={[
-        {
-          iconHtml: '<div class="step-number">1</div>',
-          title: "Analyze",
-          description:
-            "Our AI performs deep analysis of how language models currently understand and represent your brand.",
-        },
-        {
-          iconHtml: '<div class="step-number">2</div>',
-          title: "Create",
-          description:
-            "We develop a semantic knowledge graph that capture your product's unique value proposition. Our AI agents use it to write an AI-targeted marketing content in a format that is 100x more effective in teaching AI.",
-        },
-        {
-          iconHtml: '<div class="step-number">3</div>',
-          title: "Publish",
-          description:
-            "We publish your knowledge online and AI-focused data repositories. We also send it directly to our partners that train LLMs",
-        },
-        {
-          iconHtml: '<div class="step-number">4</div>',
-          title: "Monitor",
-          description:
-            "Track how your customers see your brand and products in ChatGPT, Google AI Answers, and other LLMs.",
-        },
-      ]}
-    />
+      <SectionList
+        items={[
+          {
+            iconHtml: '<div class="step-number">1</div>',
+            title: "Analyze",
+            description:
+              "Our AI performs deep analysis of how language models currently understand and represent your brand.",
+          },
+          {
+            iconHtml: '<div class="step-number">2</div>',
+            title: "Create",
+            description:
+              "We develop a semantic knowledge graph that capture your product's unique value proposition. Our AI agents use it to write an AI-targeted marketing content in a format that is 100x more effective in teaching AI.",
+          },
+          {
+            iconHtml: '<div class="step-number">3</div>',
+            title: "Publish",
+            description:
+              "We publish your knowledge online and AI-focused data repositories. We also send it directly to our partners that train LLMs",
+          },
+          {
+            iconHtml: '<div class="step-number">4</div>',
+            title: "Monitor",
+            description:
+              "Track how your customers see your brand and products in ChatGPT, Google AI Answers, and other LLMs.",
+          },
+        ]}
+      />
+    </Section>
     <Testimonial
       title="Trusted by Our Customers"
       testimonials={[
@@ -199,30 +204,32 @@ import ContactButton from "../components/ContactButton.astro";
       title="How Are We Different?"
       subtitle="AI is changing how your customers discover you. Our mission is to help you stay on the cutting edge of this change."
     >
-      <SectionList items={[
-        {
-          iconHtml:
-            '<span class="material-icons section-icon">model_training</span>',
-          title: "No Model Training",
-          description:
-            "Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build AI models. Our expertise lies in providing the high-quality data that fuels these models.",
-        },
-        {
-          iconHtml:
-            '<span class="material-icons section-icon">data_object</span>',
-          title: "Open-Source Data",
-          description:
-            "Unlike Scale.ai and other data-labeling companies, our clients are content creators. The datasets we create are freely available, advancing AI research.",
-        },
-        {
-          iconHtml:
-            '<span class="material-icons section-icon">psychology_alt</span>',
-          title: "LLM Focus",
-          description:
-            "Unlike HubSpot and Salesforce, we don't just optimize for marketing automation. We enhance the capabilities of LLMs themselves.",
-        },
-      ]}
-    />
+      <SectionList
+        items={[
+          {
+            iconHtml:
+              '<span class="material-icons section-icon">model_training</span>',
+            title: "No Model Training",
+            description:
+              "Unlike OpenAI (ChatGPT) and Anthropic (Claude), we don't build AI models. Our expertise lies in providing the high-quality data that fuels these models.",
+          },
+          {
+            iconHtml:
+              '<span class="material-icons section-icon">data_object</span>',
+            title: "Open-Source Data",
+            description:
+              "Unlike Scale.ai and other data-labeling companies, our clients are content creators. The datasets we create are freely available, advancing AI research.",
+          },
+          {
+            iconHtml:
+              '<span class="material-icons section-icon">psychology_alt</span>',
+            title: "LLM Focus",
+            description:
+              "Unlike HubSpot and Salesforce, we don't just optimize for marketing automation. We enhance the capabilities of LLMs themselves.",
+          },
+        ]}
+      />
+    </Section>
 
     <style>
       :root {

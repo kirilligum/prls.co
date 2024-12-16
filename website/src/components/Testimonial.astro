@@ -1,5 +1,5 @@
 ---
-import ContactButton from './ContactButton.astro';
+import ContactButton from "./ContactButton.astro";
 
 interface Props {
   title: string;
@@ -37,9 +37,7 @@ const { title, testimonials } = Astro.props;
                   </div>
                   <div class="customer-links">
                     {testimonial.links.map((url) => (
-                      <a href={url}>
-                        {url.split('/').pop()}
-                      </a>
+                      <a href={url}>{url.split("/").pop()}</a>
                     ))}
                   </div>
                 </div>
