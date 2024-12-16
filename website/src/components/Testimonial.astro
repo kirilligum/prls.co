@@ -12,41 +12,40 @@ interface Props {
   }[];
 }
 
-const { title, testimonials } = Astro.props;
+const { testimonials } = Astro.props;
 ---
 
 <div class="testimonials-container">
-      {
-        testimonials.map((testimonial) => (
-          <article class="testimonial-card">
-            <div class="testimonial-content">
-              <blockquote>{testimonial.quote}</blockquote>
-              <footer>
-                <div class="meta-container">
-                  <div class="testimonial-meta">
-                    <cite>{testimonial.author}</cite>
-                    <span>
-                      {testimonial.title}, {testimonial.company}
-                    </span>
-                  </div>
-                  <div class="customer-links">
-                    {testimonial.links.map((url) => (
-                      <a href={url}>{url.split("/").pop()}</a>
-                    ))}
-                  </div>
-                </div>
-                <a href={testimonial.companyUrl} class="company-link">
-                  <img src={testimonial.logoSrc} alt={testimonial.logoAlt} />
-                </a>
-              </footer>
+  {
+    testimonials.map((testimonial) => (
+      <article class="testimonial-card">
+        <div class="testimonial-content">
+          <blockquote>{testimonial.quote}</blockquote>
+          <footer>
+            <div class="meta-container">
+              <div class="testimonial-meta">
+                <cite>{testimonial.author}</cite>
+                <span>
+                  {testimonial.title}, {testimonial.company}
+                </span>
+              </div>
+              <div class="customer-links">
+                {testimonial.links.map((url) => (
+                  <a href={url}>{url.split("/").pop()}</a>
+                ))}
+              </div>
             </div>
-          </article>
-        ))
-      }
+            <a href={testimonial.companyUrl} class="company-link">
+              <img src={testimonial.logoSrc} alt={testimonial.logoAlt} />
+            </a>
+          </footer>
+        </div>
+      </article>
+    ))
+  }
 </div>
 
 <style>
-
   .testimonials-container {
     display: flex;
     gap: 2rem;
