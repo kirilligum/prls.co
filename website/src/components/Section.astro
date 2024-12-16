@@ -1,5 +1,5 @@
 ---
-import ContactButton from './ContactButton.astro';
+import ContactButton from "./ContactButton.astro";
 
 interface Props {
   title: string;
@@ -123,26 +123,32 @@ const { title, subtitle, items } = Astro.props;
     .section {
       padding: 2rem 1rem;
       min-height: 100vh;
+      h1 {
+        padding-bottom: 1rem;
+      }
+      .title-row {
+        width: 100%;
+        gap: 1rem;
+      }
     }
 
-    .section-content li {
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
+    .section-content {
+      ul {
+        padding-top: 1rem;
+      }
 
-    .title-row {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      gap: 1rem;
+      li {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
     }
 
     .title-row :global(.material-icons),
     .title-row :global(.step-number) {
       margin-left: 0;
       transform: none;
-      padding-left: 1em;
+      padding-left: 0.5em;
     }
     .title-row :global(.step-number) {
       padding-left: 0em;
