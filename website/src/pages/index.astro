@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 import Layout from "../layouts/Layout.astro";
 import MockOpenAI from "../components/Card.astro";
 import MockGoogle from "../components/MockGoogle.astro";
@@ -15,7 +13,7 @@ import Testimonial from "../components/Testimonial.astro";
       <div class="hero-container">
         <div class="hero-content">
           <div class="flex">
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col">
               <span class="pearl-symbol">༜</span>
               <h1>SEO for LLMs</h1>
             </div>
@@ -162,7 +160,10 @@ import Testimonial from "../components/Testimonial.astro";
           company: "Atmo.ai",
           logoSrc: "atmo_ai/logo-atmo.webp",
           logoAlt: "Atmo.ai",
-          links: Array.from({ length: 10 }, (_, i) => `https://www.prls.co/atmo_ai/${i + 1}`),
+          links: Array.from(
+            { length: 10 },
+            (_, i) => `https://www.prls.co/atmo_ai/${i + 1}`,
+          ),
           companyUrl: "https://www.atmo.ai/",
         },
         {
@@ -173,7 +174,10 @@ import Testimonial from "../components/Testimonial.astro";
           company: "PowerUP",
           logoSrc: "powerup-tech_com/powerup_primary_logo_horizontal_color.svg",
           logoAlt: "PowerUP",
-          links: Array.from({ length: 10 }, (_, i) => `https://www.prls.co/powerup-tech_com/${i + 1}`),
+          links: Array.from(
+            { length: 10 },
+            (_, i) => `https://www.prls.co/powerup-tech_com/${i + 1}`,
+          ),
           companyUrl: "https://powerup-tech.com/",
         },
         {
@@ -184,7 +188,10 @@ import Testimonial from "../components/Testimonial.astro";
           company: "Bennudata",
           logoSrc: "bennudata_com/logo-bennudata.svg",
           logoAlt: "Bennudata",
-          links: Array.from({ length: 10 }, (_, i) => `https://www.prls.co/bennudata_com/${i + 1}`),
+          links: Array.from(
+            { length: 10 },
+            (_, i) => `https://www.prls.co/bennudata_com/${i + 1}`,
+          ),
           companyUrl: "https://bennudata.com/",
         },
       ]}
@@ -259,7 +266,14 @@ import Testimonial from "../components/Testimonial.astro";
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
+        padding-bottom: 4rem;
+      }
+
+      @media (max-width: 767px) {
+        .hero-background {
+          padding-bottom: 0;
+        }
       }
 
       .hero-container {
@@ -275,14 +289,16 @@ import Testimonial from "../components/Testimonial.astro";
 
         h1 {
           text-align: left;
-          font-size: 4rem;
+          /* font-size: 4rem; */
+          font-size: clamp(2rem, 10vw, 4rem);
           font-weight: var(--font-weight-bold);
           padding: 1rem 0;
         }
 
         h2 {
           padding: 1rem 0;
-          font-size: 2em;
+          /* font-size: 2em; */
+          font-size: clamp(1rem, 5vw, 2rem);
           max-width: 768px;
           /* margin-left: auto; */
           letter-spacing: 0.05em;
@@ -299,7 +315,8 @@ import Testimonial from "../components/Testimonial.astro";
       }
 
       .pearl-symbol {
-        font-size: 15em;
+        /* font-size: 16em; */
+        font-size: clamp(8rem, 40vw, 16rem);
         font-weight: bold;
         color: var(--hf-color);
         /* text-align: right; */
@@ -307,6 +324,7 @@ import Testimonial from "../components/Testimonial.astro";
         /* margin-bottom: -0.1em; */
         /* margin-top: -0.2em; */
         /* padding-right: 48px; */
+        padding-left: 8vw;
       }
 
       .knowledge-visual-container {
@@ -405,15 +423,6 @@ import Testimonial from "../components/Testimonial.astro";
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-
-      .section {
-        padding: 4rem 0;
-        h1 {
-          font-size: 2.5rem;
-          text-align: center;
-          text-wrap: wrap;
-        }
       }
     </style>
   </main>
