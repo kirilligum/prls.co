@@ -4,15 +4,9 @@ import ContactButton from "./ContactButton.astro";
 interface Props {
   title: string;
   subtitle?: string;
-  items?: {
-    iconHtml?: string;
-    title?: string;
-    description?: string;
-    [key: string]: any;
-  }[];
 }
 
-const { title, subtitle, items } = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
 <div class="section">
@@ -20,21 +14,6 @@ const { title, subtitle, items } = Astro.props;
   {subtitle && <p class="section-intro">{subtitle}</p>}
   <div class="section-content">
     <slot />
-    {
-      items && (
-        <ul class="section-items">
-          {items.map((item) => (
-            <li>
-              <div class="title-row">
-                <Fragment set:html={item.iconHtml} />
-                <h2>{item.title}</h2>
-              </div>
-              <p>{item.description}</p>
-            </li>
-          ))}
-        </ul>
-      )
-    }
   </div>
   <ContactButton />
 </div>
@@ -68,34 +47,6 @@ const { title, subtitle, items } = Astro.props;
     width: 100%;
   }
 
-  .section-items {
-    display: flex;
-    flex-direction: column;
-    padding-top: 4rem;
-  }
-
-  .section-items li {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    padding: 2.5rem 0;
-  }
-
-  .section-items h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    font-family: var(--font-heading);
-  }
-
-  .section-items p {
-    font-size: 1.2em;
-  }
-
-  .title-row {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-  }
 
   @media (max-width: 767px) {
     .section {
@@ -107,19 +58,5 @@ const { title, subtitle, items } = Astro.props;
       }
     }
 
-    .section-items {
-      padding-top: 1rem;
-    }
-
-    .section-items li {
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-
-    .title-row {
-      width: 100%;
-      gap: 1rem;
-    }
   }
 </style>
