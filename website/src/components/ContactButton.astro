@@ -1,0 +1,32 @@
+---
+---
+<div class="floating-contact">
+  <button onclick="location.href='mailto:info@prls.co'">
+    <b>Contact</b>
+  </button>
+</div>
+
+<style>
+  .floating-contact {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  button {
+    background-color: #ebf5f7;
+    color: var(--hf-color);
+    width: clamp(5rem, 25vw, 7.5rem);
+    height: clamp(5rem, 25vw, 7.5rem);
+    border: none;
+    cursor: pointer;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

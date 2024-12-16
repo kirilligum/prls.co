@@ -1,4 +1,6 @@
 ---
+import ContactButton from './ContactButton.astro';
+
 interface Props {
   title: string;
   subtitle?: string;
@@ -30,6 +32,7 @@ const { title, subtitle, items } = Astro.props;
       }
     </ul>
   </div>
+  <ContactButton />
 </div>
 
 <style>
