@@ -58,11 +58,6 @@ import Testimonial from "../components/Testimonial.astro";
               <li>The result? AI recommends your brand as the solution.</li>
             </ul>
           </div>
-          <div class="contact-button">
-            <button onclick="location.href='mailto:info@prls.co'">
-              <b>Contact</b>
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -224,6 +219,11 @@ import Testimonial from "../components/Testimonial.astro";
       ]}
     />
 
+    <div class="floating-contact">
+      <button onclick="location.href='mailto:info@prls.co'">
+        <b>Contact</b>
+      </button>
+    </div>
     <style>
       :root {
         /* Spacing */
@@ -400,14 +400,11 @@ import Testimonial from "../components/Testimonial.astro";
         }
       }
 
-      .contact-button {
-        padding-top: 6em;
-        padding-bottom: 8em;
-        padding-right: 24px;
-        flex: 1;
-        display: flex;
-        /* justify-content: flex-end; */
-        align-items: flex-end;
+      .floating-contact {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        z-index: 1000;
       }
 
       button {
