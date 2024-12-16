@@ -13,59 +13,57 @@ import ContactButton from "../components/ContactButton.astro";
   <main>
     <div class="hero-background">
       <div class="hero-container">
-        <div class="hero-content">
-          <div class="flex">
-            <div class="flex flex-col">
-              <span class="pearl-symbol">༜</span>
-              <h1>SEO for LLMs</h1>
-            </div>
+        <div class="flex">
+          <div class="flex flex-col">
+            <span class="pearl-symbol">༜</span>
+            <h1>SEO for LLMs</h1>
           </div>
-          <h2>
-            <!-- Semantic knowledge <span class="text-nowrap">graph AI</span> technology -->
-            <!-- that helps your company rank in ChatGPT and <span class="text-nowrap">Google's AI Overview</span -->
-            We make ChatGPT and <span class="text-nowrap"
-              >Google's AI Overview</span
-            > talk about your company <br /><b>FIRST</b>, <b>OFTEN</b> and <b
-              >ACCURATELY</b
-            >.
-          </h2>
-          <div class="knowledge-visual-container">
-            <div class="knowledge-visual-card">
-              <MockOpenAI
-                query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
-                response="ChatGPT mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
-              />
-            </div>
-            <div class="knowledge-visual-card">
-              <MockGoogle
-                query="Customer asks about their <b>problem</b>"
-                response="Google's AI mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
-              />
-            </div>
-            <div class="knowledge-visual-card">
-              <MockAnalytics />
-            </div>
+        </div>
+        <h2>
+          <!-- Semantic knowledge <span class="text-nowrap">graph AI</span> technology -->
+          <!-- that helps your company rank in ChatGPT and <span class="text-nowrap">Google's AI Overview</span -->
+          We make ChatGPT and <span class="text-nowrap"
+            >Google's AI Overview</span
+          > talk about
+          <span class="text-nowrap"> your company </span>
+          <br /><b>FIRST</b>, <b>OFTEN</b> and <b>ACCURATELY</b>.
+        </h2>
+        <div class="knowledge-visual-container">
+          <div class="knowledge-visual-card">
+            <MockOpenAI
+              query="Your ideal <b>customer</b> asks ChatGPT about a problem that they have and that you can solve."
+              response="ChatGPT mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
+            />
           </div>
-          <div class="hero-bullets">
-            <ul>
-              <li>
-                When your ideal customer turns to ChatGPT, will your brand be
-                the answer?
-              </li>
-              <li>
-                Pearls' Knowledge ensures you're featured in AI responses,
-                driving visibility and leads.
-              </li>
-              <li>
-                Our AI analyzes your content and teaches ChatGPT about your
-                products.
-              </li>
-              <li>The result? AI recommends your brand as the solution.</li>
-            </ul>
+          <div class="knowledge-visual-card">
+            <MockGoogle
+              query="Customer asks about their <b>problem</b>"
+              response="Google's AI mentions the benefits of <b style='font-size: 1.2em;'>your product</b> while helpfully and factually explaining how to solve the problem."
+            />
           </div>
-          <div class="hero-contact">
-            <ContactButton />
+          <div class="knowledge-visual-card">
+            <MockAnalytics />
           </div>
+        </div>
+        <div class="hero-bullets">
+          <ul>
+            <li>
+              When your ideal customer turns to ChatGPT, will your brand be the
+              answer?
+            </li>
+            <li>
+              Pearls' Knowledge ensures you're featured in AI responses, driving
+              visibility and leads.
+            </li>
+            <li>
+              Our AI analyzes your content and teaches ChatGPT about your
+              products.
+            </li>
+            <li>The result? AI recommends your brand as the solution.</li>
+          </ul>
+        </div>
+        <div class="hero-contact">
+          <ContactButton />
         </div>
       </div>
     </div>
@@ -312,19 +310,10 @@ import ContactButton from "../components/ContactButton.astro";
           padding: 1rem 0;
           /* font-size: 2em; */
           font-size: clamp(1rem, 5vw, 2rem);
-          max-width: 768px;
+          /* max-width: 768px; */
           /* margin-left: auto; */
           letter-spacing: 0.05em;
         }
-      }
-
-      .hero-content {
-        /* padding-right: var(--spacing-2xl); */
-        /* padding-bottom: var(--spacing-xl); */
-        /* display: flex; */
-        /* flex-direction: column; */
-        /* align-items: flex-end; */
-        /* flex: 1 1 400px; */
       }
 
       .pearl-symbol {
@@ -337,7 +326,7 @@ import ContactButton from "../components/ContactButton.astro";
         /* margin-bottom: -0.1em; */
         /* margin-top: -0.2em; */
         /* padding-right: 48px; */
-        padding-left: 8vw;
+        padding-left: 2rem;
       }
 
       .knowledge-visual-container {
@@ -417,6 +406,7 @@ import ContactButton from "../components/ContactButton.astro";
         margin-bottom: 8rem;
         display: flex;
         justify-content: flex-start;
+        padding-left: 2rem;
       }
     </style>
   </main>
