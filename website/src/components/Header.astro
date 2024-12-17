@@ -8,7 +8,8 @@ const { title = "Pearls of Wisdom" } = Astro.props;
 
 <div class="main-header" style="background-color: var(--hero-gradient-start);">
   <span class="header-pearl text-nowrap">
-    <span class="header-symbol">༜</span>{title}
+    <!-- <span class="header-symbol">༜</span> -->
+    {title}
   </span>
   <div class="header-content">
     <span class="header-links">
@@ -22,7 +23,9 @@ const { title = "Pearls of Wisdom" } = Astro.props;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
+    padding-top: 0.5rem;
+    height: 2rem;
     background-color: var(--prls-main-surface-primary);
   }
 
