@@ -16,7 +16,11 @@ import ContactButton from "../components/ContactButton.astro";
         <div class="flex">
           <div class="flex flex-col">
             <span class="pearl-symbol">༜</span>
-            <h1>SEO for <span style="white-space: nowrap;">Tomorrow's LLMs</span></h1>
+            <h1>
+              SEO for <br class="mobile-only" />
+              Tomorrow's <br class="mobile-only" />
+              LLMs
+            </h1>
           </div>
         </div>
         <h2>
@@ -282,9 +286,16 @@ import ContactButton from "../components/ContactButton.astro";
         min-height: 100vh;
       }
 
+      .mobile-only {
+        display: none;
+      }
+
       @media (max-width: 767px) {
         .hero-background {
           padding-bottom: 0;
+        }
+        .mobile-only {
+          display: block;
         }
       }
 
