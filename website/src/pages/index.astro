@@ -17,8 +17,8 @@ import ContactButton from "../components/ContactButton.astro";
           <div class="flex flex-col">
             <span class="pearl-symbol">༜</span>
             <h1>
-              SEO for <br class="mobile-only" />
-              Tomorrow's <br class="mobile-only" />
+              SEO for <br class="br-break-1" />
+              Tomorrow's <br class="br-break-2" />
               LLMs
             </h1>
           </div>
@@ -399,6 +399,27 @@ import ContactButton from "../components/ContactButton.astro";
         display: flex;
         justify-content: flex-start;
         padding-left: 2rem;
+      }
+      /* Hide our forced breaks by default */
+      .br-break-1,
+      .br-break-2 {
+        display: none;
+      }
+
+      /* For viewports below 992px (i.e. max-width: 991px),
+         show the first break so that "SEO for" is on its own line */
+      @media (max-width: 991px) {
+        .br-break-1 {
+          display: inline;
+        }
+      }
+
+      /* For viewports below 768px,
+         also show the second break so that "Tomorrow's" and "LLMs" appear on separate lines */
+      @media (max-width: 767px) {
+        .br-break-2 {
+          display: inline;
+        }
       }
     </style>
   </main>
