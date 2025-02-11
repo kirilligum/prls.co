@@ -45,7 +45,7 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
             file.write(page_content)
 
 
-def update_main_sitemap(company_id, total_pages):
+def update_main_sitemap(company_id, total_pages, relative=False):
     sitemap_path = "../sitemap.xml"
 
     # Check if the sitemap file exists, if not create a new one
@@ -56,27 +56,31 @@ def update_main_sitemap(company_id, total_pages):
     tree = ET.parse(sitemap_path)
     root = tree.getroot()
 
-    # Remove existing entries for the company_id
     for url in root.findall("url"):
         loc = url.find("loc")
-        if (
-            loc is not None
-            and loc.text is not None
-            and f"https://www.prls.co/{company_id}/" in loc.text
-        ):
-            root.remove(url)
+        if loc is None or loc.text is None:
+            continue
+        if relative:
+            if loc.text.startswith("./") and loc.text.endswith(".html"):
+                root.remove(url)
+        else:
+            if f"https://www.prls.co/{company_id}/" in loc.text:
+                root.remove(url)
 
     for page in range(1, total_pages + 1):
         url_element = ET.Element("url")
         loc_element = ET.Element("loc")
-        loc_element.text = f"https://www.prls.co/{company_id}/{page}.html"
+        if relative:
+            loc_element.text = f"./{page}.html"
+        else:
+            loc_element.text = f"https://www.prls.co/{company_id}/{page}.html"
         url_element.append(loc_element)
         root.append(url_element)
 
     tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
 
 
-def create_client_sitemap(company_id, total_pages):
+def create_client_sitemap(company_id, total_pages, relative=False):
     client_sitemap_path = "sitemap.xml"
     client_root = ET.Element(
         "urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -85,7 +89,10 @@ def create_client_sitemap(company_id, total_pages):
     for page in range(1, total_pages + 1):
         url_element = ET.Element("url")
         loc_element = ET.Element("loc")
-        loc_element.text = f"https://www.prls.co/{company_id}/{page}.html"
+        if relative:
+            loc_element.text = f"./{page}.html"
+        else:
+            loc_element.text = f"https://www.prls.co/{company_id}/{page}.html"
         url_element.append(loc_element)
         client_root.append(url_element)
 
@@ -93,7 +100,7 @@ def create_client_sitemap(company_id, total_pages):
     client_tree.write(client_sitemap_path, encoding="utf-8", xml_declaration=True)
 
 
-def update_sitemap_index(company_id):
+def update_sitemap_index(company_id, relative=False):
     sitemap_index_path = "../sitemap-index.xml"
     # Check if the sitemap-index file exists, if not create a new one
     if not os.path.exists(sitemap_index_path):
@@ -106,20 +113,23 @@ def update_sitemap_index(company_id):
     index_tree = ET.parse(sitemap_index_path)
     index_root = index_tree.getroot()
 
-    # Remove existing sitemap entry for the company_id
     for sitemap in index_root.findall("sitemap"):
         loc = sitemap.find("loc")
-        if (
-            loc is not None
-            and loc.text is not None
-            and f"https://www.prls.co/{company_id}/sitemap.xml" in loc.text
-        ):
-            index_root.remove(sitemap)
+        if loc is None or loc.text is None:
+            continue
+        if relative:
+            if loc.text == "./sitemap.xml":
+                index_root.remove(sitemap)
+        else:
+            if f"https://www.prls.co/{company_id}/sitemap.xml" in loc.text:
+                index_root.remove(sitemap)
 
-    # Add new sitemap entry for the company_id
     sitemap_element = ET.Element("sitemap")
     loc_element = ET.Element("loc")
-    loc_element.text = f"https://www.prls.co/{company_id}/sitemap.xml"
+    if relative:
+        loc_element.text = "./sitemap.xml"
+    else:
+        loc_element.text = f"https://www.prls.co/{company_id}/sitemap.xml"
     sitemap_element.append(loc_element)
     index_root.append(sitemap_element)
 
@@ -130,6 +140,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate AIK HTML pages and sitemap.")
     parser.add_argument(
         "--items-per-page", type=int, default=20, help="Number of items per page"
+    )
+    parser.add_argument(
+        "-r", "--relative", action="store_true", help="Generate relative URLs"
     )
     args = parser.parse_args()
 
@@ -145,6 +158,6 @@ if __name__ == "__main__":
 
     remove_existing_pages()
     generate_aik_html(company_name, company_url, company_id, faqs)
-    update_main_sitemap(company_id, total_pages)
-    create_client_sitemap(company_id, total_pages)
-    update_sitemap_index(company_id)
+    update_main_sitemap(company_id, total_pages, args.relative)
+    create_client_sitemap(company_id, total_pages, args.relative)
+    update_sitemap_index(company_id, args.relative)
