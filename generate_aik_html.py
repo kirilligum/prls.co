@@ -17,7 +17,7 @@ def remove_existing_pages():
             os.remove(file)
 
 
-def generate_aik_html(company_name, company_url, company_id, faqs):
+def generate_aik_html(company_name, company_url, company_id, faqs, relative=False):
     env = Environment(loader=FileSystemLoader(".."))
     template = env.get_template("aik_template.html.jinja")
 
@@ -36,6 +36,7 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
             company_name=company_name,
             company_url=company_url,
             company_id=company_id,
+            relative=relative,
             faq_items=faq_items,
             current_page=page + 1,
             total_pages=total_pages,
@@ -162,7 +163,7 @@ if __name__ == "__main__":
     total_pages = (len(faqs) + args.items_per_page - 1) // args.items_per_page
 
     remove_existing_pages()
-    generate_aik_html(company_name, company_url, company_id, faqs)
+    generate_aik_html(company_name, company_url, company_id, faqs, relative=args.relative)
     update_main_sitemap(company_id, total_pages, args.relative)
     create_client_sitemap(company_id, total_pages, args.relative)
     update_sitemap_index(company_id, args.relative)
