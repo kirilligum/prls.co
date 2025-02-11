@@ -146,7 +146,7 @@ if __name__ == "__main__":
         "-r", "--relative", action="store_true", help="Generate relative URLs"
     )
     parser.add_argument(
-        "--template-dir", type=str, default="..", help="Path to the directory containing Jinja templates"
+        "-t", "--template-dir", type=str, default="..", help="Path to the directory containing Jinja templates"
     )
     args = parser.parse_args()
 
