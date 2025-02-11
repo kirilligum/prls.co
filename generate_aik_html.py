@@ -146,6 +146,11 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
+    if args.relative:
+        print("Generating relative URLs")
+    else:
+        print("Generating absolute URLs")
+
     company_data = load_json("company_info.json")
     faqs_data = load_json("aik.json")
 
