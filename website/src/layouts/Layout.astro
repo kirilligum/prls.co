@@ -7,6 +7,7 @@ import ColorControls from "../components/ColorControls.astro";
 import Header from "../components/Header.astro";
 
 const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
+const isBlogPage = Astro.url.pathname.startsWith('/blog');
 ---
 
 <!doctype html>
@@ -39,12 +40,12 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     )}
   </head>
   <header>
-    <Header>
+    <Header isBlogPage={isBlogPage}>
       <a href="/blog" id="blog-link">Blog</a>
     </Header>
   </header>
   <ColorControls />
-  <body class:list={[Astro.url.pathname.startsWith('/blog') ? 'blog-active' : '']}>
+  <body class:list={[isBlogPage ? 'blog-active' : '']}>
     <slot />
   </body>
   <footer style="background-color: var(--prls-main-surface-primary);">
