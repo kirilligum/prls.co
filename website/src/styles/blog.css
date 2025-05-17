@@ -2,7 +2,7 @@
 body.blog-active {
   font-family: "Spectral", serif;
   line-height: 1.8;
-  background-color: #fcfcfc; /* Light background for blog pages */
+  background-color: var(--hero-gradient-start); /* Match header background, no gradient */
   color: #333333; /* Dark text for blog content */
 }
 
