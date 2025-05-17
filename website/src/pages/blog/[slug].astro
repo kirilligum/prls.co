@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import NotFound from '../../components/NotFound.astro';
 
@@ -15,7 +15,7 @@ const { post } = Astro.props;
 if (!post) {
   return <NotFound />;
 }
-const { Content } = post;
+const { Content } = await render(post);
 
 const formattedDate = new Date(post.data.pubDate).toLocaleDateString('en-US', {
   year: 'numeric',
