@@ -89,10 +89,14 @@ const posts = allPosts
   }
 
   .blog-list-item {
-    background-color: var(--hf-bg-color);
+    background: linear-gradient(
+      135deg,
+      var(--hero-gradient-start) 0%,
+      var(--prls-main-surface-secondary) 100%
+    );
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.2s ease-in-out; /* Removed transform from transition */
+    transition: box-shadow 0.2s ease-in-out;
     overflow: hidden;
   }
 
