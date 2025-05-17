@@ -34,6 +34,9 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    {Astro.url.pathname.startsWith('/blog') && (
+      <link rel="stylesheet" href="/styles/blog.css" />
+    )}
   </head>
   <header>
     <Header>
@@ -41,7 +44,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     </Header>
   </header>
   <ColorControls />
-  <body>
+  <body class:list={[Astro.url.pathname.startsWith('/blog') ? 'blog-active' : '']}>
     <slot />
   </body>
   <footer style="background-color: var(--prls-main-surface-primary);">
@@ -62,18 +65,11 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       --prls-text-tertiary: #b4b4b4;
       --hero-gradient-start: #f2e6de;
 
-      /* Blog Colors (Medium-like) */
-      --blog-bg-color: #fcfcfc; /* Light background */
-      --blog-text-color: #333333; /* Dark text */
-      --blog-link-color: #1a8917; /* Medium green link color */
-      --blog-link-hover-color: #0f5f0d; /* Darker green on hover */
-
-
       /* Typography */
       --font-heading: "Libre Baskerville", serif;
-      --font-body: "Spectral", serif; /* Changed to serif */
+      --font-body: "Questrial", sans-serif; /* Reverted to default */
       --font-weight-bold: 700;
-      --line-height-body: 1.8; /* Increased line height */
+      --line-height-body: 1.6; /* Reverted to default */
       --text-lg: 1.2em;
     }
 
@@ -90,60 +86,18 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 
     /* Base styles */
     html {
-      font-family: var(--font-body);
-      color: var(--blog-text-color); /* Use blog text color */
-      line-height: var(--line-height-body); /* Use updated line height */
+      font-family: var(--font-body); /* Uses default Questrial */
+      color: var(--prls-text-primary); /* Default site text color */
+      line-height: var(--line-height-body); /* Default 1.6 */
     }
 
     body {
       margin: 0;
       padding: 0;
-      background-color: var(--blog-bg-color); /* Use blog background color */
+      background-color: var(--prls-main-surface-primary); /* Default site background */
     }
 
-    /* Blog Content Styles (Medium-like) */
-    body :where(p, ul, ol, dl, blockquote) {
-      margin-bottom: 1.5rem; /* Add space between paragraphs and lists */
-    }
-
-    body :where(h1, h2, h3, h4, h5, h6) {
-      margin-top: 2rem; /* Space above headings */
-      margin-bottom: 1rem; /* Space below headings */
-      font-family: var(--font-heading); /* Use heading font */
-      color: var(--prls-text-primary); /* Keep landing page heading color for consistency with title request */
-    }
-
-    body h1 { font-size: 2em; }
-    body h2 { font-size: 1.6em; }
-    body h3 { font-size: 1.3em; }
-
-    body a { /* General link styling for blog content */
-      color: var(--blog-link-color);
-      text-decoration: none;
-      border-bottom: 1px solid var(--blog-link-color);
-    }
-
-    body a:hover {
-      color: var(--blog-link-hover-color);
-      border-bottom-color: var(--blog-link-hover-color);
-    }
-
-    body ul, body ol {
-      padding-left: 1.5rem; /* Indent lists */
-    }
-
-    body li {
-      margin-bottom: 0.5rem; /* Space between list items */
-    }
-
-    body blockquote {
-      border-left: 4px solid var(--prls-main-surface-secondary); /* Quote style */
-      padding-left: 1rem;
-      font-style: italic;
-      color: var(--prls-text-secondary); /* Quote text color */
-    }
-
-    /* Overrides for specific links outside main blog content */
+    /* Overrides for specific links outside main blog content (e.g., header, footer) */
     #blog-link, /* Header blog link */
     #blog-link:hover {
       border-bottom: none; /* Remove blog-style border from header link */

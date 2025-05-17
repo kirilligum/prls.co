@@ -1,0 +1,49 @@
+/* Styles for blog pages */
+body.blog-active {
+  font-family: "Spectral", serif;
+  line-height: 1.8;
+  background-color: #fcfcfc; /* Light background for blog pages */
+  color: #333333; /* Dark text for blog content */
+}
+
+body.blog-active :where(p, ul, ol, dl, blockquote) {
+  margin-bottom: 1.5rem; /* Add space between paragraphs and lists */
+}
+
+body.blog-active :where(h1, h2, h3, h4, h5, h6) {
+  margin-top: 2rem; /* Space above headings */
+  margin-bottom: 1rem; /* Space below headings */
+  font-family: var(--font-heading); /* Use global heading font */
+  color: var(--prls-text-primary); /* Keep landing page heading color for consistency with title request */
+}
+
+body.blog-active h1 { font-size: 2em; }
+body.blog-active h2 { font-size: 1.6em; }
+body.blog-active h3 { font-size: 1.3em; }
+
+body.blog-active a { /* General link styling for blog content */
+  color: #1a8917; /* Medium green link color */
+  text-decoration: none;
+  border-bottom: 1px solid #1a8917; /* Underline effect */
+}
+
+body.blog-active a:hover {
+  color: #0f5f0d; /* Darker green on hover */
+  border-bottom-color: #0f5f0d; /* Darker green on hover for border */
+}
+
+body.blog-active ul, 
+body.blog-active ol {
+  padding-left: 1.5rem; /* Indent lists */
+}
+
+body.blog-active li {
+  margin-bottom: 0.5rem; /* Space between list items */
+}
+
+body.blog-active blockquote {
+  border-left: 4px solid var(--prls-main-surface-secondary); /* Quote style using global variable */
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--prls-text-secondary); /* Quote text color using global variable */
+}
