@@ -6,5 +6,4 @@ author: "Kirill Igumenshchev"
 slug: "your-h1s-are-incomplete"
 tags: ["HTML","LLMs","AI-SEO","Tokenization","Pre-Training"]
 ---
-
 <!-- rest of the blog post content -->
