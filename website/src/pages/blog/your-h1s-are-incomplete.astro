@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+export const frontmatter = {
+  title: "Your H1s Are Incomplete: How LLMs Really Process Your HTML",
+  description: "Most text-focused LLMs ingest plain text, not your HTML tags (C4: Raffel et al. 2020; The Pile: Gao et al. 2020).",
+  pubDate: "2025-05-16",
+  author: "Kirill Igumenshchev",
+  slug: "your-h1s-are-incomplete",
+  tags: ["HTML","LLMs","AI-SEO","Tokenization","Pre-Training"]
+};
+---
+<Layout title={frontmatter.title}>
+  <article>
+    <!-- Paste/convert your post here, e.g.:
+
+    <p><strong>TL;DR</strong></p>
+    <ul>
+      <li>Most text-focused LLMs ingest plain text, not your HTML tags …</li>
+      <li>…</li>
+    </ul>
+
+    <h2>1. Pre-Training Pipelines & HTML Stripping</h2>
+    <p>Large-scale corpora …</p>
+    <ul><li>jusText …</li><li>Trafilatura …</li></ul>
+    <!-- and so on, converting your H2s to <h2>, bullets to <ul><li>, code to <pre><code>, etc. -->
+    -->
+  </article>
+</Layout>

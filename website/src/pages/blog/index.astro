@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const posts = Object.values(import.meta.glob('./*.astro', { eager: true }))
+  .map((m: any) => m.frontmatter)
+  .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+---
+<Layout title="Blog">
+  <main>
+    <h1>Blog</h1>
+    <ul>
+      {posts.map(({ title, slug, pubDate }) => (
+        <li>
+          <a href={`/blog/${slug}/`}>{title}</a>
+          <time datetime={pubDate}>{pubDate}</time>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>
