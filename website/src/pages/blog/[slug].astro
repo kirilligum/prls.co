@@ -2,10 +2,10 @@
 import { getEntry, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
-export const prerender = true;
 
 const { slug } = Astro.params;
-const post = await getEntry('blog', slug);
+const effectiveSlug = slug.replace(/\.md$/, '');
+const post = await getEntry('blog', effectiveSlug);
 if (!post) {
   return Astro.redirect('/404');
 }
