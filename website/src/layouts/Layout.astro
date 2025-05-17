@@ -35,9 +35,6 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    {Astro.url.pathname.startsWith('/blog') && (
-      <link rel="stylesheet" href="/styles/blog.css" />
-    )}
   </head>
   <header>
     <Header isBlogPage={isBlogPage}>
