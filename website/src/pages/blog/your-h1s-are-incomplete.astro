@@ -11,18 +11,78 @@ export const frontmatter = {
 ---
 <Layout title={frontmatter.title}>
   <article>
-    <!-- Paste/convert your post here, e.g.:
-
     <p><strong>TL;DR</strong></p>
     <ul>
-      <li>Most text-focused LLMs ingest plain text, not your HTML tags …</li>
-      <li>…</li>
+      <li>Most text-focused LLMs ingest plain text, not your HTML tags (C4: Raffel et al. 2020; The Pile: Gao et al. 2020).</li>
+      <li>HTML tags like <code>&lt;h1&gt;</code> are usually stripped during pre-training data preparation. What the LLM "sees" is often just the text content.</li>
+      <li>This means relying solely on HTML structure for emphasis or meaning is insufficient for current LLMs. Your crucial <code>&lt;h1&gt;</code> might be treated like any other sentence.</li>
+      <li>Strategies like repeating key phrases, using introductory or summary sentences, and ensuring clear, self-contained text blocks are more effective for AI-SEO.</li>
+      <li>Future LLMs might get better at "reading" HTML, but for now, focus on the plain text representation of your content.</li>
     </ul>
 
     <h2>1. Pre-Training Pipelines & HTML Stripping</h2>
-    <p>Large-scale corpora …</p>
-    <ul><li>jusText …</li><li>Trafilatura …</li></ul>
-    <!-- and so on, converting your H2s to <h2>, bullets to <ul><li>, code to <pre><code>, etc. -->
-    -->
+    <p>Large-scale corpora like C4 (Colossal Clean Crawled Corpus) and The Pile, which are foundational for training many LLMs, undergo extensive cleaning and filtering. A significant step in this process is the removal of HTML markup. Tools and heuristics are employed to extract the main textual content from web pages, discarding tags, scripts, and styles. The goal is to feed the LLM primarily with natural language text.</p>
+    <p>Commonly used libraries for this purpose include:</p>
+    <ul>
+      <li><strong>jusText:</strong> A tool that heuristically removes boilerplate content and HTML tags to extract clean article text.</li>
+      <li><strong>Trafilatura:</strong> A more recent package that excels at extracting main text, comments, and metadata from HTML, often outperforming older methods.</li>
+      <li><strong>Beautiful Soup (Python):</strong> While a general HTML parsing library, it's frequently used in custom scripts to strip tags and get text content (e.g., using the <code>.get_text()</code> method).</li>
+    </ul>
+    <p>For example, a Python snippet using Beautiful Soup to get plain text might look like this:</p>
+    <pre><code>from bs4 import BeautifulSoup
+
+# HTML content as a string
+html_doc = """
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;My Page&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;This is a &lt;strong&gt;Major&lt;/strong&gt; Heading&lt;/h1&gt;
+  &lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"""
+
+soup = BeautifulSoup(html_doc, 'html.parser')
+plain_text = soup.get_text(separator='\\n', strip=True)
+print(plain_text)
+# Output:
+# My Page
+# This is a Major Heading
+# This is a paragraph of text.</code></pre>
+    <p>As you can see, the <code>&lt;h1&gt;</code> and <code>&lt;strong&gt;</code> tags are gone. The LLM receives "This is a Major Heading" as a simple string, potentially undifferentiated from other text blocks unless other textual cues are present.</p>
+
+    <h2>2. Why This Matters for AI-SEO</h2>
+    <p>If LLMs don't "see" your <code>&lt;h1&gt;</code> tag as a structural element conferring special importance, then its traditional SEO value (signaling the main topic to search engines) is diminished in the context of direct LLM processing. The LLM relies on the patterns and relationships it learned from vast amounts of *plain text*.</p>
+    <p>This has several implications:</p>
+    <ul>
+      <li><strong>Emphasis Lost:</strong> The visual and structural emphasis you achieve with an <code>&lt;h1&gt;</code> for human readers (and traditional crawlers) doesn't directly translate to how an LLM weighs that piece of text.</li>
+      <li><strong>Context is Key:</strong> The surrounding text and the overall coherence of the content become even more critical. An LLM understands importance through semantic context, repetition, and linguistic cues rather than markup.</li>
+      <li><strong>Keyword Stuffing in Headings is Less Effective:</strong> While keywords are still important, simply placing them in an <code>&lt;h1&gt;</code> doesn't guarantee an LLM will prioritize that information if the rest of the text doesn't support it.</li>
+    </ul>
+
+    <h2>3. Strategies for "LLM-Friendly" Headings and Content</h2>
+    <p>Given that LLMs primarily process plain text, your AI-SEO strategy should adapt:</p>
+    <ul>
+      <li><strong>Descriptive and Self-Contained Text:</strong> Ensure your headings, when read as plain text, clearly introduce the section's topic. The first sentence or two of a section should often summarize or clearly state the main point.</li>
+      <li><strong>Repetition and Reinforcement:</strong> Key concepts or phrases that would normally be in an <code>&lt;h1&gt;</code> should be naturally woven into the subsequent paragraphs. Repetition (without being spammy) signals importance to an LLM.</li>
+      <li><strong>Clear Topic Shifts:</strong> Use clear transitional phrases or introductory sentences when moving to a new topic, as the structural cue of a new heading tag might be absent for the LLM.</li>
+      <li><strong>Introductory/Concluding Summaries:</strong> For longer pieces, having a concise introduction and conclusion that reiterate the main themes (akin to what your <code>&lt;h1&gt;</code> and meta description might do) can help the LLM grasp the core message.</li>
+      <li><strong>Focus on "Answer Scent":</strong> Ensure the text content of your headings and initial paragraphs directly addresses potential user queries. LLMs are trying to find or generate answers.</li>
+    </ul>
+
+    <h2>4. The Future: Will LLMs "Read" HTML Better?</h2>
+    <p>It's possible that future iterations of LLMs, or specialized versions, will be trained to interpret HTML structure more directly. Some multimodal models are already beginning to process web page layouts and visual information. However, the bulk of current text-focused LLMs are still operating on the plain text extraction paradigm.</p>
+    <p>For now, assuming your carefully crafted HTML structure is fully understood by most LLMs is a risky bet. Prioritize the clarity, coherence, and informational value of the plain text content itself.</p>
+
+    <h2>5. Conclusion</h2>
+    <p>Your <code>&lt;h1&gt;</code> tags are crucial for human readability and traditional SEO, but their direct impact on how current text-based LLMs process your content is minimal due to HTML stripping in pre-training. To optimize for AI, focus on making the *plain text* version of your content highly informative, well-structured through language (not just tags), and ensure key messages are explicit and reinforced. This approach will serve you well, regardless of how LLMs evolve in their HTML understanding.</p>
+
+    <h3>References:</h3>
+    <ul>
+      <li>Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., ... & Liu, P. J. (2020). Exploring the limits of transfer learning with a unified text-to-text transformer. <em>Journal of Machine Learning Research, 21</em>(140), 1-67. (C4 Corpus)</li>
+      <li>Gao, L., Biderman, S., Black, S., Golding, L., Hoppe, T., Foster, C., ... & Leahy, R. (2020). The Pile: An 800gb dataset of diverse text for language modeling. <em>arXiv preprint arXiv:2101.00027</em>.</li>
+      <li>Barbaresi, A. (2021). Trafilatura: A Web Scraping Library and Command-Line Tool for Text Discovery and Extraction. <em>Proceedings of the 17th Conference on Natural Language Processing (KONVENS 2021)</em>.</li>
+      <li>Richardson, L. (2015). Beautiful Soup Documentation. Retrieved from <a href="https://www.crummy.com/software/Beautiful-Soup/bs4/doc/" target="_blank" rel="noopener noreferrer">https://www.crummy.com/software/Beautiful-Soup/bs4/doc/</a></li>
+    </ul>
   </article>
 </Layout>
