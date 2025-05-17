@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^11.2.0",
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
     "@fontsource/twinkle-star": "^5.1.0",
     "astro": "^4.16.13",
-    "tailwindcss": "^3.4.15",
-    "@astrojs/rss": "^1.0.0"
+    "tailwindcss": "^3.4.15"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241112.0",
