@@ -37,7 +37,7 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
   </head>
   <header>
     <Header>
-      <!-- <a href="#" id="home-link">Contact</a> -->
+      <a href="/blog" id="blog-link">Blog</a>
     </Header>
   </header>
   <ColorControls />
@@ -68,6 +68,17 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       --font-weight-bold: 700;
       --line-height-body: 1.6;
       --text-lg: 1.2em;
+    }
+
+    #blog-link {
+      color: var(--hf-color);
+      text-decoration: none;
+      font-size: 1rem; /* Adjust as needed */
+      padding-right: 1rem; /* Adjust as needed */
+    }
+
+    #blog-link:hover {
+      text-decoration: underline;
     }
 
     /* Base styles */
