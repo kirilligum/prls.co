@@ -1,19 +1,146 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const posts = Object.values(import.meta.glob('./*.astro', { eager: true }))
-  .map((m: any) => m.frontmatter)
+
+interface PostFrontmatter {
+  title: string;
+  slug: string;
+  pubDate: string;
+  description?: string;
+  author?: string;
+  tags?: string[];
+}
+
+const allPosts = await Astro.glob<PostFrontmatter>('./*.astro');
+
+const posts = allPosts
+  .filter(post => post.frontmatter.slug) // Ensure only posts with slugs are processed
+  .map(post => ({
+    ...post.frontmatter,
+    pubDate: String(post.frontmatter.pubDate),
+    // Astro.glob provides `file` which can be used to construct URL, or rely on slug
+    // For blog posts, slug is canonical.
+  }))
   .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 ---
-<Layout title="Blog">
-  <main>
-    <h1>Blog</h1>
-    <ul>
-      {posts.map(({ title, slug, pubDate }) => (
-        <li>
-          <a href={`/blog/${slug}/`}>{title}</a>
-          <time datetime={pubDate}>{pubDate}</time>
-        </li>
-      ))}
+<Layout title="Pearls of Wisdom - Blog">
+  <main class="blog-index-container">
+    <header class="blog-index-header">
+      <h1>Pearls of Wisdom Blog</h1>
+      <p class="subtitle">Insights on AI, SEO, and how LLMs are changing the digital landscape.</p>
+    </header>
+    <ul class="blog-list">
+      {posts.map(({ title, slug, pubDate, description }) => {
+        const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        });
+        return (
+          <li class="blog-list-item">
+            <a href={`/blog/${slug}/`} class="post-link">
+              <article>
+                <h2>{title}</h2>
+                {description && <p class="description">{description}</p>}
+                <time datetime={pubDate}>{formattedDate}</time>
+              </article>
+            </a>
+          </li>
+        );
+      })}
     </ul>
   </main>
 </Layout>
+
+<style>
+  .blog-index-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    background-color: var(--prls-main-surface-primary);
+    color: var(--prls-text-primary);
+  }
+
+  .blog-index-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--prls-main-surface-secondary);
+  }
+
+  .blog-index-header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    color: var(--prls-text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-index-header .subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--prls-text-secondary);
+  }
+
+  .blog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .blog-list-item {
+    background-color: var(--hf-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    overflow: hidden;
+  }
+
+  .blog-list-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+  }
+
+  .post-link {
+    display: block;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-list-item h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: var(--prls-text-primary);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .blog-list-item .description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--prls-text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .blog-list-item time {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--prls-text-tertiary);
+    display: block;
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .blog-list {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+  }
+</style>

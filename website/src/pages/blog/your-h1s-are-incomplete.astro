@@ -8,11 +8,29 @@ export const frontmatter = {
   slug: "your-h1s-are-incomplete",
   tags: ["HTML","LLMs","AI-SEO","Tokenization","Pre-Training"]
 };
+
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 ---
 <Layout title={frontmatter.title}>
-  <article>
-    <p><strong>TL;DR</strong></p>
-    <ul>
+  <main class="blog-post-container">
+    <header class="blog-post-header">
+      <h1>{frontmatter.title}</h1>
+      <p class="meta">
+        By {frontmatter.author} on <time datetime={frontmatter.pubDate}>{formattedDate}</time>
+      </p>
+      {frontmatter.tags && frontmatter.tags.length > 0 && (
+        <div class="tags">
+          {frontmatter.tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </header>
+    <article class="blog-content">
+      <p><strong>TL;DR</strong></p>
+      <ul>
       <li>Most text-focused LLMs ingest plain text, not your HTML tags (C4: Raffel et al. 2020; The Pile: Gao et al. 2020).</li>
       <li>HTML tags like <code>&lt;h1&gt;</code> are usually stripped during pre-training data preparation. What the LLM "sees" is often just the text content.</li>
       <li>This means relying solely on HTML structure for emphasis or meaning is insufficient for current LLMs. Your crucial <code>&lt;h1&gt;</code> might be treated like any other sentence.</li>
@@ -85,4 +103,153 @@ print(plain_text)
       <li>Richardson, L. (2015). Beautiful Soup Documentation. Retrieved from <a href="https://www.crummy.com/software/Beautiful-Soup/bs4/doc/" target="_blank" rel="noopener noreferrer">https://www.crummy.com/software/Beautiful-Soup/bs4/doc/</a></li>
     </ul>
   </article>
+</main>
 </Layout>
+
+<style>
+  .blog-post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem; /* top, horizontal, bottom */
+    background-color: var(--prls-main-surface-primary);
+    color: var(--prls-text-primary);
+  }
+
+  .blog-post-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--prls-main-surface-secondary);
+  }
+
+  .blog-post-header h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--prls-text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .blog-post-header .meta {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--prls-text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    margin-top: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    background-color: var(--prls-main-surface-secondary);
+    color: var(--prls-text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-content {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    font-size: 1.1rem;
+  }
+
+  .blog-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: var(--prls-text-primary);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .blog-content h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--prls-text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .blog-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-content ul,
+  .blog-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .blog-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-content strong {
+    font-weight: var(--font-weight-bold, 700); /* Fallback if --font-weight-bold is not defined */
+  }
+
+  .blog-content em, .blog-content i {
+    font-style: italic;
+  }
+
+  .blog-content a {
+    color: var(--prls-text-secondary);
+    text-decoration: underline;
+    text-decoration-color: var(--prls-main-surface-secondary);
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+
+  .blog-content a:hover {
+    color: var(--prls-text-primary);
+    text-decoration-color: var(--prls-text-primary);
+  }
+
+  .blog-content pre {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+  }
+
+  .blog-content code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    background-color: #f0f0f0;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2rem;
+    font-size: 0.9em;
+  }
+
+  .blog-content pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+  }
+
+  .blog-content blockquote {
+    border-left: 4px solid var(--prls-main-surface-secondary);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    color: var(--prls-text-secondary);
+  }
+
+  .blog-content p:has(strong:contains("TL;DR")) + ul {
+    background-color: var(--hf-bg-color);
+    padding: 1rem 1rem 1rem 2.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--prls-main-surface-secondary);
+  }
+</style>
