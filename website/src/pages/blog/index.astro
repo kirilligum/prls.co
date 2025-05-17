@@ -7,7 +7,7 @@ const blog = await getCollection('blog');
 const posts = blog
   .map(post => ({
     ...post.data,
-    slug: post.slug,
+    slug: post.id,
   }))
   .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 ---
