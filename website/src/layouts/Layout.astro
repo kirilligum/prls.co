@@ -62,11 +62,18 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       --prls-text-tertiary: #b4b4b4;
       --hero-gradient-start: #f2e6de;
 
+      /* Blog Colors (Medium-like) */
+      --blog-bg-color: #fcfcfc; /* Light background */
+      --blog-text-color: #333333; /* Dark text */
+      --blog-link-color: #1a8917; /* Medium green link color */
+      --blog-link-hover-color: #0f5f0d; /* Darker green on hover */
+
+
       /* Typography */
       --font-heading: "Libre Baskerville", serif;
-      --font-body: "Questrial", sans-serif;
+      --font-body: "Spectral", serif; /* Changed to serif */
       --font-weight-bold: 700;
-      --line-height-body: 1.6;
+      --line-height-body: 1.8; /* Increased line height */
       --text-lg: 1.2em;
     }
 
@@ -84,14 +91,14 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     /* Base styles */
     html {
       font-family: var(--font-body);
-      color: var(--prls-text-primary);
-      line-height: 1.6;
+      color: var(--blog-text-color); /* Use blog text color */
+      line-height: var(--line-height-body); /* Use updated line height */
     }
 
     body {
       margin: 0;
       padding: 0;
-      background-color: var(--hf-bg-color);
+      background-color: var(--blog-bg-color); /* Use blog background color */
     }
 
     footer {
