@@ -1,13 +1,4 @@
 {
-  "dependencies": {
-    "sharp-ico": "^0.1.5"
-  },
-  "devDependencies": {
-    "@types/sharp": "^0.31.1",
-    "sharp": "^0.33.5"
-  }
-}
-{
   "name": "project-root",
   "version": "1.0.0",
   "private": true,
