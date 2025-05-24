@@ -1,0 +1,9 @@
+{
+  "name": "project-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd website && yarn run dev",
+    "build": "cd website && yarn run build"
+  }
+}

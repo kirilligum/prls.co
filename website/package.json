@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^11.2.0",
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
     "@fontsource/twinkle-star": "^5.1.0",

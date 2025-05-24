@@ -7,6 +7,7 @@ import ColorControls from "../components/ColorControls.astro";
 import Header from "../components/Header.astro";
 
 const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
+const isBlogPage = Astro.url.pathname.startsWith('/blog');
 ---
 
 <!doctype html>
@@ -36,12 +37,12 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     <title>{title}</title>
   </head>
   <header>
-    <Header>
-      <!-- <a href="#" id="home-link">Contact</a> -->
+    <Header isBlogPage={isBlogPage}>
+      <a href="/blog" id="blog-link">Blog</a>
     </Header>
   </header>
   <ColorControls />
-  <body>
+  <body class:list={[isBlogPage ? 'blog-active' : '']}>
     <slot />
   </body>
   <footer style="background-color: var(--prls-main-surface-primary);">
@@ -64,24 +65,54 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 
       /* Typography */
       --font-heading: "Libre Baskerville", serif;
-      --font-body: "Questrial", sans-serif;
+      --font-body: "Questrial", sans-serif; /* Reverted to default */
       --font-weight-bold: 700;
-      --line-height-body: 1.6;
+      --line-height-body: 1.6; /* Reverted to default */
       --text-lg: 1.2em;
+    }
+
+    #blog-link {
+      color: var(--hf-color);
+      text-decoration: none;
+      font-size: 1rem; /* Adjust as needed */
+      padding-right: 1rem; /* Adjust as needed */
+    }
+
+    #blog-link:hover {
+      text-decoration: underline;
     }
 
     /* Base styles */
     html {
-      font-family: var(--font-body);
-      color: var(--prls-text-primary);
-      line-height: 1.6;
+      font-family: var(--font-body); /* Uses default Questrial */
+      color: var(--prls-text-primary); /* Default site text color */
+      line-height: var(--line-height-body); /* Default 1.6 */
     }
 
     body {
       margin: 0;
       padding: 0;
-      background-color: var(--hf-bg-color);
+      background-color: var(--prls-main-surface-primary); /* Default site background */
     }
+
+    /* Overrides for specific links outside main blog content (e.g., header, footer) */
+    #blog-link, /* Header blog link */
+    #blog-link:hover {
+      border-bottom: none; /* Remove blog-style border from header link */
+      /* color and text-decoration are already handled by its own existing specific rule */
+    }
+
+    footer a { /* Links within the footer */
+      color: var(--hf-color); /* Match footer text color */
+      border-bottom: none; /* Remove blog-style border */
+      text-decoration: underline; /* Standard footer link appearance */
+    }
+
+    footer a:hover {
+      color: var(--hf-color); /* Ensure hover color consistency for footer links */
+      /* text-decoration: underline; is inherited from 'footer a' */
+    }
+    /* End of Blog Content Styles & Overrides */
 
     footer {
       text-align: center;

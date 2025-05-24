@@ -1,15 +1,17 @@
 ---
 interface Props {
   title?: string;
+  isBlogPage?: boolean;
 }
 
-const { title = "Pearls of Wisdom" } = Astro.props;
+const { title = "Pearls of Wisdom", isBlogPage = false } = Astro.props;
+const headerBackgroundColor = isBlogPage ? 'var(--prls-main-surface-primary)' : 'var(--hero-gradient-start)';
 ---
 
-<div class="main-header" style="background-color: var(--hero-gradient-start);">
+<div class="main-header" style="background-color: {headerBackgroundColor};">
   <span class="header-pearl text-nowrap">
     <!-- <span class="header-symbol">༜</span> -->
-    {title}
+    {title === "Pearls of Wisdom" ? <a href="/" class="home-link-style">{title}</a> : title}
   </span>
   <div class="header-content">
     <span class="header-links">
@@ -54,5 +56,14 @@ const { title = "Pearls of Wisdom" } = Astro.props;
 
   .header-links {
     text-align: right;
+  }
+
+  .home-link-style {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .home-link-style:hover {
+    text-decoration: underline;
   }
 </style>
