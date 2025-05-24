@@ -3,7 +3,14 @@ title: "You Are What You Eat: Curating Data for LLM Pre-training"
 description: "In Large Language Models (LLMs), 'You are what you eat' has never been truer. An LLM's ultimate power hinges directly on the quality and efficiency of its pre-training data."
 pubDate: 2025-05-24
 author: "Kirill Igumenshchev"
-tags: ["LLM Pre-training", "Data Curation", "AI", "LLM"]
+tags: [
+  "LLM Pre-training", "Data Curation", "AI", "LLM",
+  "Data Acquisition", "Text Extraction", "Quality & Content Filtering", "Deduplication Strategies", "Synthetic Data Generation", "Corpus Assembly & Mixing",
+  "Computational Resource Optimization", "Faster Model Convergence", "Specialized Knowledge Acquisition",
+  "Heuristic Filtering", "Model-Based Quality Scoring", "MinHashLSH", "Semantic Deduplication", "Knowledge Distillation", "Curriculum Learning",
+  "Common Crawl", "C4 Dataset", "The Pile", "RefinedWeb", "Dolma Dataset", "FineWeb", "Nemotron-CC",
+  "GPT", "Llama", "Mistral", "OLMo", "Phi-1"
+]
 ---
 
 In Large Language Models (LLMs), 'You are what you eat' has never been truer. An LLM's ultimate power hinges directly on the quality and efficiency of its pre-training data. Strategic data preparation is paramount, directly influencing computational cost ($100M+), accuracy, and the coverage of knowledge LLMs acquire. Training runs consume vast resources; understanding and optimizing pre-training data is a critical driver of progress and viability in AI. At **Pearls of Wisdom (prls.co)**, we apply these cutting-edge principles to ensure your company's information is optimally integrated into LLMs.
