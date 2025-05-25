@@ -3,12 +3,12 @@
 # Concatenate all Markdown files in subdirectories under docs/astro.build/pages
 # into a single file for each directory, preserving the relative path as a header for each file.
 
-for dir in docs/astro.build/pages/*/
+for dir in (find docs/astro.build/pages -type d)
     if test -d "$dir"
         set output "$dir"index.md
         > "$output"
 
-        for subfile in (find "$dir" -type f -name '*.md' | grep -v 'index\.md$' | sort)
+        for subfile in (find "$dir" -type f -name '*.md' -not -path "$dir/index.md" | sort)
             set rel_path (string replace "$dir" '' "$subfile")
             echo "# $rel_path" >> "$output"
             cat "$subfile" >> "$output"
