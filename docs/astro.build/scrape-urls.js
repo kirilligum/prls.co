@@ -26,6 +26,8 @@ async function main() {
   });
 
   const sorted = Array.from(urls).sort();
+  // Print URLs to console
+  sorted.forEach((url) => console.log(url));
   const outputPath = 'docs/astro.build/urls.txt';
   writeFileSync(outputPath, sorted.join('\n'));
   console.log(`Saved ${sorted.length} URLs to ${outputPath}`);
