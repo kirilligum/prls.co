@@ -9,13 +9,11 @@ for dir in docs/astro.build/pages/**/
         echo "# $dir" > "$output"
         echo "" >> "$output"
 
-        for file in "$dir"*.md
-            if test "$file" != "$output"
-                set rel_path (string replace "$dir" '' "$file")
-                echo "## $rel_path" >> "$output"
-                cat "$file" >> "$output"
-                echo "" >> "$output"
-            end
+        for subfile in (find "$dir" -type f -name '*.md' | grep -v 'index\.md$' | sort)
+            set rel_path (string replace "$dir" '' "$subfile")
+            echo "## $rel_path" >> "$output"
+            cat "$subfile" >> "$output"
+            echo "" >> "$output"
         end
     end
 end
