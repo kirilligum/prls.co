@@ -22,9 +22,9 @@ async function main() {
     }
     const html = await res.text();
     const $ = load(html);
-    const bodyHtml = $('div[data-pagefind-body]').html();
+    const bodyHtml = $('main[data-pagefind-body]').html();
     if (!bodyHtml) {
-      console.error(`No data-pagefind-body for ${url}`);
+      console.error(`No <main data-pagefind-body> for ${url}`);
       continue;
     }
     const markdown = td.turndown(bodyHtml);
