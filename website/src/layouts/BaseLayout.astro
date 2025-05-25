@@ -3,19 +3,15 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/blog.css';
 const { pageTitle } = Astro.props;
+const isBlogPage = Astro.url.pathname.startsWith('/blog');
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
-    <link rel="stylesheet" href="/style.css" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-    <link rel="stylesheet" href="/style.css" />
   </head>
-  <body>
+  <body class:list={[isBlogPage ? 'blog-active' : '']}>
     <Header title={pageTitle} />
     <slot />
     <Footer />
