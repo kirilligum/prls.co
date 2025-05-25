@@ -3,7 +3,7 @@
 # Concatenate all Markdown files in subdirectories under docs/astro.build/pages
 # into a single file for each directory, preserving the relative path as a header for each file.
 
-for dir in (find docs/astro.build/pages -type d)
+for dir in (find docs/astro.build/pages -depth -type d)
     if test -d "$dir"
         # only combine if there are child directories
         set -l subdirs (find "$dir" -mindepth 1 -maxdepth 1 -type d | sort)
