@@ -14,6 +14,14 @@ for dir in (find docs/astro.build/pages -type d)
             cat "$subfile" >> "$output"
             echo "" >> "$output"
         end
+
+        # also build a single “all.md” with the full content of every child .md
+        set all_output "$dir/all.md"
+        rm -f "$all_output"
+        for subfile in (find "$dir" -type f -name '*.md' -not -path "$dir/index.md" | sort)
+            cat "$subfile" >> "$all_output"
+            echo "" >> "$all_output"
+        end
     end
 end
 
