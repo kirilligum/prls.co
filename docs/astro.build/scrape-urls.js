@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { load } from 'cheerio';
 import { writeFileSync } from 'fs';
 
-const sitemapUrl = 'https://docs.astro.build/sitemap.xml';
+const sitemapUrl = 'https://docs.astro.build/sitemap-index.xml';
 async function main() {
   const res = await fetch(sitemapUrl, {
     headers: {
