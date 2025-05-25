@@ -4,6 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "cd website && yarn run dev",
-    "build": "cd website && yarn run build"
+    "build": "cd website && yarn run build",
+    "scrape:astro": "node docs/astro.build/scrape-urls.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.1",
+    "cheerio": "^1.0.0-rc.12"
   }
 }
