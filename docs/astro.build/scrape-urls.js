@@ -1,27 +1,23 @@
 import fetch from 'node-fetch';
 import { load } from 'cheerio';
 import { writeFileSync } from 'fs';
-import { URL } from 'url';
 
-const baseUrl = 'https://docs.astro.build/en/';
+const sitemapUrl = 'https://docs.astro.build/sitemap.xml';
 async function main() {
-  const res = await fetch(baseUrl, {
+  const res = await fetch(sitemapUrl, {
     headers: {
       'User-Agent': 'Mozilla/5.0',
-      'Accept': 'text/html'
+      'Accept': 'application/xml'
     }
   });
-  const html = await res.text();
-  const $ = load(html);
+  const xml = await res.text();
+  const $ = load(xml, { xmlMode: true });
   const urls = new Set();
 
-  $('a[href]').each((_, el) => {
-    const href = $(el).attr('href');
-    if (!href) return;
-    if (href.startsWith('/en/')) {
-      urls.add(new URL(href, baseUrl).href);
-    } else if (href.startsWith(baseUrl)) {
-      urls.add(href);
+  $('loc').each((_, el) => {
+    const url = $(el).text();
+    if (url.startsWith('https://docs.astro.build/en/')) {
+      urls.add(url);
     }
   });
 
