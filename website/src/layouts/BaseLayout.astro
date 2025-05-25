@@ -10,6 +10,11 @@ const { pageTitle } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <Header title={pageTitle} />
