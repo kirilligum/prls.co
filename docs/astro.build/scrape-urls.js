@@ -10,7 +10,9 @@ async function main() {
       'Accept': 'application/xml'
     }
   });
+  console.log(`Fetched sitemap at ${sitemapUrl}, status ${res.status}`);
   const xml = await res.text();
+  console.log('Sitemap XML content:', xml);
   const $ = load(xml, { xmlMode: true });
   const urls = new Set();
 
