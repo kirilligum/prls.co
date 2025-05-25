@@ -15,13 +15,31 @@ async function main() {
   console.log('Sitemap XML content:', xml);
   const $ = load(xml, { xmlMode: true });
   const urls = new Set();
+  // Collect either the single sitemap or all sub-sitemaps
+  const sitemapUrls = [];
+  if ($('sitemapindex').length > 0) {
+    $('sitemap loc').each((_, el) => {
+      sitemapUrls.push($(el).text());
+    });
+  } else {
+    sitemapUrls.push(sitemapUrl);
+  }
 
-  $('loc').each((_, el) => {
-    const url = $(el).text();
-    if (url.startsWith('https://docs.astro.build/en/')) {
-      urls.add(url);
-    }
-  });
+  // Fetch each sitemap and extract /en/ page URLs
+  for (const smUrl of sitemapUrls) {
+    const r = await fetch(smUrl, {
+      headers: { 'User-Agent': 'Mozilla/5.0', 'Accept': 'application/xml' }
+    });
+    console.log(`Fetched sub-sitemap ${smUrl}, status ${r.status}`);
+    const smXml = await r.text();
+    const $$ = load(smXml, { xmlMode: true });
+    $$('url loc').each((_, el) => {
+      const url = $$(el).text();
+      if (url.startsWith('https://docs.astro.build/en/')) {
+        urls.add(url);
+      }
+    });
+  }
 
   const sorted = Array.from(urls).sort();
   // Print URLs to console
