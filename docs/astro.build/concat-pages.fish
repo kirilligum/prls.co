@@ -5,8 +5,8 @@
 
 for dir in (find docs/astro.build/pages -type d)
     if test -d "$dir"
-        set output "$dir"index.md
-        > "$output"
+        set output "$dir/index.md"
+        : > "$output"
 
         for subfile in (find "$dir" -type f -name '*.md' -not -path "$dir/index.md" | sort)
             set rel_path (string replace "$dir" '' "$subfile")
