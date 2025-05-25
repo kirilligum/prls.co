@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import cheerio from 'cheerio';
+import { load } from 'cheerio';
 import { writeFileSync } from 'fs';
 import { URL } from 'url';
 
@@ -7,7 +7,7 @@ const baseUrl = 'https://docs.astro.build/en/';
 async function main() {
   const res = await fetch(baseUrl);
   const html = await res.text();
-  const $ = cheerio.load(html);
+  const $ = load(html);
   const urls = new Set();
 
   $('a[href]').each((_, el) => {
