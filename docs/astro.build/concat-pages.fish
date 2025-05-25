@@ -5,9 +5,9 @@
 
 for dir in (find docs/astro.build/pages -depth -type d)
     if test -d "$dir"
-        # only combine if there are child directories
-        set -l subdirs (find "$dir" -mindepth 1 -maxdepth 1 -type d | sort)
-        if test (count $subdirs) -eq 0
+        # aggregate direct child index.md files bottom-up
+        set -l child_indexes (find "$dir" -mindepth 2 -maxdepth 2 -type f -name 'index.md' | sort)
+        if test (count $child_indexes) -eq 0
             # leaf: keep scraped index.md
             continue
         end
@@ -15,13 +15,11 @@ for dir in (find docs/astro.build/pages -depth -type d)
         set output "$dir/index.md"
         : > "$output"
 
-        for subdir in $subdirs
-            if test -f "$subdir/index.md"
-                set rel_path (string replace "$dir" '' "$subdir/index.md")
-                echo "# $rel_path" >> "$output"
-                cat "$subdir/index.md" >> "$output"
-                echo "" >> "$output"
-            end
+        for md in $child_indexes
+            set rel_path (string replace "$dir/" '' "$md")
+            echo "# $rel_path" >> "$output"
+            cat "$md" >> "$output"
+            echo "" >> "$output"
         end
 
         # also build a single “all.md” with the full content of every child .md
