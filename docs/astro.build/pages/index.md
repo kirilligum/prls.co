@@ -1,4 +1,5 @@
-## basics/astro-components/index.md
+# Aggregated from ./pages/basics
+# Aggregated from ./pages/basics/astro-components
 Components
 ==========
 
@@ -273,7 +274,8 @@ View transitions](/en/guides/view-transitions/) [Next
 Layouts](/en/basics/layouts/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## basics/astro-pages/index.md
+
+# Aggregated from ./pages/basics/astro-pages
 Pages
 =====
 
@@ -470,7 +472,8 @@ WordPress](/en/guides/migrate-to-astro/from-wordpress/) [Next
 Routing](/en/guides/routing/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## basics/layouts/index.md
+
+# Aggregated from ./pages/basics/layouts
 Layouts
 =======
 
@@ -628,7 +631,8 @@ Components](/en/basics/astro-components/) [Next
 Styles and CSS](/en/guides/styling/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## basics/project-structure/index.md
+
+# Aggregated from ./pages/basics/project-structure
 Project structure
 =================
 
@@ -822,7 +826,11 @@ Installation](/en/install-and-setup/) [Next
 Develop and build](/en/develop-and-build/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## concepts/islands/index.md
+
+
+
+# Aggregated from ./pages/concepts
+# Aggregated from ./pages/concepts/islands
 Islands architecture
 ====================
 
@@ -983,7 +991,8 @@ Why Astro?](/en/concepts/why-astro/) [Next
 Tutorial: Build a blog](/en/tutorial/0-introduction/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## concepts/why-astro/index.md
+
+# Aggregated from ./pages/concepts/why-astro
 Why Astro?
 ==========
 
@@ -1107,7 +1116,10 @@ Getting started](/en/getting-started/) [Next
 Islands architecture](/en/concepts/islands/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## contribute/index.md
+
+
+
+# Aggregated from ./pages/contribute
 Contribute to Astro
 ===================
 
@@ -1621,7 +1633,8 @@ Style rendered Markdown with Tailwind Typography](/en/recipes/tailwind-rendered-
 Template expressions reference](/en/reference/astro-syntax/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## develop-and-build/index.md
+
+# Aggregated from ./pages/develop-and-build
 Develop and build
 =================
 
@@ -1772,7 +1785,8 @@ Project structure](/en/basics/project-structure/) [Next
 Configuration overview](/en/guides/configuring-astro/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## editor-setup/index.md
+
+# Aggregated from ./pages/editor-setup
 Editor setup
 ============
 
@@ -1937,7 +1951,8 @@ Configuration overview](/en/guides/configuring-astro/) [Next
 TypeScript](/en/guides/typescript/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## getting-started/index.md
+
+# Aggregated from ./pages/getting-started
 Astro v5 is here! [Learn how to upgrade your site](/en/guides/upgrade-to/v5/)
 
 Astro Docs
@@ -2020,7 +2035,9 @@ Learn Astro with **Coding in Public**
 document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/actions/index.md
+
+# Aggregated from ./pages/guides
+# Aggregated from ./pages/guides/actions
 Actions
 =======
 
@@ -2474,7 +2491,8 @@ Server islands](/en/guides/server-islands/) [Next
 Sessions](/en/guides/sessions/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/astro-db/index.md
+
+# Aggregated from ./pages/guides/astro-db
 Astro DB
 ========
 
@@ -3109,7 +3127,8 @@ Data fetching](/en/guides/data-fetching/) [Next
 On-demand rendering](/en/guides/on-demand-rendering/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/authentication/index.md
+
+# Aggregated from ./pages/guides/authentication
 Authentication
 ==============
 
@@ -3451,7 +3470,9 @@ E-commerce](/en/guides/ecommerce/) [Next
 Testing](/en/guides/testing/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/backend/appwriteio/index.md
+
+# Aggregated from ./pages/guides/backend
+# Aggregated from ./pages/guides/backend/appwriteio
 Appwrite & Astro
 ================
 
@@ -3516,7 +3537,8 @@ Backend services overview](/en/guides/backend/) [Next
 Firebase](/en/guides/backend/google-firebase/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/backend/google-firebase/index.md
+
+# Aggregated from ./pages/guides/backend/google-firebase
 Firebase & Astro
 ================
 
@@ -4070,94 +4092,8 @@ Appwrite](/en/guides/backend/appwriteio/) [Next
 Neon](/en/guides/backend/neon/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/backend/index.md
-Use a backend service with Astro
-================================
 
-**Ready to add features like authentication, monitoring, storage, or data to your Astro project?** Follow one of our guides to integrate a backend service.
-
-Tip
-
-Find [community-maintained integrations](https://astro.build/integrations/) for adding popular features to your project in our integrations directory.
-
-Backend service guides
-----------------------
-
-[Section titled Backend service guides](#backend-service-guides)
-
-Note that many of these pages are **stubs**: they’re collections of resources waiting for your contribution!
-
-*   ![](/logos/appwriteio.svg)
-    
-    ### [Appwrite](/en/guides/backend/appwriteio/)
-    
-*   ![](/logos/firebase.svg)
-    
-    ### [Firebase](/en/guides/backend/google-firebase/)
-    
-*   ![](/logos/neon.svg)
-    
-    ### [Neon](/en/guides/backend/neon/)
-    
-*   ![](/logos/sentry.svg)
-    
-    ### [Sentry](/en/guides/backend/sentry/)
-    
-*   ![](/logos/supabase.svg)
-    
-    ### [Supabase](/en/guides/backend/supabase/)
-    
-*   ![](/logos/turso.svg)
-    
-    ### [Turso](/en/guides/backend/turso/)
-    
-*   ![](/logos/xata.svg)
-    
-    ### [Xata](/en/guides/backend/xata/)
-    
-
-What is a backend service?
---------------------------
-
-[Section titled What is a backend service?](#what-is-a-backend-service)
-
-A backend service is a cloud-based system that helps you build and manage your backend infrastructure. It provides a set of tools and services for managing databases, user authentication, and other server-side functionality. This enables you to focus on building your applications without having to worry about managing the underlying infrastructure.
-
-Why would I use a backend service?
-----------------------------------
-
-[Section titled Why would I use a backend service?](#why-would-i-use-a-backend-service)
-
-You might want to consider a backend service if your project has complex server-side needs, for example:
-
-*   user sign-ups and authentication
-*   persistent data storage
-*   user-uploaded asset storage
-*   API generation
-*   realtime communication
-*   application monitoring
-
-Recipes
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/backend/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Wordpress](/en/guides/cms/wordpress/) [Next  
-Appwrite](/en/guides/backend/appwriteio/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/backend/neon/index.md
+# Aggregated from ./pages/guides/backend/neon
 Neon Postgres & Astro
 =====================
 
@@ -4305,7 +4241,8 @@ Firebase](/en/guides/backend/google-firebase/) [Next
 Sentry](/en/guides/backend/sentry/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/backend/sentry/index.md
+
+# Aggregated from ./pages/guides/backend/sentry
 Monitor your Astro Site with Sentry
 ===================================
 
@@ -4440,7 +4377,8 @@ Neon](/en/guides/backend/neon/) [Next
 Supabase](/en/guides/backend/supabase/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/backend/supabase/index.md
+
+# Aggregated from ./pages/guides/backend/supabase
 Supabase & Astro
 ================
 
@@ -4831,7 +4769,8 @@ Sentry](/en/guides/backend/sentry/) [Next
 Turso](/en/guides/backend/turso/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/backend/turso/index.md
+
+# Aggregated from ./pages/guides/backend/turso
 Turso & Astro
 =============
 
@@ -5005,7 +4944,8 @@ Supabase](/en/guides/backend/supabase/) [Next
 Xata](/en/guides/backend/xata/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/backend/xata/index.md
+
+# Aggregated from ./pages/guides/backend/xata
 Xata & Astro
 ============
 
@@ -5146,7 +5086,10 @@ Turso](/en/guides/backend/turso/) [Next
 Digital Asset Management overview](/en/guides/media/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/client-side-scripts/index.md
+
+
+
+# Aggregated from ./pages/guides/client-side-scripts
 Scripts and event handling
 ==========================
 
@@ -5358,7 +5301,9 @@ Syntax Highlighting](/en/guides/syntax-highlighting/) [Next
 Front-end frameworks](/en/guides/framework-components/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/apostrophecms/index.md
+
+# Aggregated from ./pages/guides/cms
+# Aggregated from ./pages/guides/cms/apostrophecms
 ApostropheCMS & Astro
 =====================
 
@@ -5862,7 +5807,8 @@ CMS overview](/en/guides/cms/) [Next
 Builder.io](/en/guides/cms/builderio/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/builderio/index.md
+
+# Aggregated from ./pages/guides/cms/builderio
 Builder.io & Astro
 ==================
 
@@ -6345,7 +6291,8 @@ ApostropheCMS](/en/guides/cms/apostrophecms/) [Next
 ButterCMS](/en/guides/cms/buttercms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/buttercms/index.md
+
+# Aggregated from ./pages/guides/cms/buttercms
 ButterCMS & Astro
 =================
 
@@ -6626,7 +6573,8 @@ Builder.io](/en/guides/cms/builderio/) [Next
 Caisy](/en/guides/cms/caisy/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/caisy/index.md
+
+# Aggregated from ./pages/guides/cms/caisy
 Caisy & Astro
 =============
 
@@ -6824,7 +6772,8 @@ ButterCMS](/en/guides/cms/buttercms/) [Next
 CloudCannon](/en/guides/cms/cloudcannon/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/cloudcannon/index.md
+
+# Aggregated from ./pages/guides/cms/cloudcannon
 CloudCannon & Astro
 ===================
 
@@ -7025,7 +6974,8 @@ Caisy](/en/guides/cms/caisy/) [Next
 Contentful](/en/guides/cms/contentful/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/contentful/index.md
+
+# Aggregated from ./pages/guides/cms/contentful
 Contentful & Astro
 ==================
 
@@ -7560,7 +7510,8 @@ CloudCannon](/en/guides/cms/cloudcannon/) [Next
 Cosmic](/en/guides/cms/cosmic/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/cosmic/index.md
+
+# Aggregated from ./pages/guides/cms/cosmic
 Cosmic & Astro
 ==============
 
@@ -7921,7 +7872,8 @@ Contentful](/en/guides/cms/contentful/) [Next
 Craft CMS](/en/guides/cms/craft-cms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/craft-cms/index.md
+
+# Aggregated from ./pages/guides/cms/craft-cms
 Craft CMS & Astro
 =================
 
@@ -8112,7 +8064,8 @@ Cosmic](/en/guides/cms/cosmic/) [Next
 Crystallize](/en/guides/cms/crystallize/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/crystallize/index.md
+
+# Aggregated from ./pages/guides/cms/crystallize
 Crystallize & Astro
 ===================
 
@@ -8298,7 +8251,8 @@ Craft CMS](/en/guides/cms/craft-cms/) [Next
 DatoCMS](/en/guides/cms/datocms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/datocms/index.md
+
+# Aggregated from ./pages/guides/cms/datocms
 DatoCMS & Astro
 ===============
 
@@ -8625,7 +8579,8 @@ Crystallize](/en/guides/cms/crystallize/) [Next
 Decap CMS](/en/guides/cms/decap-cms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/decap-cms/index.md
+
+# Aggregated from ./pages/guides/cms/decap-cms
 Decap CMS & Astro
 =================
 
@@ -8954,7 +8909,8 @@ DatoCMS](/en/guides/cms/datocms/) [Next
 Directus](/en/guides/cms/directus/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/directus/index.md
+
+# Aggregated from ./pages/guides/cms/directus
 Directus & Astro
 ================
 
@@ -9146,7 +9102,8 @@ Decap CMS](/en/guides/cms/decap-cms/) [Next
 Drupal](/en/guides/cms/drupal/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/drupal/index.md
+
+# Aggregated from ./pages/guides/cms/drupal
 Drupal & Astro
 ==============
 
@@ -9695,7 +9652,8 @@ Directus](/en/guides/cms/directus/) [Next
 Flotiq](/en/guides/cms/flotiq/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/flotiq/index.md
+
+# Aggregated from ./pages/guides/cms/flotiq
 Flotiq & Astro
 ==============
 
@@ -10082,7 +10040,8 @@ Drupal](/en/guides/cms/drupal/) [Next
 Front Matter CMS](/en/guides/cms/frontmatter-cms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/frontmatter-cms/index.md
+
+# Aggregated from ./pages/guides/cms/frontmatter-cms
 Front Matter CMS & Astro
 ========================
 
@@ -10403,7 +10362,8 @@ Flotiq](/en/guides/cms/flotiq/) [Next
 Ghost](/en/guides/cms/ghost/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/ghost/index.md
+
+# Aggregated from ./pages/guides/cms/ghost
 Ghost & Astro
 =============
 
@@ -10809,7 +10769,8 @@ Front Matter CMS](/en/guides/cms/frontmatter-cms/) [Next
 GitCMS](/en/guides/cms/gitcms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/gitcms/index.md
+
+# Aggregated from ./pages/guides/cms/gitcms
 GitCMS & Astro
 ==============
 
@@ -10992,7 +10953,8 @@ Ghost](/en/guides/cms/ghost/) [Next
 Hashnode](/en/guides/cms/hashnode/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/hashnode/index.md
+
+# Aggregated from ./pages/guides/cms/hashnode
 Hashnode & Astro
 ================
 
@@ -11357,7 +11319,8 @@ GitCMS](/en/guides/cms/gitcms/) [Next
 Hygraph](/en/guides/cms/hygraph/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/hygraph/index.md
+
+# Aggregated from ./pages/guides/cms/hygraph
 Hygraph & Astro
 ===============
 
@@ -11623,220 +11586,8 @@ Hashnode](/en/guides/cms/hashnode/) [Next
 Keystatic](/en/guides/cms/keystatic/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/index.md
-Use a CMS with Astro
-====================
 
-**Ready to connect a Headless CMS to your Astro project?** Follow one of our guides to integrate a CMS.
-
-Tip
-
-Find [community-maintained integrations](https://astro.build/integrations/?search=cms) for connecting a CMS to your project in our integrations directory.
-
-CMS Guides
-----------
-
-[Section titled CMS Guides](#cms-guides)
-
-Note that many of these pages are **stubs**: they’re collections of resources waiting for your contribution!
-
-*   ![](/logos/apostrophecms.svg)
-    
-    ### [Apostrophe](/en/guides/cms/apostrophecms/)
-    
-*   ![](/logos/builderio.svg)
-    
-    ### [Builder.io](/en/guides/cms/builderio/)
-    
-*   ![](/logos/buttercms.svg)
-    
-    ### [ButterCMS](/en/guides/cms/buttercms/)
-    
-*   ![](/logos/caisy.svg)
-    
-    ### [Caisy](/en/guides/cms/caisy/)
-    
-*   ![](/logos/cloudcannon.svg)
-    
-    ### [CloudCannon](/en/guides/cms/cloudcannon/)
-    
-*   ![](/logos/contentful.svg)
-    
-    ### [Contentful](/en/guides/cms/contentful/)
-    
-*   ![](/logos/cosmic.svg)
-    
-    ### [Cosmic](/en/guides/cms/cosmic/)
-    
-*   ![](/logos/craft-cms.svg)
-    
-    ### [Craft CMS](/en/guides/cms/craft-cms/)
-    
-*   ![](/logos/crystallize.svg)
-    
-    ### [Crystallize](/en/guides/cms/crystallize/)
-    
-*   ![](/logos/datocms.svg)
-    
-    ### [DatoCMS](/en/guides/cms/datocms/)
-    
-*   ![](/logos/decap-cms.svg)
-    
-    ### [Decap CMS](/en/guides/cms/decap-cms/)
-    
-*   ![](/logos/directus.svg)
-    
-    ### [Directus](/en/guides/cms/directus/)
-    
-*   ![](/logos/drupal.svg)
-    
-    ### [Drupal](/en/guides/cms/drupal/)
-    
-*   ![](/logos/flotiq.svg)
-    
-    ### [Flotiq](/en/guides/cms/flotiq/)
-    
-*   ![](/logos/frontmatter-cms.svg)
-    
-    ### [Front Matter CMS](/en/guides/cms/frontmatter-cms/)
-    
-*   ![](/logos/ghost.png)
-    
-    ### [Ghost](/en/guides/cms/ghost/)
-    
-*   ![](/logos/gitcms.svg)
-    
-    ### [GitCMS](/en/guides/cms/gitcms/)
-    
-*   ![](/logos/hashnode.png)
-    
-    ### [Hashnode](/en/guides/cms/hashnode/)
-    
-*   ![](/logos/hygraph.svg)
-    
-    ### [Hygraph](/en/guides/cms/hygraph/)
-    
-*   ![](/logos/keystatic.svg)
-    
-    ### [Keystatic](/en/guides/cms/keystatic/)
-    
-*   ![](/logos/keystonejs.svg)
-    
-    ### [KeystoneJS](/en/guides/cms/keystonejs/)
-    
-*   ![](/logos/kontent-ai.svg)
-    
-    ### [Kontent.ai](/en/guides/cms/kontent-ai/)
-    
-*   ![](/logos/microcms.svg)
-    
-    ### [microCMS](/en/guides/cms/microcms/)
-    
-*   ![](/logos/payload.svg)
-    
-    ### [Payload CMS](/en/guides/cms/payload/)
-    
-*   ![](/logos/preprcms.svg)
-    
-    ### [Prepr CMS](/en/guides/cms/preprcms/)
-    
-*   ![](/logos/prismic.svg)
-    
-    ### [Prismic](/en/guides/cms/prismic/)
-    
-*   ![](/logos/sanity.svg)
-    
-    ### [Sanity](/en/guides/cms/sanity/)
-    
-*   ![](/logos/sitecore.svg)
-    
-    ### [Sitecore XM](/en/guides/cms/sitecore/)
-    
-*   ![](/logos/spinal.svg)
-    
-    ### [Spinal](/en/guides/cms/spinal/)
-    
-*   ![](/logos/statamic.svg)
-    
-    ### [Statamic](/en/guides/cms/statamic/)
-    
-*   ![](/logos/storyblok.svg)
-    
-    ### [Storyblok](/en/guides/cms/storyblok/)
-    
-*   ![](/logos/strapi.svg)
-    
-    ### [Strapi](/en/guides/cms/strapi/)
-    
-*   ![](/logos/studiocms.svg)
-    
-    ### [StudioCMS](/en/guides/cms/studiocms/)
-    
-*   ![](/logos/tina-cms.svg)
-    
-    ### [Tina CMS](/en/guides/cms/tina-cms/)
-    
-*   ![](/logos/umbraco.svg)
-    
-    ### [Umbraco](/en/guides/cms/umbraco/)
-    
-*   ![](/logos/wordpress.svg)
-    
-    ### [WordPress](/en/guides/cms/wordpress/)
-    
-
-Why use a CMS?
---------------
-
-[Section titled Why use a CMS?](#why-use-a-cms)
-
-A Content Management System lets you write content and manage assets outside of your Astro project.
-
-This unlocks new features for working with content. Most CMSes give you a visual content editor, the ability to specify standard types of content, and a way to collaborate with others.
-
-A CMS can be useful for content that follows a particular structure, often giving you a dashboard-like experience and WYSIWYG editing tools. You might use a CMS to write blog posts using a CMS’s rich text editor instead of Markdown files. Or you might use a CMS to maintain product listings for an eCommerce shop, making certain fields required to avoid incomplete listings.
-
-Your Astro project can then fetch your content from your CMS and display it, wherever and however you want on your site.
-
-Which CMSes work well with Astro?
----------------------------------
-
-[Section titled Which CMSes work well with Astro?](#which-cmses-work-well-with-astro)
-
-Because Astro takes care of the _presentation_ of your content, you’ll want to choose a _headless_ CMS, like those in the list above. This means that the CMS helps you write your content, but doesn’t generate a site that displays it. Instead, you fetch the content data and use in your Astro project.
-
-Some headless CMSes, like Storyblok, provide an Astro [integration](/en/guides/integrations-guide/) that helps fetch the content specifically for an Astro site. Others provide a JavaScript SDK, a library that you install and use to fetch your remote content.
-
-Explore a [list of over 100 headless content management systems](https://jamstack.org/headless-cms/) External where you can filter by type (e.g. Git-based, API driven) and license (open-source or closed-source).
-
-Can I use Astro without a CMS?
-------------------------------
-
-[Section titled Can I use Astro without a CMS?](#can-i-use-astro-without-a-cms)
-
-Yes! Astro provides built-in support for [Markdown](/en/guides/markdown-content/).
-
-Recipes
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/cms/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Zerops](/en/guides/deploy/zerops/) [Next  
-ApostropheCMS](/en/guides/cms/apostrophecms/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/keystatic/index.md
+# Aggregated from ./pages/guides/cms/keystatic
 Keystatic & Astro
 =================
 
@@ -12210,7 +11961,8 @@ Hygraph](/en/guides/cms/hygraph/) [Next
 KeystoneJS](/en/guides/cms/keystonejs/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/keystonejs/index.md
+
+# Aggregated from ./pages/guides/cms/keystonejs
 KeystoneJS & Astro
 ==================
 
@@ -12384,7 +12136,8 @@ Keystatic](/en/guides/cms/keystatic/) [Next
 Kontent.ai](/en/guides/cms/kontent-ai/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/kontent-ai/index.md
+
+# Aggregated from ./pages/guides/cms/kontent-ai
 Kontent.ai & Astro
 ==================
 
@@ -12937,7 +12690,8 @@ KeystoneJS](/en/guides/cms/keystonejs/) [Next
 microCMS](/en/guides/cms/microcms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/microcms/index.md
+
+# Aggregated from ./pages/guides/cms/microcms
 microCMS & Astro
 ================
 
@@ -13119,7 +12873,8 @@ Kontent.ai](/en/guides/cms/kontent-ai/) [Next
 Payload CMS](/en/guides/cms/payload/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/payload/index.md
+
+# Aggregated from ./pages/guides/cms/payload
 Payload CMS & Astro
 ===================
 
@@ -13409,7 +13164,8 @@ microCMS](/en/guides/cms/microcms/) [Next
 Prepr CMS](/en/guides/cms/preprcms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/preprcms/index.md
+
+# Aggregated from ./pages/guides/cms/preprcms
 Prepr CMS & Astro
 =================
 
@@ -13753,7 +13509,8 @@ Payload CMS](/en/guides/cms/payload/) [Next
 Prismic](/en/guides/cms/prismic/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/prismic/index.md
+
+# Aggregated from ./pages/guides/cms/prismic
 Prismic & Astro
 ===============
 
@@ -13934,7 +13691,8 @@ Prepr CMS](/en/guides/cms/preprcms/) [Next
 Sanity](/en/guides/cms/sanity/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/sanity/index.md
+
+# Aggregated from ./pages/guides/cms/sanity
 Sanity & Astro
 ==============
 
@@ -14127,7 +13885,8 @@ Prismic](/en/guides/cms/prismic/) [Next
 Sitecore XM](/en/guides/cms/sitecore/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/sitecore/index.md
+
+# Aggregated from ./pages/guides/cms/sitecore
 Sitecore Experience Manager & Astro
 ===================================
 
@@ -14326,7 +14085,8 @@ Sanity](/en/guides/cms/sanity/) [Next
 Spinal](/en/guides/cms/spinal/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/spinal/index.md
+
+# Aggregated from ./pages/guides/cms/spinal
 Spinal & Astro
 ==============
 
@@ -14530,7 +14290,8 @@ Sitecore XM](/en/guides/cms/sitecore/) [Next
 Statamic](/en/guides/cms/statamic/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/statamic/index.md
+
+# Aggregated from ./pages/guides/cms/statamic
 Headless Statamic & Astro
 =========================
 
@@ -14782,7 +14543,8 @@ Spinal](/en/guides/cms/spinal/) [Next
 Storyblok](/en/guides/cms/storyblok/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/storyblok/index.md
+
+# Aggregated from ./pages/guides/cms/storyblok
 Storyblok & Astro
 =================
 
@@ -15349,7 +15111,8 @@ Statamic](/en/guides/cms/statamic/) [Next
 Strapi](/en/guides/cms/strapi/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/strapi/index.md
+
+# Aggregated from ./pages/guides/cms/strapi
 Strapi & Astro
 ==============
 
@@ -15787,7 +15550,8 @@ Storyblok](/en/guides/cms/storyblok/) [Next
 StudioCMS](/en/guides/cms/studiocms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/studiocms/index.md
+
+# Aggregated from ./pages/guides/cms/studiocms
 StudioCMS & Astro
 =================
 
@@ -15970,7 +15734,8 @@ Strapi](/en/guides/cms/strapi/) [Next
 Tina CMS](/en/guides/cms/tina-cms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/tina-cms/index.md
+
+# Aggregated from ./pages/guides/cms/tina-cms
 Tina CMS & Astro
 ================
 
@@ -16239,7 +16004,8 @@ StudioCMS](/en/guides/cms/studiocms/) [Next
 Umbraco](/en/guides/cms/umbraco/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/umbraco/index.md
+
+# Aggregated from ./pages/guides/cms/umbraco
 Umbraco & Astro
 ===============
 
@@ -16599,7 +16365,8 @@ Tina CMS](/en/guides/cms/tina-cms/) [Next
 Wordpress](/en/guides/cms/wordpress/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/cms/wordpress/index.md
+
+# Aggregated from ./pages/guides/cms/wordpress
 Headless WordPress & Astro
 ==========================
 
@@ -16961,7 +16728,10 @@ Umbraco](/en/guides/cms/umbraco/) [Next
 Backend services overview](/en/guides/backend/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/configuring-astro/index.md
+
+
+
+# Aggregated from ./pages/guides/configuring-astro
 Configuration overview
 ======================
 
@@ -17077,7 +16847,8 @@ Develop and build](/en/develop-and-build/) [Next
 Editor setup](/en/editor-setup/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/content-collections/index.md
+
+# Aggregated from ./pages/guides/content-collections
 Content collections
 ===================
 
@@ -17507,7 +17278,8 @@ Markdown](/en/guides/markdown-content/) [Next
 Images](/en/guides/images/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/data-fetching/index.md
+
+# Aggregated from ./pages/guides/data-fetching
 Data fetching
 =============
 
@@ -17602,7 +17374,9 @@ Images](/en/guides/images/) [Next
 Astro DB](/en/guides/astro-db/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/aws/index.md
+
+# Aggregated from ./pages/guides/deploy
+# Aggregated from ./pages/guides/deploy/aws
 Deploy your Astro Site to AWS
 =============================
 
@@ -17917,7 +17691,8 @@ Deployment overview](/en/guides/deploy/) [Next
 Azion](/en/guides/deploy/azion/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/azion/index.md
+
+# Aggregated from ./pages/guides/deploy/azion
 Deploy your Astro Site to Azion
 ===============================
 
@@ -18172,7 +17947,8 @@ AWS](/en/guides/deploy/aws/) [Next
 Buddy](/en/guides/deploy/buddy/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/buddy/index.md
+
+# Aggregated from ./pages/guides/deploy/buddy
 Deploy your Astro Site with Buddy
 =================================
 
@@ -18334,7 +18110,8 @@ Azion](/en/guides/deploy/azion/) [Next
 Cleavr](/en/guides/deploy/cleavr/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/cleavr/index.md
+
+# Aggregated from ./pages/guides/deploy/cleavr
 Deploy your Astro Site with Cleavr
 ==================================
 
@@ -18518,7 +18295,8 @@ Buddy](/en/guides/deploy/buddy/) [Next
 Clever Cloud](/en/guides/deploy/clever-cloud/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/clever-cloud/index.md
+
+# Aggregated from ./pages/guides/deploy/clever-cloud
 Deploy your Astro Site to Clever Cloud
 ======================================
 
@@ -18745,7 +18523,8 @@ Cleavr](/en/guides/deploy/cleavr/) [Next
 Cloudflare](/en/guides/deploy/cloudflare/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/cloudflare/index.md
+
+# Aggregated from ./pages/guides/deploy/cloudflare
 Deploy your Astro Site to Cloudflare
 ====================================
 
@@ -19065,7 +18844,8 @@ Clever Cloud](/en/guides/deploy/clever-cloud/) [Next
 Deno](/en/guides/deploy/deno/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/deno/index.md
+
+# Aggregated from ./pages/guides/deploy/deno
 Deploy your Astro Site with Deno
 ================================
 
@@ -19446,7 +19226,8 @@ Cloudflare](/en/guides/deploy/cloudflare/) [Next
 Edgio](/en/guides/deploy/edgio/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/edgio/index.md
+
+# Aggregated from ./pages/guides/deploy/edgio
 Deploy your Astro Site to Edgio
 ===============================
 
@@ -19617,7 +19398,8 @@ Deno](/en/guides/deploy/deno/) [Next
 Fleek](/en/guides/deploy/fleek/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/fleek/index.md
+
+# Aggregated from ./pages/guides/deploy/fleek
 Deploy your Astro Site to Fleek
 ===============================
 
@@ -19828,7 +19610,8 @@ Edgio](/en/guides/deploy/edgio/) [Next
 Flightcontrol](/en/guides/deploy/flightcontrol/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/flightcontrol/index.md
+
+# Aggregated from ./pages/guides/deploy/flightcontrol
 Deploy your Astro Site to AWS with Flightcontrol
 ================================================
 
@@ -19990,7 +19773,8 @@ Fleek](/en/guides/deploy/fleek/) [Next
 Fly.io](/en/guides/deploy/flyio/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/flyio/index.md
+
+# Aggregated from ./pages/guides/deploy/flyio
 Deploy your Astro Site to Fly.io
 ================================
 
@@ -20177,7 +19961,8 @@ Flightcontrol](/en/guides/deploy/flightcontrol/) [Next
 GitHub Pages](/en/guides/deploy/github/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/github/index.md
+
+# Aggregated from ./pages/guides/deploy/github
 Deploy your Astro Site to GitHub Pages
 ======================================
 
@@ -20428,7 +20213,8 @@ Fly.io](/en/guides/deploy/flyio/) [Next
 GitLab Pages](/en/guides/deploy/gitlab/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/gitlab/index.md
+
+# Aggregated from ./pages/guides/deploy/gitlab
 Deploy your Astro Site to GitLab Pages
 ======================================
 
@@ -20644,7 +20430,8 @@ GitHub Pages](/en/guides/deploy/github/) [Next
 Google Cloud](/en/guides/deploy/google-cloud/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/google-cloud/index.md
+
+# Aggregated from ./pages/guides/deploy/google-cloud
 Deploy your Astro Site to Google Cloud
 ======================================
 
@@ -20863,7 +20650,8 @@ GitLab Pages](/en/guides/deploy/gitlab/) [Next
 Google Firebase](/en/guides/deploy/google-firebase/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/google-firebase/index.md
+
+# Aggregated from ./pages/guides/deploy/google-firebase
 Deploy your Astro Site to Google’s Firebase Hosting
 ===================================================
 
@@ -21121,7 +20909,8 @@ Google Cloud](/en/guides/deploy/google-cloud/) [Next
 Heroku](/en/guides/deploy/heroku/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/heroku/index.md
+
+# Aggregated from ./pages/guides/deploy/heroku
 Deploy your Astro Site to Heroku
 ================================
 
@@ -21298,308 +21087,8 @@ Google Firebase](/en/guides/deploy/google-firebase/) [Next
 Kinsta](/en/guides/deploy/kinsta/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/index.md
-Deploy your Astro Site
-======================
 
-**Ready to build and deploy your Astro site?** Follow one of our guides to different deployment services or scroll down for general guidance about deploying an Astro site.
-
-Deployment Guides
------------------
-
-[Section titled Deployment Guides](#deployment-guides)
-
-*   ![](/logos/netlify.svg)
-    
-    ### [Netlify](/en/guides/deploy/netlify/)
-    
-    On demandStatic
-    
-*   ![](/logos/vercel.svg)
-    
-    ### [Vercel](/en/guides/deploy/vercel/)
-    
-    On demandStatic
-    
-*   ![](/logos/deno.svg)
-    
-    ### [Deno Deploy](/en/guides/deploy/deno/)
-    
-    On demandStatic
-    
-*   ![](/logos/github.svg)
-    
-    ### [GitHub Pages](/en/guides/deploy/github/)
-    
-    Static
-    
-*   ![](/logos/gitlab.svg)
-    
-    ### [GitLab Pages](/en/guides/deploy/gitlab/)
-    
-    Static
-    
-*   ![](/logos/cloudflare-pages.svg)
-    
-    ### [Cloudflare Pages](/en/guides/deploy/cloudflare/)
-    
-    On demandStatic
-    
-*   ![](/logos/aws.svg)
-    
-    ### [AWS](/en/guides/deploy/aws/)
-    
-    On demandStatic
-    
-*   ![](/logos/flightcontrol.svg)
-    
-    ### [AWS via Flightcontrol](/en/guides/deploy/flightcontrol/)
-    
-    On demandStatic
-    
-*   ![](/logos/sst.svg)
-    
-    ### [AWS via SST](/en/guides/deploy/sst/)
-    
-    On demandStatic
-    
-*   ![](/logos/clever-cloud.svg)
-    
-    ### [Clever Cloud](/en/guides/deploy/clever-cloud/)
-    
-    On demandStatic
-    
-*   ![](/logos/azion.svg)
-    
-    ### [Azion](/en/guides/deploy/azion/)
-    
-    On demandStatic
-    
-*   ![](/logos/google-cloud.svg)
-    
-    ### [Google Cloud](/en/guides/deploy/google-cloud/)
-    
-    On demandStatic
-    
-*   ![](/logos/firebase.svg)
-    
-    ### [Google Firebase](/en/guides/deploy/google-firebase/)
-    
-    On demandStatic
-    
-*   ![](/logos/heroku.svg)
-    
-    ### [Heroku](/en/guides/deploy/heroku/)
-    
-    Static
-    
-*   ![](/logos/microsoft-azure.svg)
-    
-    ### [Microsoft Azure](/en/guides/deploy/microsoft-azure/)
-    
-    Static
-    
-*   ![](/logos/buddy.svg)
-    
-    ### [Buddy](/en/guides/deploy/buddy/)
-    
-    Static
-    
-*   ![](/logos/edgio.svg)
-    
-    ### [Edgio](/en/guides/deploy/edgio/)
-    
-    On demandStatic
-    
-*   ![](/logos/fleek.svg)
-    
-    ### [Fleek](/en/guides/deploy/fleek/)
-    
-    Static
-    
-*   ![](/logos/flyio.svg)
-    
-    ### [Fly.io](/en/guides/deploy/flyio/)
-    
-    On demandStatic
-    
-*   ![](/logos/render.svg)
-    
-    ### [Render](/en/guides/deploy/render/)
-    
-    Static
-    
-*   ![](/logos/stormkit.svg)
-    
-    ### [Stormkit](/en/guides/deploy/stormkit/)
-    
-    Static
-    
-*   ![](/logos/surge.svg)
-    
-    ### [Surge](/en/guides/deploy/surge/)
-    
-    Static
-    
-*   ![](/logos/cleavr.svg)
-    
-    ### [Cleavr](/en/guides/deploy/cleavr/)
-    
-    On demandStatic
-    
-*   ![](/logos/kinsta.svg)
-    
-    ### [Kinsta](/en/guides/deploy/kinsta/)
-    
-    On demandStatic
-    
-*   ![](/logos/zeabur.svg)
-    
-    ### [Zeabur](/en/guides/deploy/zeabur/)
-    
-    On demandStatic
-    
-*   ![](/logos/zerops.svg)
-    
-    ### [Zerops](/en/guides/deploy/zerops/)
-    
-    On demandStatic
-    
-
-Quick Deploy Options
---------------------
-
-[Section titled Quick Deploy Options](#quick-deploy-options)
-
-You can build and deploy an Astro site to a number of hosts quickly using either their website’s dashboard UI or a CLI.
-
-### Website UI
-
-[Section titled Website UI](#website-ui)
-
-A quick way to deploy your website is to connect your Astro project’s online Git repository (e.g. GitHub, GitLab, Bitbucket) to a host provider and take advantage of continuous deployment using Git.
-
-These host platforms automatically detect pushes to your Astro project’s source repository, build your site and deploy it to the web at a custom URL or your personal domain. Often, setting up a deployment on these platforms will follow steps something like the following:
-
-1.  Add your repository to an online Git provider (e.g. in GitHub, GitLab, Bitbucket)
-    
-2.  Choose a host that supports **continuous deployment** (e.g. [Netlify](/en/guides/deploy/netlify/) or [Vercel](/en/guides/deploy/vercel/)) and import your Git repository as a new site/project.
-    
-    Many common hosts will recognize your project as an Astro site, and should choose the appropriate configuration settings to build and deploy your site as shown below. (If not, these settings can be changed.)
-    
-    Deploy settings
-    
-    *   **Build Command:** `astro build` or `npm run build`
-    *   **Publish directory:** `dist`
-    
-3.  Click “Deploy” and your new website will be created at a unique URL for that host (e.g. `new-astro-site.netlify.app`).
-    
-
-The host will be automatically configured to watch your Git provider’s main branch for changes, and to rebuild and republish your site at each new commit. These settings can typically be configured in your host provider’s dashboard UI.
-
-### CLI Deployment
-
-[Section titled CLI Deployment](#cli-deployment)
-
-Some hosts will have their own command line interface (CLI) you can install globally to your machine using npm. Often, using a CLI to deploy looks something like the following:
-
-1.  Install your host’s CLI globally, for example:
-    
-    (() => { class StarlightTabsRestore extends HTMLElement { connectedCallback() { const starlightTabs = this.closest('starlight-tabs'); if (!(starlightTabs instanceof HTMLElement) || typeof localStorage === 'undefined') return; const syncKey = starlightTabs.dataset.syncKey; if (!syncKey) return; const label = localStorage.getItem(\`starlight-synced-tabs\_\_${syncKey}\`); if (!label) return; const tabs = \[...starlightTabs?.querySelectorAll('\[role="tab"\]')\]; const tabIndexToRestore = tabs.findIndex( (tab) => tab instanceof HTMLAnchorElement && tab.textContent?.trim() === label ); const panels = starlightTabs?.querySelectorAll(':scope > \[role="tabpanel"\]'); const newTab = tabs\[tabIndexToRestore\]; const newPanel = panels\[tabIndexToRestore\]; if (tabIndexToRestore < 1 || !newTab || !newPanel) return; tabs\[0\]?.setAttribute('aria-selected', 'false'); tabs\[0\]?.setAttribute('tabindex', '-1'); panels?.\[0\]?.setAttribute('hidden', 'true'); newTab.removeAttribute('tabindex'); newTab.setAttribute('aria-selected', 'true'); newPanel.removeAttribute('hidden'); } } customElements.define('starlight-tabs-restore', StarlightTabsRestore); })()
-    
-    *   [npm](#tab-panel-3161)
-    *   [pnpm](#tab-panel-3162)
-    *   [Yarn](#tab-panel-3163)
-    
-    Terminal window
-    
-        npm install --global netlify-cli
-    
-    Terminal window
-    
-        pnpm add --global netlify-cli
-    
-    Terminal window
-    
-        yarn global add netlify-cli
-    
-    class r extends HTMLElement{static#e=new Map;#t;#n="starlight-synced-tabs\_\_";constructor(){super();const t=this.querySelector('\[role="tablist"\]');if(this.tabs=\[...t.querySelectorAll('\[role="tab"\]')\],this.panels=\[...this.querySelectorAll(':scope > \[role="tabpanel"\]')\],this.#t=this.dataset.syncKey,this.#t){const i=r.#e.get(this.#t)??\[\];i.push(this),r.#e.set(this.#t,i)}this.tabs.forEach((i,c)=>{i.addEventListener("click",e=>{e.preventDefault();const n=t.querySelector('\[aria-selected="true"\]');e.currentTarget!==n&&this.switchTab(e.currentTarget,c)}),i.addEventListener("keydown",e=>{const n=this.tabs.indexOf(e.currentTarget),s=e.key==="ArrowLeft"?n-1:e.key==="ArrowRight"?n+1:e.key==="Home"?0:e.key==="End"?this.tabs.length-1:null;s!==null&&this.tabs\[s\]&&(e.preventDefault(),this.switchTab(this.tabs\[s\],s))})})}switchTab(t,i,c=!0){if(!t)return;const e=c?this.getBoundingClientRect().top:0;this.tabs.forEach(s=>{s.setAttribute("aria-selected","false"),s.setAttribute("tabindex","-1")}),this.panels.forEach(s=>{s.hidden=!0});const n=this.panels\[i\];n&&(n.hidden=!1),t.removeAttribute("tabindex"),t.setAttribute("aria-selected","true"),c&&(t.focus(),r.#r(this,t),window.scrollTo({top:window.scrollY+(this.getBoundingClientRect().top-e),behavior:"instant"}))}#i(t){!this.#t||typeof localStorage>"u"||localStorage.setItem(this.#n+this.#t,t)}static#r(t,i){const c=t.#t,e=r.#s(i);if(!c||!e)return;const n=r.#e.get(c);if(n){for(const s of n){if(s===t)continue;const a=s.tabs.findIndex(o=>r.#s(o)===e);a!==-1&&s.switchTab(s.tabs\[a\],a,!1)}t.#i(e)}}static#s(t){return t.textContent?.trim()}}customElements.define("starlight-tabs",r);
-2.  Run the CLI and follow any instructions for authorization, setup etc.
-    
-3.  Build your site and deploy to your host
-    
-    Many common hosts will build and deploy your site for you. They will usually recognize your project as an Astro site, and should choose the appropriate configuration settings to build and deploy as shown below. (If not, these settings can be changed.)
-    
-    Deploy settings
-    
-    *   **Build Command:** `astro build` or `npm run build`
-    *   **Publish directory:** `dist`
-    
-    Other hosts will require you to [build your site locally](#building-your-site-locally) and deploy using the command line.
-    
-
-Building Your Site Locally
---------------------------
-
-[Section titled Building Your Site Locally](#building-your-site-locally)
-
-Many hosts like Netlify and Vercel will build your site for you and then publish that build output to the web. But, some sites will require you to build locally and then run a deploy command or upload your build output.
-
-You may also wish to build locally to preview your site, or to catch any potential errors and warnings in your own environment.
-
-Run the command `npm run build` to build your Astro site.
-
-*   [npm](#tab-panel-3164)
-*   [pnpm](#tab-panel-3165)
-*   [Yarn](#tab-panel-3166)
-
-Terminal window
-
-    npm run build
-
-Terminal window
-
-    pnpm run build
-
-Terminal window
-
-    yarn run build
-
-By default, the build output will be placed at `dist/`. This location can be changed using the [`outDir` configuration option](/en/reference/configuration-reference/#outdir).
-
-Adding an Adapter for on-demand rendering
------------------------------------------
-
-[Section titled Adding an Adapter for on-demand rendering](#adding-an-adapter-for-on-demand-rendering)
-
-Note
-
-Before deploying your Astro site with [on-demand rendering](/en/guides/on-demand-rendering/) enabled, make sure you have:
-
-*   Installed the [appropriate adapter](/en/guides/on-demand-rendering/) to your project dependencies (either manually, or using the adapter’s `astro add` command, e.g. `npx astro add netlify`).
-*   [Added the adapter](/en/reference/configuration-reference/#integrations) to your `astro.config.mjs` file’s import and default export when installing manually. (The `astro add` command will take care of this step for you!)
-
-Recipes
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/deploy/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Publish to NPM](/en/reference/publish-to-npm/) [Next  
-AWS](/en/guides/deploy/aws/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/kinsta/index.md
+# Aggregated from ./pages/guides/deploy/kinsta
 Deploy your Astro Site to Kinsta Application Hosting
 ====================================================
 
@@ -21810,7 +21299,8 @@ Heroku](/en/guides/deploy/heroku/) [Next
 Microsoft Azure](/en/guides/deploy/microsoft-azure/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/microsoft-azure/index.md
+
+# Aggregated from ./pages/guides/deploy/microsoft-azure
 Deploy your Astro Site to Microsoft Azure
 =========================================
 
@@ -21996,7 +21486,8 @@ Kinsta](/en/guides/deploy/kinsta/) [Next
 Netlify](/en/guides/deploy/netlify/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/netlify/index.md
+
+# Aggregated from ./pages/guides/deploy/netlify
 Deploy your Astro Site to Netlify
 =================================
 
@@ -22251,7 +21742,8 @@ Microsoft Azure](/en/guides/deploy/microsoft-azure/) [Next
 Render](/en/guides/deploy/render/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/render/index.md
+
+# Aggregated from ./pages/guides/deploy/render
 Deploy your Astro Site to Render
 ================================
 
@@ -22403,7 +21895,8 @@ Netlify](/en/guides/deploy/netlify/) [Next
 SST](/en/guides/deploy/sst/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/sst/index.md
+
+# Aggregated from ./pages/guides/deploy/sst
 Deploy your Astro Site to AWS with SST
 ======================================
 
@@ -22573,7 +22066,8 @@ Render](/en/guides/deploy/render/) [Next
 Stormkit](/en/guides/deploy/stormkit/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/stormkit/index.md
+
+# Aggregated from ./pages/guides/deploy/stormkit
 Deploy your Astro Site to Stormkit
 ==================================
 
@@ -22725,7 +22219,8 @@ SST](/en/guides/deploy/sst/) [Next
 Surge](/en/guides/deploy/surge/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/surge/index.md
+
+# Aggregated from ./pages/guides/deploy/surge
 Deploy your Astro Site to Surge
 ===============================
 
@@ -22885,7 +22380,8 @@ Stormkit](/en/guides/deploy/stormkit/) [Next
 Vercel](/en/guides/deploy/vercel/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/vercel/index.md
+
+# Aggregated from ./pages/guides/deploy/vercel
 Deploy your Astro Site to Vercel
 ================================
 
@@ -23123,7 +22619,8 @@ Surge](/en/guides/deploy/surge/) [Next
 Zeabur](/en/guides/deploy/zeabur/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/zeabur/index.md
+
+# Aggregated from ./pages/guides/deploy/zeabur
 Deploy your Astro Site to Zeabur
 ================================
 
@@ -23310,7 +22807,8 @@ Vercel](/en/guides/deploy/vercel/) [Next
 Zerops](/en/guides/deploy/zerops/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/deploy/zerops/index.md
+
+# Aggregated from ./pages/guides/deploy/zerops
 Deploy your Astro Site to Zerops
 ================================
 
@@ -23598,7 +23096,10 @@ Zeabur](/en/guides/deploy/zeabur/) [Next
 CMS overview](/en/guides/cms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/dev-toolbar/index.md
+
+
+
+# Aggregated from ./pages/guides/dev-toolbar
 Dev toolbar
 ===========
 
@@ -23718,7 +23219,8 @@ Environment variables](/en/guides/environment-variables/) [Next
 Site migration overview](/en/guides/migrate-to-astro/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/ecommerce/index.md
+
+# Aggregated from ./pages/guides/ecommerce
 E-commerce
 ==========
 
@@ -23916,7 +23418,8 @@ Cloudinary](/en/guides/media/cloudinary/) [Next
 Authentication](/en/guides/authentication/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/endpoints/index.md
+
+# Aggregated from ./pages/guides/endpoints
 Endpoints
 =========
 
@@ -24078,7 +23581,8 @@ Routing](/en/guides/routing/) [Next
 Middleware](/en/guides/middleware/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/environment-variables/index.md
+
+# Aggregated from ./pages/guides/environment-variables
 Using environment variables
 ===========================
 
@@ -24380,7 +23884,8 @@ TypeScript](/en/guides/typescript/) [Next
 Dev toolbar](/en/guides/dev-toolbar/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/fonts/index.md
+
+# Aggregated from ./pages/guides/fonts
 Using custom fonts
 ==================
 
@@ -24516,7 +24021,8 @@ Styles and CSS](/en/guides/styling/) [Next
 Syntax Highlighting](/en/guides/syntax-highlighting/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/framework-components/index.md
+
+# Aggregated from ./pages/guides/framework-components
 Front-end frameworks
 ====================
 
@@ -24741,7 +24247,8 @@ Scripts and event handling](/en/guides/client-side-scripts/) [Next
 Markdown](/en/guides/markdown-content/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/images/index.md
+
+# Aggregated from ./pages/guides/images
 Images
 ======
 
@@ -25172,7 +24679,8 @@ Content collections](/en/guides/content-collections/) [Next
 Data fetching](/en/guides/data-fetching/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/imports/index.md
+
+# Aggregated from ./pages/guides/imports
 Imports reference
 =================
 
@@ -25491,7 +24999,9 @@ CLI Commands](/en/reference/cli-reference/) [Next
 Routing Reference](/en/reference/routing-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/alpinejs/index.md
+
+# Aggregated from ./pages/guides/integrations-guide
+# Aggregated from ./pages/guides/integrations-guide/alpinejs
 @astrojs/ alpinejs
 ==================
 
@@ -25724,7 +25234,8 @@ Integrations overview](/en/guides/integrations-guide/) [Next
 Preact](/en/guides/integrations-guide/preact/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/cloudflare/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/cloudflare
 @astrojs/ cloudflare
 ====================
 
@@ -26295,7 +25806,8 @@ Vue](/en/guides/integrations-guide/vue/) [Next
 Netlify](/en/guides/integrations-guide/netlify/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/db/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/db
 @astrojs/ db
 ============
 
@@ -26607,7 +26119,8 @@ Vercel](/en/guides/integrations-guide/vercel/) [Next
 Markdoc](/en/guides/integrations-guide/markdoc/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/deno/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/deno
 @deno/astro-adapter
 ===================
 
@@ -26633,359 +26146,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/integrations-guide/deno.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/index.md
-Add Integrations
-================
 
-**Astro integrations** add new functionality and behaviors for your project with only a few lines of code. You can use an official integration, [integrations built by the community](#finding-more-integrations) or even [build a custom integration yourself](#building-your-own-integration).
-
-Integrations can…
-
-*   Unlock React, Vue, Svelte, Solid, and other popular UI frameworks with a [renderer](/en/guides/framework-components/).
-*   Enable on-demand rendering with an [SSR adapter](/en/guides/on-demand-rendering/).
-*   Integrate tools like MDX, and Partytown with a few lines of code.
-*   Add new features to your project, like automatic sitemap generation.
-*   Write custom code that hooks into the build process, dev server, and more.
-
-Integrations directory
-
-Browse or search the complete set of hundreds of official and community integrations in our [integrations directory](https://astro.build/integrations/). Find packages to add to your Astro project for authentication, analytics, performance, SEO, accessibility, UI, developer tools, and more.
-
-Official Integrations
----------------------
-
-[Section titled Official Integrations](#official-integrations)
-
-The following integrations are maintained by Astro.
-
-### Front-end frameworks
-
-*   ![](/logos/alpine-js.svg)
-    
-    ### [@astrojs/alpinejs](/en/guides/integrations-guide/alpinejs/)
-    
-*   ![](/logos/preact.svg)
-    
-    ### [@astrojs/preact](/en/guides/integrations-guide/preact/)
-    
-*   ![](/logos/react.svg)
-    
-    ### [@astrojs/react](/en/guides/integrations-guide/react/)
-    
-*   ![](/logos/solid.svg)
-    
-    ### [@astrojs/solid⁠-⁠js](/en/guides/integrations-guide/solid-js/)
-    
-*   ![](/logos/svelte.svg)
-    
-    ### [@astrojs/svelte](/en/guides/integrations-guide/svelte/)
-    
-*   ![](/logos/vue.svg)
-    
-    ### [@astrojs/vue](/en/guides/integrations-guide/vue/)
-    
-
-### Adapters
-
-*   ![](/logos/cloudflare-pages.svg)
-    
-    ### [@astrojs/cloudflare](/en/guides/integrations-guide/cloudflare/)
-    
-*   ![](/logos/netlify.svg)
-    
-    ### [@astrojs/netlify](/en/guides/integrations-guide/netlify/)
-    
-*   ![](/logos/node.svg)
-    
-    ### [@astrojs/node](/en/guides/integrations-guide/node/)
-    
-*   ![](/logos/vercel.svg)
-    
-    ### [@astrojs/vercel](/en/guides/integrations-guide/vercel/)
-    
-
-### Other integrations
-
-*   ![](/logos/db.svg)
-    
-    ### [@astrojs/db](/en/guides/integrations-guide/db/)
-    
-*   ![](/logos/markdoc.svg)
-    
-    ### [@astrojs/markdoc](/en/guides/integrations-guide/markdoc/)
-    
-*   ![](/logos/mdx.svg)
-    
-    ### [@astrojs/mdx](/en/guides/integrations-guide/mdx/)
-    
-*   ![](/logos/partytown.svg)
-    
-    ### [@astrojs/partytown](/en/guides/integrations-guide/partytown/)
-    
-*   ![](/logos/sitemap.svg)
-    
-    ### [@astrojs/sitemap](/en/guides/integrations-guide/sitemap/)
-    
-
-Automatic Integration Setup
----------------------------
-
-[Section titled Automatic Integration Setup](#automatic-integration-setup)
-
-Astro includes an `astro add` command to automate the setup of official integrations. Several community plugins can also be added using this command. Please check each integration’s own documentation to see whether `astro add` is supported, or whether you must [install manually](#manual-installation).
-
-Run the `astro add` command using the package manager of your choice and our automatic integration wizard will update your configuration file and install any necessary dependencies.
-
-(() => { class StarlightTabsRestore extends HTMLElement { connectedCallback() { const starlightTabs = this.closest('starlight-tabs'); if (!(starlightTabs instanceof HTMLElement) || typeof localStorage === 'undefined') return; const syncKey = starlightTabs.dataset.syncKey; if (!syncKey) return; const label = localStorage.getItem(\`starlight-synced-tabs\_\_${syncKey}\`); if (!label) return; const tabs = \[...starlightTabs?.querySelectorAll('\[role="tab"\]')\]; const tabIndexToRestore = tabs.findIndex( (tab) => tab instanceof HTMLAnchorElement && tab.textContent?.trim() === label ); const panels = starlightTabs?.querySelectorAll(':scope > \[role="tabpanel"\]'); const newTab = tabs\[tabIndexToRestore\]; const newPanel = panels\[tabIndexToRestore\]; if (tabIndexToRestore < 1 || !newTab || !newPanel) return; tabs\[0\]?.setAttribute('aria-selected', 'false'); tabs\[0\]?.setAttribute('tabindex', '-1'); panels?.\[0\]?.setAttribute('hidden', 'true'); newTab.removeAttribute('tabindex'); newTab.setAttribute('aria-selected', 'true'); newPanel.removeAttribute('hidden'); } } customElements.define('starlight-tabs-restore', StarlightTabsRestore); })()
-
-*   [npm](#tab-panel-3208)
-*   [pnpm](#tab-panel-3209)
-*   [Yarn](#tab-panel-3210)
-
-Terminal window
-
-    npx astro add react
-
-Terminal window
-
-    pnpm astro add react
-
-Terminal window
-
-    yarn astro add react
-
-class r extends HTMLElement{static#e=new Map;#t;#n="starlight-synced-tabs\_\_";constructor(){super();const t=this.querySelector('\[role="tablist"\]');if(this.tabs=\[...t.querySelectorAll('\[role="tab"\]')\],this.panels=\[...this.querySelectorAll(':scope > \[role="tabpanel"\]')\],this.#t=this.dataset.syncKey,this.#t){const i=r.#e.get(this.#t)??\[\];i.push(this),r.#e.set(this.#t,i)}this.tabs.forEach((i,c)=>{i.addEventListener("click",e=>{e.preventDefault();const n=t.querySelector('\[aria-selected="true"\]');e.currentTarget!==n&&this.switchTab(e.currentTarget,c)}),i.addEventListener("keydown",e=>{const n=this.tabs.indexOf(e.currentTarget),s=e.key==="ArrowLeft"?n-1:e.key==="ArrowRight"?n+1:e.key==="Home"?0:e.key==="End"?this.tabs.length-1:null;s!==null&&this.tabs\[s\]&&(e.preventDefault(),this.switchTab(this.tabs\[s\],s))})})}switchTab(t,i,c=!0){if(!t)return;const e=c?this.getBoundingClientRect().top:0;this.tabs.forEach(s=>{s.setAttribute("aria-selected","false"),s.setAttribute("tabindex","-1")}),this.panels.forEach(s=>{s.hidden=!0});const n=this.panels\[i\];n&&(n.hidden=!1),t.removeAttribute("tabindex"),t.setAttribute("aria-selected","true"),c&&(t.focus(),r.#r(this,t),window.scrollTo({top:window.scrollY+(this.getBoundingClientRect().top-e),behavior:"instant"}))}#i(t){!this.#t||typeof localStorage>"u"||localStorage.setItem(this.#n+this.#t,t)}static#r(t,i){const c=t.#t,e=r.#s(i);if(!c||!e)return;const n=r.#e.get(c);if(n){for(const s of n){if(s===t)continue;const a=s.tabs.findIndex(o=>r.#s(o)===e);a!==-1&&s.switchTab(s.tabs\[a\],a,!1)}t.#i(e)}}static#s(t){return t.textContent?.trim()}}customElements.define("starlight-tabs",r);
-
-It’s even possible to add multiple integrations at the same time!
-
-*   [npm](#tab-panel-3211)
-*   [pnpm](#tab-panel-3212)
-*   [Yarn](#tab-panel-3213)
-
-Terminal window
-
-    npx astro add react sitemap partytown
-
-Terminal window
-
-    pnpm astro add react sitemap partytown
-
-Terminal window
-
-    yarn astro add react sitemap partytown
-
-Handling integration dependencies
-
-If you see any warnings like `Cannot find package '[package-name]'` after adding an integration, your package manager may not have installed [peer dependencies](https://nodejs.org/en/blog/npm/peer-dependencies/) for you. To install these missing packages, run the following command:
-
-*   [npm](#tab-panel-3214)
-*   [pnpm](#tab-panel-3215)
-*   [Yarn](#tab-panel-3216)
-
-Terminal window
-
-    npm install [package-name]
-
-Terminal window
-
-    pnpm add [package-name]
-
-Terminal window
-
-    yarn add [package-name]
-
-### Manual Installation
-
-[Section titled Manual Installation](#manual-installation)
-
-Astro integrations are always added through the `integrations` property in your `astro.config.mjs` file.
-
-There are three common ways to import an integration into your Astro project:
-
-1.  [Install an npm package integration](#installing-an-npm-package).
-    
-2.  Import your own integration from a local file inside your project.
-    
-3.  Write your integration inline, directly in your config file.
-    
-    astro.config.mjs
-    
-        import { defineConfig } from 'astro/config';import installedIntegration from '@astrojs/vue';import localIntegration from './my-integration.js';
-        export default defineConfig({  integrations: [    // 1. Imported from an installed npm package    installedIntegration(),    // 2. Imported from a local JS file    localIntegration(),    // 3. An inline object    {name: 'namespace:id', hooks: { /* ... */ }},  ]});
-    
-
-Check out the [Integration API](/en/reference/integrations-reference/) reference to learn all of the different ways that you can write an integration.
-
-#### Installing an NPM package
-
-[Section titled Installing an NPM package](#installing-an-npm-package)
-
-Install an NPM package integration using a package manager, and then update `astro.config.mjs` manually.
-
-For example, to install the `@astrojs/sitemap` integration:
-
-1.  Install the integration to your project dependencies using your preferred package manager:
-    
-    *   [npm](#tab-panel-3217)
-    *   [pnpm](#tab-panel-3218)
-    *   [Yarn](#tab-panel-3219)
-    
-    Terminal window
-    
-        npm install @astrojs/sitemap
-    
-    Terminal window
-    
-        pnpm add @astrojs/sitemap
-    
-    Terminal window
-    
-        yarn add @astrojs/sitemap
-    
-2.  Import the integration to your `astro.config.mjs` file, and add it to your `integrations[]` array, along with any configuration options:
-    
-    astro.config.mjs
-    
-        import { defineConfig } from 'astro/config';import sitemap from '@astrojs/sitemap';
-        export default defineConfig({  // ...  integrations: [sitemap()],  // ...});
-    
-    Note that different integrations may have different configuration settings. Read each integration’s documentation, and apply any necessary config options to your chosen integration in `astro.config.mjs`.
-    
-
-### Custom Options
-
-[Section titled Custom Options](#custom-options)
-
-Integrations are almost always authored as factory functions that return the actual integration object. This lets you pass arguments and options to the factory function that customize the integration for your project.
-
-    integrations: [  // Example: Customize your integration with function arguments  sitemap({filter: true})]
-
-### Toggle an Integration
-
-[Section titled Toggle an Integration](#toggle-an-integration)
-
-Falsy integrations are ignored, so you can toggle integrations on & off without worrying about left-behind `undefined` and boolean values.
-
-    integrations: [  // Example: Skip building a sitemap on Windows  process.platform !== 'win32' && sitemap()]
-
-Upgrading Integrations
-----------------------
-
-[Section titled Upgrading Integrations](#upgrading-integrations)
-
-To upgrade all official integrations at once, run the `@astrojs/upgrade` command. This will upgrade both Astro and all official integrations to their latest versions.
-
-### Automatic Upgrading
-
-[Section titled Automatic Upgrading](#automatic-upgrading)
-
-*   [npm](#tab-panel-3220)
-*   [pnpm](#tab-panel-3221)
-*   [Yarn](#tab-panel-3222)
-
-Terminal window
-
-    # Upgrade Astro and official integrations together to latestnpx @astrojs/upgrade
-
-Terminal window
-
-    # Upgrade Astro and official integrations together to latestpnpm dlx @astrojs/upgrade
-
-Terminal window
-
-    # Upgrade Astro and official integrations together to latestyarn dlx @astrojs/upgrade
-
-### Manual Upgrading
-
-[Section titled Manual Upgrading](#manual-upgrading)
-
-To upgrade one or more integrations manually, use the appropriate command for your package manager.
-
-*   [npm](#tab-panel-3223)
-*   [pnpm](#tab-panel-3224)
-*   [Yarn](#tab-panel-3225)
-
-Terminal window
-
-    # Example: upgrade React and Partytown integrationsnpm install @astrojs/react@latest @astrojs/partytown@latest
-
-Terminal window
-
-    # Example: upgrade React and Partytown integrationspnpm add @astrojs/react@latest @astrojs/partytown@latest
-
-Terminal window
-
-    # Example: upgrade React and Partytown integrationsyarn add @astrojs/react@latest @astrojs/partytown@latest
-
-Removing an Integration
------------------------
-
-[Section titled Removing an Integration](#removing-an-integration)
-
-1.  To remove an integration, first uninstall the integration from your project.
-    
-    *   [npm](#tab-panel-3226)
-    *   [pnpm](#tab-panel-3227)
-    *   [Yarn](#tab-panel-3228)
-    
-    Terminal window
-    
-        npm uninstall @astrojs/react
-    
-    Terminal window
-    
-        pnpm remove @astrojs/react
-    
-    Terminal window
-    
-        yarn remove @astrojs/react
-    
-2.  Next, remove the integration from your `astro.config.*` file:
-    
-    astro.config.mjs
-    
-        import { defineConfig } from 'astro/config';
-        import react from '@astrojs/react';
-        export default defineConfig({  integrations: [    react()  ]});
-    
-
-Finding More Integrations
--------------------------
-
-[Section titled Finding More Integrations](#finding-more-integrations)
-
-You can find many integrations developed by the community in the [Astro Integrations Directory](https://astro.build/integrations/). Follow links there for detailed usage and configuration instructions.
-
-Building Your Own Integration
------------------------------
-
-[Section titled Building Your Own Integration](#building-your-own-integration)
-
-Astro’s Integration API is inspired by Rollup and Vite, and designed to feel familiar to anyone who has ever written a Rollup or Vite plugin before.
-
-Check out the [Integration API](/en/reference/integrations-reference/) reference to learn what integrations can do and how to write one yourself.
-
-Learn
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/integrations-guide/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Error reference](/en/reference/error-reference/) [Next  
-Alpine.js](/en/guides/integrations-guide/alpinejs/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/lit/index.md
+# Aggregated from ./pages/guides/integrations-guide/lit
 Lit
 ===
 
@@ -27016,7 +26178,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/integrations-guide/lit.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/markdoc/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/markdoc
 @astrojs/ markdoc
 =================
 
@@ -27577,7 +26740,8 @@ DB](/en/guides/integrations-guide/db/) [Next
 MDX](/en/guides/integrations-guide/mdx/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/mdx/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/mdx
 @astrojs/ mdx
 =============
 
@@ -27989,7 +27153,8 @@ Markdoc](/en/guides/integrations-guide/markdoc/) [Next
 Partytown](/en/guides/integrations-guide/partytown/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/netlify/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/netlify
 @astrojs/ netlify
 =================
 
@@ -28356,7 +27521,8 @@ Cloudflare](/en/guides/integrations-guide/cloudflare/) [Next
 Node](/en/guides/integrations-guide/node/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/node/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/node
 @astrojs/ node
 ==============
 
@@ -28656,7 +27822,8 @@ Netlify](/en/guides/integrations-guide/netlify/) [Next
 Vercel](/en/guides/integrations-guide/vercel/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/partytown/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/partytown
 @astrojs/ partytown
 ===================
 
@@ -28884,7 +28051,8 @@ MDX](/en/guides/integrations-guide/mdx/) [Next
 Sitemap](/en/guides/integrations-guide/sitemap/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/preact/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/preact
 @astrojs/ preact
 ================
 
@@ -29170,7 +28338,8 @@ Alpine.js](/en/guides/integrations-guide/alpinejs/) [Next
 React](/en/guides/integrations-guide/react/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/prefetch/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/prefetch
 @astrojs/prefetch
 =================
 
@@ -29196,7 +28365,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/integrations-guide/prefetch.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/react/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/react
 @astrojs/ react
 ===============
 
@@ -29446,7 +28616,8 @@ Preact](/en/guides/integrations-guide/preact/) [Next
 SolidJS](/en/guides/integrations-guide/solid-js/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/sitemap/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/sitemap
 @astrojs/ sitemap
 =================
 
@@ -29841,7 +29012,8 @@ Partytown](/en/guides/integrations-guide/partytown/) [Next
 Publish to NPM](/en/reference/publish-to-npm/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/solid-js/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/solid-js
 @astrojs/ solid-js
 ==================
 
@@ -30116,7 +29288,8 @@ React](/en/guides/integrations-guide/react/) [Next
 Svelte](/en/guides/integrations-guide/svelte/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/svelte/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/svelte
 @astrojs/ svelte
 ================
 
@@ -30346,7 +29519,8 @@ SolidJS](/en/guides/integrations-guide/solid-js/) [Next
 Vue](/en/guides/integrations-guide/vue/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/tailwind/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/tailwind
 @astrojs/tailwind
 =================
 
@@ -30372,7 +29546,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/integrations-guide/tailwind.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/vercel/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/vercel
 @astrojs/ vercel
 ================
 
@@ -30821,7 +29996,8 @@ Node](/en/guides/integrations-guide/node/) [Next
 DB](/en/guides/integrations-guide/db/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/integrations-guide/vue/index.md
+
+# Aggregated from ./pages/guides/integrations-guide/vue
 @astrojs/ vue
 =============
 
@@ -31102,7 +30278,10 @@ Svelte](/en/guides/integrations-guide/svelte/) [Next
 Cloudflare](/en/guides/integrations-guide/cloudflare/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/internationalization/index.md
+
+
+
+# Aggregated from ./pages/guides/internationalization
 Internationalization (i18n) Routing
 ===================================
 
@@ -31439,7 +30618,8 @@ Middleware](/en/guides/middleware/) [Next
 Prefetch](/en/guides/prefetch/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/markdown-content/index.md
+
+# Aggregated from ./pages/guides/markdown-content
 Markdown in Astro
 =================
 
@@ -31743,7 +30923,9 @@ Front-end frameworks](/en/guides/framework-components/) [Next
 Content collections](/en/guides/content-collections/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/media/cloudinary/index.md
+
+# Aggregated from ./pages/guides/media
+# Aggregated from ./pages/guides/media/cloudinary
 Cloudinary & Astro
 ==================
 
@@ -31973,76 +31155,10 @@ Digital Asset Management overview](/en/guides/media/) [Next
 E-commerce](/en/guides/ecommerce/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/media/index.md
-Use a DAM with Astro
-====================
 
-**Ready to connect a headless Digital Asset Manager (DAM) to your Astro project?** Follow one of our guides to integrate a hosted media system.
 
-Tip
 
-Find [community-maintained integrations](https://astro.build/integrations/) for connecting a DAM or hosted media system to your project in our integrations directory.
-
-Hosted Media Guides
--------------------
-
-[Section titled Hosted Media Guides](#hosted-media-guides)
-
-Note that many of these pages are **stubs**: they’re collections of resources waiting for your contribution!
-
-*   ![](/logos/cloudinary.svg)
-    
-    ### [Cloudinary](/en/guides/media/cloudinary/)
-    
-
-Why use a DAM or hosted media?
-------------------------------
-
-[Section titled Why use a DAM or hosted media?](#why-use-a-dam-or-hosted-media)
-
-Using a DAM, or Digital Asset Manager, helps individuals, teams, and organizations manage their image and video assets from a central location much like a [CMS](/en/guides/cms/).
-
-The difference is the type of content being managed: a DAM would primarily manage images, videos, other media assets like 3D models, and any metadata associated with those assets.
-
-This can be useful particularly when using a single source of truth for your assets between multiple web or mobile properties. This is important if you’re part of an organization that requires multiple teams to use the same assets, or are integrating into other content systems like a PIM (Product Information Manager) to connect your assets to products.
-
-Which hosted media systems or DAMs work well with Astro?
---------------------------------------------------------
-
-[Section titled Which hosted media systems or DAMs work well with Astro?](#which-hosted-media-systems-or-dams-work-well-with-astro)
-
-Much like when using a CMS, as Astro handles the _presentation_ of your content, you’ll want to use a headless DAM that allows you to fetch and interact with your assets via an API or SDK.
-
-Some headless DAMs, like Cloudinary, provide an Astro [integration](/en/guides/integrations-guide/) that allows you to easily fetch your assets as well as display them on your website or app.
-
-Can I use Astro without a hosted media system or DAM?
------------------------------------------------------
-
-[Section titled Can I use Astro without a hosted media system or DAM?](#can-i-use-astro-without-a-hosted-media-system-or-dam)
-
-Yes! Astro provides built-in ways to [store images](/en/guides/images/#where-to-store-images), including support for referencing remote images.
-
-Recipes
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/media/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Xata](/en/guides/backend/xata/) [Next  
-Cloudinary](/en/guides/media/cloudinary/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/middleware/index.md
+# Aggregated from ./pages/guides/middleware
 Middleware
 ==========
 
@@ -32238,7 +31354,9 @@ Endpoints](/en/guides/endpoints/) [Next
 Internationalization (i18n)](/en/guides/internationalization/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-create-react-app/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro
+# Aggregated from ./pages/guides/migrate-to-astro/from-create-react-app
 Migrating from Create React App (CRA)
 =====================================
 
@@ -32635,7 +31753,8 @@ Site migration overview](/en/guides/migrate-to-astro/) [Next
 Docusaurus](/en/guides/migrate-to-astro/from-docusaurus/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-docusaurus/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-docusaurus
 Migrating from Docusaurus
 =========================
 
@@ -32799,7 +31918,8 @@ Create React App](/en/guides/migrate-to-astro/from-create-react-app/) [Next
 Eleventy](/en/guides/migrate-to-astro/from-eleventy/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-eleventy/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-eleventy
 Migrating from Eleventy
 =======================
 
@@ -32961,7 +32081,8 @@ Docusaurus](/en/guides/migrate-to-astro/from-docusaurus/) [Next
 Gatsby](/en/guides/migrate-to-astro/from-gatsby/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-gatsby/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-gatsby
 Migrating from Gatsby
 =====================
 
@@ -33461,7 +32582,8 @@ Eleventy](/en/guides/migrate-to-astro/from-eleventy/) [Next
 GitBook](/en/guides/migrate-to-astro/from-gitbook/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-gitbook/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-gitbook
 Migrating from GitBook
 ======================
 
@@ -33627,7 +32749,8 @@ Gatsby](/en/guides/migrate-to-astro/from-gatsby/) [Next
 Gridsome](/en/guides/migrate-to-astro/from-gridsome/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-gridsome/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-gridsome
 Migrating from Gridsome
 =======================
 
@@ -33793,7 +32916,8 @@ GitBook](/en/guides/migrate-to-astro/from-gitbook/) [Next
 Hugo](/en/guides/migrate-to-astro/from-hugo/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-hugo/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-hugo
 Migrating from Hugo
 ===================
 
@@ -33957,7 +33081,8 @@ Gridsome](/en/guides/migrate-to-astro/from-gridsome/) [Next
 Jekyll](/en/guides/migrate-to-astro/from-jekyll/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-jekyll/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-jekyll
 Migrating from Jekyll
 =====================
 
@@ -34121,7 +33246,8 @@ Hugo](/en/guides/migrate-to-astro/from-hugo/) [Next
 Next.js](/en/guides/migrate-to-astro/from-nextjs/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-nextjs/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-nextjs
 Migrating from Next.js
 ======================
 
@@ -34625,7 +33751,8 @@ Jekyll](/en/guides/migrate-to-astro/from-jekyll/) [Next
 NuxtJS](/en/guides/migrate-to-astro/from-nuxtjs/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-nuxtjs/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-nuxtjs
 Migrating from NuxtJS
 =====================
 
@@ -35172,7 +34299,8 @@ Next.js](/en/guides/migrate-to-astro/from-nextjs/) [Next
 Pelican](/en/guides/migrate-to-astro/from-pelican/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-pelican/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-pelican
 Migrating from Pelican
 ======================
 
@@ -35330,7 +34458,8 @@ NuxtJS](/en/guides/migrate-to-astro/from-nuxtjs/) [Next
 SvelteKit](/en/guides/migrate-to-astro/from-sveltekit/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-sveltekit/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-sveltekit
 Migrating from SvelteKit
 ========================
 
@@ -35494,7 +34623,8 @@ Pelican](/en/guides/migrate-to-astro/from-pelican/) [Next
 VuePress](/en/guides/migrate-to-astro/from-vuepress/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-vuepress/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-vuepress
 Migrating from VuePress
 =======================
 
@@ -35652,7 +34782,8 @@ SvelteKit](/en/guides/migrate-to-astro/from-sveltekit/) [Next
 WordPress](/en/guides/migrate-to-astro/from-wordpress/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/from-wordpress/index.md
+
+# Aggregated from ./pages/guides/migrate-to-astro/from-wordpress
 Migrating from WordPress
 ========================
 
@@ -35834,140 +34965,10 @@ VuePress](/en/guides/migrate-to-astro/from-vuepress/) [Next
 Pages](/en/basics/astro-pages/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/migrate-to-astro/index.md
-Migrate an existing project to Astro
-====================================
 
-**Ready to convert your site to Astro?** See one of our guides for migration tips.
 
-Migration Guides
-----------------
 
-[Section titled Migration Guides](#migration-guides)
-
-*   ![](/logos/create-react-app.svg)
-    
-    ### [Create React App](/en/guides/migrate-to-astro/from-create-react-app/)
-    
-*   ![](/logos/docusaurus.svg)
-    
-    ### [Docusaurus](/en/guides/migrate-to-astro/from-docusaurus/)
-    
-*   ![](/logos/eleventy.svg)
-    
-    ### [Eleventy](/en/guides/migrate-to-astro/from-eleventy/)
-    
-*   ![](/logos/gatsby.svg)
-    
-    ### [Gatsby](/en/guides/migrate-to-astro/from-gatsby/)
-    
-*   ![](/logos/gitbook.svg)
-    
-    ### [GitBook](/en/guides/migrate-to-astro/from-gitbook/)
-    
-*   ![](/logos/gridsome.svg)
-    
-    ### [Gridsome](/en/guides/migrate-to-astro/from-gridsome/)
-    
-*   ![](/logos/hugo.svg)
-    
-    ### [Hugo](/en/guides/migrate-to-astro/from-hugo/)
-    
-*   ![](/logos/jekyll.png)
-    
-    ### [Jekyll](/en/guides/migrate-to-astro/from-jekyll/)
-    
-*   ![](/logos/nextjs.svg)
-    
-    ### [Next.js](/en/guides/migrate-to-astro/from-nextjs/)
-    
-*   ![](/logos/nuxtjs.svg)
-    
-    ### [NuxtJS](/en/guides/migrate-to-astro/from-nuxtjs/)
-    
-*   ![](/logos/pelican.svg)
-    
-    ### [Pelican](/en/guides/migrate-to-astro/from-pelican/)
-    
-*   ![](/logos/sveltekit.svg)
-    
-    ### [SvelteKit](/en/guides/migrate-to-astro/from-sveltekit/)
-    
-*   ![](/logos/vuepress.png)
-    
-    ### [VuePress](/en/guides/migrate-to-astro/from-vuepress/)
-    
-*   ![](/logos/wordpress.svg)
-    
-    ### [WordPress](/en/guides/migrate-to-astro/from-wordpress/)
-    
-
-Note that many of these pages are **stubs**: they’re collections of resources waiting for your contribution!
-
-Why migrate your site to Astro?
--------------------------------
-
-[Section titled Why migrate your site to Astro?](#why-migrate-your-site-to-astro)
-
-Astro provides many benefits: performance, simplicity, and many of the features you want built right into the framework. When you do need to extend your site, Astro provides several [official and 3rd-party community integrations](https://astro.build/integrations).
-
-Migrating may be less work than you think!
-
-Depending on your existing project, you may be able to use your existing:
-
-*   [UI framework components](/en/guides/framework-components/) directly in Astro.
-    
-*   [CSS stylesheets or libraries](/en/guides/styling/) including Tailwind.
-    
-*   [Markdown/MDX files](/en/guides/markdown-content/), configured using your existing [remark and rehype plugins](/en/guides/markdown-content/#markdown-plugins).
-    
-*   [Content from a CMS](/en/guides/cms/) through an integration or API.
-    
-
-Which projects can I convert to Astro?
---------------------------------------
-
-[Section titled Which projects can I convert to Astro?](#which-projects-can-i-convert-to-astro)
-
-[Many existing sites can be built with Astro](/en/concepts/why-astro/). Astro is ideally suited for your existing content-based sites like blogs, landing pages, marketing sites and portfolios. Astro integrates with several popular headless CMSes, and allows you to connect eCommerce shop carts.
-
-Astro allows you have a fully statically-generated website, a dynamic app with routes rendered on demand, or a combination of both with [complete control over your project rendering](/en/guides/on-demand-rendering/), making it a great replacement for SSGs or for sites that need to fetch some page data on the fly.
-
-How will my project design change?
-----------------------------------
-
-[Section titled How will my project design change?](#how-will-my-project-design-change)
-
-Depending on your existing project, you may need to think differently about:
-
-*   Designing in [Astro Islands](/en/concepts/islands/#what-is-an-island) to avoid sending unnecessary JavaScript to the browser.
-    
-*   Providing client-side interactivity with [client-side `<script>` tags](/en/guides/client-side-scripts/) or [UI framework components](/en/guides/framework-components/).
-    
-*   Managing [shared state](/en/recipes/sharing-state-islands/) with Nano Stores or local storage instead of app-wide hooks or wrappers.
-    
-
-Recipes
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/guides/migrate-to-astro/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Dev toolbar](/en/guides/dev-toolbar/) [Next  
-Create React App](/en/guides/migrate-to-astro/from-create-react-app/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/on-demand-rendering/index.md
+# Aggregated from ./pages/guides/on-demand-rendering
 On-demand rendering
 ===================
 
@@ -36228,7 +35229,8 @@ Astro DB](/en/guides/astro-db/) [Next
 Server islands](/en/guides/server-islands/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/prefetch/index.md
+
+# Aggregated from ./pages/guides/prefetch
 Prefetch
 ========
 
@@ -36469,7 +35471,8 @@ Internationalization (i18n)](/en/guides/internationalization/) [Next
 View transitions](/en/guides/view-transitions/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/routing/index.md
+
+# Aggregated from ./pages/guides/routing
 Routing
 =======
 
@@ -36863,7 +35866,8 @@ Pages](/en/basics/astro-pages/) [Next
 Endpoints](/en/guides/endpoints/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/server-islands/index.md
+
+# Aggregated from ./pages/guides/server-islands
 Server islands
 ==============
 
@@ -36993,7 +35997,8 @@ On-demand rendering](/en/guides/on-demand-rendering/) [Next
 Actions](/en/guides/actions/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/sessions/index.md
+
+# Aggregated from ./pages/guides/sessions
 Sessions
 ========
 
@@ -37126,7 +36131,8 @@ Actions](/en/guides/actions/) [Next
 Upgrade Astro](/en/upgrade-astro/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/styling/index.md
+
+# Aggregated from ./pages/guides/styling
 Styles and CSS
 ==============
 
@@ -37755,7 +36761,8 @@ Layouts](/en/basics/layouts/) [Next
 Fonts](/en/guides/fonts/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/syntax-highlighting/index.md
+
+# Aggregated from ./pages/guides/syntax-highlighting
 Syntax Highlighting
 ===================
 
@@ -37940,7 +36947,8 @@ Fonts](/en/guides/fonts/) [Next
 Scripts and event handling](/en/guides/client-side-scripts/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/testing/index.md
+
+# Aggregated from ./pages/guides/testing
 Testing
 =======
 
@@ -38312,7 +37320,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 Authentication](/en/guides/authentication/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/troubleshooting/index.md
+
+# Aggregated from ./pages/guides/troubleshooting
 Troubleshooting
 ===============
 
@@ -38579,7 +37588,8 @@ v1.0](/en/guides/upgrade-to/v1/) [Next
 Recipes overview](/en/recipes/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/typescript/index.md
+
+# Aggregated from ./pages/guides/typescript
 TypeScript
 ==========
 
@@ -38881,7 +37891,9 @@ Editor setup](/en/editor-setup/) [Next
 Environment variables](/en/guides/environment-variables/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/upgrade-to/v1/index.md
+
+# Aggregated from ./pages/guides/upgrade-to
+# Aggregated from ./pages/guides/upgrade-to/v1
 Legacy v0.x Upgrade Guide
 =========================
 
@@ -39493,7 +38505,8 @@ v2.0](/en/guides/upgrade-to/v2/) [Next
 Troubleshooting](/en/guides/troubleshooting/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/upgrade-to/v2/index.md
+
+# Aggregated from ./pages/guides/upgrade-to/v2
 Upgrade to Astro v2
 ===================
 
@@ -39907,7 +38920,8 @@ v3.0](/en/guides/upgrade-to/v3/) [Next
 v1.0](/en/guides/upgrade-to/v1/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/upgrade-to/v3/index.md
+
+# Aggregated from ./pages/guides/upgrade-to/v3
 Upgrade to Astro v3
 ===================
 
@@ -40837,7 +39851,8 @@ v4.0](/en/guides/upgrade-to/v4/) [Next
 v2.0](/en/guides/upgrade-to/v2/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/upgrade-to/v4/index.md
+
+# Aggregated from ./pages/guides/upgrade-to/v4
 Upgrade to Astro v4
 ===================
 
@@ -41248,7 +40263,8 @@ v5.0](/en/guides/upgrade-to/v5/) [Next
 v3.0](/en/guides/upgrade-to/v3/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/upgrade-to/v5/index.md
+
+# Aggregated from ./pages/guides/upgrade-to/v5
 Upgrade to Astro v5
 ===================
 
@@ -42341,7 +41357,10 @@ Upgrade Astro](/en/upgrade-astro/) [Next
 v4.0](/en/guides/upgrade-to/v4/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## guides/view-transitions/index.md
+
+
+
+# Aggregated from ./pages/guides/view-transitions
 View transitions
 ================
 
@@ -42937,7 +41956,10 @@ Prefetch](/en/guides/prefetch/) [Next
 Components](/en/basics/astro-components/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## install-and-setup/index.md
+
+
+
+# Aggregated from ./pages/install-and-setup
 Astro v5 is here! [Learn how to upgrade your site](/en/guides/upgrade-to/v5/)
 
 Install Astro
@@ -43250,7 +42272,9 @@ Tutorial: Build a blog](/en/tutorial/0-introduction/) [Next
 Project structure](/en/basics/project-structure/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/add-yaml-support/index.md
+
+# Aggregated from ./pages/recipes
+# Aggregated from ./pages/recipes/add-yaml-support
 Installing a Vite or Rollup plugin
 ==================================
 
@@ -43324,7 +42348,8 @@ Recipes overview](/en/recipes/) [Next
 Analyze bundle size](/en/recipes/analyze-bundle-size/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/analyze-bundle-size/index.md
+
+# Aggregated from ./pages/recipes/analyze-bundle-size
 Analyze bundle size
 ===================
 
@@ -43416,7 +42441,8 @@ Installing a Vite or Rollup plugin](/en/recipes/add-yaml-support/) [Next
 Build a custom image component](/en/recipes/build-custom-img-component/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/build-custom-img-component/index.md
+
+# Aggregated from ./pages/recipes/build-custom-img-component
 Build a custom image component
 ==============================
 
@@ -43494,7 +42520,8 @@ Analyze bundle size](/en/recipes/analyze-bundle-size/) [Next
 Build HTML forms in Astro pages](/en/recipes/build-forms/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/build-forms-api/index.md
+
+# Aggregated from ./pages/recipes/build-forms-api
 Build forms with API routes
 ===========================
 
@@ -43654,7 +42681,8 @@ Build HTML forms in Astro pages](/en/recipes/build-forms/) [Next
 Use Bun with Astro](/en/recipes/bun/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/build-forms/index.md
+
+# Aggregated from ./pages/recipes/build-forms
 Build HTML forms in Astro pages
 ===============================
 
@@ -43748,7 +42776,8 @@ Build a custom image component](/en/recipes/build-custom-img-component/) [Next
 Build forms with API routes](/en/recipes/build-forms-api/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/bun/index.md
+
+# Aggregated from ./pages/recipes/bun
 Use Bun with Astro
 ==================
 
@@ -43943,7 +42972,8 @@ Build forms with API routes](/en/recipes/build-forms-api/) [Next
 Call endpoints from the server](/en/recipes/call-endpoints/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/call-endpoints/index.md
+
+# Aggregated from ./pages/recipes/call-endpoints
 Call endpoints from the server
 ==============================
 
@@ -43997,7 +43027,8 @@ Use Bun with Astro](/en/recipes/bun/) [Next
 Verify a Captcha](/en/recipes/captcha/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/captcha/index.md
+
+# Aggregated from ./pages/recipes/captcha
 Verify a Captcha
 ================
 
@@ -44056,7 +43087,8 @@ Call endpoints from the server](/en/recipes/call-endpoints/) [Next
 Build your Astro site with Docker](/en/recipes/docker/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/docker/index.md
+
+# Aggregated from ./pages/recipes/docker
 Build your Astro site with Docker
 =================================
 
@@ -44216,7 +43248,8 @@ Verify a Captcha](/en/recipes/captcha/) [Next
 Dynamically import images](/en/recipes/dynamically-importing-images/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/dynamically-importing-images/index.md
+
+# Aggregated from ./pages/recipes/dynamically-importing-images
 Dynamically import images
 =========================
 
@@ -44320,7 +43353,8 @@ Build your Astro site with Docker](/en/recipes/docker/) [Next
 Add icons to external links](/en/recipes/external-links/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/external-links/index.md
+
+# Aggregated from ./pages/recipes/external-links
 Add icons to external links
 ===========================
 
@@ -44398,7 +43432,8 @@ Dynamically import images](/en/recipes/dynamically-importing-images/) [Next
 Add i18n features](/en/recipes/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/i18n/index.md
+
+# Aggregated from ./pages/recipes/i18n
 Add i18n features
 =================
 
@@ -44728,128 +43763,8 @@ Add icons to external links](/en/recipes/external-links/) [Next
 Create a dev toolbar app](/en/recipes/making-toolbar-apps/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/index.md
-Astro recipes
-=============
 
-See guided examples of adding features to your Astro project.
-
-Official Recipes
-----------------
-
-[Section titled Official Recipes](#official-recipes)
-
-Astro’s official recipes are short, focused how-to guides that walk a reader through completing a working example of a specific task. Recipes are a great way to add new features or behavior to your Astro project by following step-by-step instructions!
-
-*   ### [Installing a Vite or Rollup plugin](/en/recipes/add-yaml-support/)
-    
-    Learn how you can import YAML data by adding a Rollup plugin to your project.
-    
-*   ### [Analyze bundle size](/en/recipes/analyze-bundle-size/)
-    
-    Learn how to analyze the bundle generated by Astro using \`rollup-plugin-visualizer\`.
-    
-*   ### [Build a custom image component](/en/recipes/build-custom-img-component/)
-    
-    Learn how to build a custom image component that supports media queries using the getImage function.
-    
-*   ### [Build HTML forms in Astro pages](/en/recipes/build-forms/)
-    
-    Learn how to build HTML forms and handle submissions in your frontmatter.
-    
-*   ### [Build forms with API routes](/en/recipes/build-forms-api/)
-    
-    Learn how to use JavaScript to send form submissions to an API Route.
-    
-*   ### [Use Bun with Astro](/en/recipes/bun/)
-    
-    Learn how to use Bun with your Astro site.
-    
-*   ### [Call endpoints from the server](/en/recipes/call-endpoints/)
-    
-    Learn how to call endpoints from the server in Astro.
-    
-*   ### [Verify a Captcha](/en/recipes/captcha/)
-    
-    Learn how to create an API route and fetch it from the client.
-    
-*   ### [Build your Astro site with Docker](/en/recipes/docker/)
-    
-    Learn how to build your Astro site using Docker.
-    
-*   ### [Dynamically import images](/en/recipes/dynamically-importing-images/)
-    
-    Learn how to dynamically import images using Vite's import.meta.glob function.
-    
-*   ### [Add icons to external links](/en/recipes/external-links/)
-    
-    Learn how to install a rehype plugin to add icons to external links in your Markdown files.
-    
-*   ### [Add i18n features](/en/recipes/i18n/)
-    
-    Use dynamic routing and content collections to add internationalization support to your Astro site.
-    
-*   ### [Create a dev toolbar app](/en/recipes/making-toolbar-apps/)
-    
-    Learn how to create a dev toolbar app for your site.
-    
-*   ### [Add last modified time](/en/recipes/modified-time/)
-    
-    Build a remark plugin to add the last modified time to your Markdown and MDX.
-    
-*   ### [Add reading time](/en/recipes/reading-time/)
-    
-    Build a remark plugin to add reading time to your Markdown or MDX files.
-    
-*   ### [Add an RSS feed](/en/recipes/rss/)
-    
-    Add an RSS feed to your Astro site to let users subscribe to your content.
-    
-*   ### [Share state between islands](/en/recipes/sharing-state-islands/)
-    
-    Learn how to share state across framework components with Nano Stores.
-    
-*   ### [Share state between Astro components](/en/recipes/sharing-state/)
-    
-    Learn how to share state across Astro components with Nano Stores.
-    
-*   ### [Using streaming to improve page performance](/en/recipes/streaming-improve-page-performance/)
-    
-    Learn how to use streaming to improve page performance.
-    
-*   ### [Style rendered Markdown with Tailwind Typography](/en/recipes/tailwind-rendered-markdown/)
-    
-    Learn how to use @tailwind/typography to style your rendered Markdown.
-    
-
-Community Resources
--------------------
-
-[Section titled Community Resources](#community-resources)
-
-Find more recipes written and submitted by the community at [Astro Tips](https://astro-tips.dev).
-
-Recipes
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/recipes/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Troubleshooting](/en/guides/troubleshooting/) [Next  
-Installing a Vite or Rollup plugin](/en/recipes/add-yaml-support/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/making-toolbar-apps/index.md
+# Aggregated from ./pages/recipes/making-toolbar-apps
 Create a dev toolbar app
 ========================
 
@@ -45089,7 +44004,8 @@ Add i18n features](/en/recipes/i18n/) [Next
 Add last modified time](/en/recipes/modified-time/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/modified-time/index.md
+
+# Aggregated from ./pages/recipes/modified-time
 Add last modified time
 ======================
 
@@ -45197,7 +44113,8 @@ Create a dev toolbar app](/en/recipes/making-toolbar-apps/) [Next
 Add reading time](/en/recipes/reading-time/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/reading-time/index.md
+
+# Aggregated from ./pages/recipes/reading-time
 Add reading time
 ================
 
@@ -45291,7 +44208,8 @@ Add last modified time](/en/recipes/modified-time/) [Next
 Add an RSS feed](/en/recipes/rss/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/rss/index.md
+
+# Aggregated from ./pages/recipes/rss
 Add an RSS feed
 ===============
 
@@ -45509,7 +44427,8 @@ Add reading time](/en/recipes/reading-time/) [Next
 Share state between Astro components](/en/recipes/sharing-state/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/sharing-state-islands/index.md
+
+# Aggregated from ./pages/recipes/sharing-state-islands
 Share state between islands
 ===========================
 
@@ -45869,7 +44788,8 @@ Share state between Astro components](/en/recipes/sharing-state/) [Next
 Using streaming to improve page performance](/en/recipes/streaming-improve-page-performance/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/sharing-state/index.md
+
+# Aggregated from ./pages/recipes/sharing-state
 Share state between Astro components
 ====================================
 
@@ -45958,7 +44878,8 @@ Add an RSS feed](/en/recipes/rss/) [Next
 Share state between islands](/en/recipes/sharing-state-islands/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/streaming-improve-page-performance/index.md
+
+# Aggregated from ./pages/recipes/streaming-improve-page-performance
 Using streaming to improve page performance
 ===========================================
 
@@ -46020,7 +44941,8 @@ Share state between islands](/en/recipes/sharing-state-islands/) [Next
 Style rendered Markdown with Tailwind Typography](/en/recipes/tailwind-rendered-markdown/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## recipes/tailwind-rendered-markdown/index.md
+
+# Aggregated from ./pages/recipes/tailwind-rendered-markdown
 Style rendered Markdown with Tailwind Typography
 ================================================
 
@@ -46127,7 +45049,11 @@ Using streaming to improve page performance](/en/recipes/streaming-improve-page-
 Contribute to Astro](/en/contribute/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/adapter-reference/index.md
+
+
+
+# Aggregated from ./pages/reference
+# Aggregated from ./pages/reference/adapter-reference
 Astro Adapter API
 =================
 
@@ -46460,7 +45386,8 @@ Integration API](/en/reference/integrations-reference/) [Next
 Content Loader API](/en/reference/content-loader-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/api-reference/index.md
+
+# Aggregated from ./pages/reference/api-reference
 Astro render context
 ====================
 
@@ -47269,7 +46196,8 @@ Routing Reference](/en/reference/routing-reference/) [Next
 astro:actions](/en/reference/modules/astro-actions/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/astro-syntax/index.md
+
+# Aggregated from ./pages/reference/astro-syntax
 Template expressions reference
 ==============================
 
@@ -47508,7 +46436,8 @@ Contribute to Astro](/en/contribute/) [Next
 Template directives reference](/en/reference/directives-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/cli-reference/index.md
+
+# Aggregated from ./pages/reference/cli-reference
 CLI Commands
 ============
 
@@ -48029,7 +46958,8 @@ Configuration Reference](/en/reference/configuration-reference/) [Next
 Imports reference](/en/guides/imports/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/configuration-reference/index.md
+
+# Aggregated from ./pages/reference/configuration-reference
 Configuration Reference
 =======================
 
@@ -49225,7 +48155,8 @@ Template directives reference](/en/reference/directives-reference/) [Next
 CLI Commands](/en/reference/cli-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/container-reference/index.md
+
+# Aggregated from ./pages/reference/container-reference
 Astro Container API (experimental)
 ==================================
 
@@ -49495,7 +48426,8 @@ Dev Toolbar App API](/en/reference/dev-toolbar-app-reference/) [Next
 Programmatic Astro API (experimental)](/en/reference/programmatic-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/content-loader-reference/index.md
+
+# Aggregated from ./pages/reference/content-loader-reference
 Astro Content Loader API
 ========================
 
@@ -49955,7 +48887,8 @@ Adapter API](/en/reference/adapter-reference/) [Next
 Image Service API](/en/reference/image-service-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/dev-toolbar-app-reference/index.md
+
+# Aggregated from ./pages/reference/dev-toolbar-app-reference
 Dev Toolbar App API
 ===================
 
@@ -50537,7 +49470,8 @@ Image Service API](/en/reference/image-service-reference/) [Next
 Container API (experimental)](/en/reference/container-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/directives-reference/index.md
+
+# Aggregated from ./pages/reference/directives-reference
 Template directives reference
 =============================
 
@@ -50846,7 +49780,8 @@ Template expressions reference](/en/reference/astro-syntax/) [Next
 Configuration Reference](/en/reference/configuration-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/error-reference/index.md
+
+# Aggregated from ./pages/reference/error-reference
 Error reference
 ===============
 
@@ -51146,7 +50081,9 @@ Legacy flags](/en/reference/legacy-flags/) [Next
 Integrations overview](/en/guides/integrations-guide/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/action-called-from-server-error/index.md
+
+# Aggregated from ./pages/reference/errors
+# Aggregated from ./pages/reference/errors/action-called-from-server-error
 Action unexpected called from the server.
 =========================================
 
@@ -51179,7 +50116,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/action-not-found-error/index.md
+
+# Aggregated from ./pages/reference/errors/action-not-found-error
 Action not found.
 =================
 
@@ -51208,7 +50146,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/action-query-string-invalid-error/index.md
+
+# Aggregated from ./pages/reference/errors/action-query-string-invalid-error
 An invalid Action query string was passed by a form.
 ====================================================
 
@@ -51245,7 +50184,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/actions-cant-be-loaded/index.md
+
+# Aggregated from ./pages/reference/errors/actions-cant-be-loaded
 Can't load the Astro actions.
 =============================
 
@@ -51274,7 +50214,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/actions-returned-invalid-data-error/index.md
+
+# Aggregated from ./pages/reference/errors/actions-returned-invalid-data-error
 Action handler returned invalid data.
 =====================================
 
@@ -51307,7 +50248,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/actions-used-with-for-get-error/index.md
+
+# Aggregated from ./pages/reference/errors/actions-used-with-for-get-error
 An invalid Action query string was passed by a form.
 ====================================================
 
@@ -51344,7 +50286,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/actions-without-server-output-error/index.md
+
+# Aggregated from ./pages/reference/errors/actions-without-server-output-error
 Actions must be used with server output.
 ========================================
 
@@ -51377,7 +50320,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/adapter-support-output-mismatch/index.md
+
+# Aggregated from ./pages/reference/errors/adapter-support-output-mismatch
 Adapter does not support server output.
 =======================================
 
@@ -51412,7 +50356,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/astro-glob-no-match/index.md
+
+# Aggregated from ./pages/reference/errors/astro-glob-no-match
 Astro.glob() did not match any files.
 =====================================
 
@@ -51445,7 +50390,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/astro-glob-used-outside/index.md
+
+# Aggregated from ./pages/reference/errors/astro-glob-used-outside
 Astro.glob() used outside of an Astro file.
 ===========================================
 
@@ -51478,7 +50424,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/astro-response-headers-reassigned/index.md
+
+# Aggregated from ./pages/reference/errors/astro-response-headers-reassigned
 Astro.response.headers must not be reassigned.
 ==============================================
 
@@ -51507,7 +50454,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/cannot-determine-weight-and-style-from-font-file/index.md
+
+# Aggregated from ./pages/reference/errors/cannot-determine-weight-and-style-from-font-file
 Cannot determine weight and style from font file.
 =================================================
 
@@ -51536,7 +50484,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/cannot-extract-font-type/index.md
+
+# Aggregated from ./pages/reference/errors/cannot-extract-font-type
 Cannot extract the font type from the given URL.
 ================================================
 
@@ -51565,7 +50514,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/cannot-fetch-font-file/index.md
+
+# Aggregated from ./pages/reference/errors/cannot-fetch-font-file
 Cannot fetch the given font file.
 =================================
 
@@ -51594,7 +50544,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/cannot-load-font-provider/index.md
+
+# Aggregated from ./pages/reference/errors/cannot-load-font-provider
 Cannot load font provider
 =========================
 
@@ -51623,7 +50574,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/cant-render-page/index.md
+
+# Aggregated from ./pages/reference/errors/cant-render-page
 Astro can't render the route.
 =============================
 
@@ -51652,7 +50604,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/cant-use-astro-config-module-error/index.md
+
+# Aggregated from ./pages/reference/errors/cant-use-astro-config-module-error
 Cannot use the astro:config module without enabling the experimental feature.
 =============================================================================
 
@@ -51685,7 +50638,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/client-address-not-available/index.md
+
+# Aggregated from ./pages/reference/errors/client-address-not-available
 Astro.clientAddress is not available in current adapter.
 ========================================================
 
@@ -51719,7 +50673,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/collection-does-not-exist-error/index.md
+
+# Aggregated from ./pages/reference/errors/collection-does-not-exist-error
 Collection does not exist
 =========================
 
@@ -51752,7 +50707,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/config-legacy-key/index.md
+
+# Aggregated from ./pages/reference/errors/config-legacy-key
 Legacy configuration detected.
 ==============================
 
@@ -51785,7 +50741,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/config-not-found/index.md
+
+# Aggregated from ./pages/reference/errors/config-not-found
 Specified configuration file not found.
 =======================================
 
@@ -51818,7 +50775,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/content-collection-type-mismatch-error/index.md
+
+# Aggregated from ./pages/reference/errors/content-collection-type-mismatch-error
 Collection contains entries of a different type.
 ================================================
 
@@ -51851,7 +50809,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/content-entry-data-error/index.md
+
+# Aggregated from ./pages/reference/errors/content-entry-data-error
 Content entry data does not match schema.
 =========================================
 
@@ -51883,7 +50842,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/content-loader-invalid-data-error/index.md
+
+# Aggregated from ./pages/reference/errors/content-loader-invalid-data-error
 Content entry is missing an ID
 ==============================
 
@@ -51914,7 +50874,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/content-loader-returns-invalid-id/index.md
+
+# Aggregated from ./pages/reference/errors/content-loader-returns-invalid-id
 Content loader returned an entry with an invalid id.
 ====================================================
 
@@ -51948,7 +50909,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/content-schema-contains-slug-error/index.md
+
+# Aggregated from ./pages/reference/errors/content-schema-contains-slug-error
 Content Schema should not contain slug.
 =======================================
 
@@ -51981,7 +50943,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/could-not-transform-image/index.md
+
+# Aggregated from ./pages/reference/errors/could-not-transform-image
 Could not transform image.
 ==========================
 
@@ -52016,7 +50979,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/csssyntax-error/index.md
+
+# Aggregated from ./pages/reference/errors/csssyntax-error
 CSS Syntax Error.
 =================
 
@@ -52047,7 +51011,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/data-collection-entry-parse-error/index.md
+
+# Aggregated from ./pages/reference/errors/data-collection-entry-parse-error
 Data collection entry failed to parse.
 ======================================
 
@@ -52076,7 +51041,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/duplicate-content-entry-slug-error/index.md
+
+# Aggregated from ./pages/reference/errors/duplicate-content-entry-slug-error
 Duplicate content entry slug.
 =============================
 
@@ -52105,7 +51071,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/endpoint-did-not-return-aresponse/index.md
+
+# Aggregated from ./pages/reference/errors/endpoint-did-not-return-aresponse
 The endpoint did not return a Response.
 =======================================
 
@@ -52139,7 +51106,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/env-invalid-variable/index.md
+
+# Aggregated from ./pages/reference/errors/env-invalid-variable
 Invalid Environment Variable
 ============================
 
@@ -52172,7 +51140,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/env-invalid-variables/index.md
+
+# Aggregated from ./pages/reference/errors/env-invalid-variables
 Invalid Environment Variables
 =============================
 
@@ -52201,7 +51170,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/env-unsupported-get-secret/index.md
+
+# Aggregated from ./pages/reference/errors/env-unsupported-get-secret
 Unsupported astro:env getSecret
 ===============================
 
@@ -52234,7 +51204,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/expected-image-options/index.md
+
+# Aggregated from ./pages/reference/errors/expected-image-options
 Expected image options.
 =======================
 
@@ -52272,7 +51243,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/expected-image/index.md
+
+# Aggregated from ./pages/reference/errors/expected-image
 Expected src to be an image.
 ============================
 
@@ -52312,7 +51284,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/expected-not-esmimage/index.md
+
+# Aggregated from ./pages/reference/errors/expected-not-esmimage
 Expected image options, not an ESM-imported image.
 ==================================================
 
@@ -52347,7 +51320,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/experimental-fonts-not-enabled/index.md
+
+# Aggregated from ./pages/reference/errors/experimental-fonts-not-enabled
 Experimental fonts are not enabled
 ==================================
 
@@ -52376,7 +51350,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/failed-to-fetch-remote-image-dimensions/index.md
+
+# Aggregated from ./pages/reference/errors/failed-to-fetch-remote-image-dimensions
 Failed to retrieve remote image dimensions
 ==========================================
 
@@ -52405,7 +51380,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/failed-to-find-page-map-ssr/index.md
+
+# Aggregated from ./pages/reference/errors/failed-to-find-page-map-ssr
 Astro couldn't find the correct page to render
 ==============================================
 
@@ -52434,7 +51410,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/failed-to-load-module-ssr/index.md
+
+# Aggregated from ./pages/reference/errors/failed-to-load-module-ssr
 Could not import file.
 ======================
 
@@ -52469,7 +51446,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/file-glob-not-supported/index.md
+
+# Aggregated from ./pages/reference/errors/file-glob-not-supported
 Glob patterns are not supported in the file loader
 ==================================================
 
@@ -52502,7 +51480,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/file-parser-not-found/index.md
+
+# Aggregated from ./pages/reference/errors/file-parser-not-found
 File parser not found
 =====================
 
@@ -52535,7 +51514,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/font-family-not-found/index.md
+
+# Aggregated from ./pages/reference/errors/font-family-not-found
 Font family not found
 =====================
 
@@ -52564,7 +51544,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/forbidden-rewrite/index.md
+
+# Aggregated from ./pages/reference/errors/forbidden-rewrite
 Forbidden rewrite to a static route.
 ====================================
 
@@ -52595,7 +51576,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/generate-content-types-error/index.md
+
+# Aggregated from ./pages/reference/errors/generate-content-types-error
 Failed to generate content types.
 =================================
 
@@ -52628,7 +51610,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/get-entry-deprecation-error/index.md
+
+# Aggregated from ./pages/reference/errors/get-entry-deprecation-error
 Invalid use of getDataEntryById or getEntryBySlug function.
 ===========================================================
 
@@ -52657,7 +51640,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/get-static-paths-expected-params/index.md
+
+# Aggregated from ./pages/reference/errors/get-static-paths-expected-params
 Missing params property on getStaticPaths route.
 ================================================
 
@@ -52699,7 +51683,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/get-static-paths-invalid-route-param/index.md
+
+# Aggregated from ./pages/reference/errors/get-static-paths-invalid-route-param
 Invalid value for getStaticPaths route parameter.
 =================================================
 
@@ -52743,7 +51728,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/get-static-paths-removed-rsshelper/index.md
+
+# Aggregated from ./pages/reference/errors/get-static-paths-removed-rsshelper
 getStaticPaths RSS helper is not available anymore.
 ===================================================
 
@@ -52780,7 +51766,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/get-static-paths-required/index.md
+
+# Aggregated from ./pages/reference/errors/get-static-paths-required
 getStaticPaths() function required for dynamic routes.
 ======================================================
 
@@ -52815,7 +51802,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/i18n-no-locale-found-in-path/index.md
+
+# Aggregated from ./pages/reference/errors/i18n-no-locale-found-in-path
 The path doesn't contain any locale
 ===================================
 
@@ -52844,7 +51832,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/i18n-not-enabled/index.md
+
+# Aggregated from ./pages/reference/errors/i18n-not-enabled
 i18n Not Enabled
 ================
 
@@ -52882,7 +51871,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/image-missing-alt/index.md
+
+# Aggregated from ./pages/reference/errors/image-missing-alt
 Image missing required "alt" property.
 ======================================
 
@@ -52919,7 +51909,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/image-not-found/index.md
+
+# Aggregated from ./pages/reference/errors/image-not-found
 Image not found.
 ================
 
@@ -52954,7 +51945,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/incompatible-descriptor-options/index.md
+
+# Aggregated from ./pages/reference/errors/incompatible-descriptor-options
 Cannot set both densities and widths
 ====================================
 
@@ -52987,7 +51979,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/incorrect-strategy-for-i18n/index.md
+
+# Aggregated from ./pages/reference/errors/incorrect-strategy-for-i18n
 You can't use the current function with the current strategy
 ============================================================
 
@@ -53020,7 +52013,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-component-args/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-component-args
 Invalid component arguments.
 ============================
 
@@ -53050,7 +52044,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-content-entry-data-error/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-content-entry-data-error
 Content entry data does not match schema.
 =========================================
 
@@ -53082,7 +52077,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-content-entry-frontmatter-error/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-content-entry-frontmatter-error
 Content entry frontmatter does not match schema.
 ================================================
 
@@ -53114,7 +52110,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-content-entry-slug-error/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-content-entry-slug-error
 Invalid content entry slug.
 ===========================
 
@@ -53147,7 +52144,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-dynamic-route/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-dynamic-route
 Invalid dynamic route.
 ======================
 
@@ -53180,7 +52178,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-frontmatter-injection-error/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-frontmatter-injection-error
 Invalid frontmatter injection.
 ==============================
 
@@ -53213,7 +52212,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-get-static-path-param/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-get-static-path-param
 Invalid value returned by a getStaticPaths path.
 ================================================
 
@@ -53251,7 +52251,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-get-static-paths-entry/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-get-static-paths-entry
 Invalid entry inside getStaticPath's return value
 =================================================
 
@@ -53288,7 +52289,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-get-static-paths-return/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-get-static-paths-return
 Invalid value returned by getStaticPaths.
 =========================================
 
@@ -53326,7 +52328,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-glob/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-glob
 Invalid glob pattern.
 =====================
 
@@ -53359,7 +52362,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-image-service/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-image-service
 Error while loading image service.
 ==================================
 
@@ -53394,7 +52398,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-prerender-export/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-prerender-export
 Invalid prerender export.
 =========================
 
@@ -53424,7 +52429,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/invalid-rewrite404/index.md
+
+# Aggregated from ./pages/reference/errors/invalid-rewrite404
 You attempted to rewrite a 404 inside a static page, and this isn't allowed.
 ============================================================================
 
@@ -53457,7 +52463,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/local-image-used-wrongly/index.md
+
+# Aggregated from ./pages/reference/errors/local-image-used-wrongly
 Local images must be imported.
 ==============================
 
@@ -53498,7 +52505,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/locals-not-an-object/index.md
+
+# Aggregated from ./pages/reference/errors/locals-not-an-object
 Value assigned to locals is not accepted.
 =========================================
 
@@ -53531,7 +52539,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/locals-not-serializable/index.md
+
+# Aggregated from ./pages/reference/errors/locals-not-serializable
 Astro.locals is not serializable
 ================================
 
@@ -53568,7 +52577,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/locals-reassigned/index.md
+
+# Aggregated from ./pages/reference/errors/locals-reassigned
 locals must not be reassigned.
 ==============================
 
@@ -53597,7 +52607,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/markdown-content-schema-validation-error/index.md
+
+# Aggregated from ./pages/reference/errors/markdown-content-schema-validation-error
 Content collection frontmatter invalid.
 =======================================
 
@@ -53633,7 +52644,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/markdown-frontmatter-parse-error/index.md
+
+# Aggregated from ./pages/reference/errors/markdown-frontmatter-parse-error
 Failed to parse Markdown frontmatter.
 =====================================
 
@@ -53665,7 +52677,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/markdown-image-not-found/index.md
+
+# Aggregated from ./pages/reference/errors/markdown-image-not-found
 Image not found.
 ================
 
@@ -53704,7 +52717,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/mdx-integration-missing-error/index.md
+
+# Aggregated from ./pages/reference/errors/mdx-integration-missing-error
 MDX integration missing.
 ========================
 
@@ -53737,7 +52751,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/middleware-cant-be-loaded/index.md
+
+# Aggregated from ./pages/reference/errors/middleware-cant-be-loaded
 Can't load the middleware.
 ==========================
 
@@ -53770,7 +52785,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/middleware-no-data-or-next-called/index.md
+
+# Aggregated from ./pages/reference/errors/middleware-no-data-or-next-called
 The middleware didn't return a Response.
 ========================================
 
@@ -53803,7 +52819,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/middleware-not-aresponse/index.md
+
+# Aggregated from ./pages/reference/errors/middleware-not-aresponse
 The middleware returned something that is not a Response object.
 ================================================================
 
@@ -53836,7 +52853,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/missing-image-dimension/index.md
+
+# Aggregated from ./pages/reference/errors/missing-image-dimension
 Missing image dimensions
 ========================
 
@@ -53872,7 +52890,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/missing-index-for-internationalization/index.md
+
+# Aggregated from ./pages/reference/errors/missing-index-for-internationalization
 Index page not found.
 =====================
 
@@ -53906,7 +52925,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/missing-locale/index.md
+
+# Aggregated from ./pages/reference/errors/missing-locale
 The provided locale does not exist.
 ===================================
 
@@ -53935,7 +52955,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/missing-media-query-directive/index.md
+
+# Aggregated from ./pages/reference/errors/missing-media-query-directive
 Missing value for client:media directive.
 =========================================
 
@@ -53970,7 +52991,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/missing-middleware-for-internationalization/index.md
+
+# Aggregated from ./pages/reference/errors/missing-middleware-for-internationalization
 Enabled manual internationalization routing without having a middleware.
 ========================================================================
 
@@ -53999,7 +53021,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/missing-sharp/index.md
+
+# Aggregated from ./pages/reference/errors/missing-sharp
 Could not find Sharp.
 =====================
 
@@ -54037,7 +53060,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/mixed-content-data-collection-error/index.md
+
+# Aggregated from ./pages/reference/errors/mixed-content-data-collection-error
 Content and data cannot be in same collection.
 ==============================================
 
@@ -54070,7 +53094,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-adapter-installed-server-islands/index.md
+
+# Aggregated from ./pages/reference/errors/no-adapter-installed-server-islands
 Cannot use Server Islands without an adapter.
 =============================================
 
@@ -54103,7 +53128,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-adapter-installed/index.md
+
+# Aggregated from ./pages/reference/errors/no-adapter-installed
 Cannot use Server-side Rendering without an adapter.
 ====================================================
 
@@ -54136,7 +53162,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-client-entrypoint/index.md
+
+# Aggregated from ./pages/reference/errors/no-client-entrypoint
 No client entrypoint specified in renderer.
 ===========================================
 
@@ -54170,7 +53197,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-client-only-hint/index.md
+
+# Aggregated from ./pages/reference/errors/no-client-only-hint
 Missing hint on client:only directive.
 ======================================
 
@@ -54205,7 +53233,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-image-metadata/index.md
+
+# Aggregated from ./pages/reference/errors/no-image-metadata
 Could not process image metadata.
 =================================
 
@@ -54238,7 +53267,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-matching-import/index.md
+
+# Aggregated from ./pages/reference/errors/no-matching-import
 No import found for component.
 ==============================
 
@@ -54267,7 +53297,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-matching-renderer/index.md
+
+# Aggregated from ./pages/reference/errors/no-matching-renderer
 No matching renderer found.
 ===========================
 
@@ -54303,7 +53334,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-matching-static-path-found/index.md
+
+# Aggregated from ./pages/reference/errors/no-matching-static-path-found
 No static path found for requested path.
 ========================================
 
@@ -54336,7 +53368,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/no-prerendered-routes-with-domains/index.md
+
+# Aggregated from ./pages/reference/errors/no-prerendered-routes-with-domains
 Prerendered routes aren't supported when internationalization domains are enabled.
 ==================================================================================
 
@@ -54365,7 +53398,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/only-response-can-be-returned/index.md
+
+# Aggregated from ./pages/reference/errors/only-response-can-be-returned
 Invalid type returned by Astro page.
 ====================================
 
@@ -54403,7 +53437,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/page-number-param-not-found/index.md
+
+# Aggregated from ./pages/reference/errors/page-number-param-not-found
 Page number param not found.
 ============================
 
@@ -54436,7 +53471,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/prerender-client-address-not-available/index.md
+
+# Aggregated from ./pages/reference/errors/prerender-client-address-not-available
 Astro.clientAddress cannot be used inside prerendered routes.
 =============================================================
 
@@ -54470,7 +53506,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/prerender-dynamic-endpoint-path-collide/index.md
+
+# Aggregated from ./pages/reference/errors/prerender-dynamic-endpoint-path-collide
 Prerendered dynamic endpoint has path collision.
 ================================================
 
@@ -54506,7 +53543,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/redirect-with-no-location/index.md
+
+# Aggregated from ./pages/reference/errors/redirect-with-no-location
 A redirect must be given a location with the Location header.
 =============================================================
 
@@ -54537,7 +53575,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/render-undefined-entry-error/index.md
+
+# Aggregated from ./pages/reference/errors/render-undefined-entry-error
 Attempted to render an undefined content collection entry.
 ==========================================================
 
@@ -54564,7 +53603,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/reserved-slot-name/index.md
+
+# Aggregated from ./pages/reference/errors/reserved-slot-name
 Invalid slot name.
 ==================
 
@@ -54597,7 +53637,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/response-sent-error/index.md
+
+# Aggregated from ./pages/reference/errors/response-sent-error
 Unable to set response.
 =======================
 
@@ -54626,7 +53667,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/rewrite-encountered-an-error/index.md
+
+# Aggregated from ./pages/reference/errors/rewrite-encountered-an-error
 Astro couldn't find the route to rewrite, or if was found but it emitted an error during the rendering phase.
 =============================================================================================================
 
@@ -54659,7 +53701,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/rewrite-with-body-used/index.md
+
+# Aggregated from ./pages/reference/errors/rewrite-with-body-used
 Cannot use Astro.rewrite after the request body has been read
 =============================================================
 
@@ -54696,7 +53739,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/route-not-found/index.md
+
+# Aggregated from ./pages/reference/errors/route-not-found
 Route not found.
 ================
 
@@ -54725,7 +53769,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/server-only-module/index.md
+
+# Aggregated from ./pages/reference/errors/server-only-module
 Module is only available server-side
 ====================================
 
@@ -54754,7 +53799,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/session-config-missing-error/index.md
+
+# Aggregated from ./pages/reference/errors/session-config-missing-error
 Session storage was enabled but not configured.
 ===============================================
 
@@ -54791,7 +53837,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/session-config-without-flag-error/index.md
+
+# Aggregated from ./pages/reference/errors/session-config-without-flag-error
 Session flag not set
 ====================
 
@@ -54828,7 +53875,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/session-storage-init-error/index.md
+
+# Aggregated from ./pages/reference/errors/session-storage-init-error
 Session storage could not be initialized.
 =========================================
 
@@ -54861,7 +53909,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/session-storage-save-error/index.md
+
+# Aggregated from ./pages/reference/errors/session-storage-save-error
 Session data could not be saved.
 ================================
 
@@ -54894,7 +53943,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/session-without-supported-adapter-output-error/index.md
+
+# Aggregated from ./pages/reference/errors/session-without-supported-adapter-output-error
 Sessions cannot be used with an adapter that doesn't support server output.
 ===========================================================================
 
@@ -54931,7 +53981,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/static-client-address-not-available/index.md
+
+# Aggregated from ./pages/reference/errors/static-client-address-not-available
 Astro.clientAddress is not available in prerendered pages.
 ==========================================================
 
@@ -54967,7 +54018,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/static-redirect-not-available/index.md
+
+# Aggregated from ./pages/reference/errors/static-redirect-not-available
 Astro.redirect is not available in static mode.
 ===============================================
 
@@ -55007,7 +54059,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unhandled-rejection/index.md
+
+# Aggregated from ./pages/reference/errors/unhandled-rejection
 Unhandled rejection
 ===================
 
@@ -55037,7 +54090,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unknown-clierror/index.md
+
+# Aggregated from ./pages/reference/errors/unknown-clierror
 Unknown CLI Error.
 ==================
 
@@ -55066,7 +54120,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unknown-compiler-error/index.md
+
+# Aggregated from ./pages/reference/errors/unknown-compiler-error
 Unknown compiler error.
 =======================
 
@@ -55101,7 +54156,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unknown-config-error/index.md
+
+# Aggregated from ./pages/reference/errors/unknown-config-error
 Unknown configuration error.
 ============================
 
@@ -55134,7 +54190,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unknown-content-collection-error/index.md
+
+# Aggregated from ./pages/reference/errors/unknown-content-collection-error
 Unknown Content Collection Error.
 =================================
 
@@ -55163,7 +54220,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unknown-csserror/index.md
+
+# Aggregated from ./pages/reference/errors/unknown-csserror
 Unknown CSS Error.
 ==================
 
@@ -55194,7 +54252,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unknown-filesystem-error/index.md
+
+# Aggregated from ./pages/reference/errors/unknown-filesystem-error
 An unknown error occurred while reading or writing files to disk.
 =================================================================
 
@@ -55221,7 +54280,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unknown-markdown-error/index.md
+
+# Aggregated from ./pages/reference/errors/unknown-markdown-error
 Unknown Markdown Error.
 =======================
 
@@ -55248,7 +54308,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unknown-vite-error/index.md
+
+# Aggregated from ./pages/reference/errors/unknown-vite-error
 Unknown Vite Error.
 ===================
 
@@ -55281,7 +54342,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unsupported-config-transform-error/index.md
+
+# Aggregated from ./pages/reference/errors/unsupported-config-transform-error
 Unsupported transform in content config.
 ========================================
 
@@ -55315,7 +54377,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unsupported-external-redirect/index.md
+
+# Aggregated from ./pages/reference/errors/unsupported-external-redirect
 Unsupported or malformed URL.
 =============================
 
@@ -55348,7 +54411,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unsupported-image-conversion/index.md
+
+# Aggregated from ./pages/reference/errors/unsupported-image-conversion
 Unsupported image conversion
 ============================
 
@@ -55381,7 +54445,8 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/errors/unsupported-image-format/index.md
+
+# Aggregated from ./pages/reference/errors/unsupported-image-format
 Unsupported image format
 ========================
 
@@ -55415,7 +54480,11 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 [Edit page](https://github.com/withastro/astro/blob/main/packages/astro/src/core/errors/errors-data.ts) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/experimental-flags/client-prerender/index.md
+
+
+
+# Aggregated from ./pages/reference/experimental-flags
+# Aggregated from ./pages/reference/experimental-flags/client-prerender
 Experimental client prerendering
 ================================
 
@@ -55460,7 +54529,8 @@ Fonts](/en/reference/experimental-flags/fonts/) [Next
 Intellisense for collections](/en/reference/experimental-flags/content-intellisense/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/experimental-flags/content-intellisense/index.md
+
+# Aggregated from ./pages/reference/experimental-flags/content-intellisense
 Experimental Intellisense for content collections
 =================================================
 
@@ -55497,7 +54567,8 @@ Client prerendering](/en/reference/experimental-flags/client-prerender/) [Next
 Preserve scripts order](/en/reference/experimental-flags/preserve-scripts-order/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/experimental-flags/fonts/index.md
+
+# Aggregated from ./pages/reference/experimental-flags/fonts
 Experimental fonts API
 ======================
 
@@ -56012,7 +55083,8 @@ Responsive images](/en/reference/experimental-flags/responsive-images/) [Next
 Client prerendering](/en/reference/experimental-flags/client-prerender/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/experimental-flags/heading-id-compat/index.md
+
+# Aggregated from ./pages/reference/experimental-flags/heading-id-compat
 Experimental Markdown heading ID compatibility
 ==============================================
 
@@ -56085,44 +55157,8 @@ Preserve scripts order](/en/reference/experimental-flags/preserve-scripts-order/
 Legacy flags](/en/reference/legacy-flags/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/experimental-flags/index.md
-Configuring experimental flags
-==============================
 
-Experimental features are available only after enabling a flag in the Astro configuration file.
-
-astro.config.mjs
-
-    import { defineConfig } from 'astro/config';
-    export default defineConfig({    experimental: {        // enable experimental flags        // to try out new features    },});
-
-Astro offers experimental flags to give users early access to new features for testing and feedback.
-
-These flags allow you to participate in feature development by reporting issues and sharing your opinions. These features are not guaranteed to be stable and may include breaking changes even in small `patch` releases while the feature is actively developed.
-
-We recommend [updating Astro](/en/upgrade-astro/#upgrade-to-the-latest-version) frequently, and keeping up with release notes in the [Astro changelog](https://github.com/withastro/astro/blob/main/packages/astro/CHANGELOG.md) which will inform you of any changes needed to your project code. The experimental feature documentation will always be updated for the current released version only.
-
-Reference
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/reference/experimental-flags/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Programmatic Astro API (experimental)](/en/reference/programmatic-reference/) [Next  
-Responsive images](/en/reference/experimental-flags/responsive-images/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/experimental-flags/preserve-scripts-order/index.md
+# Aggregated from ./pages/reference/experimental-flags/preserve-scripts-order
 Experimental preserve scripts order
 ===================================
 
@@ -56189,7 +55225,8 @@ Intellisense for collections](/en/reference/experimental-flags/content-intellise
 Markdown heading ID compatibility](/en/reference/experimental-flags/heading-id-compat/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/experimental-flags/responsive-images/index.md
+
+# Aggregated from ./pages/reference/experimental-flags/responsive-images
 Experimental responsive images
 ==============================
 
@@ -56334,7 +55371,10 @@ Configuring experimental flags](/en/reference/experimental-flags/) [Next
 Fonts](/en/reference/experimental-flags/fonts/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/image-service-reference/index.md
+
+
+
+# Aggregated from ./pages/reference/image-service-reference
 Image Service API
 =================
 
@@ -56795,7 +55835,8 @@ Content Loader API](/en/reference/content-loader-reference/) [Next
 Dev Toolbar App API](/en/reference/dev-toolbar-app-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/integrations-reference/index.md
+
+# Aggregated from ./pages/reference/integrations-reference
 Astro Integration API
 =====================
 
@@ -57928,7 +56969,8 @@ astro:transitions](/en/reference/modules/astro-transitions/) [Next
 Adapter API](/en/reference/adapter-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/legacy-flags/index.md
+
+# Aggregated from ./pages/reference/legacy-flags
 Legacy flags
 ============
 
@@ -57988,7 +57030,9 @@ Markdown heading ID compatibility](/en/reference/experimental-flags/heading-id-c
 Error reference](/en/reference/error-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/modules/astro-actions/index.md
+
+# Aggregated from ./pages/reference/modules
+# Aggregated from ./pages/reference/modules/astro-actions
 Actions API Reference
 =====================
 
@@ -58239,7 +57283,8 @@ Render context](/en/reference/api-reference/) [Next
 astro:assets](/en/reference/modules/astro-assets/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/modules/astro-assets/index.md
+
+# Aggregated from ./pages/reference/modules/astro-assets
 Image and Assets API Reference
 ==============================
 
@@ -58507,7 +57552,8 @@ astro:actions](/en/reference/modules/astro-actions/) [Next
 astro:config](/en/reference/modules/astro-config/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/modules/astro-config/index.md
+
+# Aggregated from ./pages/reference/modules/astro-config
 Config imports API Reference
 ============================
 
@@ -58597,7 +57643,8 @@ astro:assets](/en/reference/modules/astro-assets/) [Next
 astro:content](/en/reference/modules/astro-content/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/modules/astro-content/index.md
+
+# Aggregated from ./pages/reference/modules/astro-content
 Content Collections API Reference
 =================================
 
@@ -58846,7 +57893,8 @@ astro:config](/en/reference/modules/astro-config/) [Next
 astro:env](/en/reference/modules/astro-env/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/modules/astro-env/index.md
+
+# Aggregated from ./pages/reference/modules/astro-env
 Environment Variables API Reference
 ===================================
 
@@ -58898,7 +57946,8 @@ astro:content](/en/reference/modules/astro-content/) [Next
 astro:i18n](/en/reference/modules/astro-i18n/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/modules/astro-i18n/index.md
+
+# Aggregated from ./pages/reference/modules/astro-i18n
 Internationalization API Reference
 ==================================
 
@@ -59132,7 +58181,8 @@ astro:env](/en/reference/modules/astro-env/) [Next
 astro:middleware](/en/reference/modules/astro-middleware/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/modules/astro-middleware/index.md
+
+# Aggregated from ./pages/reference/modules/astro-middleware
 Middleware API Reference
 ========================
 
@@ -59256,7 +58306,8 @@ astro:i18n](/en/reference/modules/astro-i18n/) [Next
 astro:transitions](/en/reference/modules/astro-transitions/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/modules/astro-transitions/index.md
+
+# Aggregated from ./pages/reference/modules/astro-transitions
 View Transitions Router API Reference
 =====================================
 
@@ -59701,7 +58752,10 @@ astro:middleware](/en/reference/modules/astro-middleware/) [Next
 Integration API](/en/reference/integrations-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/programmatic-reference/index.md
+
+
+
+# Aggregated from ./pages/reference/programmatic-reference
 Programmatic Astro API (experimental)
 =====================================
 
@@ -59997,7 +59051,8 @@ Container API (experimental)](/en/reference/container-reference/) [Next
 Configuring experimental flags](/en/reference/experimental-flags/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/publish-to-npm/index.md
+
+# Aggregated from ./pages/reference/publish-to-npm
 Publish to NPM
 ==============
 
@@ -60319,7 +59374,8 @@ Sitemap](/en/guides/integrations-guide/sitemap/) [Next
 Deployment overview](/en/guides/deploy/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## reference/routing-reference/index.md
+
+# Aggregated from ./pages/reference/routing-reference
 Routing Reference
 =================
 
@@ -60607,7 +59663,12 @@ Imports reference](/en/guides/imports/) [Next
 Render context](/en/reference/api-reference/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/0-introduction/1/index.md
+
+
+
+# Aggregated from ./pages/tutorial
+# Aggregated from ./pages/tutorial/0-introduction
+# Aggregated from ./pages/tutorial/0-introduction/1
 About this Tutorial
 ===================
 
@@ -60673,55 +59734,11 @@ Build your first Astro Blog](/en/tutorial/0-introduction/) [Next
 Check in: Unit 1 - Setup](/en/tutorial/1-setup/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/0-introduction/index.md
-Build your first Astro Blog
-===========================
 
-In this tutorial, you’ll learn Astro’s key features by building a fully-functioning blog, from zero to full launch! 🚀
 
-Along the way, you’ll:
 
-*   Set up your development environment
-*   Create pages and blog posts for your website
-*   Build with Astro components
-*   Query and work with local files
-*   Add interactivity to your site
-*   Deploy your site to the web
-
-Want a preview of what you’re going to build? You can view the final project on [GitHub](https://github.com/withastro/blog-tutorial-demo) or open a working version in an online coding environment such as [IDX](https://idx.google.com/import?url=https:%2F%2Fgithub.com%2Fwithastro%2Fblog-tutorial-demo%2F) or [StackBlitz](https://stackblitz.com/github/withastro/blog-tutorial-demo/tree/complete?file=src%2Fpages%2Findex.astro).
-
-Note
-
-If you would rather start exploring Astro with a pre-built Astro site, you can visit [https://astro.new](https://astro.new) and choose a starter template to open and edit in an online editor.
-
-Checklist
----------
-
-[Section titled Checklist](#checklist)
-
- *    Looks great! I’m ready to get started!
-
-Tutorials
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/tutorial/0-introduction/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Islands architecture](/en/concepts/islands/) [Next  
-About this Tutorial](/en/tutorial/0-introduction/1/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/1-setup/1/index.md
+# Aggregated from ./pages/tutorial/1-setup
+# Aggregated from ./pages/tutorial/1-setup/1
 Prepare your dev environment
 ============================
 
@@ -60848,7 +59865,8 @@ Check in: Unit 1 - Setup](/en/tutorial/1-setup/) [Next
 Create your first Astro project](/en/tutorial/1-setup/2/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/1-setup/2/index.md
+
+# Aggregated from ./pages/tutorial/1-setup/2
 Create your first Astro project
 ===============================
 
@@ -61016,7 +60034,8 @@ Prepare your dev environment](/en/tutorial/1-setup/1/) [Next
 Write your first line of Astro](/en/tutorial/1-setup/3/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/1-setup/3/index.md
+
+# Aggregated from ./pages/tutorial/1-setup/3
 Write your first line of Astro
 ==============================
 
@@ -61081,7 +60100,8 @@ Create your first Astro project](/en/tutorial/1-setup/2/) [Next
 Store your repository online](/en/tutorial/1-setup/4/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/1-setup/4/index.md
+
+# Aggregated from ./pages/tutorial/1-setup/4
 Store your repository online
 ============================
 
@@ -61173,7 +60193,8 @@ Write your first line of Astro](/en/tutorial/1-setup/3/) [Next
 Deploy your site to the web](/en/tutorial/1-setup/5/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/1-setup/5/index.md
+
+# Aggregated from ./pages/tutorial/1-setup/5
 Deploy your site to the web
 ===========================
 
@@ -61272,97 +60293,11 @@ Store your repository online](/en/tutorial/1-setup/4/) [Next
 Check in: Unit 2 - Pages](/en/tutorial/2-pages/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/1-setup/index.md
-Check in: Unit 1 - Setup
-========================
 
-Now that you know what you’re going to build, it’s time to set up all the tools you’ll need!
 
-This unit shows you how to set up your development environment and deploy to Netlify. Skip ahead to [Unit 2](/en/tutorial/2-pages/) if you are already comfortable with your environment and workflow.
 
-Take the tutorial in an online code editor
-
-Want to complete this tutorial in an online code editor instead? Follow the instructions below for getting started on Google IDX.
-
-Using Google IDX: Follow these instructions, then go directly to Unit 2!
-
-**Set up IDX**
-
-1.  Follow the external link to [open the “Empty Project” template in a new workspace on IDX](https://astro.new/minimal?on=idx).
-    
-2.  Follow the prompt to log into your Google account if you are not already logged in.
-    
-3.  Enter a name for your project if you want to change it from the default “Empty Project”. Click **Create**.
-    
-4.  Wait for the workspace to be created. This may take 30 - 60 seconds. If all goes well, you will see the Astro project loaded in an online code editor.
-    
-5.  Wait for IDX to run two scripts: one to install Astro and another to start the development server. Note that you may briefly see a message that your workspace “couldn’t find Astro” if your workspace loads before Astro has finished installing. This message can be ignored and cancelled if it does not clear itself.
-    
-
-**Make a Change**
-
-If all goes well, you should see the code for the file `src/pages/index.astro` opened in split screen with a live preview of the website. Follow the instruction to [“Write your first line of Astro”](/en/tutorial/1-setup/3/) to make a change to this file.
-
-**Create a GitHub Repository**
-
-1.  Navigate to the “Source Control” navigation item in the vertical menu bar, or open with CTRL + SHIFT + G.
-    
-2.  Select the option to Publish to GitHub. This will create a new repository in your GitHub account.
-    
-3.  Follow the prompts to sign in to your GitHub account.
-    
-4.  Once you are signed in, return to the IDX tab and you will be given the choice to name your new repository, and whether you want to create a private or public repository. You can choose any name and either kind of repository for this tutorial.
-    
-5.  IDX will make an initial commit and publish to your new GitHub repo.
-    
-6.  Going forward, whenever you have changes to be committed back to GitHub, the Source Control navigation icon will show a number. This is the number of files that have changed since your last commit. Navigating to this tab and performing two steps (commit and publish) will allow you to enter a commit message, and update your repository.
-    
-
-**Deploy your Site**
-
-If you’d like to deploy to Netlify, and have a live published version of your site while you work, go ahead in Unit 1 to [Deploy your site to the web](/en/tutorial/1-setup/5/).
-
-Otherwise, skip to [Unit 2](/en/tutorial/2-pages/) to start building with Astro!
-
-Where are you going?
---------------------
-
-[Section titled Where are you going?](#where-are-you-going)
-
-In this unit, you will **create a new project** that is **stored online in GitHub** and **connected to Netlify**.
-
-As you write code, you will periodically commit your changes to GitHub. Netlify will use the files in your GitHub repository to build your website, and then publish it on the internet at a unique address where anyone can view it.
-
-Every time you commit a change to GitHub, a notification will be sent to Netlify. Then, Netlify will automatically rebuild and republish your live site to reflect those changes.
-
-Checklist
----------
-
-[Section titled Checklist](#checklist)
-
- *    I’m ready to prepare a development environment for an Astro project!
-
-Tutorials
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/tutorial/1-setup/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-About this Tutorial](/en/tutorial/0-introduction/1/) [Next  
-Prepare your dev environment](/en/tutorial/1-setup/1/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/2-pages/1/index.md
+# Aggregated from ./pages/tutorial/2-pages
+# Aggregated from ./pages/tutorial/2-pages/1
 Create your first Astro page
 ============================
 
@@ -61527,7 +60462,8 @@ Check in: Unit 2 - Pages](/en/tutorial/2-pages/) [Next
 Write your first Markdown blog post](/en/tutorial/2-pages/2/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/2-pages/2/index.md
+
+# Aggregated from ./pages/tutorial/2-pages/2
 Write your first Markdown blog post
 ===================================
 
@@ -61671,7 +60607,8 @@ Create your first Astro page](/en/tutorial/2-pages/1/) [Next
 Add dynamic content about you](/en/tutorial/2-pages/3/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/2-pages/3/index.md
+
+# Aggregated from ./pages/tutorial/2-pages/3
 Add dynamic content about you
 =============================
 
@@ -61883,7 +60820,8 @@ Write your first Markdown blog post](/en/tutorial/2-pages/2/) [Next
 Style your About page](/en/tutorial/2-pages/4/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/2-pages/4/index.md
+
+# Aggregated from ./pages/tutorial/2-pages/4
 Style your About page
 =====================
 
@@ -62028,7 +60966,8 @@ Add dynamic content about you](/en/tutorial/2-pages/3/) [Next
 Add site-wide styling](/en/tutorial/2-pages/5/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/2-pages/5/index.md
+
+# Aggregated from ./pages/tutorial/2-pages/5
 Add site-wide styling
 =====================
 
@@ -62150,54 +61089,11 @@ Style your About page](/en/tutorial/2-pages/4/) [Next
 Check in: Unit 3 - Components](/en/tutorial/3-components/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/2-pages/index.md
-Check in: Unit 2 - Pages
-========================
 
-Now that you have a working site on the web, it’s time to add pages and posts!
 
-Looking ahead
--------------
 
-[Section titled Looking ahead](#looking-ahead)
-
-In this unit, you will:
-
-*   Create your first Astro pages with the `.astro` syntax
-*   Add blog posts with Markdown (`.md`) files
-*   Style an individual page with `<style>`
-*   Apply global styles across pages
-
-Along the way, you’ll learn how the **two sections of a `.astro` file** work together to create a page, and how to use variables and conditional rendering on your pages.
-
-Checklist
----------
-
-[Section titled Checklist](#checklist)
-
- *    I am ready to make some new pages for my Astro website!
-
-Tutorials
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/tutorial/2-pages/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Deploy your site to the web](/en/tutorial/1-setup/5/) [Next  
-Create your first Astro page](/en/tutorial/2-pages/1/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/3-components/1/index.md
+# Aggregated from ./pages/tutorial/3-components
+# Aggregated from ./pages/tutorial/3-components/1
 Make a reusable Navigation component
 ====================================
 
@@ -62350,7 +61246,8 @@ Check in: Unit 3 - Components](/en/tutorial/3-components/) [Next
 Create a social media footer](/en/tutorial/3-components/2/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/3-components/2/index.md
+
+# Aggregated from ./pages/tutorial/3-components/2
 Create a social media footer
 ============================
 
@@ -62525,7 +61422,8 @@ Make a reusable Navigation component](/en/tutorial/3-components/1/) [Next
 Build it yourself - Header](/en/tutorial/3-components/3/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/3-components/3/index.md
+
+# Aggregated from ./pages/tutorial/3-components/3
 Build it yourself - Header
 ==========================
 
@@ -62645,7 +61543,8 @@ Create a social media footer](/en/tutorial/3-components/2/) [Next
 Send your first script to the browser](/en/tutorial/3-components/4/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/3-components/4/index.md
+
+# Aggregated from ./pages/tutorial/3-components/4
 Send your first script to the browser
 =====================================
 
@@ -62826,56 +61725,11 @@ Build it yourself - Header](/en/tutorial/3-components/3/) [Next
 Check in: Unit 4 - Layouts](/en/tutorial/4-layouts/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/3-components/index.md
-Check in: Unit 3 - Components
-=============================
 
-Now that you have `.astro` and `.md` files generating entire pages on your website, it’s time to make and reuse smaller bits of HTML with Astro components!
 
-Looking ahead
--------------
 
-[Section titled Looking ahead](#looking-ahead)
-
-In this unit, you’ll learn how to create **Astro components** to reuse code for common elements across your website.
-
-You’ll build:
-
-*   A Navigation component that presents a menu of links to your pages
-*   A Footer component to include at the bottom of each page
-*   A Social Media component, used in the Footer, that links to profile pages
-*   An interactive Hamburger component to toggle the Navigation on mobile
-
-Along the way, you’ll use CSS and JavaScript to build a responsive design that reacts to screen sizes and user input.
-
-Checklist
----------
-
-[Section titled Checklist](#checklist)
-
- *    I am ready to build some Astro components!
-
-Tutorials
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/tutorial/3-components/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Add site-wide styling](/en/tutorial/2-pages/5/) [Next  
-Make a reusable Navigation component](/en/tutorial/3-components/1/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/4-layouts/1/index.md
+# Aggregated from ./pages/tutorial/4-layouts
+# Aggregated from ./pages/tutorial/4-layouts/1
 Build your first layout
 =======================
 
@@ -63049,7 +61903,8 @@ Check in: Unit 4 - Layouts](/en/tutorial/4-layouts/) [Next
 Create and pass data to a custom blog layout](/en/tutorial/4-layouts/2/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/4-layouts/2/index.md
+
+# Aggregated from ./pages/tutorial/4-layouts/2
 Create and pass data to a custom blog layout
 ============================================
 
@@ -63186,7 +62041,8 @@ Build your first layout](/en/tutorial/4-layouts/1/) [Next
 Combine layouts to get the best of both worlds](/en/tutorial/4-layouts/3/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/4-layouts/3/index.md
+
+# Aggregated from ./pages/tutorial/4-layouts/3
 Combine layouts to get the best of both worlds
 ==============================================
 
@@ -63314,54 +62170,11 @@ Create and pass data to a custom blog layout](/en/tutorial/4-layouts/2/) [Next
 Check in: Unit 5 - Astro API](/en/tutorial/5-astro-api/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/4-layouts/index.md
-Check in: Unit 4 - Layouts
-==========================
 
-Now that you can build with components, it’s time to create some custom layouts!
 
-Looking ahead
--------------
 
-[Section titled Looking ahead](#looking-ahead)
-
-In this unit, you’ll build layouts to share common elements and styles across your pages and blog posts.
-
-To do this, you will:
-
-*   Create reusable layout components
-*   Pass content to your layouts with `<slot />`
-*   Pass data from Markdown frontmatter to your layouts
-*   Nest multiple layouts
-
-Checklist
----------
-
-[Section titled Checklist](#checklist)
-
- *    I am ready to take my page design to the next level with layouts!
-
-Tutorials
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/tutorial/4-layouts/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Send your first script to the browser](/en/tutorial/3-components/4/) [Next  
-Build your first layout](/en/tutorial/4-layouts/1/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/5-astro-api/1/index.md
+# Aggregated from ./pages/tutorial/5-astro-api
+# Aggregated from ./pages/tutorial/5-astro-api/1
 Create a blog post archive
 ==========================
 
@@ -63535,7 +62348,8 @@ Check in: Unit 5 - Astro API](/en/tutorial/5-astro-api/) [Next
 Generate tag pages](/en/tutorial/5-astro-api/2/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/5-astro-api/2/index.md
+
+# Aggregated from ./pages/tutorial/5-astro-api/2
 Generate tag pages
 ==================
 
@@ -63789,7 +62603,8 @@ Create a blog post archive](/en/tutorial/5-astro-api/1/) [Next
 Build a tag index page](/en/tutorial/5-astro-api/3/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/5-astro-api/3/index.md
+
+# Aggregated from ./pages/tutorial/5-astro-api/3
 Build a tag index page
 ======================
 
@@ -64077,7 +62892,8 @@ Generate tag pages](/en/tutorial/5-astro-api/2/) [Next
 Add an RSS feed](/en/tutorial/5-astro-api/4/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/5-astro-api/4/index.md
+
+# Aggregated from ./pages/tutorial/5-astro-api/4
 Add an RSS feed
 ===============
 
@@ -64199,53 +63015,11 @@ Build a tag index page](/en/tutorial/5-astro-api/3/) [Next
 Check in: Unit 6 - Astro Islands](/en/tutorial/6-islands/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/5-astro-api/index.md
-Check in: Unit 5 - Astro API
-============================
 
-Now that you have some blog posts, it’s time to use Astro’s API to work with your files!
 
-Looking ahead
--------------
 
-[Section titled Looking ahead](#looking-ahead)
-
-In this unit, you’ll supercharge your blog with an index page, tag pages, and an RSS feed.
-
-Along the way, you’ll learn how to use:
-
-*   `import.meta.glob()` to access data from files in your project
-*   `getStaticPaths()` to create multiple pages (routes) at once
-*   The Astro RSS package to create an RSS feed
-
-Checklist
----------
-
-[Section titled Checklist](#checklist)
-
- *    I am ready to add some blog features to my Astro project!
-
-Tutorials
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/tutorial/5-astro-api/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Combine layouts to get the best of both worlds](/en/tutorial/4-layouts/3/) [Next  
-Create a blog post archive](/en/tutorial/5-astro-api/1/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/6-islands/1/index.md
+# Aggregated from ./pages/tutorial/6-islands
+# Aggregated from ./pages/tutorial/6-islands/1
 Build your first Astro island
 =============================
 
@@ -64421,7 +63195,8 @@ Check in: Unit 6 - Astro Islands](/en/tutorial/6-islands/) [Next
 Back on dry land. Take your blog from day to night, no island required!](/en/tutorial/6-islands/2/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/6-islands/2/index.md
+
+# Aggregated from ./pages/tutorial/6-islands/2
 Back on dry land. Take your blog from day to night, no island required!
 =======================================================================
 
@@ -64590,7 +63365,8 @@ Build your first Astro island](/en/tutorial/6-islands/1/) [Next
 Congratulations!](/en/tutorial/6-islands/3/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/6-islands/3/index.md
+
+# Aggregated from ./pages/tutorial/6-islands/3
 Congratulations!
 ================
 
@@ -64655,7 +63431,8 @@ Back on dry land. Take your blog from day to night, no island required!](/en/tut
 Optional: Make a content collection](/en/tutorial/6-islands/4/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/6-islands/4/index.md
+
+# Aggregated from ./pages/tutorial/6-islands/4
 Optional: Make a content collection
 ===================================
 
@@ -64899,53 +63676,12 @@ document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventList
 Congratulations!](/en/tutorial/6-islands/3/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## tutorial/6-islands/index.md
-Check in: Unit 6 - Astro Islands
-================================
 
-Now that you have a fully functioning blog, it’s time to add some interactive islands to your site!
 
-Looking ahead
--------------
 
-[Section titled Looking ahead](#looking-ahead)
 
-In this unit, you’ll use **Astro islands** to bring frontend framework components into your Astro site.
 
-You will:
-
-*   Add a UI framework, Preact, to your Astro project
-*   Use Preact to create an interactive greeting component
-*   Learn when you might _not_ choose islands for interactivity
-
-Checklist
----------
-
-[Section titled Checklist](#checklist)
-
- *    I am ready to add some interactivity to my site, and start living that island life!
-
-Tutorials
-
-![](/_astro/CodingInPublic.DpaYu7Qd_5sx41.webp)
-
-Learn Astro with **Coding in Public**
--------------------------------------
-
-150+ video lessons • Astro v5 ready
-
-[Get 20% off](https://learnastro.dev?code=ASTRO_PROMO)
-
-document.querySelectorAll("a\[data-learn-astro-cta\]").forEach(a=>a.addEventListener("click",()=>{window.fathom?.trackEvent("Docs: Coding in Public campaign click")}));
-
-[Edit page](https://github.com/withastro/docs/edit/main/src/content/docs/en/tutorial/6-islands/index.mdx) [Translate this page](https://contribute.docs.astro.build/guides/i18n/)
-
-[Previous  
-Add an RSS feed](/en/tutorial/5-astro-api/4/) [Next  
-Build your first Astro island](/en/tutorial/6-islands/1/)
-
-[Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
-## upgrade-astro/index.md
+# Aggregated from ./pages/upgrade-astro
 Astro v5 is here! [Learn how to upgrade your site](/en/guides/upgrade-to/v5/)
 
 Upgrade Astro
@@ -65194,3 +63930,4 @@ Sessions](/en/guides/sessions/) [Next
 v5.0](/en/guides/upgrade-to/v5/)
 
 [Contribute](/en/contribute/) [Community](https://astro.build/chat) [Sponsor](https://opencollective.com/astrodotbuild)
+
