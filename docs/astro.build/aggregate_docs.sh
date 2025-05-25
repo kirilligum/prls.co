@@ -16,9 +16,13 @@ find . -type d | sort -r | while IFS= read -r dir; do
     continue
   fi
 
-  output="$dir/index.md"
+  output="$dir/agg.md"
   # Create or truncate the aggregate file
   : > "$output"
+  if [ -f "$dir/index.md" ]; then
+    cat "$dir/index.md" >> "$output"
+    echo -e "\n" >> "$output"
+  fi
 
   # Append each child's content
   for sd in "${subdirs[@]}"; do
