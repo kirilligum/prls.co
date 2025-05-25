@@ -5,10 +5,12 @@
 
 set output docs/astro.build/all_pages.md
 rm -f $output
+echo "# Astro Docs" >> $output
+echo "" >> $output
 
-for file in (find docs/astro.build/pages -type f -name '*.md' -print0 | xargs -0 -n 1 -I {} basename {} | sort)
-    set rel (string replace -r '^docs/astro.build/pages/' '' $file)
-    echo "## $rel" >> $output
+for file in docs/astro.build/pages/**/*.md
+    set rel_path (string replace 'docs/astro.build/pages/' '' $file)
+    echo "## $rel_path" >> $output
     cat $file >> $output
     echo "" >> $output
 end
