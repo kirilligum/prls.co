@@ -5,7 +5,12 @@ import { URL } from 'url';
 
 const baseUrl = 'https://docs.astro.build/en/';
 async function main() {
-  const res = await fetch(baseUrl);
+  const res = await fetch(baseUrl, {
+    headers: {
+      'User-Agent': 'Mozilla/5.0',
+      'Accept': 'text/html'
+    }
+  });
   const html = await res.text();
   const $ = load(html);
   const urls = new Set();
