@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/BaseLayout.astro
+layout: ../../layouts/BaseLayout.astro
 title: "You Are What You Eat: Curating Data for LLM Pre-training"
 author: "Pearls of Wisdom"
 date: "2025-05-25"
