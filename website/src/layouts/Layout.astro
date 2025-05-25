@@ -37,8 +37,7 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
     <title>{title}</title>
   </head>
   <header>
-    <Header isBlogPage={isBlogPage}>
-      <a href="/blog" id="blog-link">Blog</a>
+    <Header>
     </Header>
   </header>
   <ColorControls />
@@ -71,17 +70,6 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
       --text-lg: 1.2em;
     }
 
-    #blog-link {
-      color: var(--hf-color);
-      text-decoration: none;
-      font-size: 1rem; /* Adjust as needed */
-      padding-right: 1rem; /* Adjust as needed */
-    }
-
-    #blog-link:hover {
-      text-decoration: underline;
-    }
-
     /* Base styles */
     html {
       font-family: var(--font-body); /* Uses default Questrial */
@@ -94,25 +82,6 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
       padding: 0;
       background-color: var(--prls-main-surface-primary); /* Default site background */
     }
-
-    /* Overrides for specific links outside main blog content (e.g., header, footer) */
-    #blog-link, /* Header blog link */
-    #blog-link:hover {
-      border-bottom: none; /* Remove blog-style border from header link */
-      /* color and text-decoration are already handled by its own existing specific rule */
-    }
-
-    footer a { /* Links within the footer */
-      color: var(--hf-color); /* Match footer text color */
-      border-bottom: none; /* Remove blog-style border */
-      text-decoration: underline; /* Standard footer link appearance */
-    }
-
-    footer a:hover {
-      color: var(--hf-color); /* Ensure hover color consistency for footer links */
-      /* text-decoration: underline; is inherited from 'footer a' */
-    }
-    /* End of Blog Content Styles & Overrides */
 
     footer {
       text-align: center;

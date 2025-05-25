@@ -1,16 +1,13 @@
 ---
 interface Props {
   title?: string;
-  isBlogPage?: boolean;
 }
 
-const { title = "Pearls of Wisdom", isBlogPage = false } = Astro.props;
-const headerBackgroundColor = isBlogPage ? 'var(--prls-main-surface-primary)' : 'var(--hero-gradient-start)';
+const { title = "Pearls of Wisdom" } = Astro.props;
 ---
 
-<div class="main-header" style="background-color: {headerBackgroundColor};">
+<div class="main-header">
   <span class="header-pearl text-nowrap">
-    <!-- <span class="header-symbol">༜</span> -->
     {title === "Pearls of Wisdom" ? <a href="/" class="home-link-style">{title}</a> : title}
   </span>
   <div class="header-content">
@@ -28,7 +25,7 @@ const headerBackgroundColor = isBlogPage ? 'var(--prls-main-surface-primary)' : 
     padding: 0rem 1rem;
     padding-top: 0.5rem;
     height: 2rem;
-    background-color: var(--prls-main-surface-primary);
+    background-color: var(--hero-gradient-start);
   }
 
   .header-pearl {
