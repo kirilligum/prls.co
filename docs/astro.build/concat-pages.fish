@@ -6,12 +6,11 @@
 for dir in docs/astro.build/pages/**/
     if test -d "$dir"
         set output "$dir"index.md
-        echo "# $dir" > "$output"
-        echo "" >> "$output"
+        > "$output"
 
         for subfile in (find "$dir" -type f -name '*.md' | grep -v 'index\.md$' | sort)
             set rel_path (string replace "$dir" '' "$subfile")
-            echo "## $rel_path" >> "$output"
+            echo "# $rel_path" >> "$output"
             cat "$subfile" >> "$output"
             echo "" >> "$output"
         end
