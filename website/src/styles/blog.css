@@ -1,6 +1,7 @@
 /* Styles for blog pages */
 body.blog-active {
-  font-family: "Spectral", serif; /* Ensure this is applied if Layout adds this class */
+  font-family:
+    "Spectral", serif; /* Ensure this is applied if Layout adds this class */
   line-height: 1.8;
   background-color: var(
     --prls-main-surface-primary
@@ -185,7 +186,8 @@ body.blog-active blockquote {
   font-style: italic;
 }
 
-.post-lede { /* For the post description/summary */
+.post-lede {
+  /* For the post description/summary */
   font-size: 1.15em;
   color: var(--prls-text-primary);
   line-height: 1.7;
@@ -202,7 +204,7 @@ body.blog-active blockquote {
 }
 
 .post-body h3 {
-  font-size: 1.7em; /* Increased H3 size */
+  font-size: 27px; /* Increased H3 size */
   margin-top: 2rem; /* More space above H3s */
 }
 
@@ -219,7 +221,7 @@ body.blog-active blockquote {
   border-collapse: collapse;
   margin-bottom: 2rem; /* Space below tables */
   font-size: 0.95em;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   border-radius: 6px;
   overflow: hidden; /* Ensures border-radius clips content */
 }
@@ -250,7 +252,8 @@ body.blog-active blockquote {
   background-color: #f0f0f0;
   padding: 0.2em 0.4em;
   border-radius: 4px;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.95em; /* Slightly larger code font */
 }
 
