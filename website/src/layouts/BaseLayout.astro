@@ -1,42 +1,44 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/blog.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/blog.css";
 
 const { frontmatter = {}, pageTitle = frontmatter.title } = Astro.props;
 const currentPath = Astro.url.pathname;
 
-const isIndividualPost = currentPath.startsWith('/blog/') && currentPath.length > '/blog/'.length;
-const isBlogPath = currentPath.startsWith('/blog');
+const isIndividualPost =
+  currentPath.startsWith("/blog/") && currentPath.length > "/blog/".length;
+const isBlogPath = currentPath.startsWith("/blog");
 
 let bodyClasses = [];
 if (isBlogPath) {
-  bodyClasses.push('blog-active');
+  bodyClasses.push("blog-active");
 }
 if (isIndividualPost) {
-  bodyClasses.push('blog-post-active');
+  bodyClasses.push("blog-post-active");
 }
 
 // Helper to format date
 function formatDate(dateStr: string | Date) {
-  if (!dateStr) return '';
+  if (!dateStr) return "";
   const date = new Date(dateStr);
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 
-let datetimeAttrValue = '';
+let datetimeAttrValue = "";
 if (frontmatter.date) {
-  if (typeof frontmatter.date.toISOString === 'function') {
+  if (typeof frontmatter.date.toISOString === "function") {
     datetimeAttrValue = frontmatter.date.toISOString();
   } else {
     datetimeAttrValue = String(frontmatter.date); // Assume it's a pre-formatted string or convert
   }
 }
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -45,25 +47,36 @@ if (frontmatter.date) {
   </head>
   <body class:list={bodyClasses}>
     <Header title={pageTitle} />
-    {isIndividualPost ? (
-      <main class="blog-post-content">
-        <article>
-          <header class="post-header-container">
-            <h1>{frontmatter.title}</h1>
-            <p class="post-meta">
-              {frontmatter.author && <span class="author">By {frontmatter.author}</span>}
-              {frontmatter.date && <time datetime={datetimeAttrValue}>{formatDate(frontmatter.date)}</time>}
-            </p>
-            {frontmatter.description && <p class="post-lede">{frontmatter.description}</p>}
-          </header>
-          <div class="post-body">
-            <slot />
-          </div>
-        </article>
-      </main>
-    ) : (
-      <slot />
-    )}
+    {
+      isIndividualPost ? (
+        <main class="blog-post-content">
+          <article>
+            <header class="post-header-container">
+              <h1>{frontmatter.title}</h1>
+              <p class="post-meta">
+                {frontmatter.author && (
+                  <span class="author">By {frontmatter.author}</span>
+                )}
+                {frontmatter.date && (
+                  <time datetime={datetimeAttrValue}>
+                    {formatDate(frontmatter.date)}
+                  </time>
+                )}
+              </p>
+              {frontmatter.description && (
+                <p class="post-lede">{frontmatter.description}</p>
+              )}
+            </header>
+            <div class="post-body">
+              <div>giraffe</div>
+              <slot />
+            </div>
+          </article>
+        </main>
+      ) : (
+        <slot />
+      )
+    }
     <Footer />
   </body>
 </html>
