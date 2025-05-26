@@ -1,6 +1,6 @@
 /* Styles for blog pages */
 body.blog-active {
-  font-family: var(--font-heading); /* Use serif (Libre Baskerville) for body text */
+  font-family: "Libre Baskerville", serif; /* Use serif (Libre Baskerville) for body text */
   line-height: 1.7; /* Slightly adjusted for new base font size */
   background-color: var(--prls-main-surface-primary);
   color: #333333; 
