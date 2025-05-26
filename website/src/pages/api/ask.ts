@@ -71,7 +71,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       provider: {
         "order": ["cerebras", "sambanova", "lambda"]
       },
-      max_tokens: 250,  // Adjust to control response length (aiming for ~5 lines)
+      // max_tokens: 250, // Removed to allow model to determine response length up to its maximum
       temperature: 0.3, // Lower temperature for more factual, less creative answers
     };
     console.log('Payload to OpenRouter:', JSON.stringify(openRouterPayload, null, 2));
