@@ -3,8 +3,8 @@ body.blog-active {
   font-family: "Spectral", serif; /* Ensure this is applied if Layout adds this class */
   line-height: 1.8;
   background-color: var(
-    --hero-gradient-start
-  ); /* Match header background, no gradient */
+    --prls-main-surface-primary
+  ); /* Match general site background */
   color: #333333; /* Dark text for blog content */
 }
 
@@ -146,7 +146,7 @@ body.blog-active blockquote {
 
 .blog-post-content {
   max-width: 800px; /* Optimal reading width */
-  margin: 2rem auto; /* Center content and add top/bottom margin */
+  margin: 4rem auto; /* Increased top/bottom margin, centered */
   padding: 2rem; /* Padding around the content */
   background-color: #ffffff; /* White background for the content area */
   border-radius: 8px; /* Rounded corners for the content box */
@@ -197,12 +197,12 @@ body.blog-active blockquote {
 }
 
 .post-body h2 {
-  font-size: 1.8em;
+  font-size: 2em; /* Increased H2 size */
   margin-top: 2.5rem; /* More space above H2s */
 }
 
 .post-body h3 {
-  font-size: 1.4em;
+  font-size: 1.7em; /* Increased H3 size */
   margin-top: 2rem; /* More space above H3s */
 }
 

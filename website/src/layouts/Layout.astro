@@ -40,15 +40,12 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
     <Header>
     </Header>
   </header>
+import Footer from "../components/Footer.astro";
   <ColorControls />
   <body class:list={[isBlogPage ? 'blog-active' : '']}>
     <slot />
   </body>
-  <footer style="background-color: var(--prls-main-surface-primary);">
-    <p>
-      &copy; 2024 Pearls of Wisdom | <a href="prls_co/1.html">AI Knowledge</a>
-    </p>
-  </footer>
+  <Footer />
 
   <style is:global>
     :root {
