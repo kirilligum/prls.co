@@ -166,7 +166,7 @@ body.blog-active blockquote {
 }
 
 .post-header-container .post-meta {
-  font-size: 0.95em;
+  font-size: 0.9em; /* Slightly smaller for subtlety */
   color: var(--prls-text-secondary);
   margin-top: 0.5rem; /* Space above meta */
   margin-bottom: 1rem; /* Space below meta */
@@ -189,7 +189,7 @@ body.blog-active blockquote {
   font-size: 1.15em;
   color: var(--prls-text-primary);
   line-height: 1.7;
-  margin-top: 1rem;
+  margin-top: 1.5rem; /* More space above lede */
 }
 
 .post-body {
@@ -208,7 +208,7 @@ body.blog-active blockquote {
 
 .post-body hr {
   border: 0;
-  height: 1px;
+  height: 2px; /* Slightly thicker HR */
   background-color: var(--prls-main-surface-secondary);
   margin: 3rem 0; /* More prominent spacing for HR */
 }
@@ -233,7 +233,7 @@ body.blog-active blockquote {
 }
 
 .post-body th {
-  background-color: #f9f9f9; /* Light grey background for headers */
+  background-color: #efefef; /* Slightly darker grey for more distinction */
   font-weight: 600; /* Bolder table headers */
   color: var(--prls-text-primary);
 }
@@ -251,7 +251,7 @@ body.blog-active blockquote {
   padding: 0.2em 0.4em;
   border-radius: 4px;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 0.9em;
+  font-size: 0.95em; /* Slightly larger code font */
 }
 
 .post-body pre {
@@ -265,5 +265,5 @@ body.blog-active blockquote {
 .post-body pre code {
   background-color: transparent;
   padding: 0;
-  font-size: 0.9em;
+  font-size: 0.95em; /* Slightly larger code font */
 }
