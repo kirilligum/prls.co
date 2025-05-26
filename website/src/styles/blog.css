@@ -38,8 +38,13 @@ body.blog-active h1 {
 body.blog-active h2 {
   font-size: 1.6em;
 }
+
+/* h3 { */
+/*   font-size: 27px; */
+/* } */
 body.blog-active h3 {
-  font-size: 1.3em;
+  /* font-size: 1.3em; */
+  font-size: 61px;
 }
 
 body.blog-active a {
@@ -213,8 +218,13 @@ body.blog-post-active .post-body h2 {
   margin-top: 2.5rem; /* More space above H2s */
 }
 
+.post-body h3 {
+  font-size: 87px; /* Increased H3 size */
+  margin-top: 2rem; /* More space above H3s */
+}
+
 body.blog-post-active .post-body h3 {
-  font-size: 27px; /* Increased H3 size */
+  font-size: 87px; /* Increased H3 size */
   margin-top: 2rem; /* More space above H3s */
 }
 
