@@ -1,22 +1,10 @@
 ---
-// This file will be renamed to BlogPostLayout.astro
 import Layout from "./Layout.astro"; // Use the main Layout
-import "../styles/blog.css"; // Blog-specific styles
+import { formatDate } from '../utils/formatDate';
 
 // Expect frontmatter from the dynamic route props
 const { frontmatter } = Astro.props; 
 const { title, author, date, description } = frontmatter;
-
-// Helper to format date
-function formatDate(dateInput: string | Date) {
-  if (!dateInput) return "";
-  const dateObj = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
-  return dateObj.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 let datetimeAttrValue = "";
 if (date) {

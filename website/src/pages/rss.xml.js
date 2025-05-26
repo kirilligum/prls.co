@@ -12,7 +12,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.description, // Or render Markdown: marcado(post.body).html for a snippet
-      link: `/blog/${post.slug}/`,
+      link: new URL(`/blog/${post.slug}/`, context.site).href,
       // 'content:encoded': marcado(post.body).html, // Optional: full content
     })),
     // (Optional) Add custom data

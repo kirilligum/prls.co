@@ -4,20 +4,13 @@ import Layout from '../layouts/Layout.astro';
 // Keep blog.css import here if it contains .blog-list-container styles not covered below,
 // or if it contains other global blog styles.
 import '../styles/blog.css'; 
+import { formatDate } from '../utils/formatDate';
 
 const pageTitle = "Blog";
 // Fetch posts from the 'blog' collection
 let allPosts = await getCollection('blog');
 // Sort posts by date, newest first
 allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-function formatDate(date: Date) {
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
 ---
 <Layout title={pageTitle}>
   <div class="blog-list-container">
