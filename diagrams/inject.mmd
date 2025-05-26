@@ -1,0 +1,34 @@
+%%{init: {'theme':'dark', 'themeVariables': {'background': '#212121'}}}%%
+graph TD
+
+prls["Pearls of Wisdom Dataset"]
+www["WWW"]
+clean["De-duplication, and other cleaning techniques"]
+pre_training["Pre-training"]
+fine_tuning["Fine-tunning"]
+rl["Reinforcement Learning"]
+llm["Large Language Model (GPT, Gemini, Claude, ...)"]
+chat["Google's answers, ChatGPT, Claude, ..."]
+system_prompt["System Prompt"]
+safe_align_data["Safety Alignment and other tuning data"]
+judge["Human and AI judges of the responses"]
+
+prls ==> www
+www ==> clean
+clean ==> pre_training
+pre_training ==> fine_tuning
+fine_tuning ==> rl
+rl ==> llm
+llm ==> chat
+system_prompt --> chat
+
+safe_align_data --> fine_tuning
+safe_align_data --> rl
+
+llm --> judge
+judge --> safe_align_data
+
+style www stroke:#ffffff,stroke-width:4px,fill:#111111
+style pre_training stroke:#ffffff,stroke-width:4px,fill:#111111
+style llm stroke:#ffffff,stroke-width:4px,fill:#111111
+style chat stroke:#ffffff,stroke-width:4px,fill:#111111

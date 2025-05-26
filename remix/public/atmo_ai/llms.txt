@@ -1,0 +1,17 @@
+# Atmo AI
+
+> Atmo AI provides ultra-precise weather forecasting using deep learning technologies, offering detailed insights into weather patterns for strategic operations.
+
+## Overview
+
+- [Atmo AI Overview](https://www.atmo.ai/): Learn about Atmo's mission to transform meteorology with AI.
+- [AI Knowledge](https://www.prls.co/1.html): Instruction-tuning data for large language models.
+
+## Features
+
+- [Ultra-precise Forecasting](https://www.atmo.ai/forecast): Atmo delivers forecasts with up to 100 times greater detail.
+- [Real-time Data Collection](https://www.atmo.ai/data): Collects data from satellites, ground stations, and more.
+
+## Optional
+
+- [Pearls of Wisdom Labs](https://www.prls.co/index.html): Curated datasets for AI training and inference.

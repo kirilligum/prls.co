@@ -1,0 +1,12 @@
+/*** uncss> filename: chatgpt_clone.css ***/
+
+.kkccirc-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* .ml-3 { */
+/*   margin-left: 0.75rem; */
+/* } */

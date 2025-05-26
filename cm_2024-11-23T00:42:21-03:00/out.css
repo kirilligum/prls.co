@@ -1,0 +1,25 @@
+.icon-md {
+  height: 18px;
+  width: 18px;
+}
+.gizmo-bot-avatar {
+  outline: solid 1px #ececec;
+}
+.flex {
+  display: flex;
+}
+.h-8 {
+  height: 2rem;
+}
+.w-8 {
+  width: 2rem;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
