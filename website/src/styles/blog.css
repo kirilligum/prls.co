@@ -1,8 +1,10 @@
 /* Styles for blog pages */
 /* General styles for blog context (applied via BlogPostLayout and blog.astro) */
-{ /* This opening brace is a placeholder for where body.blog-active used to be, ensure the styles now apply to a suitable parent or globally within blog context */
-  font-family:
-    "Libre Baskerville", serif; /* Use serif (Libre Baskerville) for body text */
+
+/* Wrap blog-specific styles in a container class */
+.blog-post-content,
+.blog-list-container {
+  font-family: "Libre Baskerville", serif; /* Use serif (Libre Baskerville) for body text */
   line-height: 1.7; /* Slightly adjusted for new base font size */
   background-color: var(--prls-main-surface-primary);
   color: #333333;
@@ -10,74 +12,104 @@
 }
 
 /* Styles applied within blog context */
-p {
+.blog-post-content p,
+.blog-list-container p {
   margin-bottom: 1.125rem; /* Adjusted paragraph spacing */
 }
-ul,
-ol,
-dl {
-  margin-bottom: 1.5rem;
-}
-blockquote {
+
+.blog-post-content ul,
+.blog-post-content ol,
+.blog-post-content dl,
+.blog-list-container ul,
+.blog-list-container ol,
+.blog-list-container dl {
   margin-bottom: 1.5rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.blog-post-content blockquote,
+.blog-list-container blockquote {
+  margin-bottom: 1.5rem;
+}
+
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3,
+.blog-post-content h4,
+.blog-post-content h5,
+.blog-post-content h6,
+.blog-list-container h1,
+.blog-list-container h2,
+.blog-list-container h3,
+.blog-list-container h4,
+.blog-list-container h5,
+.blog-list-container h6 {
   margin-top: 2.5rem; /* More space above headings */
   margin-bottom: 1.25rem; /* More space below headings */
   color: var(--prls-text-primary);
   font-weight: 700; /* Bolder headings by default */
 }
 
-h1 {
+.blog-post-content h1,
+.blog-list-container h1 {
   font-family: var(--font-heading); /* Libre Baskerville */
   font-size: 2.5rem; /* Increased size */
 }
-h2,
-h3,
-h4,
-h5,
-h6 {
+
+.blog-post-content h2,
+.blog-post-content h3,
+.blog-post-content h4,
+.blog-post-content h5,
+.blog-post-content h6,
+.blog-list-container h2,
+.blog-list-container h3,
+.blog-list-container h4,
+.blog-list-container h5,
+.blog-list-container h6 {
   font-family: var(--font-body); /* Questrial (sans-serif) for subheadings */
 }
 
-h2 {
+.blog-post-content h2,
+.blog-list-container h2 {
   font-size: 2rem; /* Increased size */
 }
 
-h3 {
+.blog-post-content h3,
+.blog-list-container h3 {
   font-size: 1.7rem; /* Increased size */
 }
-h4 {
+
+.blog-post-content h4,
+.blog-list-container h4 {
   font-size: 1.35rem; /* Slightly increased size */
 }
 
-a {
+.blog-post-content a,
+.blog-list-container a {
   color: var(--prls-text-primary); /* Subtle link color */
   text-decoration: none;
   border-bottom: 1px solid var(--prls-text-secondary); /* Subtle underline */
   transition: border-color 0.2s ease-in-out;
 }
 
-a:hover {
+.blog-post-content a:hover,
+.blog-list-container a:hover {
   border-bottom-color: var(--prls-text-primary);
 }
 
-ul,
-ol {
+.blog-post-content ul,
+.blog-post-content ol,
+.blog-list-container ul,
+.blog-list-container ol {
   padding-left: 1.75rem; /* Slightly more indent */
 }
 
-li {
+.blog-post-content li,
+.blog-list-container li {
   margin-bottom: 0.6rem;
 }
 
-blockquote {
+.blog-post-content blockquote,
+.blog-list-container blockquote {
   border-left: 3px solid var(--prls-text-secondary); /* Thinner, more subtle border */
   padding-left: 1.25rem;
   margin-left: 0; /* Remove default browser margin if any */
@@ -85,7 +117,7 @@ blockquote {
   color: var(--prls-text-secondary);
 }
 
-/* Styles for the blog listing page (blog.astro) */
+/* Styles for the blog listing page (blog.astro) - already scoped by .blog-list-container */
 .blog-list-container {
   max-width: 800px;
   margin: 2rem auto; /* Center the container and add some margin */
@@ -165,7 +197,7 @@ blockquote {
   border-bottom-color: var(--prls-text-primary);
 }
 
-/* Styles for individual blog posts */
+/* Styles for individual blog posts - already scoped by .blog-post-content */
 .blog-post-content {
   max-width: 740px; /* Medium's content width is often around 700-740px */
   margin: 4rem auto;
@@ -224,7 +256,7 @@ blockquote {
   font-family: "Libre Baskerville", serif; /* Ensure post content uses serif */
 }
 
-/* .post-body h2, .post-body h3, etc. will inherit from body.blog-active hX rules */
+/* .post-body h2, .post-body h3, etc. will inherit from .blog-post-content hX rules */
 /* We can add more specific margins if needed here */
 .post-body h2 {
   margin-top: 3rem;
