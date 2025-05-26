@@ -163,6 +163,10 @@ if (date) {
     list-style-type: disc; /* Or square, circle */
   }
 
+  .post-body :global(ul li::marker) {
+    color: var(--hf-color);
+  }
+
   .post-body :global(ol) {
     list-style-type: decimal; /* Or lower-alpha, upper-roman, etc. */
   }
