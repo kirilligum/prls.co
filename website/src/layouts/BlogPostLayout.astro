@@ -55,6 +55,7 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
 </head>
 <body>
   <div class="three-pane-page-container">
+    <BlogAIAssistant slug={slug} />
     <div class="blog-content-pane scrollable-pane">
       <div class="scrollable-content-inner"> {/* New wrapper for padding & max-width */}
         <SiteHeader />
@@ -77,7 +78,7 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
         <SiteFooter />
       </div>
     </div>
-    <BlogAIAssistant slug={slug} />
+    {/* BlogAIAssistant moved to the top of three-pane-page-container */}
   </div>
 
   {/* Global styles for the 3-pane layout and root elements */}
@@ -124,20 +125,6 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
     }
     .scrollable-pane {
       overflow-y: auto;
-    }
-
-    /* Make the BlogAIAssistant component sticky to the bottom of its flex container */
-    /* This targets the root div of BlogAIAssistant, which has the class .assistant-ui-container */
-    .three-pane-page-container > .assistant-ui-container {
-      position: -webkit-sticky; /* For Safari */
-      position: sticky;
-      bottom: 0;
-      /* Set a background color to ensure it's opaque and visually consistent.
-         Using #ffffff to match the input pane's background, which is critical to see. */
-      background-color: #ffffff;
-      z-index: 100; /* Ensure it stays on top of other content within the scrollable parent */
-      /* The border-top already defined in BlogAssistant.astro's scoped styles
-         will serve as the top visual edge of this sticky block. */
     }
 
     /* Styles from original BlogPostLayout.astro, scoped to this layout's content */
