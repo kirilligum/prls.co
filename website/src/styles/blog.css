@@ -1,9 +1,10 @@
 /* Styles for blog pages */
 body.blog-active {
-  font-family: "Libre Baskerville", serif; /* Use serif (Libre Baskerville) for body text */
+  font-family:
+    "Libre Baskerville", serif; /* Use serif (Libre Baskerville) for body text */
   line-height: 1.7; /* Slightly adjusted for new base font size */
   background-color: var(--prls-main-surface-primary);
-  color: #333333; 
+  color: #333333;
   font-size: 1.125rem; /* Approx 18px if root is 16px, for better readability */
 }
 
@@ -13,12 +14,11 @@ body.blog-active p {
 body.blog-active ul,
 body.blog-active ol,
 body.blog-active dl {
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;
 }
 body.blog-active blockquote {
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;
 }
-
 
 body.blog-active h1,
 body.blog-active h2,
@@ -45,7 +45,7 @@ body.blog-active h6 {
 }
 
 body.blog-active h2 {
-  font-size: 2.0rem; /* Increased size */
+  font-size: 2rem; /* Increased size */
 }
 
 body.blog-active h3 {
@@ -55,7 +55,6 @@ body.blog-active h4 {
   font-size: 1.35rem; /* Slightly increased size */
 }
 
-
 body.blog-active a {
   color: var(--prls-text-primary); /* Subtle link color */
   text-decoration: none;
@@ -64,7 +63,7 @@ body.blog-active a {
 }
 
 body.blog-active a:hover {
-  border-bottom-color: var(--prls-text-primary); 
+  border-bottom-color: var(--prls-text-primary);
 }
 
 body.blog-active ul,
@@ -73,7 +72,7 @@ body.blog-active ol {
 }
 
 body.blog-active li {
-  margin-bottom: 0.6rem; 
+  margin-bottom: 0.6rem;
 }
 
 body.blog-active blockquote {
@@ -81,7 +80,7 @@ body.blog-active blockquote {
   padding-left: 1.25rem;
   margin-left: 0; /* Remove default browser margin if any */
   font-style: italic;
-  color: var(--prls-text-secondary); 
+  color: var(--prls-text-secondary);
 }
 
 /* Styles for the blog listing page (blog.astro) */
@@ -122,9 +121,9 @@ body.blog-active .post-entry h2 {
 }
 
 .post-title-link {
-  text-decoration: none; 
-  color: inherit; 
-  border-bottom: none; 
+  text-decoration: none;
+  color: inherit;
+  border-bottom: none;
 }
 
 .post-title-link:hover h2 {
@@ -153,28 +152,30 @@ body.blog-active .post-entry h2 {
   font-weight: 600;
   text-decoration: none;
   color: var(--prls-text-secondary); /* Use a theme color */
-  border-bottom: 1px solid transparent; 
-  transition: color 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .read-more-link:hover {
   color: var(--prls-text-primary); /* Darken text on hover */
-  border-bottom-color: var(--prls-text-primary); 
+  border-bottom-color: var(--prls-text-primary);
 }
 
 /* Styles for individual blog posts */
 .blog-post-content {
   max-width: 740px; /* Medium's content width is often around 700-740px */
-  margin: 4rem auto; 
+  margin: 4rem auto;
   padding: 3rem 2rem; /* More vertical padding, standard horizontal */
-  background-color: #ffffff; 
+  background-color: #ffffff;
   box-shadow: none; /* Flatter look */
   border-radius: 0; /* Flatter look */
 }
 
 .post-header-container {
-  margin-bottom: 3rem; 
-  padding-bottom: 2rem; 
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
   border-bottom: 1px solid #efefef; /* Lighter separator */
 }
 
@@ -185,7 +186,7 @@ body.blog-active .post-entry h2 {
   line-height: 1.15;
   /* letter-spacing: -0.02em; */ /* Sans-serif might not need this negative letter-spacing */
   color: var(--prls-text-primary);
-  margin-top: 0; 
+  margin-top: 0;
 }
 
 .post-header-container .post-meta {
@@ -244,16 +245,16 @@ body.blog-active .post-entry h2 {
 .post-body hr::before {
   content: "...";
   display: inline-block;
-  letter-spacing: 0.6em; 
-  font-size: 1.5em; 
-  color: var(--prls-text-tertiary); 
+  letter-spacing: 0.6em;
+  font-size: 1.5em;
+  color: var(--prls-text-tertiary);
 }
 
 /* Table Styling - Simplified for Medium look */
 .post-body table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
   font-size: 0.9rem; /* Slightly smaller table text */
   box-shadow: none;
   border-radius: 0;
@@ -275,7 +276,7 @@ body.blog-active .post-entry h2 {
 
 .post-body th {
   background-color: transparent; /* No background for headers */
-  font-weight: 600; 
+  font-weight: 600;
   color: var(--prls-text-secondary); /* More subtle header text */
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -289,21 +290,24 @@ body.blog-active .post-entry h2 {
   background-color: #f9f9f9; /* Very subtle hover */
 }
 
-.post-body code { /* Inline code */
+.post-body code {
+  /* Inline code */
   background-color: #f7f7f7; /* Lighter gray */
   padding: 0.15em 0.3em;
   border-radius: 3px;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 0.9em; /* Slightly smaller than body */
   color: #c7254e; /* Common color for inline code */
 }
 
-.post-body pre { /* Code blocks */
+.post-body pre {
+  /* Code blocks */
   background-color: #f7f7f7; /* Consistent light gray */
   border: 1px solid #e5e5e5; /* Subtle border */
   padding: 1.25rem; /* More padding */
-  border-radius: 4px; 
-  overflow-x: auto; 
+  border-radius: 4px;
+  overflow-x: auto;
   margin-top: 1.5rem;
   margin-bottom: 2rem; /* More space after code blocks */
   line-height: 1.45;
@@ -312,6 +316,6 @@ body.blog-active .post-entry h2 {
 .post-body pre code {
   background-color: transparent;
   padding: 0;
-  font-size: 0.9em; 
+  font-size: 0.9em;
   color: inherit; /* Inherit color from pre, usually black or dark gray */
 }
