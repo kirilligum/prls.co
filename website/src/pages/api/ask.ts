@@ -54,7 +54,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // Be aware: Extremely large post bodies (e.g., "a million tokens") might exceed model context limits,
     // be very slow, and incur high costs. Check OpenRouter's limits for the chosen model.
     const openRouterPayload = {
-      model: 'meta-llama/llama-3.1-70b-instruct', // A Llama model with a large context window
+      model: 'qwen/qwen3-32b', 
       messages: [
         {
           role: 'system',
@@ -65,6 +65,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
           content: question,
         },
       ],
+      provider: {
+        "order": ["cerebras", "sambanova", "lambda"]
+      },
       max_tokens: 250,  // Adjust to control response length (aiming for ~5 lines)
       temperature: 0.3, // Lower temperature for more factual, less creative answers
     };
