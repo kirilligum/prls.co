@@ -138,3 +138,132 @@ body.blog-active blockquote {
 .read-more-link:hover {
   border-bottom-color: #1a8917; /* Underline on hover */
 }
+
+/* Styles for individual blog posts (BaseLayout.astro when isBlogPage is true) */
+.blog-post-active {
+  /* Styles specific to individual blog post pages, if different from blog list */
+}
+
+.blog-post-content {
+  max-width: 800px; /* Optimal reading width */
+  margin: 2rem auto; /* Center content and add top/bottom margin */
+  padding: 2rem; /* Padding around the content */
+  background-color: #ffffff; /* White background for the content area */
+  border-radius: 8px; /* Rounded corners for the content box */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow for a modern look */
+}
+
+.post-header-container {
+  margin-bottom: 2.5rem; /* Space below the header (title, meta) */
+  padding-bottom: 1.5rem; /* Padding below the header content */
+  border-bottom: 1px solid var(--prls-main-surface-secondary); /* Separator line */
+}
+
+.post-header-container h1 {
+  font-size: 2.5em; /* Larger title for posts */
+  margin-top: 0; /* Remove default top margin */
+  line-height: 1.2;
+}
+
+.post-header-container .post-meta {
+  font-size: 0.95em;
+  color: var(--prls-text-secondary);
+  margin-top: 0.5rem; /* Space above meta */
+  margin-bottom: 1rem; /* Space below meta */
+}
+
+.post-header-container .post-meta .author {
+  font-weight: 600;
+}
+
+.post-header-container .post-meta .author::after {
+  content: "•";
+  margin: 0 0.5em;
+}
+
+.post-header-container .post-meta time {
+  font-style: italic;
+}
+
+.post-lede { /* For the post description/summary */
+  font-size: 1.15em;
+  color: var(--prls-text-primary);
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+.post-body {
+  /* Styles for the main content of the post */
+}
+
+.post-body h2 {
+  font-size: 1.8em;
+  margin-top: 2.5rem; /* More space above H2s */
+}
+
+.post-body h3 {
+  font-size: 1.4em;
+  margin-top: 2rem; /* More space above H3s */
+}
+
+.post-body hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--prls-main-surface-secondary);
+  margin: 3rem 0; /* More prominent spacing for HR */
+}
+
+/* Table Styling */
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem; /* Space below tables */
+  font-size: 0.95em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-radius: 6px;
+  overflow: hidden; /* Ensures border-radius clips content */
+}
+
+.post-body th,
+.post-body td {
+  border: 1px solid var(--prls-main-surface-secondary);
+  padding: 0.75rem 1rem; /* More padding in cells */
+  text-align: left;
+  line-height: 1.6;
+}
+
+.post-body th {
+  background-color: #f9f9f9; /* Light grey background for headers */
+  font-weight: 600; /* Bolder table headers */
+  color: var(--prls-text-primary);
+}
+
+.post-body tr:nth-child(even) {
+  background-color: #fdfdfd; /* Subtle striping for table rows */
+}
+
+.post-body tr:hover {
+  background-color: #f5f5f5; /* Hover effect for rows */
+}
+
+.post-body code {
+  background-color: #f0f0f0;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.9em;
+}
+
+.post-body pre {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto; /* Allow horizontal scrolling for code blocks */
+  margin-bottom: 1.5rem;
+}
+
+.post-body pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 0.9em;
+}
