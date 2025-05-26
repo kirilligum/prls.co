@@ -1,11 +1,23 @@
 ---
 ---
+---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/blog.css';
 
-const { frontmatter = {}, pageTitle = frontmatter.title } = Astro.props; // Use frontmatter.title as default pageTitle
-const isBlogPage = Astro.url.pathname.startsWith('/blog/') && Astro.url.pathname.length > '/blog/'.length; // True only for individual posts
+const { frontmatter = {}, pageTitle = frontmatter.title } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const isIndividualPost = currentPath.startsWith('/blog/') && currentPath.length > '/blog/'.length;
+const isBlogPath = currentPath.startsWith('/blog');
+
+let bodyClasses = [];
+if (isBlogPath) {
+  bodyClasses.push('blog-active');
+}
+if (isIndividualPost) {
+  bodyClasses.push('blog-post-active');
+}
 
 // Helper to format date
 function formatDate(dateStr: string | Date) {
@@ -17,6 +29,15 @@ function formatDate(dateStr: string | Date) {
     day: 'numeric',
   });
 }
+
+let datetimeAttrValue = '';
+if (frontmatter.date) {
+  if (typeof frontmatter.date.toISOString === 'function') {
+    datetimeAttrValue = frontmatter.date.toISOString();
+  } else {
+    datetimeAttrValue = String(frontmatter.date); // Assume it's a pre-formatted string or convert
+  }
+}
 ---
 <html lang="en">
   <head>
@@ -24,16 +45,16 @@ function formatDate(dateStr: string | Date) {
     <meta name="viewport" content="width=device-width" />
     <title>{pageTitle}</title>
   </head>
-  <body class:list={[isBlogPage ? 'blog-active blog-post-active' : (Astro.url.pathname.startsWith('/blog') ? 'blog-active' : '')]}>
+  <body class:list={bodyClasses}>
     <Header title={pageTitle} />
-    {isBlogPage ? (
+    {isIndividualPost ? (
       <main class="blog-post-content">
         <article>
           <header class="post-header-container">
             <h1>{frontmatter.title}</h1>
             <p class="post-meta">
               {frontmatter.author && <span class="author">By {frontmatter.author}</span>}
-              {frontmatter.date && <time datetime={frontmatter.date.toISOString ? frontmatter.date.toISOString() : frontmatter.date}>{formatDate(frontmatter.date)}</time>}
+              {frontmatter.date && <time datetime={datetimeAttrValue}>{formatDate(frontmatter.date)}</time>}
             </p>
             {frontmatter.description && <p class="post-lede">{frontmatter.description}</p>}
           </header>
