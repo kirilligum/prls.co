@@ -218,11 +218,6 @@ body.blog-post-active .post-body h2 {
   margin-top: 2.5rem; /* More space above H2s */
 }
 
-.post-body h3 {
-  font-size: 87px; /* Increased H3 size */
-  margin-top: 2rem; /* More space above H3s */
-}
-
 body.blog-post-active .post-body h3 {
   font-size: 87px; /* Increased H3 size */
   margin-top: 2rem; /* More space above H3s */
