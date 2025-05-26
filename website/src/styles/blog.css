@@ -1,14 +1,6 @@
-/* Styles for blog pages */
-/* General styles for blog context */
-
-/* Base typography for blog areas */
-.blog-post-content,
-.blog-list-container {
-  font-family: "Libre Baskerville", serif;
-  line-height: 1.7;
-  background-color: var(--prls-main-surface-primary);
-  color: #333333;
-  font-size: 1.125rem;
-}
-
-/* Any additional global blog styles that aren't covered by scoped styles can go here */
+/* 
+  This file's styles are largely overridden by scoped styles 
+  in BlogPostLayout.astro and blog.astro.
+  Keeping the file for now, but its content is cleared to avoid redundancy.
+  If specific global blog styles are needed in the future, they can be added here.
+*/
