@@ -39,12 +39,8 @@ body.blog-active h2 {
   font-size: 1.6em;
 }
 
-/* h3 { */
-/*   font-size: 27px; */
-/* } */
 body.blog-active h3 {
-  /* font-size: 1.3em; */
-  font-size: 61px;
+  font-size: 1.3em;
 }
 
 body.blog-active a {
