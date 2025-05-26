@@ -2,25 +2,27 @@
 /* General styles for blog context (applied via BlogPostLayout and blog.astro) */
 
 /* Wrap blog-specific styles in a container class */
-.blog-post-content,
-.blog-list-container {
+/* This general selector can provide base styling if not overridden by more specific scoped styles */
+.blog-post-content, /* This class is used as a wrapper in BlogPostLayout.astro (via <main>) */
+.blog-list-container { /* This class is used as a wrapper in blog.astro */
   font-family: "Libre Baskerville", serif; /* Use serif (Libre Baskerville) for body text */
   line-height: 1.7; /* Slightly adjusted for new base font size */
-  background-color: var(--prls-main-surface-primary);
+  background-color: var(--prls-main-surface-primary); /* Base background for the page area */
   color: #333333;
   font-size: 1.125rem; /* Approx 18px if root is 16px, for better readability */
 }
 
-/* Styles applied within blog context */
+/* General typography styles that might apply to Markdown content if not handled by :global in layouts */
+/* Or to elements within .blog-list-container not specifically styled in its scoped style. */
 .blog-post-content p,
-.blog-list-container p {
+.blog-list-container p { /* .blog-post-content p will be styled by .post-body :global(p) in BlogPostLayout */
   margin-bottom: 1.125rem; /* Adjusted paragraph spacing */
 }
 
 .blog-post-content ul,
 .blog-post-content ol,
 .blog-post-content dl,
-.blog-list-container ul,
+.blog-list-container ul, /* .blog-list-container ul is styled by .post-list in blog.astro */
 .blog-list-container ol,
 .blog-list-container dl {
   margin-bottom: 1.5rem;
@@ -31,6 +33,9 @@
   margin-bottom: 1.5rem;
 }
 
+/* General heading styles */
+/* Specific h1-h6 in .blog-post-content are handled by :global in BlogPostLayout or its own header styles */
+/* Specific h1-h6 in .blog-list-container are handled by its scoped styles in blog.astro */
 .blog-post-content h1,
 .blog-post-content h2,
 .blog-post-content h3,
@@ -43,16 +48,16 @@
 .blog-list-container h4,
 .blog-list-container h5,
 .blog-list-container h6 {
-  margin-top: 2.5rem; /* More space above headings */
-  margin-bottom: 1.25rem; /* More space below headings */
+  margin-top: 2.5rem; 
+  margin-bottom: 1.25rem; 
   color: var(--prls-text-primary);
-  font-weight: 700; /* Bolder headings by default */
+  font-weight: 700; 
 }
 
 .blog-post-content h1,
-.blog-list-container h1 {
-  font-family: var(--font-heading); /* Libre Baskerville */
-  font-size: 2.5rem; /* Increased size */
+.blog-list-container h1 { /* This H1 is covered by scoped styles in both layouts */
+  font-family: var(--font-heading); 
+  font-size: 2.5rem; 
 }
 
 .blog-post-content h2,
@@ -60,34 +65,37 @@
 .blog-post-content h4,
 .blog-post-content h5,
 .blog-post-content h6,
-.blog-list-container h2,
+.blog-list-container h2, /* This H2 is covered by scoped styles in blog.astro for post titles */
 .blog-list-container h3,
 .blog-list-container h4,
 .blog-list-container h5,
 .blog-list-container h6 {
-  font-family: var(--font-body); /* Questrial (sans-serif) for subheadings */
+  font-family: var(--font-body); 
 }
 
 .blog-post-content h2,
 .blog-list-container h2 {
-  font-size: 2rem; /* Increased size */
+  font-size: 2rem; 
 }
 
 .blog-post-content h3,
 .blog-list-container h3 {
-  font-size: 1.7rem; /* Increased size */
+  font-size: 1.7rem; 
 }
 
 .blog-post-content h4,
 .blog-list-container h4 {
-  font-size: 1.35rem; /* Slightly increased size */
+  font-size: 1.35rem; 
 }
 
+/* General link styles */
+/* .blog-post-content a is handled by .post-body :global(a) in BlogPostLayout */
+/* .blog-list-container a is handled by scoped styles in blog.astro (e.g. .post-title-link, .read-more-link) */
 .blog-post-content a,
 .blog-list-container a {
-  color: var(--prls-text-primary); /* Subtle link color */
+  color: var(--prls-text-primary); 
   text-decoration: none;
-  border-bottom: 1px solid var(--prls-text-secondary); /* Subtle underline */
+  border-bottom: 1px solid var(--prls-text-secondary); 
   transition: border-color 0.2s ease-in-out;
 }
 
@@ -98,59 +106,59 @@
 
 .blog-post-content ul,
 .blog-post-content ol,
-.blog-list-container ul,
+.blog-list-container ul, /* Handled by .post-list in blog.astro */
 .blog-list-container ol {
-  padding-left: 1.75rem; /* Slightly more indent */
+  padding-left: 1.75rem; 
 }
 
 .blog-post-content li,
-.blog-list-container li {
+.blog-list-container li { /* Handled by .post-entry in blog.astro */
   margin-bottom: 0.6rem;
 }
 
-.blog-post-content blockquote,
+.blog-post-content blockquote, /* Handled by .post-body :global(blockquote) in BlogPostLayout */
 .blog-list-container blockquote {
-  border-left: 3px solid var(--prls-text-secondary); /* Thinner, more subtle border */
+  border-left: 3px solid var(--prls-text-secondary); 
   padding-left: 1.25rem;
-  margin-left: 0; /* Remove default browser margin if any */
+  margin-left: 0; 
   font-style: italic;
   color: var(--prls-text-secondary);
 }
 
-/* Styles for the blog listing page (blog.astro) - already scoped by .blog-list-container */
+/* Styles for the blog listing page (blog.astro) - these are now moved to blog.astro's <style> tag */
+/*
 .blog-list-container {
   max-width: 800px;
-  margin: 2rem auto; /* Center the container and add some margin */
-  padding: 0 1rem; /* Add padding on the sides */
+  margin: 2rem auto; 
+  padding: 0 1rem; 
 }
 
 .blog-list-container h1 {
-  text-align: center; /* Center the main blog title */
-  margin-bottom: 2rem; /* Space below the main title */
+  text-align: center; 
+  margin-bottom: 2rem; 
 }
 
 .post-list {
-  list-style: none; /* Remove default list bullets */
+  list-style: none; 
   padding: 0;
   margin: 0;
 }
 
 .post-entry {
   background-color: #ffffff;
-  border-bottom: 1px solid var(--prls-main-surface-secondary); /* Separator line between posts */
-  padding: 2rem 0.5rem; /* More vertical padding, less horizontal if needed or keep it simple */
-  margin-bottom: 0; /* Remove bottom margin as border-bottom will separate */
-  /* Removed border, border-radius, box-shadow for a flatter look */
-  transition: background-color 0.3s ease; /* Subtle hover for background */
+  border-bottom: 1px solid var(--prls-main-surface-secondary); 
+  padding: 2rem 0.5rem; 
+  margin-bottom: 0; 
+  transition: background-color 0.3s ease; 
 }
 
 .post-entry:hover {
-  background-color: #f9f9f9; /* Very light background change on hover */
+  background-color: #f9f9f9; 
 }
 
 .post-entry h2 {
-  margin-top: 0; /* Remove default top margin for heading inside entry */
-  font-size: 1.5em; /* Adjust title size */
+  margin-top: 0; 
+  font-size: 1.5em; 
   color: var(--prls-text-primary);
 }
 
@@ -161,7 +169,7 @@
 }
 
 .post-title-link:hover h2 {
-  color: var(--prls-text-secondary); /* Subtle hover color for title */
+  color: var(--prls-text-secondary); 
 }
 
 .post-meta {
@@ -176,7 +184,7 @@
 
 .post-description {
   font-size: 1em;
-  color: var(--prls-text-primary); /* Slightly darker than meta text */
+  color: var(--prls-text-primary); 
   line-height: 1.7;
   margin-bottom: 1rem;
 }
@@ -185,7 +193,7 @@
   display: inline-block;
   font-weight: 600;
   text-decoration: none;
-  color: var(--prls-text-secondary); /* Use a theme color */
+  color: var(--prls-text-secondary); 
   border-bottom: 1px solid transparent;
   transition:
     color 0.3s ease,
@@ -193,41 +201,42 @@
 }
 
 .read-more-link:hover {
-  color: var(--prls-text-primary); /* Darken text on hover */
+  color: var(--prls-text-primary); 
   border-bottom-color: var(--prls-text-primary);
 }
+*/
 
-/* Styles for individual blog posts - already scoped by .blog-post-content */
+/* Styles for individual blog posts - these are now largely moved to BlogPostLayout.astro's <style> tag */
+/*
 .blog-post-content {
-  max-width: 740px; /* Medium's content width is often around 700-740px */
+  max-width: 740px; 
   margin: 4rem auto;
-  padding: 3rem 2rem; /* More vertical padding, standard horizontal */
+  padding: 3rem 2rem; 
   background-color: #ffffff;
-  box-shadow: none; /* Flatter look */
-  border-radius: 0; /* Flatter look */
+  box-shadow: none; 
+  border-radius: 0; 
 }
 
 .post-header-container {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #efefef; /* Lighter separator */
+  border-bottom: 1px solid #efefef; 
 }
 
 .post-header-container h1 {
-  font-family: var(--font-body); /* Use sans-serif (Questrial) for main title */
-  font-size: 2.8rem; /* Approx 50px, prominent title */
+  font-family: var(--font-body); 
+  font-size: 2.8rem; 
   font-weight: 700;
   line-height: 1.15;
-  /* letter-spacing: -0.02em; */ /* Sans-serif might not need this negative letter-spacing */
   color: var(--prls-text-primary);
   margin-top: 0;
 }
 
 .post-header-container .post-meta {
-  font-size: 0.9em; /* Slightly smaller for subtlety */
+  font-size: 0.9em; 
   color: var(--prls-text-secondary);
-  margin-top: 0.5rem; /* Space above meta */
-  margin-bottom: 1rem; /* Space below meta */
+  margin-top: 0.5rem; 
+  margin-bottom: 1rem; 
 }
 
 .post-header-container .post-meta .author {
@@ -244,20 +253,16 @@
 }
 
 .post-lede {
-  /* For the post description/summary */
   font-size: 1.15em;
   color: var(--prls-text-primary);
   line-height: 1.7;
-  margin-top: 1.5rem; /* More space above lede */
+  margin-top: 1.5rem; 
 }
 
 .post-body {
-  /* Styles for the main content of the post */
-  font-family: "Libre Baskerville", serif; /* Ensure post content uses serif */
+  font-family: "Libre Baskerville", serif; 
 }
 
-/* .post-body h2, .post-body h3, etc. will inherit from .blog-post-content hX rules */
-/* We can add more specific margins if needed here */
 .post-body h2 {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
@@ -274,7 +279,7 @@
   overflow: visible;
   height: auto;
   background-color: transparent;
-  margin: 3.5rem auto; /* More vertical margin, centered */
+  margin: 3.5rem auto; 
 }
 .post-body hr::before {
   content: "...";
@@ -284,66 +289,63 @@
   color: var(--prls-text-tertiary);
 }
 
-/* Table Styling - Simplified for Medium look */
 .post-body table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 2rem;
-  font-size: 0.9rem; /* Slightly smaller table text */
+  font-size: 0.9rem; 
   box-shadow: none;
   border-radius: 0;
-  border-top: 1px solid #e5e5e5; /* Light top border */
-  border-bottom: 1px solid #e5e5e5; /* Light bottom border */
+  border-top: 1px solid #e5e5e5; 
+  border-bottom: 1px solid #e5e5e5; 
 }
 
 .post-body th,
 .post-body td {
-  border: none; /* Remove cell borders */
-  border-bottom: 1px solid #e5e5e5; /* Horizontal lines between rows */
-  padding: 0.8rem 0.5rem; /* Adjusted padding */
+  border: none; 
+  border-bottom: 1px solid #e5e5e5; 
+  padding: 0.8rem 0.5rem; 
   text-align: left;
   line-height: 1.5;
 }
 .post-body tr:last-child td {
-  border-bottom: none; /* No border for last row cells */
+  border-bottom: none; 
 }
 
 .post-body th {
-  background-color: transparent; /* No background for headers */
+  background-color: transparent; 
   font-weight: 600;
-  color: var(--prls-text-secondary); /* More subtle header text */
+  color: var(--prls-text-secondary); 
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
 .post-body tr:nth-child(even) {
-  background-color: transparent; /* No striping */
+  background-color: transparent; 
 }
 
 .post-body tr:hover {
-  background-color: #f9f9f9; /* Very subtle hover */
+  background-color: #f9f9f9; 
 }
 
 .post-body code {
-  /* Inline code */
-  background-color: #f7f7f7; /* Lighter gray */
+  background-color: #f7f7f7; 
   padding: 0.15em 0.3em;
   border-radius: 3px;
   font-family:
     "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 0.9em; /* Slightly smaller than body */
-  color: #c7254e; /* Common color for inline code */
+  font-size: 0.9em; 
+  color: #c7254e; 
 }
 
 .post-body pre {
-  /* Code blocks */
-  background-color: #f7f7f7; /* Consistent light gray */
-  border: 1px solid #e5e5e5; /* Subtle border */
-  padding: 1.25rem; /* More padding */
+  background-color: #f7f7f7; 
+  border: 1px solid #e5e5e5; 
+  padding: 1.25rem; 
   border-radius: 4px;
   overflow-x: auto;
   margin-top: 1.5rem;
-  margin-bottom: 2rem; /* More space after code blocks */
+  margin-bottom: 2rem; 
   line-height: 1.45;
 }
 
@@ -351,5 +353,6 @@
   background-color: transparent;
   padding: 0;
   font-size: 0.9em;
-  color: inherit; /* Inherit color from pre, usually black or dark gray */
+  color: inherit; 
 }
+*/

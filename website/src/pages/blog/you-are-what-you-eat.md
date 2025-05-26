@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "You Are What You Eat: Curating Data for LLM Pre-training"
 author: "Kirill Igumenshchev"
 date: "2025-05-25"

@@ -1,14 +1,17 @@
 ---
+// This file will be renamed to BlogPostLayout.astro
 import Layout from "./Layout.astro"; // Use the main Layout
-import "../styles/blog.css"; // Keep blog-specific styles tied here
+import "../styles/blog.css"; // Blog-specific styles
 
-const { frontmatter = {}, pageTitle = frontmatter.title } = Astro.props;
+// Expect frontmatter from the dynamic route props
+const { frontmatter } = Astro.props; 
+const { title, author, date, description } = frontmatter;
 
-// Helper to format date (remains as it's specific to formatting post dates)
-function formatDate(dateStr: string | Date) {
-  if (!dateStr) return "";
-  const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", {
+// Helper to format date
+function formatDate(dateInput: string | Date) {
+  if (!dateInput) return "";
+  const dateObj = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
+  return dateObj.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -16,37 +19,241 @@ function formatDate(dateStr: string | Date) {
 }
 
 let datetimeAttrValue = "";
-if (frontmatter.date) {
-  if (typeof frontmatter.date.toISOString === "function") {
-    datetimeAttrValue = frontmatter.date.toISOString();
-  } else {
-    datetimeAttrValue = String(frontmatter.date); // Assume it's a pre-formatted string or convert
-  }
+if (date) {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  datetimeAttrValue = dateObj.toISOString();
 }
 ---
-
-<Layout title={pageTitle}>
-  <main class="blog-post-content">
+<Layout title={title}>
+  <main class="blog-post-content-wrapper"> {/* Optional wrapper if needed */}
     <article>
       <header class="post-header-container">
-        <h1>{frontmatter.title}</h1>
+        <h1>{title}</h1>
         <p class="post-meta">
-          {frontmatter.author && (
-            <span class="author">By {frontmatter.author}</span>
+          {author && (
+            <span class="author">By {author}</span>
           )}
-          {frontmatter.date && (
+          {date && (
             <time datetime={datetimeAttrValue}>
-              {formatDate(frontmatter.date)}
+              {formatDate(date)}
             </time>
           )}
         </p>
-        {frontmatter.description && (
-          <p class="post-lede">{frontmatter.description}</p>
+        {description && (
+          <p class="post-lede">{description}</p>
         )}
       </header>
       <div class="post-body">
-        <slot /> {/* This slot is for the Markdown content */}
+        <slot /> {/* This slot is for the Markdown content from [slug].astro */}
       </div>
     </article>
   </main>
 </Layout>
+
+<style>
+  /* Styles here are automatically scoped to BlogPostLayout.astro */
+  /* These styles would replace those under .blog-post-content in blog.css */
+  article {
+    font-family: "Libre Baskerville", serif;
+    line-height: 1.7;
+    /* background-color: var(--prls-main-surface-primary); -- Handled by Layout.astro body */
+    color: #333333;
+    font-size: 1.125rem;
+    max-width: 740px;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background-color: #ffffff; /* Specific background for the article content area */
+  }
+
+  .post-header-container {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .post-header-container h1 {
+    font-family: var(--font-body);
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--prls-text-primary);
+    margin-top: 0;
+  }
+
+  .post-meta {
+    font-size: 0.9em;
+    color: var(--prls-text-secondary);
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .post-meta .author {
+    font-weight: 600;
+  }
+
+  .post-meta .author::after {
+    content: "•";
+    margin: 0 0.5em;
+  }
+
+  .post-meta time {
+    font-style: italic;
+  }
+
+  .post-lede {
+    font-size: 1.15em;
+    color: var(--prls-text-primary);
+    line-height: 1.7;
+    margin-top: 1.5rem;
+  }
+
+  .post-body {
+    font-family: "Libre Baskerville", serif; /* Ensure post content uses serif */
+  }
+  
+  /* Styling for Markdown content */
+  .post-body :global(h2) {
+    font-family: var(--font-body); /* Questrial for subheadings from Markdown */
+    font-size: 2rem; /* Increased size */
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--prls-text-primary);
+    font-weight: 700;
+  }
+  .post-body :global(h3) {
+    font-family: var(--font-body);
+    font-size: 1.7rem; /* Increased size */
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--prls-text-primary);
+    font-weight: 700;
+  }
+  .post-body :global(h4) {
+    font-family: var(--font-body);
+    font-size: 1.35rem; /* Slightly increased size */
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--prls-text-primary);
+    font-weight: 700;
+  }
+   .post-body :global(h5),
+   .post-body :global(h6) {
+    font-family: var(--font-body);
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--prls-text-primary);
+    font-weight: 700;
+  }
+
+  .post-body :global(p) {
+     margin-bottom: 1.125rem;
+  }
+
+  .post-body :global(a) {
+    color: var(--prls-text-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--prls-text-secondary);
+    transition: border-color 0.2s ease-in-out;
+  }
+
+  .post-body :global(a:hover) {
+    border-bottom-color: var(--prls-text-primary);
+  }
+
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    padding-left: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-body :global(li) {
+    margin-bottom: 0.6rem;
+  }
+
+  .post-body :global(blockquote) {
+    border-left: 3px solid var(--prls-text-secondary);
+    padding-left: 1.25rem;
+    margin-left: 0;
+    font-style: italic;
+    color: var(--prls-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .post-body :global(hr) {
+    border: 0;
+    text-align: center;
+    overflow: visible;
+    height: auto;
+    background-color: transparent;
+    margin: 3.5rem auto;
+  }
+  .post-body :global(hr::before) {
+    content: "...";
+    display: inline-block;
+    letter-spacing: 0.6em;
+    font-size: 1.5em;
+    color: var(--prls-text-tertiary);
+  }
+
+  .post-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    box-shadow: none;
+    border-radius: 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .post-body :global(th),
+  .post-body :global(td) {
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0.8rem 0.5rem;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .post-body :global(tr:last-child td) {
+    border-bottom: none;
+  }
+
+  .post-body :global(th) {
+    background-color: transparent;
+    font-weight: 600;
+    color: var(--prls-text-secondary);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .post-body :global(tr:hover) {
+    background-color: #f9f9f9;
+  }
+
+  .post-body :global(code) {
+    background-color: #f7f7f7;
+    padding: 0.15em 0.3em;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.9em;
+    color: #c7254e;
+  }
+
+  .post-body :global(pre) {
+    background-color: #f7f7f7;
+    border: 1px solid #e5e5e5;
+    padding: 1.25rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.45;
+  }
+
+  .post-body :global(pre code) {
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.9em;
+    color: inherit;
+  }
+</style>
