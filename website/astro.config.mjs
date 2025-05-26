@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://your-production-domain.com', // Replace with your actual domain
+  site: 'https://www.prls.co', // Replace with your actual domain, e.g., https://www.prls.co
   output: 'server',
   adapter: cloudflare({
     platformProxy: {
