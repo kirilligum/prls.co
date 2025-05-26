@@ -9,11 +9,20 @@ body.blog-active {
   color: #333333; /* Dark text for blog content */
 }
 
-body.blog-active :where(p, ul, ol, dl, blockquote) {
+body.blog-active p,
+body.blog-active ul,
+body.blog-active ol,
+body.blog-active dl,
+body.blog-active blockquote {
   margin-bottom: 1.5rem; /* Add space between paragraphs and lists */
 }
 
-body.blog-active :where(h1, h2, h3, h4, h5, h6) {
+body.blog-active h1,
+body.blog-active h2,
+body.blog-active h3,
+body.blog-active h4,
+body.blog-active h5,
+body.blog-active h6 {
   margin-top: 2rem; /* Space above headings */
   margin-bottom: 1rem; /* Space below headings */
   font-family: var(--font-heading); /* Use global heading font */
