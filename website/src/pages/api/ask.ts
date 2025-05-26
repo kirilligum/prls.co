@@ -61,7 +61,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       messages: [
         {
           role: 'system',
-          content: `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---`,
+          content: `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n/no_think`,
         },
         {
           role: 'user',
@@ -71,7 +71,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       provider: {
         "order": ["cerebras", "sambanova", "lambda"]
       },
-      // max_tokens: 250, // Removed to allow model to determine response length up to its maximum
+      max_tokens: 1000,
       temperature: 0.3, // Lower temperature for more factual, less creative answers
     };
     console.log('Payload to OpenRouter:', JSON.stringify(openRouterPayload, null, 2));
