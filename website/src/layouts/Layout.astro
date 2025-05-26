@@ -5,6 +5,7 @@ interface Props {
 
 import ColorControls from "../components/ColorControls.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 const isBlogPage = Astro.url.pathname.startsWith('/blog');
@@ -40,7 +41,6 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
     <Header>
     </Header>
   </header>
-import Footer from "../components/Footer.astro";
   <ColorControls />
   <body class:list={[isBlogPage ? 'blog-active' : '']}>
     <slot />
