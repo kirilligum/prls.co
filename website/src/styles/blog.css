@@ -94,7 +94,7 @@ body.blog-active blockquote {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
 }
 
-.post-entry h2 {
+body.blog-active .post-entry h2 {
   margin-top: 0; /* Remove default top margin for heading inside entry */
   font-size: 1.5em; /* Adjust title size */
   color: var(--prls-text-primary);
@@ -160,7 +160,7 @@ body.blog-active blockquote {
   border-bottom: 1px solid var(--prls-main-surface-secondary); /* Separator line */
 }
 
-.post-header-container h1 {
+body.blog-post-active .post-header-container h1 {
   font-size: 2.5em; /* Larger title for posts */
   margin-top: 0; /* Remove default top margin */
   line-height: 1.2;
@@ -198,12 +198,12 @@ body.blog-active blockquote {
   /* Styles for the main content of the post */
 }
 
-.post-body h2 {
+body.blog-post-active .post-body h2 {
   font-size: 2em; /* Increased H2 size */
   margin-top: 2.5rem; /* More space above H2s */
 }
 
-.post-body h3 {
+body.blog-post-active .post-body h3 {
   font-size: 27px; /* Increased H3 size */
   margin-top: 2rem; /* More space above H3s */
 }
