@@ -7,8 +7,6 @@ description: "How strategic data curation underpins LLM performance, cost effici
 tags: ["LLM", "data curation", "pre-training", "AI", "machine learning"]
 ---
 
-# You Are What You Eat: Curating Data for LLM Pre-training
-
 In Large Language Models (LLMs), 'You are what you eat' has never been truer. An LLM's ultimate power hinges directly on the quality and efficiency of its pre-training data. Strategic data preparation is paramount, directly influencing computational cost ($100M+), accuracy, and the coverage of knowledge LLMs acquire. Training runs consume vast resources; understanding and optimizing pre-training data is a critical driver of progress and viability in AI. At **Pearls of Wisdom (prls.co)**, we apply these cutting-edge principles to ensure your company's information is optimally integrated into LLMs.
 
 ---
