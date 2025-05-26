@@ -1,5 +1,6 @@
 /* Styles for blog pages */
-body.blog-active {
+/* General styles for blog context (applied via BlogPostLayout and blog.astro) */
+{ /* This opening brace is a placeholder for where body.blog-active used to be, ensure the styles now apply to a suitable parent or globally within blog context */
   font-family:
     "Libre Baskerville", serif; /* Use serif (Libre Baskerville) for body text */
   line-height: 1.7; /* Slightly adjusted for new base font size */
@@ -8,74 +9,75 @@ body.blog-active {
   font-size: 1.125rem; /* Approx 18px if root is 16px, for better readability */
 }
 
-body.blog-active p {
+/* Styles applied within blog context */
+p {
   margin-bottom: 1.125rem; /* Adjusted paragraph spacing */
 }
-body.blog-active ul,
-body.blog-active ol,
-body.blog-active dl {
+ul,
+ol,
+dl {
   margin-bottom: 1.5rem;
 }
-body.blog-active blockquote {
+blockquote {
   margin-bottom: 1.5rem;
 }
 
-body.blog-active h1,
-body.blog-active h2,
-body.blog-active h3,
-body.blog-active h4,
-body.blog-active h5,
-body.blog-active h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 2.5rem; /* More space above headings */
   margin-bottom: 1.25rem; /* More space below headings */
   color: var(--prls-text-primary);
   font-weight: 700; /* Bolder headings by default */
 }
 
-body.blog-active h1 {
+h1 {
   font-family: var(--font-heading); /* Libre Baskerville */
   font-size: 2.5rem; /* Increased size */
 }
-body.blog-active h2,
-body.blog-active h3,
-body.blog-active h4,
-body.blog-active h5,
-body.blog-active h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-body); /* Questrial (sans-serif) for subheadings */
 }
 
-body.blog-active h2 {
+h2 {
   font-size: 2rem; /* Increased size */
 }
 
-body.blog-active h3 {
+h3 {
   font-size: 1.7rem; /* Increased size */
 }
-body.blog-active h4 {
+h4 {
   font-size: 1.35rem; /* Slightly increased size */
 }
 
-body.blog-active a {
+a {
   color: var(--prls-text-primary); /* Subtle link color */
   text-decoration: none;
   border-bottom: 1px solid var(--prls-text-secondary); /* Subtle underline */
   transition: border-color 0.2s ease-in-out;
 }
 
-body.blog-active a:hover {
+a:hover {
   border-bottom-color: var(--prls-text-primary);
 }
 
-body.blog-active ul,
-body.blog-active ol {
+ul,
+ol {
   padding-left: 1.75rem; /* Slightly more indent */
 }
 
-body.blog-active li {
+li {
   margin-bottom: 0.6rem;
 }
 
-body.blog-active blockquote {
+blockquote {
   border-left: 3px solid var(--prls-text-secondary); /* Thinner, more subtle border */
   padding-left: 1.25rem;
   margin-left: 0; /* Remove default browser margin if any */
@@ -114,7 +116,7 @@ body.blog-active blockquote {
   background-color: #f9f9f9; /* Very light background change on hover */
 }
 
-body.blog-active .post-entry h2 {
+.post-entry h2 {
   margin-top: 0; /* Remove default top margin for heading inside entry */
   font-size: 1.5em; /* Adjust title size */
   color: var(--prls-text-primary);
