@@ -103,17 +103,16 @@ body.blog-active blockquote {
 }
 
 .post-entry {
-  background-color: #ffffff; /* White background for each post entry */
-  border: 1px solid var(--prls-main-surface-secondary); /* Subtle border */
-  border-radius: 8px; /* Rounded corners */
-  padding: 1.5rem; /* Padding inside each entry */
-  margin-bottom: 1.5rem; /* Space between entries */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-  transition: box-shadow 0.3s ease;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--prls-main-surface-secondary); /* Separator line between posts */
+  padding: 2rem 0.5rem; /* More vertical padding, less horizontal if needed or keep it simple */
+  margin-bottom: 0; /* Remove bottom margin as border-bottom will separate */
+  /* Removed border, border-radius, box-shadow for a flatter look */
+  transition: background-color 0.3s ease; /* Subtle hover for background */
 }
 
 .post-entry:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+  background-color: #f9f9f9; /* Very light background change on hover */
 }
 
 body.blog-active .post-entry h2 {
@@ -123,13 +122,13 @@ body.blog-active .post-entry h2 {
 }
 
 .post-title-link {
-  text-decoration: none; /* Remove underline from title link */
-  color: inherit; /* Inherit color from parent (h2) */
-  border-bottom: none; /* Remove default blog link underline */
+  text-decoration: none; 
+  color: inherit; 
+  border-bottom: none; 
 }
 
 .post-title-link:hover h2 {
-  color: #1a8917; /* Change title color on hover, matching other blog links */
+  color: var(--prls-text-secondary); /* Subtle hover color for title */
 }
 
 .post-meta {
@@ -153,13 +152,14 @@ body.blog-active .post-entry h2 {
   display: inline-block;
   font-weight: 600;
   text-decoration: none;
-  color: #1a8917; /* Match general blog link color */
-  border-bottom: 1px solid transparent; /* Prepare for hover effect */
-  transition: border-color 0.3s ease;
+  color: var(--prls-text-secondary); /* Use a theme color */
+  border-bottom: 1px solid transparent; 
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .read-more-link:hover {
-  border-bottom-color: #1a8917; /* Underline on hover */
+  color: var(--prls-text-primary); /* Darken text on hover */
+  border-bottom-color: var(--prls-text-primary); 
 }
 
 /* Styles for individual blog posts */
