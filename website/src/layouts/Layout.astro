@@ -1,15 +1,13 @@
 ---
 interface Props {
   title: string;
-  isBlogPostPage?: boolean;
 }
 
 import ColorControls from "../components/ColorControls.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const { title = "Pearls of Wisdom - SEO for LLMs", isBlogPostPage = false } =
-  Astro.props;
+const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
 const isBlogPage = Astro.url.pathname.startsWith("/blog"); // For blog listing or individual posts
 ---
 
@@ -43,21 +41,8 @@ const isBlogPage = Astro.url.pathname.startsWith("/blog"); // For blog listing o
     <Header />
   </header>
   <ColorControls />
-  <body
-    class:list={[
-      isBlogPage ? "blog-active" : "",
-      isBlogPostPage ? "blog-post-active" : "",
-    ]}
-  >
-    {
-      isBlogPostPage ? (
-        <main class="blog-post-content">
-          <slot />
-        </main>
-      ) : (
-        <slot />
-      )
-    }
+  <body class:list={[isBlogPage ? "blog-active" : ""]}>
+    <slot />
   </body>
   <Footer />
 

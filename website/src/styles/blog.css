@@ -155,11 +155,7 @@ body.blog-active .post-entry h2 {
   border-bottom-color: #1a8917; /* Underline on hover */
 }
 
-/* Styles for individual blog posts (BaseLayout.astro when isBlogPage is true) */
-.blog-post-active {
-  /* Styles specific to individual blog post pages, if different from blog list */
-}
-
+/* Styles for individual blog posts */
 .blog-post-content {
   max-width: 800px; /* Optimal reading width */
   margin: 4rem auto; /* Increased top/bottom margin, centered */
@@ -175,7 +171,7 @@ body.blog-active .post-entry h2 {
   border-bottom: 1px solid var(--prls-main-surface-secondary); /* Separator line */
 }
 
-body.blog-post-active .post-header-container h1 {
+.post-header-container h1 {
   font-size: 2.5em; /* Larger title for posts */
   margin-top: 0; /* Remove default top margin */
   line-height: 1.2;
@@ -213,12 +209,12 @@ body.blog-post-active .post-header-container h1 {
   /* Styles for the main content of the post */
 }
 
-body.blog-post-active .post-body h2 {
+.post-body h2 {
   font-size: 2em; /* Increased H2 size */
   margin-top: 2.5rem; /* More space above H2s */
 }
 
-body.blog-post-active .post-body h3 {
+.post-body h3 {
   font-size: 87px; /* Increased H3 size */
   margin-top: 2rem; /* More space above H3s */
 }
