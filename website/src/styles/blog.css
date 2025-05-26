@@ -29,6 +29,7 @@ body.blog-active h6 {
   color: var(
     --prls-text-primary
   ); /* Keep landing page heading color for consistency with title request */
+  font-size: initial; /* Explicitly override Tailwind's 'inherit' for base headings */
 }
 
 body.blog-active h1 {
