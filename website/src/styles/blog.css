@@ -218,6 +218,7 @@ body.blog-active .post-entry h2 {
 
 .post-body {
   /* Styles for the main content of the post */
+  font-family: "Libre Baskerville", serif; /* Ensure post content uses serif */
 }
 
 /* .post-body h2, .post-body h3, etc. will inherit from body.blog-active hX rules */
