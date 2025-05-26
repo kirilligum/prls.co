@@ -125,6 +125,21 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
     .scrollable-pane {
       overflow-y: auto;
     }
+
+    /* Make the BlogAIAssistant component sticky to the bottom of its flex container */
+    /* This targets the root div of BlogAIAssistant, which has the class .assistant-ui-container */
+    .three-pane-page-container > .assistant-ui-container {
+      position: -webkit-sticky; /* For Safari */
+      position: sticky;
+      bottom: 0;
+      /* Set a background color to ensure it's opaque and visually consistent.
+         Using #ffffff to match the input pane's background, which is critical to see. */
+      background-color: #ffffff;
+      z-index: 100; /* Ensure it stays on top of other content within the scrollable parent */
+      /* The border-top already defined in BlogAssistant.astro's scoped styles
+         will serve as the top visual edge of this sticky block. */
+    }
+
     /* Styles from original BlogPostLayout.astro, scoped to this layout's content */
     .blog-post-content-wrapper article {
       font-family: "Libre Baskerville", serif;
