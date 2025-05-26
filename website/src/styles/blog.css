@@ -211,7 +211,7 @@ body.blog-active .post-entry h2 {
 }
 
 .post-body h3 {
-  font-size: 87px; /* Increased H3 size */
+  font-size: 1.3em; /* Proportional H3 size */
   margin-top: 2rem; /* More space above H3s */
 }
 
