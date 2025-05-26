@@ -1,130 +1,14 @@
 /* Styles for blog pages */
-/* General styles for blog context (applied via BlogPostLayout and blog.astro) */
+/* General styles for blog context */
 
-/* Wrap blog-specific styles in a container class */
-/* This general selector can provide base styling if not overridden by more specific scoped styles */
-.blog-post-content, /* This class is used as a wrapper in BlogPostLayout.astro (via <main>) */
-.blog-list-container { /* This class is used as a wrapper in blog.astro */
-  font-family: "Libre Baskerville", serif; /* Use serif (Libre Baskerville) for body text */
-  line-height: 1.7; /* Slightly adjusted for new base font size */
-  background-color: var(--prls-main-surface-primary); /* Base background for the page area */
+/* Base typography for blog areas */
+.blog-post-content,
+.blog-list-container {
+  font-family: "Libre Baskerville", serif;
+  line-height: 1.7;
+  background-color: var(--prls-main-surface-primary);
   color: #333333;
-  font-size: 1.125rem; /* Approx 18px if root is 16px, for better readability */
+  font-size: 1.125rem;
 }
 
-/* General typography styles that might apply to Markdown content if not handled by :global in layouts */
-/* Or to elements within .blog-list-container not specifically styled in its scoped style. */
-.blog-post-content p,
-.blog-list-container p { /* .blog-post-content p will be styled by .post-body :global(p) in BlogPostLayout */
-  margin-bottom: 1.125rem; /* Adjusted paragraph spacing */
-}
-
-.blog-post-content ul,
-.blog-post-content ol,
-.blog-post-content dl,
-.blog-list-container ul, /* .blog-list-container ul is styled by .post-list in blog.astro */
-.blog-list-container ol,
-.blog-list-container dl {
-  margin-bottom: 1.5rem;
-}
-
-.blog-post-content blockquote,
-.blog-list-container blockquote {
-  margin-bottom: 1.5rem;
-}
-
-/* General heading styles */
-/* Specific h1-h6 in .blog-post-content are handled by :global in BlogPostLayout or its own header styles */
-/* Specific h1-h6 in .blog-list-container are handled by its scoped styles in blog.astro */
-.blog-post-content h1,
-.blog-post-content h2,
-.blog-post-content h3,
-.blog-post-content h4,
-.blog-post-content h5,
-.blog-post-content h6,
-.blog-list-container h1,
-.blog-list-container h2,
-.blog-list-container h3,
-.blog-list-container h4,
-.blog-list-container h5,
-.blog-list-container h6 {
-  margin-top: 2.5rem; 
-  margin-bottom: 1.25rem; 
-  color: var(--prls-text-primary);
-  font-weight: 700; 
-}
-
-.blog-post-content h1,
-.blog-list-container h1 { /* This H1 is covered by scoped styles in both layouts */
-  font-family: var(--font-heading); 
-  font-size: 2.5rem; 
-}
-
-.blog-post-content h2,
-.blog-post-content h3,
-.blog-post-content h4,
-.blog-post-content h5,
-.blog-post-content h6,
-.blog-list-container h2, /* This H2 is covered by scoped styles in blog.astro for post titles */
-.blog-list-container h3,
-.blog-list-container h4,
-.blog-list-container h5,
-.blog-list-container h6 {
-  font-family: var(--font-body); 
-}
-
-.blog-post-content h2,
-.blog-list-container h2 {
-  font-size: 2rem; 
-}
-
-.blog-post-content h3,
-.blog-list-container h3 {
-  font-size: 1.7rem; 
-}
-
-.blog-post-content h4,
-.blog-list-container h4 {
-  font-size: 1.35rem; 
-}
-
-/* General link styles */
-/* .blog-post-content a is handled by .post-body :global(a) in BlogPostLayout */
-/* .blog-list-container a is handled by scoped styles in blog.astro (e.g. .post-title-link, .read-more-link) */
-.blog-post-content a,
-.blog-list-container a {
-  color: var(--prls-text-primary); 
-  text-decoration: none;
-  border-bottom: 1px solid var(--prls-text-secondary); 
-  transition: border-color 0.2s ease-in-out;
-}
-
-.blog-post-content a:hover,
-.blog-list-container a:hover {
-  border-bottom-color: var(--prls-text-primary);
-}
-
-.blog-post-content ul,
-.blog-post-content ol,
-.blog-list-container ul, /* Handled by .post-list in blog.astro */
-.blog-list-container ol {
-  padding-left: 1.75rem; 
-}
-
-.blog-post-content li,
-.blog-list-container li { /* Handled by .post-entry in blog.astro */
-  margin-bottom: 0.6rem;
-}
-
-.blog-post-content blockquote, /* Handled by .post-body :global(blockquote) in BlogPostLayout */
-.blog-list-container blockquote {
-  border-left: 3px solid var(--prls-text-secondary); 
-  padding-left: 1.25rem;
-  margin-left: 0; 
-  font-style: italic;
-  color: var(--prls-text-secondary);
-}
-
-/* Styles for the blog listing page (blog.astro) - these are now moved to blog.astro's <style> tag */
-
-/* Styles for individual blog posts - these are now largely moved to BlogPostLayout.astro's <style> tag */
+/* Any additional global blog styles that aren't covered by scoped styles can go here */
