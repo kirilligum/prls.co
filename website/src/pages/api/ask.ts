@@ -30,12 +30,19 @@ export const POST: APIRoute = async ({ request, locals }) => {
       });
     }
 
-    // 3. Securely access the API key from Cloudflare's environment
-    // `locals.runtime.env` is the correct way to access environment variables in Cloudflare Pages Functions
-    const apiKey = locals.runtime.env.OPENROUTER_API_KEY;
+    // 3. Securely access the API key
+    // For deployed Cloudflare Pages Functions, it's in locals.runtime.env.
+    // For local development (`astro dev`), Vite loads .env into import.meta.env.
+    let apiKey = locals.runtime.env.OPENROUTER_API_KEY;
+
+    // Fallback to import.meta.env for local development if key not found on locals.runtime.env
+    // import.meta.env.DEV is true during `astro dev`
+    if (!apiKey && import.meta.env.DEV) {
+      apiKey = import.meta.env.OPENROUTER_API_KEY;
+    }
 
     if (!apiKey) {
-      console.error('CRITICAL: OPENROUTER_API_KEY is not set in the Cloudflare environment.');
+      console.error('CRITICAL: OPENROUTER_API_KEY is not set. Checked locals.runtime.env (for deployed) and import.meta.env (for local dev).');
       return new Response(JSON.stringify({ error: 'Server configuration error. API key missing.' }), {
         status: 500, // Internal Server Error
         headers: { 'Content-Type': 'application/json' },
