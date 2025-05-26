@@ -12,13 +12,15 @@ const { slug } = Astro.props;
     <p>Hello! Ask me any technical questions about this blog post.</p>
   </div>
   <div id="ai-input-pane" class="assistant-pane input-area">
-    <textarea
-      id="ai-question-input"
-      rows="2"
-      placeholder="E.g., What is 'data curation'?"
-      aria-label="Ask the AI assistant a question about this blog post"
-    ></textarea>
-    <button id="ask-ai-button" type="button">Ask AI</button>
+    <div class="input-controls"> {/* New wrapper for flex layout */}
+      <textarea
+        id="ai-question-input"
+        rows="2"
+        placeholder="E.g., What is 'data curation'?"
+        aria-label="Ask the AI assistant a question about this blog post"
+      ></textarea>
+      <button id="ask-ai-button" type="button">Ask AI</button>
+    </div>
   </div>
 </div>
 
@@ -120,11 +122,16 @@ const { slug } = Astro.props;
   }
 
   #ai-input-pane {
-    /* This pane's height will be determined by its content (textarea rows + button) */
     background-color: #ffffff;
+    /* display: flex; // Flex is now on the inner .input-controls */
+    /* flex-direction: column; // Not needed here anymore */
+    /* gap: 0.75rem; // Gap is now within .input-controls or handled by margins */
+  }
+
+  .input-controls { /* New style for the wrapper */
     display: flex;
-    flex-direction: column; /* Stack textarea and button */
     gap: 0.75rem; /* Space between textarea and button */
+    align-items: stretch; /* Make items stretch to fill height */
   }
 
   #ai-question-input {
@@ -147,8 +154,13 @@ const { slug } = Astro.props;
     border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
-    align-self: flex-end; /* Position button to the right */
+    /* align-self: flex-end; Removed, alignment handled by flex parent */
     transition: background-color 0.2s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+    /* Height will be determined by matching textarea due to align-items: stretch on parent */
+    /* Adjust padding for a narrower look */
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   #ask-ai-button:hover {
