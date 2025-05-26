@@ -34,7 +34,7 @@ body.blog-active h6 {
 
 body.blog-active h1 {
   font-family: var(--font-heading); /* Libre Baskerville */
-  font-size: 2.2rem; /* Approx 39.6px */
+  font-size: 2.5rem; /* Increased size */
 }
 body.blog-active h2,
 body.blog-active h3,
@@ -45,14 +45,14 @@ body.blog-active h6 {
 }
 
 body.blog-active h2 {
-  font-size: 1.8rem; /* Approx 32.4px */
+  font-size: 2.0rem; /* Increased size */
 }
 
 body.blog-active h3 {
-  font-size: 1.5rem; /* Approx 27px */
+  font-size: 1.7rem; /* Increased size */
 }
 body.blog-active h4 {
-  font-size: 1.25rem;
+  font-size: 1.35rem; /* Slightly increased size */
 }
 
 
