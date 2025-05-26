@@ -7,10 +7,6 @@ const { slug } = Astro.props;
 ---
 
 <div class="assistant-ui-container" data-post-slug={slug}>
-  <div id="ai-response-pane" class="assistant-pane scrollable-pane">
-    <!-- AI's response will be displayed here -->
-    <p>Hello! Ask me any technical questions about this blog post.</p>
-  </div>
   <div id="ai-input-pane" class="assistant-pane input-area">
     <div class="input-controls"> {/* New wrapper for flex layout */}
       <textarea
@@ -21,6 +17,10 @@ const { slug } = Astro.props;
       ></textarea>
       <button id="ask-ai-button" type="button">Ask AI</button>
     </div>
+  </div>
+  <div id="ai-response-pane" class="assistant-pane scrollable-pane">
+    <!-- AI's response will be displayed here -->
+    <p>Hello! Ask me any technical questions about this blog post.</p>
   </div>
 </div>
 
@@ -115,7 +115,7 @@ const { slug } = Astro.props;
     overflow-y: auto; /* Makes this pane scrollable if content exceeds height */
     background-color: var(--prls-main-surface-primary, #f9f9f9);
     line-height: 1.4em; /* Adjust to match your desired line spacing */
-    border-bottom: 1px solid var(--prls-main-surface-secondary, #ddd);
+    /* border-bottom is removed as it's now below the input pane */
   }
   #ai-response-pane p {
     margin: 0; /* Remove default paragraph margins if direct text is inserted */
@@ -123,6 +123,7 @@ const { slug } = Astro.props;
 
   #ai-input-pane {
     background-color: #ffffff;
+    border-bottom: 1px solid var(--prls-main-surface-secondary, #ddd); /* Added border to separate from response pane */
     /* display: flex; // Flex is now on the inner .input-controls */
     /* flex-direction: column; // Not needed here anymore */
     /* gap: 0.75rem; // Gap is now within .input-controls or handled by margins */
