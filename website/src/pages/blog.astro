@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/blog.css'; // Ensure this is imported for page-specific styles
 
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const allPosts = Object.values(import.meta.glob('./blog/*.md', { eager: true }));
 const pageTitle = "Blog";
 
 // Helper to format date
