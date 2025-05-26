@@ -1,9 +1,17 @@
 {
   "name": "project-root",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "cd website && yarn run dev",
-    "build": "cd website && yarn run build"
+    "build": "cd website && yarn run build",
+    "scrape:astro": "node docs/astro.build/scrape-urls.js",
+    "scrape:pages": "node docs/astro.build/scrape-pages.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "node-fetch": "^3.3.2",
+    "turndown": "^7.2.0"
   }
 }

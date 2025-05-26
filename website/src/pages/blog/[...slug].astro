@@ -1,0 +1,21 @@
+---
+// website/src/pages/blog/[...slug].astro
+import { getCollection } from 'astro:content';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro'; // Ensure this path is correct
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry }, // 'entry' contains the slug and data
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<BlogPostLayout frontmatter={entry.data} slug={entry.slug}> {/* Ensure slug={entry.slug} is present */}
+  <Content />
+</BlogPostLayout>

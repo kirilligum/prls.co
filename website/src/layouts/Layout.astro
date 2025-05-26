@@ -5,9 +5,9 @@ interface Props {
 
 import ColorControls from "../components/ColorControls.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
-const isBlogPage = Astro.url.pathname.startsWith('/blog');
 ---
 
 <!doctype html>
@@ -36,20 +36,14 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <header>
-    <Header isBlogPage={isBlogPage}>
-      <a href="/blog" id="blog-link">Blog</a>
-    </Header>
-  </header>
-  <ColorControls />
-  <body class:list={[isBlogPage ? 'blog-active' : '']}>
+  <body>
+    <header>
+      <Header />
+    </header>
+    <ColorControls />
     <slot />
+    <Footer />
   </body>
-  <footer style="background-color: var(--prls-main-surface-primary);">
-    <p>
-      &copy; 2024 Pearls of Wisdom | <a href="prls_co/1.html">AI Knowledge</a>
-    </p>
-  </footer>
 
   <style is:global>
     :root {
@@ -71,17 +65,6 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
       --text-lg: 1.2em;
     }
 
-    #blog-link {
-      color: var(--hf-color);
-      text-decoration: none;
-      font-size: 1rem; /* Adjust as needed */
-      padding-right: 1rem; /* Adjust as needed */
-    }
-
-    #blog-link:hover {
-      text-decoration: underline;
-    }
-
     /* Base styles */
     html {
       font-family: var(--font-body); /* Uses default Questrial */
@@ -92,27 +75,10 @@ const isBlogPage = Astro.url.pathname.startsWith('/blog');
     body {
       margin: 0;
       padding: 0;
-      background-color: var(--prls-main-surface-primary); /* Default site background */
+      background-color: var(
+        --prls-main-surface-primary
+      ); /* Default site background */
     }
-
-    /* Overrides for specific links outside main blog content (e.g., header, footer) */
-    #blog-link, /* Header blog link */
-    #blog-link:hover {
-      border-bottom: none; /* Remove blog-style border from header link */
-      /* color and text-decoration are already handled by its own existing specific rule */
-    }
-
-    footer a { /* Links within the footer */
-      color: var(--hf-color); /* Match footer text color */
-      border-bottom: none; /* Remove blog-style border */
-      text-decoration: underline; /* Standard footer link appearance */
-    }
-
-    footer a:hover {
-      color: var(--hf-color); /* Ensure hover color consistency for footer links */
-      /* text-decoration: underline; is inherited from 'footer a' */
-    }
-    /* End of Blog Content Styles & Overrides */
 
     footer {
       text-align: center;
