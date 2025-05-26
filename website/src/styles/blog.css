@@ -1,6 +1,6 @@
 /* Styles for blog pages */
 body.blog-active {
-  font-family: "Spectral", serif;
+  font-family: var(--font-heading); /* Use serif (Libre Baskerville) for body text */
   line-height: 1.7; /* Slightly adjusted for new base font size */
   background-color: var(--prls-main-surface-primary);
   color: #333333; 
@@ -179,11 +179,11 @@ body.blog-active .post-entry h2 {
 }
 
 .post-header-container h1 {
-  font-family: var(--font-heading); /* Explicitly ensure serif for main title */
+  font-family: var(--font-body); /* Use sans-serif (Questrial) for main title */
   font-size: 2.8rem; /* Approx 50px, prominent title */
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.02em; /* Common for large serif titles */
+  /* letter-spacing: -0.02em; */ /* Sans-serif might not need this negative letter-spacing */
   color: var(--prls-text-primary);
   margin-top: 0; 
 }
