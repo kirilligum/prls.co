@@ -31,18 +31,33 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     // 3. Securely access the API key
+    // Securely access the API key
     // For deployed Cloudflare Pages Functions, it's in locals.runtime.env.
     // For local development (`astro dev`), Vite loads .env into import.meta.env.
-    let apiKey = locals.runtime.env.OPENROUTER_API_KEY;
+    let apiKey: string | undefined;
 
-    // Fallback to import.meta.env for local development if key not found on locals.runtime.env
-    // import.meta.env.DEV is true during `astro dev`
-    if (!apiKey && import.meta.env.DEV) {
+    if (import.meta.env.DEV) {
+      // Prioritize import.meta.env for local development as it's directly from .env via Vite
       apiKey = import.meta.env.OPENROUTER_API_KEY;
+      // Fallback if platformProxy populated locals.runtime.env and import.meta.env didn't pick it up
+      if (!apiKey && locals.runtime?.env) {
+        apiKey = locals.runtime.env.OPENROUTER_API_KEY;
+      }
+    } else {
+      // Production/Deployed environment
+      if (locals.runtime?.env) {
+        apiKey = locals.runtime.env.OPENROUTER_API_KEY;
+      }
     }
 
     if (!apiKey) {
-      console.error('CRITICAL: OPENROUTER_API_KEY is not set. Checked locals.runtime.env (for deployed) and import.meta.env (for local dev).');
+      const contextMessage = import.meta.env.DEV 
+        ? "Local development: OPENROUTER_API_KEY not found in .env or via platform proxy."
+        : "Cloudflare deployment: OPENROUTER_API_KEY not found in environment variables. Ensure it is set in Pages project settings.";
+      console.error(`CRITICAL: ${contextMessage}`);
+      if (!import.meta.env.DEV && (!locals.runtime || !locals.runtime.env)) {
+        console.error("Additionally, Astro.locals.runtime or Astro.locals.runtime.env was not available, indicating a possible adapter issue.");
+      }
       return new Response(JSON.stringify({ error: 'Server configuration error. API key missing.' }), {
         status: 500, // Internal Server Error
         headers: { 'Content-Type': 'application/json' },
