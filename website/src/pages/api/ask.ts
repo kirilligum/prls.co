@@ -32,22 +32,19 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     // 3. Securely access the API key
     // Securely access the API key
-    // For deployed Cloudflare Pages Functions, it's in locals.runtime.env.
-    // For local development (`astro dev`), Vite loads .env into import.meta.env.
+    // Securely access the API key
     let apiKey: string | undefined;
 
-    if (import.meta.env.DEV) {
-      // Prioritize import.meta.env for local development as it's directly from .env via Vite
+    // Attempt to get API key from Cloudflare runtime environment
+    // This is the standard way for deployed Cloudflare Pages Functions and `wrangler pages dev`
+    if (locals.runtime?.env) {
+      apiKey = locals.runtime.env.OPENROUTER_API_KEY;
+    }
+
+    // If API key is not found via runtime AND we are in local development mode (`astro dev`),
+    // attempt to get it from Vite's `import.meta.env` (populated from .env files).
+    if (!apiKey && import.meta.env.DEV) {
       apiKey = import.meta.env.OPENROUTER_API_KEY;
-      // Fallback if platformProxy populated locals.runtime.env and import.meta.env didn't pick it up
-      if (!apiKey && locals.runtime?.env) {
-        apiKey = locals.runtime.env.OPENROUTER_API_KEY;
-      }
-    } else {
-      // Production/Deployed environment
-      if (locals.runtime?.env) {
-        apiKey = locals.runtime.env.OPENROUTER_API_KEY;
-      }
     }
 
     if (!apiKey) {
