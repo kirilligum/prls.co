@@ -8,6 +8,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // 1. Parse incoming request data
     const body = await request.json();
     const { question, slug } = body;
+    console.log('API /api/ask called with:', { question, slug });
 
     // Basic validation
     if (!question || !slug) {
@@ -47,6 +48,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
         status: 500, // Internal Server Error
         headers: { 'Content-Type': 'application/json' },
       });
+    } else {
+      console.log('API Key retrieved (partially masked):', `${apiKey.substring(0, 5)}...${apiKey.substring(apiKey.length - 4)}`);
     }
 
     // 4. Prepare the payload for OpenRouter
@@ -71,10 +74,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
       max_tokens: 250,  // Adjust to control response length (aiming for ~5 lines)
       temperature: 0.3, // Lower temperature for more factual, less creative answers
     };
+    console.log('Payload to OpenRouter:', JSON.stringify(openRouterPayload, null, 2));
 
     // 5. Make the API call to OpenRouter
     const siteUrl = new URL(request.url).origin; // Get site's base URL
 
+    console.log('Calling OpenRouter API...');
     const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -88,9 +93,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
     });
 
     // 6. Handle OpenRouter's response
+    console.log('OpenRouter response status:', openRouterResponse.status);
     if (!openRouterResponse.ok) {
       const errorText = await openRouterResponse.text();
-      console.error(`OpenRouter API Error: ${openRouterResponse.status}`, errorText);
+      console.error(`OpenRouter API Error Details: Status ${openRouterResponse.status}`, errorText);
       return new Response(JSON.stringify({ error: `AI service returned an error: ${openRouterResponse.status}. Details: ${errorText}` }), {
         status: openRouterResponse.status,
         headers: { 'Content-Type': 'application/json' },
@@ -98,7 +104,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     const responseData = await openRouterResponse.json();
+    console.log('OpenRouter response data:', JSON.stringify(responseData, null, 2));
+
     const aiAnswer = responseData.choices?.[0]?.message?.content || 'No answer was received from the AI.';
+    console.log('Extracted AI Answer:', aiAnswer);
 
     // 7. Send the AI's answer back to the frontend
     return new Response(JSON.stringify({ answer: aiAnswer }), {
