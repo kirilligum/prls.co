@@ -106,7 +106,19 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const responseData = await openRouterResponse.json();
     console.log('OpenRouter response data:', JSON.stringify(responseData, null, 2));
 
-    const aiAnswer = responseData.choices?.[0]?.message?.content || 'No answer was received from the AI.';
+    let aiAnswer = responseData.choices?.[0]?.message?.content;
+
+    // If content is empty, try to use reasoning, as some models/providers might put the response there.
+    if (!aiAnswer && responseData.choices?.[0]?.message?.reasoning) {
+      console.log('Message content is empty, attempting to use message.reasoning.');
+      aiAnswer = responseData.choices[0].message.reasoning;
+    }
+    
+    // If still no answer, use the default.
+    if (!aiAnswer) {
+      aiAnswer = 'No answer was received from the AI.';
+    }
+    
     console.log('Extracted AI Answer:', aiAnswer);
 
     // 7. Send the AI's answer back to the frontend
