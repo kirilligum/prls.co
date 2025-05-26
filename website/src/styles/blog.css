@@ -1,6 +1,6 @@
 /* Styles for blog pages */
 body.blog-active {
-  font-family: "Spectral", serif;
+  font-family: "Spectral", serif; /* Ensure this is applied if Layout adds this class */
   line-height: 1.8;
   background-color: var(
     --hero-gradient-start
@@ -59,4 +59,82 @@ body.blog-active blockquote {
   color: var(
     --prls-text-secondary
   ); /* Quote text color using global variable */
+}
+
+/* Styles for the blog listing page (blog.astro) */
+.blog-list-container {
+  max-width: 800px;
+  margin: 2rem auto; /* Center the container and add some margin */
+  padding: 0 1rem; /* Add padding on the sides */
+}
+
+.blog-list-container h1 {
+  text-align: center; /* Center the main blog title */
+  margin-bottom: 2rem; /* Space below the main title */
+}
+
+.post-list {
+  list-style: none; /* Remove default list bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.post-entry {
+  background-color: #ffffff; /* White background for each post entry */
+  border: 1px solid var(--prls-main-surface-secondary); /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1.5rem; /* Padding inside each entry */
+  margin-bottom: 1.5rem; /* Space between entries */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.post-entry:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+.post-entry h2 {
+  margin-top: 0; /* Remove default top margin for heading inside entry */
+  font-size: 1.5em; /* Adjust title size */
+  color: var(--prls-text-primary);
+}
+
+.post-title-link {
+  text-decoration: none; /* Remove underline from title link */
+  color: inherit; /* Inherit color from parent (h2) */
+  border-bottom: none; /* Remove default blog link underline */
+}
+
+.post-title-link:hover h2 {
+  color: #1a8917; /* Change title color on hover, matching other blog links */
+}
+
+.post-meta {
+  font-size: 0.9em;
+  color: var(--prls-text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.post-meta time {
+  font-weight: 600;
+}
+
+.post-description {
+  font-size: 1em;
+  color: var(--prls-text-primary); /* Slightly darker than meta text */
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.read-more-link {
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1a8917; /* Match general blog link color */
+  border-bottom: 1px solid transparent; /* Prepare for hover effect */
+  transition: border-color 0.3s ease;
+}
+
+.read-more-link:hover {
+  border-bottom-color: #1a8917; /* Underline on hover */
 }
