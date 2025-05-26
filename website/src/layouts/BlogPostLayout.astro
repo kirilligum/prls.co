@@ -1,9 +1,22 @@
 ---
-import Layout from "./Layout.astro"; // Use the main Layout
+// website/src/layouts/BlogPostLayout.astro
+// This layout now controls the ENTIRE page for blog posts, including site header/footer.
+import SiteHeader from "../components/Header.astro"; // Your site's main header component
+import SiteFooter from "../components/Footer.astro"; // Your site's main footer component
+import BlogAIAssistant from "../components/BlogAssistant.astro";
 import { formatDate } from '../utils/formatDate';
 
-// Expect frontmatter from the dynamic route props
-const { frontmatter } = Astro.props; 
+interface Props {
+  frontmatter: {
+    title: string;
+    author?: string;
+    date?: string | Date;
+    description?: string;
+  };
+  slug: string;
+}
+
+const { frontmatter, slug } = Astro.props;
 const { title, author, date, description } = frontmatter;
 
 let datetimeAttrValue = "";
@@ -11,274 +24,174 @@ if (date) {
   const dateObj = typeof date === 'string' ? new Date(date) : date;
   datetimeAttrValue = dateObj.toISOString();
 }
+const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
 ---
-<Layout title={title}>
-  <main class="blog-post-content-wrapper"> {/* Optional wrapper if needed */}
-    <article>
-      <header class="post-header-container">
-        <h1>{title}</h1>
-        <p class="post-meta">
-          {author && (
-            <span class="author">By {author}</span>
-          )}
-          {date && (
-            <time datetime={datetimeAttrValue}>
-              {formatDate(date)}
-            </time>
-          )}
-        </p>
-        {description && (
-          <p class="post-lede">{description}</p>
-        )}
-      </header>
-      <div class="post-body">
-        <slot /> {/* This slot is for the Markdown content from [slug].astro */}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pageTitle}</title>
+  {/* Favicons and other meta tags from your original Layout.astro */}
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="description" content={description || "We make ChatGPT and Google's AI Overview champion your company FIRST, OFTEN and ACCURATELY."} />
+  {/* Google Fonts from your original Layout.astro */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Questrial&family=Spectral:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  {/* If you have a global stylesheet, link it here */}
+  {/* e.g., <link rel="stylesheet" href="/styles/global.css" /> */}
+</head>
+<body>
+  <div class="three-pane-page-container">
+    <div class="blog-content-pane scrollable-pane">
+      <div class="scrollable-content-inner"> {/* New wrapper for padding & max-width */}
+        <SiteHeader />
+        <main class="blog-post-content-wrapper"> {/* Your existing class for article content */}
+          <article>
+            <header class="post-header-container">
+              <h1>{title}</h1>
+              <p class="post-meta">
+                {author && <span class="author">By {author}</span>}
+                {author && date && <span class="separator">&nbsp;•&nbsp;</span>} {/* Added separator */}
+                {date && <time datetime={datetimeAttrValue}>{formatDate(date)}</time>}
+              </p>
+              {description && <p class="post-lede">{description}</p>}
+            </header>
+            <div class="post-body">
+              <slot /> {/* The actual Markdown content of the blog post */}
+            </div>
+          </article>
+        </main>
+        <SiteFooter />
       </div>
-    </article>
-  </main>
-</Layout>
+    </div>
+    <BlogAIAssistant slug={slug} />
+  </div>
 
-<style>
-  /* Styles here are automatically scoped to BlogPostLayout.astro */
-  /* These styles would replace those under .blog-post-content in blog.css */
-  article {
-    font-family: "Libre Baskerville", serif;
-    line-height: 1.7;
-    /* background-color: var(--prls-main-surface-primary); -- Handled by Layout.astro body */
-    color: #333333;
-    font-size: 1.125rem;
-    max-width: 740px;
-    margin: 4rem auto;
-    padding: 3rem 2rem;
-    background-color: #ffffff; /* Specific background for the article content area */
-  }
-
-  .post-header-container {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #efefef;
-  }
-
-  .post-header-container h1 {
-    font-family: var(--font-body);
-    font-size: 2.8rem;
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--prls-text-primary);
-    margin-top: 0;
-  }
-
-  .post-meta {
-    font-size: 0.9em;
-    color: var(--prls-text-secondary);
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .post-meta .author {
-    font-weight: 600;
-  }
-
-  .post-meta .author::after {
-    content: "•";
-    margin: 0 0.5em;
-  }
-
-  .post-meta time {
-    font-style: italic;
-  }
-
-  .post-lede {
-    font-size: 1.15em;
-    color: var(--prls-text-primary);
-    line-height: 1.7;
-    margin-top: 1.5rem;
-  }
-
-  .post-body {
-    font-family: "Libre Baskerville", serif; /* Ensure post content uses serif */
-  }
-  
-  /* Styling for Markdown content */
-  .post-body :global(h2) {
-    font-family: var(--font-body); /* Questrial for subheadings from Markdown */
-    font-size: 2rem; /* Increased size */
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    color: var(--prls-text-primary);
-    font-weight: 700;
-  }
-  .post-body :global(h3) {
-    font-family: var(--font-body);
-    font-size: 1.7rem; /* Increased size */
-    margin-top: 2.5rem;
-    margin-bottom: 1.25rem; /* Adjusted for vertical rhythm */
-    color: var(--prls-text-primary);
-    font-weight: 700;
-  }
-  .post-body :global(h4) {
-    font-family: var(--font-body);
-    font-size: 1.35rem; /* Slightly increased size */
-    margin-top: 2.5rem;
-    margin-bottom: 1.25rem; /* Adjusted for vertical rhythm */
-    color: var(--prls-text-primary);
-    font-weight: 700;
-  }
-   .post-body :global(h5),
-   .post-body :global(h6) {
-    font-family: var(--font-body);
-    margin-top: 2.5rem;
-    margin-bottom: 1.25rem; /* Consistent with h3/h4 or adjust if needed */
-    color: var(--prls-text-primary);
-    font-weight: 700;
-  }
-
-  .post-body :global(p) {
-     margin-bottom: 1.5rem; /* Adjusted for vertical rhythm */
-  }
-
-  .post-body :global(a) {
-    color: var(--prls-text-primary);
-    text-decoration: none;
-    border-bottom: 1px solid var(--prls-text-secondary);
-    transition: border-color 0.2s ease-in-out;
-  }
-
-  .post-body :global(a:hover) {
-    border-bottom-color: var(--prls-text-primary);
-  }
-
-  .post-body :global(ul),
-  .post-body :global(ol) {
-    padding-left: 1.75rem;
-    /* list-style-position: outside; /* Ensures markers are outside the text flow */
-    margin-bottom: 1.5rem;
-  }
-
-  .post-body :global(li) {
-    margin-bottom: 0.6rem;
-  }
-
-  .post-body :global(ul) {
-    list-style-type: disc; /* Or square, circle */
-  }
-
-  .post-body :global(ul li::marker) {
-    color: var(--prls-main-surface-secondary);
-  }
-
-  .post-body :global(ol) {
-    list-style-type: decimal; /* Or lower-alpha, upper-roman, etc. */
-  }
-
-  .post-body :global(blockquote) {
-    border-left: 3px solid var(--prls-text-secondary);
-    padding-left: 1.25rem;
-    margin-left: 0;
-    font-style: italic;
-    color: var(--prls-text-secondary);
-    margin-bottom: 1.5rem;
-  }
-
-  .post-body :global(img) {
-    max-width: 100%;
-    height: auto;
-    margin-top: 1.5rem; /* Or your preferred spacing */
-    margin-bottom: 1.5rem; /* Or your preferred spacing */
-    display: block; /* To enable auto horizontal margins if needed */
-    margin-left: auto; /* To center block images */
-    margin-right: auto; /* To center block images */
-    border-radius: 4px; /* Optional: subtle rounding */
-  }
-
-  .post-body :global(figure) {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .post-body :global(figcaption) {
-    text-align: center;
-    font-size: 0.9em;
-    color: var(--prls-text-secondary);
-    margin-top: 0.5rem;
-    font-style: italic;
-  }
-  
-  .post-body :global(hr) {
-    border: 0;
-    text-align: center;
-    overflow: visible;
-    height: auto;
-    background-color: transparent;
-    margin: 3.5rem auto;
-  }
-  .post-body :global(hr::before) {
-    content: "...";
-    display: inline-block;
-    letter-spacing: 0.6em;
-    font-size: 1.5em;
-    color: var(--prls-text-tertiary);
-  }
-
-  .post-body :global(table) {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1.5rem; /* Adjusted for vertical rhythm */
-    font-size: 0.9rem;
-    box-shadow: none;
-    border-radius: 0;
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .post-body :global(th),
-  .post-body :global(td) {
-    border: none;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 0.8rem 0.5rem;
-    text-align: left;
-    line-height: 1.5;
-  }
-  .post-body :global(tr:last-child td) {
-    border-bottom: none;
-  }
-
-  .post-body :global(th) {
-    background-color: transparent;
-    font-weight: 600;
-    color: var(--prls-text-secondary);
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .post-body :global(tr:hover) {
-    background-color: #f9f9f9;
-  }
-
-  .post-body :global(code) {
-    background-color: #f7f7f7;
-    padding: 0.15em 0.3em;
-    border-radius: 3px;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 0.9em;
-    color: #c7254e;
-  }
-
-  .post-body :global(pre) {
-    background-color: #f7f7f7;
-    border: 1px solid #e5e5e5;
-    padding: 1.25rem;
-    border-radius: 4px;
-    overflow-x: auto;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem; /* Adjusted for vertical rhythm */
-    line-height: 1.45;
-  }
-
-  .post-body :global(pre code) {
-    background-color: transparent;
-    padding: 0;
-    font-size: 0.9em;
-    color: inherit;
-  }
-</style>
+  {/* Global styles for the 3-pane layout and root elements */}
+  <style is:global>
+    :root { /* Copied CSS variables from your original Layout.astro */
+        --hf-color: #4d4d4d;
+        --hf-bg-color: #ebf5f7;
+        --prls-main-surface-primary: #f7f5f2;
+        --prls-main-surface-secondary: #e6d9ce;
+        --prls-text-primary: #3d3d3d;
+        --prls-text-secondary: #5d5d5d;
+        --prls-text-tertiary: #b4b4b4;
+        --hero-gradient-start: #f2e6de;
+        --font-heading: "Libre Baskerville", serif;
+        --font-body: "Questrial", sans-serif;
+        --font-weight-bold: 700;
+        --line-height-body: 1.6;
+        --text-lg: 1.2em;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* Body should not scroll; panes will */
+      font-family: var(--font-body); /* Apply base font from your theme */
+      color: var(--prls-text-primary); /* Apply base text color */
+      background-color: var(--prls-main-surface-primary); /* Base background */
+    }
+    .three-pane-page-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .blog-content-pane {
+      flex: 1; /* Grow to fill available space */
+      overflow-y: auto;
+      min-height: 0; /* For Firefox flex scrolling */
+    }
+    .scrollable-content-inner {
+      /* This new wrapper controls padding and max-width for the scrollable content */
+      padding: 0 1rem; /* Adjust horizontal padding as needed, vertical padding comes from header/footer/article margins */
+      max-width: 800px; /* Or your blog's standard content width */
+      margin: 0 auto; /* Center the content if max-width is used */
+    }
+    .scrollable-pane {
+      overflow-y: auto;
+    }
+    /* Styles from original BlogPostLayout.astro, scoped to this layout's content */
+    .blog-post-content-wrapper article {
+      font-family: "Libre Baskerville", serif;
+      line-height: 1.7;
+      color: #333333; /* This was specific, might want to use var(--prls-text-primary) */
+      font-size: 1.125rem;
+      /* max-width is handled by .scrollable-content-inner */
+      margin: 4rem 0; /* Vertical margin for article, horizontal handled by inner wrapper */
+      padding: 3rem 2rem; /* Padding within the article itself */
+      background-color: #ffffff; /* Specific background for the article content area */
+    }
+    .post-header-container {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #efefef;
+    }
+    .post-header-container h1 {
+      font-family: var(--font-body);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--prls-text-primary);
+      margin-top: 0;
+    }
+    .post-meta {
+      font-size: 0.9em;
+      color: var(--prls-text-secondary);
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .post-meta .author { font-weight: 600; }
+    /* .post-meta .author::after was removed as separator is now explicit */
+    .post-meta time { font-style: italic; }
+    .post-lede {
+      font-size: 1.15em;
+      color: var(--prls-text-primary);
+      line-height: 1.7;
+      margin-top: 1.5rem;
+    }
+    .post-body { font-family: "Libre Baskerville", serif; }
+    /* Global styles for Markdown content within .post-body */
+    .post-body h2 { font-family: var(--font-body); font-size: 2rem; margin-top: 3rem; margin-bottom: 1.5rem; color: var(--prls-text-primary); font-weight: 700; }
+    .post-body h3 { font-family: var(--font-body); font-size: 1.7rem; margin-top: 2.5rem; margin-bottom: 1.25rem; color: var(--prls-text-primary); font-weight: 700; }
+    .post-body h4 { font-family: var(--font-body); font-size: 1.35rem; margin-top: 2.5rem; margin-bottom: 1.25rem; color: var(--prls-text-primary); font-weight: 700; }
+    .post-body h5, .post-body h6 { font-family: var(--font-body); margin-top: 2.5rem; margin-bottom: 1.25rem; color: var(--prls-text-primary); font-weight: 700; }
+    .post-body p { margin-bottom: 1.5rem; }
+    .post-body a { color: var(--prls-text-primary); text-decoration: none; border-bottom: 1px solid var(--prls-text-secondary); transition: border-color 0.2s ease-in-out; }
+    .post-body a:hover { border-bottom-color: var(--prls-text-primary); }
+    .post-body ul, .post-body ol { padding-left: 1.75rem; margin-bottom: 1.5rem; }
+    .post-body li { margin-bottom: 0.6rem; }
+    .post-body ul { list-style-type: disc; }
+    .post-body ul li::marker { color: var(--prls-main-surface-secondary); }
+    .post-body ol { list-style-type: decimal; }
+    .post-body blockquote { border-left: 3px solid var(--prls-text-secondary); padding-left: 1.25rem; margin-left: 0; font-style: italic; color: var(--prls-text-secondary); margin-bottom: 1.5rem; }
+    .post-body img { max-width: 100%; height: auto; margin: 1.5rem auto; display: block; border-radius: 4px; }
+    .post-body figure { margin: 1.5rem 0; }
+    .post-body figcaption { text-align: center; font-size: 0.9em; color: var(--prls-text-secondary); margin-top: 0.5rem; font-style: italic; }
+    .post-body hr { border: 0; text-align: center; overflow: visible; height: auto; background-color: transparent; margin: 3.5rem auto; }
+    .post-body hr::before { content: "..."; display: inline-block; letter-spacing: 0.6em; font-size: 1.5em; color: var(--prls-text-tertiary); }
+    .post-body table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem; box-shadow: none; border-radius: 0; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+    .post-body th, .post-body td { border: none; border-bottom: 1px solid #e5e5e5; padding: 0.8rem 0.5rem; text-align: left; line-height: 1.5; }
+    .post-body tr:last-child td { border-bottom: none; }
+    .post-body th { background-color: transparent; font-weight: 600; color: var(--prls-text-secondary); padding-top: 1rem; padding-bottom: 1rem; }
+    .post-body tr:hover { background-color: #f9f9f9; }
+    .post-body code { background-color: #f7f7f7; padding: 0.15em 0.3em; border-radius: 3px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 0.9em; color: #c7254e; }
+    .post-body pre { background-color: #f7f7f7; border: 1px solid #e5e5e5; padding: 1.25rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; line-height: 1.45; }
+    .post-body pre code { background-color: transparent; padding: 0; font-size: 0.9em; color: inherit; }
+  </style>
+</body>
+</html>

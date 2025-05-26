@@ -1,0 +1,166 @@
+---
+// website/src/components/BlogAssistant.astro
+interface Props {
+  slug: string; // The slug of the current blog post, passed from the layout
+}
+const { slug } = Astro.props;
+---
+
+<div class="assistant-ui-container" data-post-slug={slug}>
+  <div id="ai-response-pane" class="assistant-pane scrollable-pane">
+    <!-- AI's response will be displayed here -->
+    <p>Hello! Ask me any technical questions about this blog post.</p>
+  </div>
+  <div id="ai-input-pane" class="assistant-pane input-area">
+    <textarea
+      id="ai-question-input"
+      rows="2"
+      placeholder="E.g., What is 'data curation'?"
+      aria-label="Ask the AI assistant a question about this blog post"
+    ></textarea>
+    <button id="ask-ai-button" type="button">Ask AI</button>
+  </div>
+</div>
+
+<script>
+  // This script runs in the browser
+  document.addEventListener('DOMContentLoaded', () => {
+    const assistantContainer = document.querySelector('.assistant-ui-container') as HTMLElement | null;
+    if (!assistantContainer) {
+      console.error('BlogAssistant UI container not found.');
+      return;
+    }
+
+    const postSlug = assistantContainer.dataset.postSlug;
+    const responsePane = assistantContainer.querySelector('#ai-response-pane') as HTMLElement | null;
+    const questionInput = assistantContainer.querySelector('#ai-question-input') as HTMLTextAreaElement | null;
+    const askButton = assistantContainer.querySelector('#ask-ai-button') as HTMLButtonElement | null;
+
+    if (!postSlug || !responsePane || !questionInput || !askButton) {
+      console.error('One or more BlogAssistant UI elements are missing.');
+      return;
+    }
+
+    askButton.addEventListener('click', async () => {
+      const question = questionInput.value.trim();
+      if (!question) {
+        responsePane.innerHTML = '<p style="color: orange;">Please type a question first.</p>';
+        return;
+      }
+
+      // Disable button and show loading state
+      askButton.disabled = true;
+      askButton.textContent = 'Thinking...';
+      responsePane.innerHTML = '<p><i>Fetching answer from AI...</i></p>';
+
+      try {
+        const apiResponse = await fetch('/api/ask', { // Calls your backend API endpoint
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ question: question, slug: postSlug }),
+        });
+
+        const data = await apiResponse.json();
+
+        if (apiResponse.ok) {
+          // Sanitize or carefully render HTML if AI can produce it. For now, textContent is safer.
+          // To render newlines from AI, replace \n with <br> or use CSS white-space: pre-wrap.
+          responsePane.innerHTML = `<p>${data.answer.replace(/\n/g, '<br>')}</p>`;
+        } else {
+          responsePane.innerHTML = `<p style="color: red;">Error: ${data.error || 'Failed to get an answer from the AI.'}</p>`;
+        }
+      } catch (error) {
+        console.error('Client-side fetch error:', error);
+        responsePane.innerHTML = '<p style="color: red;">A network error occurred. Please check your connection and try again.</p>';
+      } finally {
+        // Re-enable button and clear input
+        askButton.disabled = false;
+        askButton.textContent = 'Ask AI';
+        // questionInput.value = ''; // Optionally clear input after asking
+      }
+    });
+
+    // Optional: Allow submitting with Enter key (Shift+Enter for new line)
+    questionInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault(); // Prevent default Enter behavior (new line)
+        askButton.click();      // Trigger button click
+      }
+    });
+  });
+</script>
+
+<style>
+  .assistant-ui-container {
+    /* This container holds the AI response and input panes */
+    /* It will be a flex item in the main 3-pane layout */
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* Prevents this container from shrinking if content is too large */
+    border-top: 1px solid var(--prls-main-surface-secondary, #ddd); /* Separator from blog content */
+  }
+
+  .assistant-pane {
+    padding: 1rem;
+  }
+
+  #ai-response-pane {
+    /* Aim for ~5 lines of text. Adjust height based on your font and line-height. */
+    /* 1.2em line-height * 5 lines = 6em. Add padding: 6em + 2rem (padding top/bottom) */
+    height: calc(5 * 1.4em + 2rem); /* Example: 1.4em line-height */
+    overflow-y: auto; /* Makes this pane scrollable if content exceeds height */
+    background-color: var(--prls-main-surface-primary, #f9f9f9);
+    line-height: 1.4em; /* Adjust to match your desired line spacing */
+    border-bottom: 1px solid var(--prls-main-surface-secondary, #ddd);
+  }
+  #ai-response-pane p {
+    margin: 0; /* Remove default paragraph margins if direct text is inserted */
+  }
+
+  #ai-input-pane {
+    /* This pane's height will be determined by its content (textarea rows + button) */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column; /* Stack textarea and button */
+    gap: 0.75rem; /* Space between textarea and button */
+  }
+
+  #ai-question-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit; /* Use the blog's font */
+    font-size: 0.95rem;
+    line-height: 1.4em; /* For the textarea itself */
+    resize: none; /* User cannot resize the textarea */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+
+  #ask-ai-button {
+    padding: 0.75rem 1.25rem;
+    background-color: var(--prls-text-primary, #333); /* Use a theme color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    align-self: flex-end; /* Position button to the right */
+    transition: background-color 0.2s ease;
+  }
+
+  #ask-ai-button:hover {
+    background-color: var(--prls-text-secondary, #555); /* Darken on hover */
+  }
+
+  #ask-ai-button:disabled {
+    background-color: #bbb; /* Grey out when disabled */
+    cursor: not-allowed;
+  }
+
+  .scrollable-pane {
+    overflow-y: auto; /* General class for scrollable panes */
+  }
+</style>
