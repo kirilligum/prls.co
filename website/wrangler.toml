@@ -64,8 +64,8 @@ preview_id = "e05a15d829484001a8d3d37ba61cbe5f"
 
 [[r2_buckets]]
 binding = "PRLS_AI_LOGS_BUCKET"  # How you'll access it in the code
-bucket_name = "your-r2-bucket-name" # The actual name of your R2 bucket in Cloudflare
-preview_bucket_name = "your-r2-bucket-name" # For local dev, wrangler will use/create this in .wrangler/state
+bucket_name = "prls-blogpost-ai-turns" # The actual name of your R2 bucket in Cloudflare
+preview_bucket_name = "prls-blogpost-ai-turns" # For local dev, wrangler will use/create this in .wrangler/state
 
 # Bind another Worker service. Use this binding to call another Worker without network overhead.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#service-bindings
