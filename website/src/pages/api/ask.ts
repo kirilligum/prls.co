@@ -132,10 +132,11 @@ User Conversation History (focus on LATEST user query for relevance check):`;
       blog_content_length: post.body.length,
       chat_history_json_string: JSON.stringify(messages)
     });
-    const spamBlockerBamlPromise = b.CheckRelevance({
-      blog_content: post.body,
-      chat_history_json_string: JSON.stringify(messages)
-    });
+    // Pass as positional arguments, not as an object
+    const spamBlockerBamlPromise = b.CheckRelevance(
+      post.body,
+      JSON.stringify(messages)
+    );
     
     // --- Process Responses ---
     // We can await both promises concurrently if desired, or sequentially.
