@@ -65,12 +65,20 @@ const { slug } = Astro.props;
           const currentMessage = chatHistory[i]; // This is usually an AI answer or an error.
           const previousMessage = chatHistory[i-1]; // This is usually the user's question.
 
+          // Add a separator before each Q&A pair, except for the very first one at the top.
+          if (i < chatHistory.length - 1) {
+            const separatorElement = document.createElement('div');
+            separatorElement.classList.add('chat-pair-separator');
+            responsePane.appendChild(separatorElement);
+          }
+
           // If previousMessage exists (i.e., we have a pair, or i-1 is a valid index)
           // render it first (this is the User Question).
           if (previousMessage) {
             const questionElement = document.createElement('div');
             questionElement.classList.add('chat-message', `${previousMessage.type}-message`);
-            questionElement.innerHTML = previousMessage.content.replace(/\n/g, '<br>');
+            // Add emoji and make question bold
+            questionElement.innerHTML = `🗣️ <strong>${previousMessage.content.replace(/\n/g, '<br>')}</strong>`;
             responsePane.appendChild(questionElement);
           }
 
