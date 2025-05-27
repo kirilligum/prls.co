@@ -45,6 +45,24 @@ const { slug } = Astro.props;
       return;
     }
 
+    let currentReaderId = '';
+    let currentSessionId = '';
+
+    function getOrSetReaderId(): string {
+      let readerId = localStorage.getItem('prlsAiReaderId');
+      if (!readerId) {
+        readerId = crypto.randomUUID();
+        localStorage.setItem('prlsAiReaderId', readerId);
+      }
+      return readerId;
+    }
+
+    function generateNewSessionId(): string {
+      return crypto.randomUUID();
+    }
+    
+    currentReaderId = getOrSetReaderId(); // Initialize readerId
+
     let chatHistory: Array<{ type: 'user' | 'ai' | 'system' | 'error', content: string }> = [];
     const initialMessage = "Hello! Ask me any technical questions about this blog post.";
 
@@ -97,6 +115,8 @@ const { slug } = Astro.props;
     
     const resetChat = () => {
       chatHistory = []; // Initialize as empty, initialMessage will be shown by renderChatHistory
+      currentSessionId = generateNewSessionId(); // Generate new session ID
+      console.log(`New AI session started: ${currentSessionId} for reader: ${currentReaderId}`);
       renderChatHistory();
     };
 
@@ -164,7 +184,13 @@ const { slug } = Astro.props;
             'Content-Type': 'application/json',
           },
           // Send the formatted messages array and the slug
-          body: JSON.stringify({ messages: messagesForApi, slug: postSlug }),
+          body: JSON.stringify({ 
+            messages: messagesForApi, 
+            slug: postSlug,
+            readerId: currentReaderId,
+            sessionId: currentSessionId,
+            currentUserQuestion: question // This is the 'question' variable from the outer scope
+          }),
         });
 
         const data = await apiResponse.json();
