@@ -31,6 +31,15 @@ function getApiKey(locals: App.Locals, devMode: boolean): string | undefined {
   return undefined;
 }
 
+// Helper function to generate R2 object key
+function getR2SessionLogKey(slug: string, sessionId: string, turnTimestamp: string): string {
+  const date = new Date(turnTimestamp);
+  const year = date.getUTCFullYear();
+  const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+  const day = date.getUTCDate().toString().padStart(2, '0');
+  return `ai-logs/${slug}/${year}/${month}/${day}/${sessionId}/${turnTimestamp}.json`;
+}
+
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 const DEFAULT_MODEL = "qwen/qwen3-32b";
 
