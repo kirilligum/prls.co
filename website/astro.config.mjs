@@ -14,7 +14,14 @@ export default defineConfig({
   integrations: [tailwind()],
   vite: {
     ssr: {
-      external: ['async_hooks', 'fs', 'child_process', /\.node$/],
+      external: [
+        'async_hooks', 
+        'fs', 
+        'child_process', 
+        /\.node$/, 
+        '@boundaryml/baml-linux-x64-musl', 
+        '@boundaryml/baml-linux-x64-gnu'
+      ],
     }
   }
 });
