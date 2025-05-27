@@ -1,7 +1,7 @@
 export const prerender = false; // This ensures the file is treated as a dynamic serverless function
 
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content"; // Astro's way to get content collections
+import { getEntryBySlug } from 'astro:content'; // Ensure this is the primary way to get the post
 import type { KVNamespace } from "@cloudflare/workers-types"; // Added for KV
 
 // CACHE_TTL_SECONDS remains the same
@@ -59,18 +59,38 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // Further validation for message structure can be added here if needed
     // e.g., messages.every(m => m.role && m.content)
 
-    // 2. Fetch the specific blog post content
-    // Note: For a very large number of blog posts, getCollection() might load a lot of data.
-    // For v1, this is acceptable. For future optimization, consider other ways to fetch single post content.
-    const posts = await getCollection("blog");
-    const post = posts.find((p) => p.slug === slug);
-
-    if (!post) {
-      return new Response(JSON.stringify({ error: "Blog post not found" }), {
-        status: 404, // Not Found
-        headers: { "Content-Type": "application/json" },
-      });
+    // --- MODIFIED SECTION: Fetching blog post content ---
+    let postBodyForContext: string;
+    try {
+      const postEntry = await getEntryBySlug('blog', slug);
+      if (!postEntry) {
+        console.error(`Blog post with slug "${slug}" not found.`);
+        // Log this error to R2 before returning
+        // Assuming appendToSessionLog is defined and handles R2 writes.
+        // If appendToSessionLog is not defined in this file's scope, these calls will cause runtime errors.
+        if (typeof appendToSessionLog === 'function') { 
+           await appendToSessionLog({ 
+              role: "error",
+              content: `Context Error: Blog post with slug '${slug}' not found.`,
+              timestampUTC: new Date().toISOString(),
+           });
+        }
+        return new Response(JSON.stringify({ error: "Blog post context not found." }), { status: 404 });
+      }
+      postBodyForContext = postEntry.body;
+    } catch (e) {
+      console.error(`Error fetching blog post with slug "${slug}":`, e);
+      // If appendToSessionLog is not defined in this file's scope, these calls will cause runtime errors.
+      if (typeof appendToSessionLog === 'function') {
+          await appendToSessionLog({
+              role: "error",
+              content: `Context Error: Failed to fetch blog post '${slug}'. Details: ${e instanceof Error ? e.message : String(e)}`,
+              timestampUTC: new Date().toISOString(),
+          });
+      }
+      return new Response(JSON.stringify({ error: "Failed to retrieve blog post context." }), { status: 500 });
     }
+    // --- END MODIFIED SECTION ---
 
     // 3. Securely access the API key
     const apiKey = getApiKey(locals, import.meta.env.DEV);
@@ -189,12 +209,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const siteUrl = new URL(request.url).origin; // Get site's base URL
 
     // --- Define Payload for the Answering LLM ---
-    const answererSystemPrompt = `/no_think You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`;
+    const answererSystemPrompt = `/no_think You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${postBodyForContext}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`;
+
     const answererPayload = {
       model: DEFAULT_MODEL,
       messages: [
         { role: "system", content: answererSystemPrompt },
-        ...messages,
+        // Ensure `messages` here is the chat history from the client, not the one used for cache check
+        ...(body.messages || []), // Use body.messages which is the chat history for LLM
       ],
       provider: { order: ["cerebras", "sambanova", "lambda"] },
       max_tokens: 1000,
