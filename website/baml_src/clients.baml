@@ -6,8 +6,8 @@ client OpenRouterQwenForSpam {
   // that are OpenAI API compatible.
   provider openai-generic
   options {
-    // BAML will automatically look for OPENROUTER_API_KEY in environment variables.
-    // api_key env.OPENROUTER_API_KEY // This is often implicit if OPENROUTER_API_KEY is set
+    // Explicitly set the API key from environment variable
+    api_key env.OPENROUTER_API_KEY
 
     // Specify the base URL for OpenRouter.
     base_url "https://openrouter.ai/api/v1"
