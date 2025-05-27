@@ -1,7 +1,7 @@
 
 // Client definition for OpenRouter using Claude 3 Haiku,
 // specifically for the spam checking task.
-client OpenRouterHaikuForSpam client<llm> {
+client OpenRouterHaikuForSpam {
   // BAML uses 'openai-generic' for providers like OpenRouter
   // that are OpenAI API compatible.
   provider openai-generic
@@ -14,6 +14,10 @@ client OpenRouterHaikuForSpam client<llm> {
 
     // Specify the model to be used with this client.
     model "anthropic/claude-3-haiku-20240307"
+
+    // Default options for this client
+    max_tokens 75      // Sufficient for a boolean JSON response.
+    temperature 0.0    // For deterministic output.
 
     // Default retry policy (optional, BAML has defaults)
     // retry_policy {

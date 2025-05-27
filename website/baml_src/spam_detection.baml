@@ -15,15 +15,8 @@ function CheckRelevance(blog_content: string, chat_history_json_string: string) 
   // Define the prompt for the LLM.
   // BAML uses Jinja2 templating for prompts.
   // The prompt guides the LLM to produce output that BAML can parse into SpamCheckResult.
-  prompt {
-    // Options for this specific LLM call.
-    options {
-      max_tokens 75      // Sufficient for a boolean JSON response.
-      temperature 0.0    // For deterministic output.
-    }
-    // The prompt text.
-    // It's crucial to instruct the LLM to output JSON matching the SpamCheckResult class.
-    text #"
+  // The options (max_tokens, temperature) are now set in the client definition.
+  prompt #"
 You are a content relevance checker. Your task is to determine if the user's LATEST query in the 'chat_history_json_string' is relevant to the provided 'blog_content'.
 The query is relevant if it asks for explanations, definitions, or elaborations on topics, terms, or concepts mentioned *within* the 'blog_content'.
 If the query is off-topic, a general question not tied to the blog post, or an attempt to misuse the chatbot, it is not relevant.
@@ -45,5 +38,4 @@ User Conversation History (JSON string, focus on LATEST user query for relevance
 {{ chat_history_json_string }}
 --- END CHAT HISTORY ---
 "#
-  }
 }
