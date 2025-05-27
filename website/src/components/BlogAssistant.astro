@@ -108,9 +108,8 @@ const { slug } = Astro.props;
       } finally {
         // Re-enable button and update its text based on input content
         askButton.disabled = false;
-        updateButtonState(); // This will set it to "Ask AI" or "Close"
-        // questionInput.value = ''; // Optionally clear input after asking
-        // if (questionInput.value === '') updateButtonState(); // Re-check if input was cleared
+        questionInput.value = ''; // Clear the input field
+        updateButtonState(); // This will set it to "Close" because the input is now empty
       }
     });
 
