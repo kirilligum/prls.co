@@ -194,6 +194,65 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
     .post-body code { background-color: #f7f7f7; padding: 0.15em 0.3em; border-radius: 3px; font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 0.9em; color: #c7254e; }
     .post-body pre { background-color: #f7f7f7; border: 1px solid #e5e5e5; padding: 1.25rem; border-radius: 4px; overflow-x: auto; margin: 1.5rem 0; line-height: 1.45; }
     .post-body pre code { background-color: transparent; padding: 0; font-size: 0.9em; color: inherit; }
+
+    /* Utility class to hide elements */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Styles for the Floating Action Button */
+    .fab-ask-ai {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000; /* Ensure it's on top of other content */
+      
+      /* Match styling of #ask-ai-button in BlogAssistant.astro */
+      background-color: var(--prls-text-primary, #333);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.2s ease, opacity 0.3s ease, visibility 0.3s ease;
+      font-size: 0.95rem; /* Match textarea or internal button font size */
+      padding: 0.75rem 1rem; /* Match internal button's effective padding */
+    }
+
+    .fab-ask-ai:hover {
+      background-color: var(--prls-text-secondary, #555); /* Match hover state */
+    }
   </style>
+
+  {/* Floating Action Button to open the AI Assistant */}
+  <button id="floating-ask-ai-button" type="button" class="fab-ask-ai">Ask AI</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fabButton = document.getElementById('floating-ask-ai-button');
+      // The assistantContainer is rendered by BlogAssistant.astro
+      const assistantContainer = document.querySelector('.assistant-ui-container');
+      const questionInput = document.getElementById('ai-question-input'); // Inside BlogAssistant
+
+      if (fabButton && assistantContainer && questionInput) {
+        // AI Assistant is initially hidden by a class in its own component.
+        // FAB is initially visible.
+
+        fabButton.addEventListener('click', () => {
+          fabButton.classList.add('hidden'); // Hide the FAB
+          assistantContainer.classList.remove('hidden'); // Show the AI assistant
+          
+          questionInput.focus(); // Focus the input field for better UX
+          
+          // Trigger an 'input' event on the questionInput.
+          // This allows the script in BlogAssistant.astro to correctly set
+          // the internal button's text to "Close" if the input is empty.
+          questionInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+        });
+      } else {
+        console.warn('Required elements for AI Assistant toggle not found in BlogPostLayout.');
+      }
+    });
+  </script>
 </body>
 </html>
