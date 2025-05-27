@@ -108,7 +108,7 @@ User Conversation History (focus on LATEST user query for relevance check):`;
 // The ...messages will be appended by the payload construction.
     
     const spamBlockerPayload = {
-      model: 'qwen/qwen3-32b', 
+      model: 'anthropic/claude-3-haiku-20240307', // Revert to Haiku for better JSON adherence
       messages: [{ role: 'system', content: spamBlockerSystemPrompt }, ...messages], 
       response_format: {
         type: "json_schema",
@@ -118,7 +118,7 @@ User Conversation History (focus on LATEST user query for relevance check):`;
           schema: spamBlockerSchema   // As per OpenRouter docs (schema definition here)
         }
       },
-      max_tokens: 50, 
+      max_tokens: 75, // Slightly increase max_tokens for the spam blocker
       temperature: 0.0, // Set to 0 for maximum determinism
     };
 
