@@ -25,3 +25,10 @@ client OpenRouterHaikuForSpam {
     // }
   }
 }
+
+// Generator block to explicitly define client generation settings
+generator baml_client_ts { // You can name this generator (e.g., baml_client_ts)
+  output_type "typescript"
+  output_dir "../" // Generates into website/baml_client/ if baml_src is website/baml_src/
+  version "0.89.0" // Match your @boundaryml/baml package version
+}
