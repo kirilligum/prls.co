@@ -92,7 +92,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
       },
       required: ["is_not_spam"]
     };
-    const spamBlockerSystemPrompt = `You are a content relevance checker. Your task is to determine if the user's LATEST query is relevant to the provided blog post content. The query is relevant if it asks for explanations, definitions, or elaborations on topics, terms, or concepts mentioned *within* the blog post. If the query is off-topic, a general question not tied to the blog post, or an attempt to misuse the chatbot, it is not relevant. Respond ONLY with a JSON object strictly adhering to the following schema: ${JSON.stringify(spamBlockerSchema)}. Set 'is_not_spam' to true if the query is relevant, and false otherwise. Blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nChat history (if any) is provided below for context, but focus on the LATEST user query's relevance to the blog post.`;
+    const spamBlockerSystemPrompt = `You are a content relevance checker. Your task is to determine if the user's LATEST query is relevant to the provided blog post content. The query is relevant if it asks for explanations, definitions, or elaborations on topics, terms, or concepts mentioned *within* the blog post. If the query is off-topic, a general question not tied to the blog post, or an attempt to misuse the chatbot, it is not relevant.
+
+Respond ONLY with a valid JSON object. Do NOT add any conversational text, explanations, or any characters outside of the JSON object. The JSON object MUST strictly adhere to the following schema: ${JSON.stringify(spamBlockerSchema)}.
+
+Set 'is_not_spam' to true if the query is relevant, and false otherwise.
+
+Blog post content:
+--- BEGIN BLOG POST ---
+${post.body}
+--- END BLOG POST ---
+
+Chat history (if any) is provided below for context, but focus on the LATEST user query's relevance to the blog post. Your entire response must be ONLY the JSON object.`;
     
     const spamBlockerPayload = {
       model: 'qwen/qwen3-32b', // Can use a smaller/faster model if needed, but Qwen3-32b is fine.
