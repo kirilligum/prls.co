@@ -122,6 +122,8 @@ User Conversation History (focus on LATEST user query for relevance check):`;
       temperature: 0.0, // Set to 0 for maximum determinism
     };
 
+    console.log("Spam Blocker Payload:", JSON.stringify(spamBlockerPayload, null, 2)); // Log the payload
+
     // --- Make API Calls Concurrently ---
     const commonHeaders = {
       'Authorization': `Bearer ${apiKey}`,
@@ -147,9 +149,12 @@ User Conversation History (focus on LATEST user query for relevance check):`;
     // --- Process Spam Blocker Response ---
     let isNotSpam = true; // Default to not spam if spam check fails
     if (spamBlockerResponse.ok) {
+      const rawSpamResponseText = await spamBlockerResponse.text(); // Get raw text first for logging
+      console.log("Raw Spam Blocker Response Text:", rawSpamResponseText);
       try {
-        const spamData = await spamBlockerResponse.json();
+        const spamData = JSON.parse(rawSpamResponseText); // Try to parse the raw text
         const rawContent = spamData.choices?.[0]?.message?.content || '';
+        console.log("Spam Blocker Raw Content from Parsed JSON:", rawContent);
         
         // Attempt to extract JSON from the raw content
         let parsedContent = null;
@@ -158,28 +163,31 @@ User Conversation History (focus on LATEST user query for relevance check):`;
         if (jsonMatch && jsonMatch[0]) {
           try {
             parsedContent = JSON.parse(jsonMatch[0]);
+            console.log("Spam Blocker Successfully Parsed Extracted JSON:", parsedContent);
           } catch (e) {
-            console.error('Spam blocker: Found potential JSON, but failed to parse:', e, 'Raw content was:', rawContent);
+            console.error('Spam blocker: Found potential JSON in content, but failed to parse extracted JSON:', e, 'Extracted part was:', jsonMatch[0], 'Original raw content was:', rawContent);
             // parsedContent remains null
           }
         } else {
-          console.warn('Spam blocker: No JSON object found in response. Raw content:', rawContent);
+          console.warn('Spam blocker: No JSON object found in content string. Raw content string was:', rawContent);
         }
 
         if (parsedContent && typeof parsedContent.is_not_spam === 'boolean') {
           isNotSpam = parsedContent.is_not_spam;
         } else {
-          console.warn('Spam blocker did not return a valid boolean in expected structure. Defaulting to not spam.');
+          console.warn('Spam blocker did not return a valid boolean in expected structure (parsedContent.is_not_spam). Defaulting to not spam. Parsed content was:', parsedContent);
         }
       } catch (e) {
-        console.error('Error parsing spam blocker response:', e);
+        console.error('Error parsing the main spam blocker response (outer JSON structure):', e, "Raw text was:", rawSpamResponseText);
         // isNotSpam remains true (default)
       }
     } else {
-      const errorText = await spamBlockerResponse.text();
-      console.error(`Spam Blocker API Error: Status ${spamBlockerResponse.status}`, errorText);
+      const errorText = await spamBlockerResponse.text(); // Get text for error logging
+      console.error(`Spam Blocker API HTTP Error: Status ${spamBlockerResponse.status}`, errorText);
       // isNotSpam remains true (default)
     }
+
+    console.log("Final Spam Check Result (isNotSpam):", isNotSpam);
 
     if (!isNotSpam) {
       return new Response(JSON.stringify({ answer: "This chatbot is only for questions related to the content of the article." }), {
