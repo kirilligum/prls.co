@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content'; // Astro's way to get content col
 import type { KVNamespace } from '@cloudflare/workers-types'; // Added for KV
 
 const CACHEABLE_QUESTION_PHRASE = "Provide a brief summary of this blog post.";
-const CACHE_TTL_SECONDS = 60 * 60 * 24; // 24 hours
+const CACHE_TTL_SECONDS = 60 * 60 * 24 * 60; // 2 months (60 days)
 
 function normalizeQuestionForCache(question: string): string {
   // Normalize by converting to lowercase, removing punctuation, and collapsing multiple spaces
