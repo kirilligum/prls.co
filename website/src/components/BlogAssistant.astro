@@ -148,6 +148,14 @@ const { slug } = Astro.props;
       chatHistory.push({ type: 'system', content: '<i>Fetching answer from AI...</i>' });
       renderChatHistory();
 
+      // Prepare messages for the API, including history
+      const messagesForApi = chatHistory
+        .filter(msg => msg.type === 'user' || msg.type === 'ai') // Only send user and AI messages
+        .map(msg => ({
+          role: msg.type === 'ai' ? 'assistant' : 'user', // Map 'ai' to 'assistant' for the API
+          content: msg.content
+        }));
+      // The current question is already the last item in messagesForApi if it's a 'user' message
 
       try {
         const apiResponse = await fetch('/api/ask', { // Calls your backend API endpoint
@@ -155,7 +163,8 @@ const { slug } = Astro.props;
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ question: question, slug: postSlug }),
+          // Send the formatted messages array and the slug
+          body: JSON.stringify({ messages: messagesForApi, slug: postSlug }),
         });
 
         const data = await apiResponse.json();

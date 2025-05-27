@@ -7,15 +7,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
   try {
     // 1. Parse incoming request data
     const body = await request.json();
-    const { question, slug } = body;
+    // Expect 'messages' array (chat history + current question) and 'slug'
+    const { messages, slug } = body; 
 
     // Basic validation
-    if (!question || !slug) {
-      return new Response(JSON.stringify({ error: 'Missing question or slug parameter' }), {
+    if (!messages || !Array.isArray(messages) || messages.length === 0 || !slug) {
+      return new Response(JSON.stringify({ error: 'Missing messages array, or slug parameter' }), {
         status: 400, // Bad Request
         headers: { 'Content-Type': 'application/json' },
       });
     }
+    // Further validation for message structure can be added here if needed
+    // e.g., messages.every(m => m.role && m.content)
 
     // 2. Fetch the specific blog post content
     // Note: For a very large number of blog posts, getCollection() might load a lot of data.
@@ -66,16 +69,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // Be aware: Extremely large post bodies (e.g., "a million tokens") might exceed model context limits,
     // be very slow, and incur high costs. Check OpenRouter's limits for the chosen model.
     const openRouterPayload = {
-      model: 'qwen/qwen3-32b', 
+      model: 'qwen/qwen3-32b',
+      // Construct messages: System prompt first, then the chat history (including current question)
       messages: [
         {
           role: 'system',
-          content: `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n/no_think`,
+          content: `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`,
         },
-        {
-          role: 'user',
-          content: question,
-        },
+        ...messages // Spread the received messages (history + current question)
       ],
       provider: {
         "order": ["cerebras", "sambanova", "lambda"]
