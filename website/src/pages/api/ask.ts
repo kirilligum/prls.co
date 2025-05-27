@@ -79,59 +79,68 @@ export const POST: APIRoute = async ({ request, locals }) => {
       });
     }
 
-    // 4. Check Cache for the predefined question
+    // 4. Determine cache eligibility and attempt cache read
     const aiCache = locals.runtime?.env?.PRLS_BLOGPOST_AI_CACHE;
-    const lastMessage = messages[messages.length - 1]; // Get the last message from the chat history
-    let isCacheableQuestion = false;
+    const lastMessage = messages[messages.length - 1];
+    let isCacheableQuestion = false; // Will be true if content matches AND it's the first message
     let cacheKey = "";
+    let questionContentMatches = false; // Flag to track if the question content itself matches
 
-    console.log('[DEBUG] Attempting cache check. KV available:', !!aiCache);
+    console.log('[DEBUG] Initial cache eligibility check. KV available:', !!aiCache);
     if (lastMessage) {
-      console.log(`[DEBUG] Last message role: "${lastMessage.role}", content: "${lastMessage.content}"`);
+      console.log(`[DEBUG] Last message role: "${lastMessage.role}", content (first 100 chars): "${lastMessage.content?.substring(0,100)}"`);
     } else {
       console.log('[DEBUG] No last message found in request.');
     }
+    console.log(`[DEBUG] Total messages in history: ${messages.length}`);
 
-    // Check if caching is possible and if the last message is a user question matching the cacheable phrase
     if (aiCache && lastMessage && lastMessage.role === 'user') {
       const currentUserQuestion = lastMessage.content;
       const normalizedCurrentUserQuestion = normalizeQuestionForCache(currentUserQuestion);
       
-      console.log(`[DEBUG] Current user question (raw): "${currentUserQuestion}"`);
+      console.log(`[DEBUG] Current user question (raw, first 100 chars): "${currentUserQuestion?.substring(0,100)}"`);
       console.log(`[DEBUG] Current user question (normalized): "${normalizedCurrentUserQuestion}"`);
       console.log(`[DEBUG] Predefined cacheable question (normalized): "${NORMALIZED_CACHEABLE_QUESTION}"`);
 
       if (normalizedCurrentUserQuestion === NORMALIZED_CACHEABLE_QUESTION) {
-        console.log('[DEBUG] Normalized questions MATCH. This question is cacheable.');
-        isCacheableQuestion = true;
-        cacheKey = `summary-cache::${slug}`; // Cache key specific to the blog post slug
-        console.log(`[DEBUG] Generated cache key: "${cacheKey}"`);
-        try {
-          console.log(`[CACHE] Checking cache for key: ${cacheKey}`);
-          const cachedAnswer = await aiCache.get(cacheKey);
-          if (cachedAnswer) {
-            console.log(`[CACHE] HIT for key: ${cacheKey}. Returning cached answer.`);
-            // If found in cache, return it immediately
-            return new Response(JSON.stringify({ answer: cachedAnswer, source: 'cache' }), {
-              status: 200,
-              headers: { 'Content-Type': 'application/json' },
-            });
-          } else {
-            console.log(`[CACHE] MISS for key: ${cacheKey}`);
+        questionContentMatches = true; // Content matches
+        console.log('[DEBUG] Question content MATCHES predefined cacheable phrase.');
+        
+        if (messages.length === 1) {
+          console.log('[DEBUG] AND it is the FIRST message. This question IS cacheable.');
+          isCacheableQuestion = true; // Mark as fully cacheable
+          cacheKey = `summary-cache::${slug}`;
+          console.log(`[DEBUG] Generated cache key: "${cacheKey}"`);
+          
+          // Attempt cache read
+          try {
+            console.log(`[CACHE] Checking cache for key: ${cacheKey}`);
+            const cachedAnswer = await aiCache.get(cacheKey);
+            if (cachedAnswer) {
+              console.log(`[CACHE] HIT for key: ${cacheKey}. Returning cached answer.`);
+              return new Response(JSON.stringify({ answer: cachedAnswer, source: 'cache' }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' },
+              });
+            } else {
+              console.log(`[CACHE] MISS for key: ${cacheKey}`);
+            }
+          } catch (kvError) {
+            console.error(`[CACHE] KV Cache read error for key ${cacheKey}:`, kvError);
+            // If cache read fails, proceed to LLM call. Do not block the request.
           }
-        } catch (kvError) {
-          console.error(`[CACHE] KV Cache read error for key ${cacheKey}:`, kvError);
-          // If cache read fails, proceed to LLM call. Do not block the request.
+        } else {
+          console.log(`[DEBUG] BUT it is NOT the FIRST message (messages.length: ${messages.length}). Not attempting cache read, and will not write to cache later.`);
         }
       } else {
-        console.log('[DEBUG] Normalized questions DO NOT MATCH. This question is NOT cacheable by current logic.');
+        console.log('[DEBUG] Question content DOES NOT MATCH predefined cacheable phrase. Not cacheable.');
       }
     } else {
-      let reason = '[DEBUG] Cache check skipped: ';
+      let reason = '[DEBUG] Initial conditions for caching not met: ';
       if (!aiCache) reason += 'KV unavailable. ';
       if (!lastMessage) reason += 'No last message. ';
-      if (lastMessage && lastMessage.role !== 'user') reason += `Last message not from user (role: ${lastMessage.role}).`;
-      console.log(reason);
+      else if (lastMessage.role !== 'user') reason += `Last message not from user (role: ${lastMessage.role}). `;
+      console.log(reason.trim());
     }
 
     // 5. Prepare the payload for OpenRouter if not served from cache
@@ -181,21 +190,35 @@ export const POST: APIRoute = async ({ request, locals }) => {
       aiAnswer = 'No answer was received from the AI for your question.';
     }
 
-    // 6. Store in Cache if it was a cacheable question and LLM call was successful
-    console.log(`[DEBUG] Conditions for cache write: isCacheableQuestion=${isCacheableQuestion}, aiCache=${!!aiCache}, answererResponse.ok=${answererResponse?.ok}, aiAnswer exists=${!!aiAnswer}`);
+    // 6. Store in Cache if it was a cacheable question (content matched AND was first message) and LLM call was successful
+    console.log(`[DEBUG] Conditions for cache write: isCacheableQuestion=${isCacheableQuestion}, aiCache=${!!aiCache}, answererResponse.ok=${answererResponse.ok}, aiAnswer exists=${!!aiAnswer}`);
     if (isCacheableQuestion && aiCache && answererResponse.ok && aiAnswer) {
       try {
+        // cacheKey would have been set if isCacheableQuestion is true
         console.log(`[CACHE] Writing to cache for key: ${cacheKey} (LLM answer: "${aiAnswer.substring(0, 50)}...")`);
-        // Store the successful LLM response in cache for future requests
         await aiCache.put(cacheKey, aiAnswer, { expirationTtl: CACHE_TTL_SECONDS });
         console.log(`[CACHE] Successfully wrote to cache for key: ${cacheKey}`);
       } catch (kvError) {
         console.error(`[CACHE] KV Cache write error for key ${cacheKey}:`, kvError);
-        // Do not fail the request if cache write fails
       }
+    } else if (answererResponse.ok && aiAnswer) { // Log why write was skipped if LLM call was ok but not cached
+        let skipReason = "[DEBUG] Cache write skipped: ";
+        if (!isCacheableQuestion) {
+            if (questionContentMatches && messages.length > 1) { // Content matched but not first message
+                skipReason += "Question matched phrase but was not the first message. ";
+            } else if (!questionContentMatches && lastMessage && lastMessage.role === 'user') { // Content didn't match
+                skipReason += "Question content did not match predefined phrase. ";
+            } else { // Other reasons (e.g. not user message, no last message)
+                skipReason += "Question was not eligible for caching (check earlier logs for specifics). ";
+            }
+        }
+        if (!aiCache) skipReason += "KV unavailable. ";
+        if (!answererResponse.ok) skipReason += "LLM response not OK. ";
+        if (!aiAnswer) skipReason += "No AI answer. ";
+        console.log(skipReason.trim());
     }
 
-    return new Response(JSON.stringify({ answer: aiAnswer, source: 'llm' }), { // Added source: 'llm'
+    return new Response(JSON.stringify({ answer: aiAnswer, source: 'llm' }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
