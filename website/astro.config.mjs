@@ -20,8 +20,8 @@ export default defineConfig({
         'child_process', 
         /\.node$/, 
         '@boundaryml/baml-linux-x64-musl', 
-        '@boundaryml/baml-linux-x64-gnu',
-        '@boundaryml/baml' // Add the main BAML package
+        '@boundaryml/baml-linux-x64-gnu'
+        // REMOVED '@boundaryml/baml' from external, let Vite try to bundle its JS parts
       ],
     }
   }
