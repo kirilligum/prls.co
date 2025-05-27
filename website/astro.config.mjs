@@ -20,7 +20,8 @@ export default defineConfig({
         'child_process', 
         /\.node$/, 
         '@boundaryml/baml-linux-x64-musl', 
-        '@boundaryml/baml-linux-x64-gnu'
+        '@boundaryml/baml-linux-x64-gnu',
+        '@boundaryml/baml' // Add the main BAML package
       ],
     }
   }
