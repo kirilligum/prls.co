@@ -18,9 +18,8 @@ export default defineConfig({
         'async_hooks', 
         'fs', 
         'child_process', 
-        /\.node$/, 
-        '@boundaryml/baml-linux-x64-musl', 
-        '@boundaryml/baml-linux-x64-gnu'
+        /\.node$/, // General rule for any .node file
+        /^@boundaryml\/baml-linux-x64-(?:musl|gnu)/ // Regex to externalize BAML native addon packages and their contents
         // REMOVED '@boundaryml/baml' from external, let Vite try to bundle its JS parts
       ],
     }
