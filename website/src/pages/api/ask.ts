@@ -4,15 +4,13 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content'; // Astro's way to get content collections
 import type { KVNamespace } from '@cloudflare/workers-types'; // Added for KV
 
-const CACHEABLE_QUESTION_PHRASE = "Provide a brief summary of this blog post.";
+// CACHE_TTL_SECONDS remains the same
 const CACHE_TTL_SECONDS = 60 * 60 * 24 * 60; // 2 months (60 days)
 
 function normalizeQuestionForCache(question: string): string {
   // Normalize by converting to lowercase, removing punctuation, and collapsing multiple spaces
   return question.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, ' ').trim();
 }
-
-const NORMALIZED_CACHEABLE_QUESTION = normalizeQuestionForCache(CACHEABLE_QUESTION_PHRASE);
 
 // Helper function to retrieve API key
 function getApiKey(locals: App.Locals, devMode: boolean): string | undefined {
@@ -82,9 +80,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // 4. Determine cache eligibility and attempt cache read
     const aiCache = locals.runtime?.env?.PRLS_BLOGPOST_AI_CACHE;
     const lastMessage = messages[messages.length - 1];
-    let isCacheableQuestion = false; // Will be true if content matches AND it's the first message
+    let isCacheableQuestion = false; 
     let cacheKey = "";
-    let questionContentMatches = false; // Flag to track if the question content itself matches
+    // let questionContentMatches = false; // REMOVED
 
     console.log('[DEBUG] Initial cache eligibility check. KV available:', !!aiCache);
     if (lastMessage) {
@@ -96,45 +94,45 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     if (aiCache && lastMessage && lastMessage.role === 'user') {
       const currentUserQuestion = lastMessage.content;
+      // It's good practice to normalize the question for the cache key to avoid minor variations
+      // (e.g., case, extra spaces) creating different cache entries for essentially the same question.
       const normalizedCurrentUserQuestion = normalizeQuestionForCache(currentUserQuestion);
       
       console.log(`[DEBUG] Current user question (raw, first 100 chars): "${currentUserQuestion?.substring(0,100)}"`);
       console.log(`[DEBUG] Current user question (normalized): "${normalizedCurrentUserQuestion}"`);
-      console.log(`[DEBUG] Predefined cacheable question (normalized): "${NORMALIZED_CACHEABLE_QUESTION}"`);
+      // The log for predefined cacheable question is no longer relevant here.
 
-      if (normalizedCurrentUserQuestion === NORMALIZED_CACHEABLE_QUESTION) {
-        questionContentMatches = true; // Content matches
-        console.log('[DEBUG] Question content MATCHES predefined cacheable phrase.');
+      // NEW CACHING LOGIC: Cache if it's the first message in the thread.
+      if (messages.length === 1) {
+        console.log('[DEBUG] This is the FIRST message. This question IS cacheable.');
+        isCacheableQuestion = true; // Mark as cacheable
+        // Generate a cache key based on the slug AND the normalized question content
+        // to ensure different initial questions for the same slug have different cache entries.
+        // Using a prefix like "initial-q::" to distinguish from other potential cache types in the future.
+        cacheKey = `initial-q::${slug}::${normalizedCurrentUserQuestion}`; 
+        console.log(`[DEBUG] Generated cache key: "${cacheKey}"`);
         
-        if (messages.length === 1) {
-          console.log('[DEBUG] AND it is the FIRST message. This question IS cacheable.');
-          isCacheableQuestion = true; // Mark as fully cacheable
-          cacheKey = `summary-cache::${slug}`;
-          console.log(`[DEBUG] Generated cache key: "${cacheKey}"`);
-          
-          // Attempt cache read
-          try {
-            console.log(`[CACHE] Checking cache for key: ${cacheKey}`);
-            const cachedAnswer = await aiCache.get(cacheKey);
-            if (cachedAnswer) {
-              console.log(`[CACHE] HIT for key: ${cacheKey}. Returning cached answer.`);
-              return new Response(JSON.stringify({ answer: cachedAnswer, source: 'cache' }), {
-                status: 200,
-                headers: { 'Content-Type': 'application/json' },
-              });
-            } else {
-              console.log(`[CACHE] MISS for key: ${cacheKey}`);
-            }
-          } catch (kvError) {
-            console.error(`[CACHE] KV Cache read error for key ${cacheKey}:`, kvError);
-            // If cache read fails, proceed to LLM call. Do not block the request.
+        // Attempt cache read
+        try {
+          console.log(`[CACHE] Checking cache for key: ${cacheKey}`);
+          const cachedAnswer = await aiCache.get(cacheKey);
+          if (cachedAnswer) {
+            console.log(`[CACHE] HIT for key: ${cacheKey}. Returning cached answer.`);
+            return new Response(JSON.stringify({ answer: cachedAnswer, source: 'cache' }), {
+              status: 200,
+              headers: { 'Content-Type': 'application/json' },
+            });
+          } else {
+            console.log(`[CACHE] MISS for key: ${cacheKey}`);
           }
-        } else {
-          console.log(`[DEBUG] BUT it is NOT the FIRST message (messages.length: ${messages.length}). Not attempting cache read, and will not write to cache later.`);
+        } catch (kvError) {
+          console.error(`[CACHE] KV Cache read error for key ${cacheKey}:`, kvError);
+          // If cache read fails, proceed to LLM call. Do not block the request.
         }
       } else {
-        console.log('[DEBUG] Question content DOES NOT MATCH predefined cacheable phrase. Not cacheable.');
+        console.log(`[DEBUG] This is NOT the FIRST message (messages.length: ${messages.length}). Not attempting cache read, and will not write to cache later.`);
       }
+      // The old 'if/else' block checking against NORMALIZED_CACHEABLE_QUESTION is removed.
     } else {
       let reason = '[DEBUG] Initial conditions for caching not met: ';
       if (!aiCache) reason += 'KV unavailable. ';
@@ -204,17 +202,19 @@ export const POST: APIRoute = async ({ request, locals }) => {
     } else if (answererResponse.ok && aiAnswer) { // Log why write was skipped if LLM call was ok but not cached
         let skipReason = "[DEBUG] Cache write skipped: ";
         if (!isCacheableQuestion) {
-            if (questionContentMatches && messages.length > 1) { // Content matched but not first message
-                skipReason += "Question matched phrase but was not the first message. ";
-            } else if (!questionContentMatches && lastMessage && lastMessage.role === 'user') { // Content didn't match
-                skipReason += "Question content did not match predefined phrase. ";
-            } else { // Other reasons (e.g. not user message, no last message)
-                skipReason += "Question was not eligible for caching (check earlier logs for specifics). ";
+            // If it wasn't cacheable, and we got this far, it's likely because it wasn't the first message,
+            // or initial conditions (KV, user message) weren't met.
+            if (lastMessage && lastMessage.role === 'user' && messages.length > 1) {
+                skipReason += "Question was not the first message. ";
+            } else { 
+                skipReason += "Question was not eligible for caching (check earlier logs for specifics like KV availability or message role). ";
             }
         }
-        if (!aiCache) skipReason += "KV unavailable. ";
-        if (!answererResponse.ok) skipReason += "LLM response not OK. ";
-        if (!aiAnswer) skipReason += "No AI answer. ";
+        // The following conditions are less likely if !isCacheableQuestion was the primary reason,
+        // but good to keep for completeness if other parts of the `if` for writing failed.
+        if (!aiCache && isCacheableQuestion) skipReason += "KV unavailable (though question was deemed cacheable). "; // Edge case
+        if (!answererResponse.ok) skipReason += "LLM response not OK. "; // This is already checked by the outer if
+        if (!aiAnswer) skipReason += "No AI answer. "; // This is also checked
         console.log(skipReason.trim());
     }
 
