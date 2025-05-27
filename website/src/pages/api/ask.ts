@@ -133,10 +133,6 @@ User Conversation History (focus on LATEST user query for relevance check):`;
     //   ? post.body.substring(0, MAX_SPAM_CHECK_CONTENT_LENGTH) + "..."
     //   : post.body; // REMOVED TRUNCATION
 
-    console.log("Calling BAML CheckRelevance with full blog_content and chat_history_json_string:", {
-      blog_content_length: post.body.length,
-      chat_history_json_string: JSON.stringify(messages)
-    });
     // Pass as positional arguments, not as an object
     const spamBlockerBamlPromise = b.CheckRelevance(
       post.body, // Use full post.body
@@ -155,13 +151,10 @@ User Conversation History (focus on LATEST user query for relevance check):`;
       // or throw an error if parsing fails or LLM call fails.
       if (spamCheckResult && typeof spamCheckResult.is_not_spam === 'boolean') {
         isNotSpam = spamCheckResult.is_not_spam;
-        console.log("BAML Spam Check Result (isNotSpam):", isNotSpam);
       } else {
-        console.warn("BAML spam checker did not return a valid boolean in the expected structure. Defaulting to not spam. Result:", spamCheckResult);
-        // isNotSpam remains true
+        // isNotSpam remains true (defaulting to not spam if BAML result is not as expected)
       }
     } catch (bamlError: any) {
-      console.error("Error from BAML spam checker (CheckRelevance function):", bamlError.message || bamlError);
       // isNotSpam remains true (default to not spam on BAML error)
     }
 
