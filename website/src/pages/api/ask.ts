@@ -2,6 +2,7 @@ export const prerender = false; // This ensures the file is treated as a dynamic
 
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content'; // Astro's way to get content collections
+import BamlClient from '../../../baml_client'; // Import the generated BAML client
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
@@ -106,89 +107,59 @@ ${post.body}
 --- END BLOG POST ---
 
 User Conversation History (focus on LATEST user query for relevance check):`;
-    // The ...messages will be appended by the payload construction.
+    // The ...messages (chat history) will be used for both BAML call and answerer LLM.
 
-    const spamBlockerPayload = {
-      model: 'qwen/qwen3-32b',
-      messages: [{ role: 'system', content: spamBlockerSystemPrompt }, ...messages],
-      response_format: {
-        type: "json_schema",
-        json_schema: {
-          name: "spam_check_schema", // As per OpenRouter docs
-          strict: true,               // As per OpenRouter example
-          schema: spamBlockerSchema   // As per OpenRouter docs (schema definition here)
-        }
-      },
-      max_tokens: 50,
-      temperature: 0.0, // Set to 0 for maximum determinism
-    };
-
-    console.log("Spam Blocker Payload:", JSON.stringify(spamBlockerPayload, null, 2)); // Log the payload
+    // BAML client initialization
+    // BAML generates a default export. Ensure OPENROUTER_API_KEY is in your environment.
+    const bamlClient = BamlClient; 
 
     // --- Make API Calls Concurrently ---
+    // 1. Answering LLM call (remains a direct fetch)
     const commonHeaders = {
-      'Authorization': `Bearer ${apiKey}`,
+      'Authorization': `Bearer ${apiKey}`, // apiKey is already sourced from env
       'Content-Type': 'application/json',
       'HTTP-Referer': siteUrl,
       'X-Title': 'Blog AI Assistant',
     };
-
     const answererPromise = fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: commonHeaders,
       body: JSON.stringify(answererPayload),
     });
 
-    const spamBlockerPromise = fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: commonHeaders,
-      body: JSON.stringify(spamBlockerPayload),
+    // 2. Spam Blocker LLM call using BAML
+    // The 'messages' array (chat history) is what the answererPayload uses.
+    // For BAML, we'll pass the blog body and the stringified 'messages' array.
+    console.log("Calling BAML CheckRelevance with blog_content and chat_history_json_string:", {
+      blog_content_length: post.body.length,
+      chat_history_json_string: JSON.stringify(messages)
     });
+    const spamBlockerBamlPromise = bamlClient.CheckRelevance({
+      blog_content: post.body,
+      chat_history_json_string: JSON.stringify(messages)
+    });
+    
+    // --- Process Responses ---
+    // We can await both promises concurrently if desired, or sequentially.
+    // For this flow, let's get the spam check result first.
+    
+    let isNotSpam = true; // Default to not spam
 
-    const [answererResponse, spamBlockerResponse] = await Promise.all([answererPromise, spamBlockerPromise]);
-
-    // --- Process Spam Blocker Response ---
-    let isNotSpam = true; // Default to not spam if spam check fails
-    if (spamBlockerResponse.ok) {
-      const rawSpamResponseText = await spamBlockerResponse.text(); // Get raw text first for logging
-      console.log("Raw Spam Blocker Response Text:", rawSpamResponseText);
-      try {
-        const spamData = JSON.parse(rawSpamResponseText); // Try to parse the raw text
-        const rawContent = spamData.choices?.[0]?.message?.content || '';
-        console.log("Spam Blocker Raw Content from Parsed JSON:", rawContent);
-
-        // Attempt to extract JSON from the raw content
-        let parsedContent = null;
-        const jsonMatch = rawContent.match(/\{[\s\S]*\}/); // Regex to find a JSON object
-
-        if (jsonMatch && jsonMatch[0]) {
-          try {
-            parsedContent = JSON.parse(jsonMatch[0]);
-            console.log("Spam Blocker Successfully Parsed Extracted JSON:", parsedContent);
-          } catch (e) {
-            console.error('Spam blocker: Found potential JSON in content, but failed to parse extracted JSON:', e, 'Extracted part was:', jsonMatch[0], 'Original raw content was:', rawContent);
-            // parsedContent remains null
-          }
-        } else {
-          console.warn('Spam blocker: No JSON object found in content string. Raw content string was:', rawContent);
-        }
-
-        if (parsedContent && typeof parsedContent.is_not_spam === 'boolean') {
-          isNotSpam = parsedContent.is_not_spam;
-        } else {
-          console.warn('Spam blocker did not return a valid boolean in expected structure (parsedContent.is_not_spam). Defaulting to not spam. Parsed content was:', parsedContent);
-        }
-      } catch (e) {
-        console.error('Error parsing the main spam blocker response (outer JSON structure):', e, "Raw text was:", rawSpamResponseText);
-        // isNotSpam remains true (default)
+    try {
+      const spamCheckResult = await spamBlockerBamlPromise;
+      // BAML client should directly return the parsed SpamCheckResult class instance
+      // or throw an error if parsing fails or LLM call fails.
+      if (spamCheckResult && typeof spamCheckResult.is_not_spam === 'boolean') {
+        isNotSpam = spamCheckResult.is_not_spam;
+        console.log("BAML Spam Check Result (isNotSpam):", isNotSpam);
+      } else {
+        console.warn("BAML spam checker did not return a valid boolean in the expected structure. Defaulting to not spam. Result:", spamCheckResult);
+        // isNotSpam remains true
       }
-    } else {
-      const errorText = await spamBlockerResponse.text(); // Get text for error logging
-      console.error(`Spam Blocker API HTTP Error: Status ${spamBlockerResponse.status}`, errorText);
-      // isNotSpam remains true (default)
+    } catch (bamlError: any) {
+      console.error("Error from BAML spam checker (CheckRelevance function):", bamlError.message || bamlError);
+      // isNotSpam remains true (default to not spam on BAML error)
     }
-
-    console.log("Final Spam Check Result (isNotSpam):", isNotSpam);
 
     if (!isNotSpam) {
       return new Response(JSON.stringify({ answer: "This chatbot is only for questions related to the content of the article." }), {
