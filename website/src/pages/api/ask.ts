@@ -149,8 +149,24 @@ User Conversation History (focus on LATEST user query for relevance check):`;
     if (spamBlockerResponse.ok) {
       try {
         const spamData = await spamBlockerResponse.json();
-        const parsedContent = JSON.parse(spamData.choices?.[0]?.message?.content || '{}');
-        if (typeof parsedContent.is_not_spam === 'boolean') {
+        const rawContent = spamData.choices?.[0]?.message?.content || '';
+        
+        // Attempt to extract JSON from the raw content
+        let parsedContent = null;
+        const jsonMatch = rawContent.match(/\{[\s\S]*\}/); // Regex to find a JSON object
+
+        if (jsonMatch && jsonMatch[0]) {
+          try {
+            parsedContent = JSON.parse(jsonMatch[0]);
+          } catch (e) {
+            console.error('Spam blocker: Found potential JSON, but failed to parse:', e, 'Raw content was:', rawContent);
+            // parsedContent remains null
+          }
+        } else {
+          console.warn('Spam blocker: No JSON object found in response. Raw content:', rawContent);
+        }
+
+        if (parsedContent && typeof parsedContent.is_not_spam === 'boolean') {
           isNotSpam = parsedContent.is_not_spam;
         } else {
           console.warn('Spam blocker did not return a valid boolean in expected structure. Defaulting to not spam.');
