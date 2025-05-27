@@ -1,14 +1,14 @@
 export const prerender = false; // This ensures the file is treated as a dynamic serverless function
 
 import type { APIRoute } from 'astro';
-import { getCollection }    from 'astro:content'; // Astro's way to get content collections
+import { getCollection } from 'astro:content'; // Astro's way to get content collections
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
     // 1. Parse incoming request data
     const body = await request.json();
     // Expect 'messages' array (chat history + current question) and 'slug'
-    const { messages, slug } = body; 
+    const { messages, slug } = body;
 
     // Basic validation
     if (!messages || !Array.isArray(messages) || messages.length === 0 || !slug) {
@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     if (!apiKey) {
-      const contextMessage = import.meta.env.DEV 
+      const contextMessage = import.meta.env.DEV
         ? "Local development: OPENROUTER_API_KEY not found in .env or via platform proxy."
         : "Cloudflare deployment: OPENROUTER_API_KEY not found in environment variables. Ensure it is set in Pages project settings.";
       console.error(`CRITICAL: ${contextMessage}`);
@@ -105,20 +105,20 @@ ${post.body}
 --- END BLOG POST ---
 
 User Conversation History (focus on LATEST user query for relevance check):`;
-// The ...messages will be appended by the payload construction.
-    
+    // The ...messages will be appended by the payload construction.
+
     const spamBlockerPayload = {
-      model: 'anthropic/claude-3-haiku-20240307', // Revert to Haiku for better JSON adherence
-      messages: [{ role: 'system', content: spamBlockerSystemPrompt }, ...messages], 
+      model: 'qwen/qwen3-32b',
+      messages: [{ role: 'system', content: spamBlockerSystemPrompt }, ...messages],
       response_format: {
         type: "json_schema",
-        json_schema: { 
+        json_schema: {
           name: "spam_check_schema", // As per OpenRouter docs
           strict: true,               // As per OpenRouter example
           schema: spamBlockerSchema   // As per OpenRouter docs (schema definition here)
         }
       },
-      max_tokens: 75, // Slightly increase max_tokens for the spam blocker
+      max_tokens: 50,
       temperature: 0.0, // Set to 0 for maximum determinism
     };
 
@@ -155,7 +155,7 @@ User Conversation History (focus on LATEST user query for relevance check):`;
         const spamData = JSON.parse(rawSpamResponseText); // Try to parse the raw text
         const rawContent = spamData.choices?.[0]?.message?.content || '';
         console.log("Spam Blocker Raw Content from Parsed JSON:", rawContent);
-        
+
         // Attempt to extract JSON from the raw content
         let parsedContent = null;
         const jsonMatch = rawContent.match(/\{[\s\S]*\}/); // Regex to find a JSON object
