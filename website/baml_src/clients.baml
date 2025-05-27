@@ -15,6 +15,11 @@ client OpenRouterQwenForSpam {
     // Specify the model to be used with this client.
     model "qwen/qwen3-32b"
 
+    // Specify provider preference
+    provider {
+      order ["cerebras", "sambanova", "lambda"]
+    }
+
     // Default options for this client
     max_tokens 75      // Sufficient for a boolean JSON response.
     temperature 0.0    // For deterministic output.
