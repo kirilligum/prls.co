@@ -114,8 +114,8 @@ User Conversation History (focus on LATEST user query for relevance check):`;
         type: "json_schema",
         json_schema: { 
           name: "spam_check_schema", // As per OpenRouter docs
+          strict: true,               // As per OpenRouter example
           schema: spamBlockerSchema   // As per OpenRouter docs (schema definition here)
-                                      // Removed "strict: true" to align closer with OpenRouter's direct example
         }
       },
       max_tokens: 50, 
