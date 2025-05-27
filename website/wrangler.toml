@@ -57,6 +57,11 @@ pages_build_output_dir = "./dist"
 # binding = "MY_BUCKET"
 # bucket_name = "my-bucket"
 
+[[kv_namespaces]]
+binding = "PRLS_BLOGPOST_AI_CACHE" # Reflects the namespace name "prls blogpost ai"
+id = "e05a15d829484001a8d3d37ba61cbe5f"
+preview_id = "e05a15d829484001a8d3d37ba61cbe5f"
+
 # Bind another Worker service. Use this binding to call another Worker without network overhead.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#service-bindings
 # [[services]]
