@@ -3,6 +3,24 @@ export const prerender = false; // This ensures the file is treated as a dynamic
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content'; // Astro's way to get content collections
 
+// Helper function to retrieve API key
+function getApiKey(locals: App.Locals, devMode: boolean): string | undefined {
+  // Attempt to get API key from Cloudflare runtime environment
+  if (locals.runtime?.env?.OPENROUTER_API_KEY) {
+    return locals.runtime.env.OPENROUTER_API_KEY;
+  }
+
+  // If API key is not found via runtime AND in local development mode,
+  // attempt to get it from Vite's `import.meta.env`.
+  if (devMode && import.meta.env.OPENROUTER_API_KEY) {
+    return import.meta.env.OPENROUTER_API_KEY;
+  }
+  return undefined;
+}
+
+const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+const DEFAULT_MODEL = 'qwen/qwen3-32b';
+
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
     // 1. Parse incoming request data
@@ -34,21 +52,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     // 3. Securely access the API key
-    // Securely access the API key
-    // Securely access the API key
-    let apiKey: string | undefined;
-
-    // Attempt to get API key from Cloudflare runtime environment
-    // This is the standard way for deployed Cloudflare Pages Functions and `wrangler pages dev`
-    if (locals.runtime?.env) {
-      apiKey = locals.runtime.env.OPENROUTER_API_KEY;
-    }
-
-    // If API key is not found via runtime AND we are in local development mode (`astro dev`),
-    // attempt to get it from Vite's `import.meta.env` (populated from .env files).
-    if (!apiKey && import.meta.env.DEV) {
-      apiKey = import.meta.env.OPENROUTER_API_KEY;
-    }
+    const apiKey = getApiKey(locals, import.meta.env.DEV);
 
     if (!apiKey) {
       const contextMessage = import.meta.env.DEV
@@ -72,7 +76,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // --- Define Payload for the Answering LLM ---
     const answererSystemPrompt = `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`;
     const answererPayload = {
-      model: 'qwen/qwen3-32b',
+      model: DEFAULT_MODEL,
       messages: [{ role: 'system', content: answererSystemPrompt }, ...messages],
       provider: { "order": ["cerebras", "sambanova", "lambda"] },
       max_tokens: 1000,
@@ -87,7 +91,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       'X-Title': 'Blog AI Assistant',
     };
 
-    const answererResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const answererResponse = await fetch(OPENROUTER_API_URL, {
       method: 'POST',
       headers: commonHeaders,
       body: JSON.stringify(answererPayload),
@@ -116,9 +120,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error in /api/ask endpoint:', error);
-    return new Response(JSON.stringify({ error: `An unexpected server error occurred: ${error.message}` }), {
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+    return new Response(JSON.stringify({ error: `An unexpected server error occurred: ${errorMessage}` }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });
