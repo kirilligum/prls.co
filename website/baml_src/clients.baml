@@ -1,7 +1,7 @@
 
-// Client definition for OpenRouter using Claude 3 Haiku,
+// Client definition for OpenRouter using Qwen3 32b,
 // specifically for the spam checking task.
-client OpenRouterHaikuForSpam {
+client OpenRouterQwenForSpam {
   // BAML uses 'openai-generic' for providers like OpenRouter
   // that are OpenAI API compatible.
   provider openai-generic
@@ -13,7 +13,7 @@ client OpenRouterHaikuForSpam {
     base_url "https://openrouter.ai/api/v1"
 
     // Specify the model to be used with this client.
-    model "anthropic/claude-3-haiku-20240307"
+    model "qwen/qwen3-32b"
 
     // Default options for this client
     max_tokens 75      // Sufficient for a boolean JSON response.

@@ -10,7 +10,7 @@ class SpamCheckResult {
 // Returns an instance of SpamCheckResult.
 function CheckRelevance(blog_content: string, chat_history_json_string: string) -> SpamCheckResult {
   // Specify which client to use for this function.
-  client OpenRouterHaikuForSpam
+  client OpenRouterQwenForSpam
 
   // Define the prompt for the LLM.
   // BAML uses Jinja2 templating for prompts.
