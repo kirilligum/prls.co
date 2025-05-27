@@ -14,7 +14,7 @@ export default defineConfig({
   integrations: [tailwind()],
   vite: {
     ssr: {
-      external: ['async_hooks', 'fs'],
+      external: ['async_hooks', 'fs', 'child_process'],
     }
   }
 });
