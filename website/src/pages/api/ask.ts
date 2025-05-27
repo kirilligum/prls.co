@@ -2,7 +2,7 @@ export const prerender = false; // This ensures the file is treated as a dynamic
 
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content'; // Astro's way to get content collections
-import BamlClient from '../../../baml_client'; // Corrected import path for BAML client
+import * as bamlClient from '../../../baml_client'; // Import generated BAML functions
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
@@ -109,9 +109,7 @@ ${post.body}
 User Conversation History (focus on LATEST user query for relevance check):`;
     // The ...messages (chat history) will be used for both BAML call and answerer LLM.
 
-    // BAML client initialization
-    // BAML generates a default export. Ensure OPENROUTER_API_KEY is in your environment.
-    const bamlClient = BamlClient; 
+    // BAML client functions are available via the imported namespace.
 
     // --- Make API Calls Concurrently ---
     // 1. Answering LLM call (remains a direct fetch)
