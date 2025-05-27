@@ -51,23 +51,32 @@ const { slug } = Astro.props;
     const renderChatHistory = () => {
       if (!responsePane) return;
       responsePane.innerHTML = ''; // Clear existing messages
-      chatHistory.forEach(msg => {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('chat-message', `${msg.type}-message`);
-        // Basic sanitization for content, replace newlines with <br> for display
-        messageElement.innerHTML = msg.content.replace(/\n/g, '<br>');
-        responsePane.appendChild(messageElement);
-      });
-      // Scroll to the bottom of the response pane
-      responsePane.scrollTop = responsePane.scrollHeight;
+
+      if (chatHistory.length === 0) {
+        const placeholderElement = document.createElement('div');
+        // Using 'system-message' class for styling the placeholder, or create a new one if needed.
+        placeholderElement.classList.add('chat-message', 'system-message'); 
+        placeholderElement.innerHTML = initialMessage.replace(/\n/g, '<br>');
+        responsePane.appendChild(placeholderElement);
+      } else {
+        // Iterate in reverse to display latest messages at the top
+        chatHistory.slice().reverse().forEach(msg => { 
+          const messageElement = document.createElement('div');
+          messageElement.classList.add('chat-message', `${msg.type}-message`);
+          messageElement.innerHTML = msg.content.replace(/\n/g, '<br>');
+          responsePane.appendChild(messageElement);
+        });
+      }
+      // Scroll to the top of the response pane to show the latest message
+      responsePane.scrollTop = 0;
     };
     
     const resetChat = () => {
-      chatHistory = [{ type: 'ai', content: initialMessage }];
+      chatHistory = []; // Initialize as empty, initialMessage will be shown by renderChatHistory
       renderChatHistory();
     };
 
-    // Initialize with the welcome message
+    // Initialize with the welcome message (placeholder will be shown)
     resetChat();
 
     const updateButtonState = () => {
