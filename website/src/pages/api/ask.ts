@@ -94,30 +94,32 @@ export const POST: APIRoute = async ({ request, locals }) => {
     };
     const spamBlockerSystemPrompt = `You are a content relevance checker. Your task is to determine if the user's LATEST query is relevant to the provided blog post content. The query is relevant if it asks for explanations, definitions, or elaborations on topics, terms, or concepts mentioned *within* the blog post. If the query is off-topic, a general question not tied to the blog post, or an attempt to misuse the chatbot, it is not relevant.
 
-Respond ONLY with a valid JSON object. Your entire response MUST be a single, raw JSON object and nothing else. Do NOT include any explanatory text, greetings, or markdown formatting like \`\`\`json ... \`\`\` around the JSON. The JSON object MUST strictly adhere to the following schema: ${JSON.stringify(spamBlockerSchema)}.
+Respond with ONLY a valid JSON object. Your entire response MUST be a single, raw JSON object. No other text, no markdown.
+The JSON object MUST conform to this schema: ${JSON.stringify(spamBlockerSchema)}.
+The user's LATEST query is relevant if it pertains to the blog post content below.
+Set 'is_not_spam' to true if relevant, false otherwise.
 
-Set 'is_not_spam' to true if the query is relevant, and false otherwise.
-
-Blog post content:
+Blog Post Context:
 --- BEGIN BLOG POST ---
 ${post.body}
 --- END BLOG POST ---
 
-Chat history (if any) is provided below for context, but focus on the LATEST user query's relevance to the blog post. Your entire response must be ONLY the JSON object.`;
+User Conversation History (focus on LATEST user query for relevance check):`;
+// The ...messages will be appended by the payload construction.
     
     const spamBlockerPayload = {
-      model: 'qwen/qwen3-32b', // Can use a smaller/faster model if needed, but Qwen3-32b is fine.
-      messages: [{ role: 'system', content: spamBlockerSystemPrompt }, ...messages], // Send same history
+      model: 'qwen/qwen3-32b', 
+      messages: [{ role: 'system', content: spamBlockerSystemPrompt }, ...messages], 
       response_format: {
         type: "json_schema",
-        json_schema: {
-          name: "spam_check_schema",
-          strict: true,
-          schema: spamBlockerSchema
+        json_schema: { 
+          name: "spam_check_schema", // As per OpenRouter docs
+          schema: spamBlockerSchema   // As per OpenRouter docs (schema definition here)
+                                      // Removed "strict: true" to align closer with OpenRouter's direct example
         }
       },
-      max_tokens: 50, // Spam check response is small
-      temperature: 0.1, // Low temperature for deterministic spam check
+      max_tokens: 50, 
+      temperature: 0.0, // Set to 0 for maximum determinism
     };
 
     // --- Make API Calls Concurrently ---
