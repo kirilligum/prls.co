@@ -21,7 +21,6 @@ client OpenRouterQwenForSpam {
     }
 
     // Default options for this client
-    max_tokens 75      // Sufficient for a boolean JSON response.
     temperature 0.0    // For deterministic output.
 
     // Default retry policy (optional, BAML has defaults)
