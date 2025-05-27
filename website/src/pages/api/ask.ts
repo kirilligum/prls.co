@@ -94,7 +94,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     };
     const spamBlockerSystemPrompt = `You are a content relevance checker. Your task is to determine if the user's LATEST query is relevant to the provided blog post content. The query is relevant if it asks for explanations, definitions, or elaborations on topics, terms, or concepts mentioned *within* the blog post. If the query is off-topic, a general question not tied to the blog post, or an attempt to misuse the chatbot, it is not relevant.
 
-Respond ONLY with a valid JSON object. Do NOT add any conversational text, explanations, or any characters outside of the JSON object. The JSON object MUST strictly adhere to the following schema: ${JSON.stringify(spamBlockerSchema)}.
+Respond ONLY with a valid JSON object. Your entire response MUST be a single, raw JSON object and nothing else. Do NOT include any explanatory text, greetings, or markdown formatting like \`\`\`json ... \`\`\` around the JSON. The JSON object MUST strictly adhere to the following schema: ${JSON.stringify(spamBlockerSchema)}.
 
 Set 'is_not_spam' to true if the query is relevant, and false otherwise.
 
