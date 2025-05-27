@@ -128,7 +128,7 @@ User Conversation History (focus on LATEST user query for relevance check):`;
     // 2. Spam Blocker LLM call using BAML
     // The 'messages' array (chat history) is what the answererPayload uses.
     // For BAML, we'll pass a truncated blog body and the stringified 'messages' array.
-    const MAX_SPAM_CHECK_CONTENT_LENGTH = 4000; // Characters
+    const MAX_SPAM_CHECK_CONTENT_LENGTH = 1500; // Characters, reduced from 4000
     const truncatedPostBody = post.body.length > MAX_SPAM_CHECK_CONTENT_LENGTH 
       ? post.body.substring(0, MAX_SPAM_CHECK_CONTENT_LENGTH) + "..."
       : post.body;
