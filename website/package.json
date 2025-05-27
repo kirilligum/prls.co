@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@astrojs/rss": "^4.0.11",
-    "@boundaryml/baml-cli": "^0.5.11", # Or the latest version you prefer
     "@cloudflare/workers-types": "^4.20241112.0",
     "prettier-plugin-astro": "^0.14.1",
     "wrangler": "^3.90.0"
