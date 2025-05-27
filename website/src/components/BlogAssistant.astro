@@ -19,8 +19,7 @@ const { slug } = Astro.props;
     </div>
   </div>
   <div id="ai-response-pane" class="assistant-pane scrollable-pane">
-    <!-- AI's response will be displayed here -->
-    <p>Hello! Ask me any technical questions about this blog post.</p>
+    <!-- Chat history will be rendered here -->
   </div>
 </div>
 
@@ -46,6 +45,31 @@ const { slug } = Astro.props;
       return;
     }
 
+    let chatHistory: Array<{ type: 'user' | 'ai' | 'system' | 'error', content: string }> = [];
+    const initialMessage = "Hello! Ask me any technical questions about this blog post.";
+
+    const renderChatHistory = () => {
+      if (!responsePane) return;
+      responsePane.innerHTML = ''; // Clear existing messages
+      chatHistory.forEach(msg => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message', `${msg.type}-message`);
+        // Basic sanitization for content, replace newlines with <br> for display
+        messageElement.innerHTML = msg.content.replace(/\n/g, '<br>');
+        responsePane.appendChild(messageElement);
+      });
+      // Scroll to the bottom of the response pane
+      responsePane.scrollTop = responsePane.scrollHeight;
+    };
+    
+    const resetChat = () => {
+      chatHistory = [{ type: 'ai', content: initialMessage }];
+      renderChatHistory();
+    };
+
+    // Initialize with the welcome message
+    resetChat();
+
     const updateButtonState = () => {
       if (questionInput.value.trim() === '') {
         askButton.textContent = 'Close';
@@ -66,23 +90,31 @@ const { slug } = Astro.props;
       if (askButton.textContent === 'Close') {
         assistantContainer.classList.add('hidden'); // Hide this assistant
         fabButton.classList.remove('hidden');     // Show the FAB
-        // Optionally, reset input and response here if desired
-        // questionInput.value = '';
-        // responsePane.innerHTML = '<p>Hello! Ask me any technical questions about this blog post.</p>';
-        // updateButtonState(); // Ensure button text is correct if input was cleared
+        resetChat(); // Clear history when closing
+        // questionInput.value = ''; // Input is already cleared after asking or if it was empty
+        // updateButtonState(); // Button state will be "Close" as input is empty
         return; // Stop further execution
       }
 
       // This part is for "Ask AI" functionality
       if (!question) { // Should ideally not be reached if button says "Ask AI", but as a fallback
-        responsePane.innerHTML = '<p style="color: orange;">Please type a question first.</p>';
+        chatHistory.push({ type: 'error', content: 'Please type a question first.' });
+        renderChatHistory();
         return;
       }
+
+      // Add user's question to history and render
+      chatHistory.push({ type: 'user', content: question });
+      renderChatHistory();
 
       // Disable button and show loading state
       askButton.disabled = true;
       askButton.textContent = 'Thinking...';
-      responsePane.innerHTML = '<p><i>Fetching answer from AI...</i></p>';
+      
+      // Add a system message for "Fetching answer..."
+      chatHistory.push({ type: 'system', content: '<i>Fetching answer from AI...</i>' });
+      renderChatHistory();
+
 
       try {
         const apiResponse = await fetch('/api/ask', { // Calls your backend API endpoint
@@ -94,18 +126,24 @@ const { slug } = Astro.props;
         });
 
         const data = await apiResponse.json();
+        
+        // Remove the "Fetching answer..." system message
+        chatHistory.pop(); 
 
         if (apiResponse.ok) {
-          // Sanitize or carefully render HTML if AI can produce it. For now, textContent is safer.
-          // To render newlines from AI, replace \n with <br> or use CSS white-space: pre-wrap.
-          responsePane.innerHTML = `<p>${data.answer.replace(/\n/g, '<br>')}</p>`;
+          chatHistory.push({ type: 'ai', content: data.answer });
         } else {
-          responsePane.innerHTML = `<p style="color: red;">Error: ${data.error || 'Failed to get an answer from the AI.'}</p>`;
+          chatHistory.push({ type: 'error', content: `Error: ${data.error || 'Failed to get an answer from the AI.'}` });
         }
       } catch (error) {
         console.error('Client-side fetch error:', error);
-        responsePane.innerHTML = '<p style="color: red;">A network error occurred. Please check your connection and try again.</p>';
+        // Remove the "Fetching answer..." system message if it's still there on error
+        if (chatHistory.length > 0 && chatHistory[chatHistory.length - 1].type === 'system') {
+            chatHistory.pop();
+        }
+        chatHistory.push({ type: 'error', content: 'A network error occurred. Please check your connection and try again.' });
       } finally {
+        renderChatHistory();
         // Re-enable button and update its text based on input content
         askButton.disabled = false;
         questionInput.value = ''; // Clear the input field
@@ -146,9 +184,46 @@ const { slug } = Astro.props;
     line-height: 1.4em; /* Adjust to match your desired line spacing */
     /* border-bottom is removed as it's now below the input pane */
   }
-  #ai-response-pane p {
-    margin: 0; /* Remove default paragraph margins if direct text is inserted */
+  #ai-response-pane p { /* This might be obsolete if all messages are divs */
+    margin: 0; 
   }
+
+  .chat-message {
+    padding: 0.5em 0.8em;
+    margin-bottom: 0.5em;
+    border-radius: 8px;
+    max-width: 90%;
+    word-wrap: break-word; /* Ensure long words don't overflow */
+  }
+
+  .user-message {
+    background-color: var(--prls-text-primary, #333);
+    color: white;
+    margin-left: auto; /* Align to the right */
+    text-align: right;
+  }
+
+  .ai-message {
+    background-color: var(--prls-main-surface-secondary, #e6d9ce);
+    color: var(--prls-text-primary, #3d3d3d);
+    margin-right: auto; /* Align to the left */
+  }
+  
+  .system-message {
+    font-style: italic;
+    color: var(--prls-text-secondary, #5d5d5d);
+    text-align: center;
+    font-size: 0.9em;
+    background-color: transparent;
+  }
+
+  .error-message {
+    background-color: #ffebee; /* Light red background for errors */
+    color: #c62828; /* Darker red text for errors */
+    border: 1px solid #ef9a9a;
+    margin-right: auto; /* Align to the left */
+  }
+
 
   #ai-input-pane {
     background-color: #ffffff;
