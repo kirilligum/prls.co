@@ -69,9 +69,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // Be aware: Extremely large post bodies might exceed model context limits.
     const siteUrl = new URL(request.url).origin; // Get site's base URL
 
-    // --- Define Payloads for Two LLM Calls ---
-
-    // 1. Payload for the Answering LLM (existing logic)
+    // --- Define Payload for the Answering LLM ---
     const answererSystemPrompt = `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`;
     const answererPayload = {
       model: 'qwen/qwen3-32b',
@@ -81,43 +79,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       temperature: 0.3,
     };
 
-    // --- Spam Check Call ---
-    let isNotSpam = true; // Default to not spam (fail-open for spam check)
-    try {
-      const spamCheckResponse = await fetch(`${siteUrl}/api/spam-check`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          blogContent: post.body,
-          chatHistory: JSON.stringify(messages) // Pass full messages array as a JSON string
-        }),
-      });
-
-      if (spamCheckResponse.ok) {
-        const spamResult = await spamCheckResponse.json();
-        if (typeof spamResult.is_not_spam === 'boolean') {
-          isNotSpam = spamResult.is_not_spam;
-        } else {
-          console.warn('/api/ask: Spam check result did not contain a boolean is_not_spam. Defaulting to not spam. Parsed result:', spamResult);
-        }
-      } else {
-        const errorText = await spamCheckResponse.text();
-        console.warn(`/api/ask: Spam check endpoint call failed with status ${spamCheckResponse.status}. Defaulting to not spam. Error: ${errorText}`);
-      }
-    } catch (e) {
-      console.error('/api/ask: Error calling spam check endpoint. Defaulting to not spam.', e);
-    }
-
-    if (!isNotSpam) {
-      return new Response(JSON.stringify({ answer: "This chatbot is only for questions related to the content of the article." }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-
-    // --- Prepare and Make Answerer LLM Call (if not spam) ---
-    // The answererPayload is defined before this modified block.
-    
+    // --- Prepare and Make Answerer LLM Call ---
     const commonHeaders = {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
@@ -125,12 +87,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
       'X-Title': 'Blog AI Assistant',
     };
 
-    // The answererPayload was defined before the section we are replacing.
-    // We now fetch only the answerer response.
     const answererResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: commonHeaders,
-      body: JSON.stringify(answererPayload), 
+      body: JSON.stringify(answererPayload),
     });
 
     if (!answererResponse.ok) {
