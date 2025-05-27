@@ -27,6 +27,7 @@ Your response MUST be a valid JSON object with a single key "is_not_spam" which 
 Example of valid output: {"is_not_spam": true}
 Example of valid output: {"is_not_spam": false}
 Do NOT include any other text, explanations, apologies, or markdown formatting like \`\`\`json ... \`\`\` around the JSON. Your entire response must be ONLY the JSON object.
+/no_think
 
 Blog Post Context:
 --- BEGIN BLOG POST ---
