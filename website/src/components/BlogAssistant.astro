@@ -59,13 +59,29 @@ const { slug } = Astro.props;
         placeholderElement.innerHTML = initialMessage.replace(/\n/g, '<br>');
         responsePane.appendChild(placeholderElement);
       } else {
-        // Iterate in reverse to display latest messages at the top
-        chatHistory.slice().reverse().forEach(msg => { 
-          const messageElement = document.createElement('div');
-          messageElement.classList.add('chat-message', `${msg.type}-message`);
-          messageElement.innerHTML = msg.content.replace(/\n/g, '<br>');
-          responsePane.appendChild(messageElement);
-        });
+        // Iterate through chatHistory to render pairs (Question then Answer/Error)
+        // from newest pair to oldest pair.
+        for (let i = chatHistory.length - 1; i >= 0; i -= 2) {
+          const currentMessage = chatHistory[i]; // This is usually an AI answer or an error.
+          const previousMessage = chatHistory[i-1]; // This is usually the user's question.
+
+          // If previousMessage exists (i.e., we have a pair, or i-1 is a valid index)
+          // render it first (this is the User Question).
+          if (previousMessage) {
+            const questionElement = document.createElement('div');
+            questionElement.classList.add('chat-message', `${previousMessage.type}-message`);
+            questionElement.innerHTML = previousMessage.content.replace(/\n/g, '<br>');
+            responsePane.appendChild(questionElement);
+          }
+
+          // Then render the currentMessage (AI Answer or Error).
+          // If previousMessage didn't exist (i.e. chatHistory has an odd number of messages,
+          // and this is the very first message), it will be rendered here.
+          const answerElement = document.createElement('div');
+          answerElement.classList.add('chat-message', `${currentMessage.type}-message`);
+          answerElement.innerHTML = currentMessage.content.replace(/\n/g, '<br>');
+          responsePane.appendChild(answerElement);
+        }
       }
       // Scroll to the top of the response pane to show the latest message
       responsePane.scrollTop = 0;
