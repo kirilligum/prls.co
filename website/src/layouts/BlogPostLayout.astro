@@ -206,6 +206,11 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
       bottom: 20px;
       right: 20px;
       z-index: 1000; /* Ensure it's on top of other content */
+      box-sizing: border-box; /* Ensure padding and border are included in height */
+      /* Height calculated to match the textarea + internal button height:
+         (2 rows * 1.4em line-height * 0.95rem font-size) + (2 * 0.75rem vertical padding) + 2px textarea border
+      */
+      height: calc( (2 * 1.4 * 0.95rem) + (2 * 0.75rem) + 2px ); /* Approx 4.16rem + 2px */
       
       /* Match styling of #ask-ai-button in BlogAssistant.astro */
       background-color: var(--prls-text-primary, #333);
