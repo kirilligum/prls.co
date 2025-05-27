@@ -2,7 +2,7 @@ export const prerender = false; // This ensures the file is treated as a dynamic
 
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content'; // Astro's way to get content collections
-import BamlClient from '../../../baml_client'; // Default export contains generated BAML functions
+import { b } from '../../../baml_client'; // Import the BAML client
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
@@ -132,7 +132,7 @@ User Conversation History (focus on LATEST user query for relevance check):`;
       blog_content_length: post.body.length,
       chat_history_json_string: JSON.stringify(messages)
     });
-    const spamBlockerBamlPromise = BamlClient.CheckRelevance({
+    const spamBlockerBamlPromise = b.CheckRelevance({
       blog_content: post.body,
       chat_history_json_string: JSON.stringify(messages)
     });
@@ -167,6 +167,7 @@ User Conversation History (focus on LATEST user query for relevance check):`;
     }
 
     // --- Process Answerer Response (only if not spam) ---
+    const answererResponse = await answererPromise;
     if (!answererResponse.ok) {
       const errorText = await answererResponse.text();
       console.error(`Answerer API Error: Status ${answererResponse.status}`, errorText);
