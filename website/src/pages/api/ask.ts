@@ -92,16 +92,20 @@ export const POST: APIRoute = async ({ request, locals }) => {
         isCacheableQuestion = true;
         cacheKey = `summary-cache::${slug}`; // Cache key specific to the blog post slug
         try {
+          console.log(`[CACHE] Checking cache for key: ${cacheKey}`);
           const cachedAnswer = await aiCache.get(cacheKey);
           if (cachedAnswer) {
+            console.log(`[CACHE] HIT for key: ${cacheKey}`);
             // If found in cache, return it immediately
             return new Response(JSON.stringify({ answer: cachedAnswer, source: 'cache' }), {
               status: 200,
               headers: { 'Content-Type': 'application/json' },
             });
+          } else {
+            console.log(`[CACHE] MISS for key: ${cacheKey}`);
           }
         } catch (kvError) {
-          console.error(`KV Cache read error for key ${cacheKey}:`, kvError);
+          console.error(`[CACHE] KV Cache read error for key ${cacheKey}:`, kvError);
           // If cache read fails, proceed to LLM call. Do not block the request.
         }
       }
@@ -157,10 +161,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // 6. Store in Cache if it was a cacheable question and LLM call was successful
     if (isCacheableQuestion && aiCache && answererResponse.ok && aiAnswer) {
       try {
+        console.log(`[CACHE] Writing to cache for key: ${cacheKey}`);
         // Store the successful LLM response in cache for future requests
         await aiCache.put(cacheKey, aiAnswer, { expirationTtl: CACHE_TTL_SECONDS });
+        console.log(`[CACHE] Successfully wrote to cache for key: ${cacheKey}`);
       } catch (kvError) {
-        console.error(`KV Cache write error for key ${cacheKey}:`, kvError);
+        console.error(`[CACHE] KV Cache write error for key ${cacheKey}:`, kvError);
         // Do not fail the request if cache write fails
       }
     }
