@@ -23,10 +23,7 @@ If the query is off-topic, a general question not tied to the blog post, or an a
 
 The user's LATEST query is the last message with role 'user' in the chat history.
 
-Your response MUST be a valid JSON object with a single key "is_not_spam" which is a boolean.
-Example of valid output: {"is_not_spam": true}
-Example of valid output: {"is_not_spam": false}
-Do NOT include any other text, explanations, apologies, or markdown formatting like \`\`\`json ... \`\`\` around the JSON. Your entire response must be ONLY the JSON object.
+{{ ctx.output_format }}
 /no_think
 
 Blog Post Context:
