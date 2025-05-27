@@ -24,7 +24,6 @@ If the query is off-topic, a general question not tied to the blog post, or an a
 The user's LATEST query is the last message with role 'user' in the chat history.
 
 {{ ctx.output_format }}
-/no_think
 
 Blog Post Context:
 --- BEGIN BLOG POST ---
@@ -35,5 +34,6 @@ User Conversation History (JSON string, focus on LATEST user query for relevance
 --- BEGIN CHAT HISTORY ---
 {{ chat_history_json_string }}
 --- END CHAT HISTORY ---
+/no_think
 "#
 }
