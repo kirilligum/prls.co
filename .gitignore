@@ -1,6 +1,8 @@
 .aider*
 .env
 sitemap.xml
+node_modules/
+
 
 # Cloudflare local development variables
 website/.dev.vars
