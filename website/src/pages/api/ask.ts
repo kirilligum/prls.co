@@ -61,28 +61,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
       );
     }
 
-    const turnTimestamp = new Date().toISOString();
-    let r2Key = ""; // Initialize r2Key
+    const turnTimestamp = new Date().toISOString(); // Timestamp for this entire turn
+    let r2Key = ""; 
     if (aiLogsBucket) {
       r2Key = getR2SessionLogKey(slug, sessionId, turnTimestamp);
     }
 
-    // Log user's question to R2
-    if (aiLogsBucket && currentUserQuestion && typeof currentUserQuestion === 'string' && currentUserQuestion.trim() !== "") {
-      const userTurnData = {
-        sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp,
-        userQuestion: currentUserQuestion, aiResponse: null, // AI response not yet known
-        source: "user_input",
-      };
-      locals.runtime.ctx.waitUntil( // Changed to locals.runtime.ctx.waitUntil
-        aiLogsBucket.put(r2Key, JSON.stringify(userTurnData), { httpMetadata: { contentType: 'application/json' } })
-          .then(() => console.log(`Logged user question to R2: ${r2Key}`))
-          .catch(e => console.error(`Error logging user question to R2 for ${r2Key}:`, e))
-      );
-    } else if (import.meta.env.DEV && !aiLogsBucket) {
-        console.warn("R2 bucket (PRLS_AI_LOGS_BUCKET) not available in DEV. Skipping user question log.");
-    }
-
+    // User question logging will be combined with the response/error logging later.
 
     // --- MODIFIED SECTION: Fetching blog post content ---
     let postBodyForContext: string;
@@ -90,18 +75,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
       const postEntry = await getEntryBySlug('blog', slug);
       if (!postEntry) {
         console.error(`Blog post with slug "${slug}" not found.`);
-        if (aiLogsBucket) {
-            const errorData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: new Date().toISOString(), userQuestion: currentUserQuestion, errorDetails: `Context Error: Blog post with slug '${slug}' not found.`, source: "error_context" };
-            locals.runtime.ctx.waitUntil(aiLogsBucket.put(getR2SessionLogKey(slug, sessionId, new Date().toISOString()), JSON.stringify(errorData))); // Changed
+        if (aiLogsBucket && r2Key) {
+            const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, errorDetails: `Context Error: Blog post with slug '${slug}' not found.`, source: "error_context" };
+            locals.runtime.ctx.waitUntil(aiLogsBucket.put(r2Key, JSON.stringify(logData)));
         }
         return new Response(JSON.stringify({ error: "Blog post context not found." }), { status: 404 });
       }
       postBodyForContext = postEntry.body;
     } catch (e) {
       console.error(`Error fetching blog post with slug "${slug}":`, e);
-      if (aiLogsBucket) {
-          const errorData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: new Date().toISOString(), userQuestion: currentUserQuestion, errorDetails: `Context Error: Failed to fetch blog post '${slug}'. Details: ${e instanceof Error ? e.message : String(e)}`, source: "error_context_fetch" };
-          locals.runtime.ctx.waitUntil(aiLogsBucket.put(getR2SessionLogKey(slug, sessionId, new Date().toISOString()), JSON.stringify(errorData))); // Changed
+      if (aiLogsBucket && r2Key) {
+          const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, errorDetails: `Context Error: Failed to fetch blog post '${slug}'. Details: ${e instanceof Error ? e.message : String(e)}`, source: "error_context_fetch" };
+          locals.runtime.ctx.waitUntil(aiLogsBucket.put(r2Key, JSON.stringify(logData)));
       }
       return new Response(JSON.stringify({ error: "Failed to retrieve blog post context." }), { status: 500 });
     }
@@ -116,9 +101,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
         : "Cloudflare deployment: OPENROUTER_API_KEY not found in environment variables. Ensure it is set in Pages project settings.";
       console.error(`CRITICAL: ${contextMessage}`);
       // Log API key error to R2
-      if (aiLogsBucket) {
-          const errorData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: new Date().toISOString(), userQuestion: currentUserQuestion, errorDetails: `Server configuration error: API key missing. Context: ${contextMessage}`, source: "error_api_key" };
-          locals.runtime.ctx.waitUntil(aiLogsBucket.put(getR2SessionLogKey(slug, sessionId, new Date().toISOString()), JSON.stringify(errorData))); // Changed
+      if (aiLogsBucket && r2Key) {
+          const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, errorDetails: `Server configuration error: API key missing. Context: ${contextMessage}`, source: "error_api_key" };
+          locals.runtime.ctx.waitUntil(aiLogsBucket.put(r2Key, JSON.stringify(logData)));
       }
       return new Response(
         JSON.stringify({
@@ -187,14 +172,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
               `[CACHE] HIT for key: ${cacheKey}. Returning cached answer.`,
             );
             // Log cache hit to R2
-            if (aiLogsBucket) {
-                const cacheTurnData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: new Date().toISOString(), userQuestion: currentUserQuestion, aiResponse: cachedAnswer, source: "cache", cacheKey };
-                // Use a new timestamp for this specific log entry if r2Key was based on initial turnTimestamp
-                const cacheLogKey = getR2SessionLogKey(slug, sessionId, new Date().toISOString());
-                locals.runtime.ctx.waitUntil( // Changed
-                    aiLogsBucket.put(cacheLogKey, JSON.stringify(cacheTurnData), { httpMetadata: { contentType: 'application/json' } })
-                    .then(() => console.log(`Logged CACHE HIT to R2: ${cacheLogKey}`))
-                    .catch(e => console.error(`Error logging CACHE HIT to R2 for ${cacheLogKey}:`, e))
+            if (aiLogsBucket && r2Key) {
+                const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, aiResponse: cachedAnswer, source: "cache", cacheKey };
+                locals.runtime.ctx.waitUntil(
+                    aiLogsBucket.put(r2Key, JSON.stringify(logData), { httpMetadata: { contentType: 'application/json' } })
+                    .then(() => console.log(`Logged CACHE HIT to R2: ${r2Key}`))
+                    .catch(e => console.error(`Error logging CACHE HIT to R2 for ${r2Key}:`, e))
                 );
             }
             return new Response(
@@ -270,11 +253,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
         errorText,
       );
       // Log LLM error to R2
-      if (aiLogsBucket) {
-          const llmErrorData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: new Date().toISOString(), userQuestion: currentUserQuestion, errorDetails: `LLM API Error: Status ${answererResponse.status}. Details: ${errorText.substring(0,1000)}`, source: "error_llm_api" };
-          // Use a new timestamp for this specific log entry
-          const llmErrorLogKey = getR2SessionLogKey(slug, sessionId, new Date().toISOString());
-          locals.runtime.ctx.waitUntil(aiLogsBucket.put(llmErrorLogKey, JSON.stringify(llmErrorData))); // Changed
+      if (aiLogsBucket && r2Key) {
+          const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, errorDetails: `LLM API Error: Status ${answererResponse.status}. Details: ${errorText.substring(0,1000)}`, source: "error_llm_api" };
+          locals.runtime.ctx.waitUntil(aiLogsBucket.put(r2Key, JSON.stringify(logData)));
       }
       return new Response(
         JSON.stringify({
@@ -297,14 +278,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     // Log successful LLM response to R2
-    if (aiLogsBucket) {
-        const llmTurnData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: new Date().toISOString(), userQuestion: currentUserQuestion, aiResponse: aiAnswer, source: "llm", modelUsed: DEFAULT_MODEL };
-        // Use a new timestamp for this specific log entry
-        const llmLogKey = getR2SessionLogKey(slug, sessionId, new Date().toISOString());
-        locals.runtime.ctx.waitUntil( // Changed
-            aiLogsBucket.put(llmLogKey, JSON.stringify(llmTurnData), { httpMetadata: { contentType: 'application/json' } })
-            .then(() => console.log(`Logged LLM response to R2: ${llmLogKey}`))
-            .catch(e => console.error(`Error logging LLM response to R2 for ${llmLogKey}:`, e))
+    if (aiLogsBucket && r2Key) {
+        const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, aiResponse: aiAnswer, source: "llm", modelUsed: DEFAULT_MODEL };
+        locals.runtime.ctx.waitUntil(
+            aiLogsBucket.put(r2Key, JSON.stringify(logData), { httpMetadata: { contentType: 'application/json' } })
+            .then(() => console.log(`Logged LLM response to R2: ${r2Key}`))
+            .catch(e => console.error(`Error logging LLM response to R2 for ${r2Key}:`, e))
         );
     }
 
@@ -359,17 +338,28 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const errorMessage =
       error instanceof Error ? error.message : "An unknown error occurred";
     // Log general error to R2
-    if (aiLogsBucket) {
-        // Try to get slug and sessionId from body if available, otherwise use placeholders or omit
-        const errorSlug = typeof slug === 'string' ? slug : "unknown_slug";
-        const errorSessionId = typeof sessionId === 'string' ? sessionId : "unknown_session";
-        const errorReaderId = typeof readerId === 'string' ? readerId : "unknown_reader";
-        const errorUserQuestion = typeof currentUserQuestion === 'string' ? currentUserQuestion : "unknown_question";
+    // Note: slug, sessionId, readerId, currentUserQuestion might be undefined if error happened before body parsing.
+    // r2Key might also be empty.
+    if (aiLogsBucket) { 
+        const logSlug = typeof slug === 'string' ? slug : "unknown_slug_in_error";
+        const logSessionId = typeof sessionId === 'string' ? sessionId : "unknown_session_in_error";
+        const logReaderId = typeof readerId === 'string' ? readerId : "unknown_reader_in_error";
+        const logUserQuestion = typeof currentUserQuestion === 'string' ? currentUserQuestion : "unknown_question_in_error";
+        
+        // Use the initial turnTimestamp for consistency if available, otherwise a new one.
+        // r2Key would be based on initial turnTimestamp if it was set.
+        const finalR2Key = r2Key || getR2SessionLogKey(logSlug, logSessionId, new Date().toISOString());
 
-        const generalErrorData = { sessionId: errorSessionId, readerId: errorReaderId, blogSlug: errorSlug, turnTimestampUTC: new Date().toISOString(), userQuestion: errorUserQuestion, errorDetails: `Outer API Error: ${errorMessage.substring(0,1000)}`, source: "error_api_catch_all" };
-        // Use a new timestamp for this specific log entry
-        const generalErrorLogKey = getR2SessionLogKey(errorSlug, errorSessionId, new Date().toISOString());
-        locals.runtime.ctx.waitUntil(aiLogsBucket.put(generalErrorLogKey, JSON.stringify(generalErrorData))); // Changed
+        const logData = { 
+            sessionId: logSessionId, 
+            readerId: logReaderId, 
+            blogSlug: logSlug, 
+            turnTimestampUTC: r2Key ? turnTimestamp : new Date().toISOString(), // Use original turnTimestamp if r2Key was formed
+            userQuestion: logUserQuestion, 
+            errorDetails: `Outer API Error: ${errorMessage.substring(0,1000)}`, 
+            source: "error_api_catch_all" 
+        };
+        locals.runtime.ctx.waitUntil(aiLogsBucket.put(finalR2Key, JSON.stringify(logData)));
     }
     return new Response(
       JSON.stringify({
