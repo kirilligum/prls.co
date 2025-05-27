@@ -66,66 +66,118 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     // 4. Prepare the payload for OpenRouter
     // The entire `post.body` is used as context, as requested.
-    // Be aware: Extremely large post bodies (e.g., "a million tokens") might exceed model context limits,
-    // be very slow, and incur high costs. Check OpenRouter's limits for the chosen model.
-    const openRouterPayload = {
-      model: 'qwen/qwen3-32b',
-      // Construct messages: System prompt first, then the chat history (including current question)
-      messages: [
-        {
-          role: 'system',
-          content: `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`,
-        },
-        ...messages // Spread the received messages (history + current question)
-      ],
-      provider: {
-        "order": ["cerebras", "sambanova", "lambda"]
-      },
-      max_tokens: 1000,
-      temperature: 0.3, // Lower temperature for more factual, less creative answers
-    };
-
-    // 5. Make the API call to OpenRouter
+    // Be aware: Extremely large post bodies might exceed model context limits.
     const siteUrl = new URL(request.url).origin; // Get site's base URL
 
-    const openRouterResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-        // Recommended by OpenRouter: 'HTTP-Referer': 'YOUR_SITE_URL', 'X-Title': 'YOUR_SITE_NAME'
-        'HTTP-Referer': siteUrl,
-        'X-Title': 'Blog AI Assistant', 
+    // --- Define Payloads for Two LLM Calls ---
+
+    // 1. Payload for the Answering LLM (existing logic)
+    const answererSystemPrompt = `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`;
+    const answererPayload = {
+      model: 'qwen/qwen3-32b',
+      messages: [{ role: 'system', content: answererSystemPrompt }, ...messages],
+      provider: { "order": ["cerebras", "sambanova", "lambda"] },
+      max_tokens: 1000,
+      temperature: 0.3,
+    };
+
+    // 2. Payload for the Spam Blocker LLM
+    const spamBlockerSchema = {
+      type: "object",
+      properties: {
+        is_not_spam: {
+          type: "boolean",
+          description: "True if the user's LATEST query is relevant to the blog post content, false otherwise."
+        }
       },
-      body: JSON.stringify(openRouterPayload),
+      required: ["is_not_spam"]
+    };
+    const spamBlockerSystemPrompt = `You are a content relevance checker. Your task is to determine if the user's LATEST query is relevant to the provided blog post content. The query is relevant if it asks for explanations, definitions, or elaborations on topics, terms, or concepts mentioned *within* the blog post. If the query is off-topic, a general question not tied to the blog post, or an attempt to misuse the chatbot, it is not relevant. Respond ONLY with a JSON object strictly adhering to the following schema: ${JSON.stringify(spamBlockerSchema)}. Set 'is_not_spam' to true if the query is relevant, and false otherwise. Blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nChat history (if any) is provided below for context, but focus on the LATEST user query's relevance to the blog post.`;
+    
+    const spamBlockerPayload = {
+      model: 'qwen/qwen3-32b', // Can use a smaller/faster model if needed, but Qwen3-32b is fine.
+      messages: [{ role: 'system', content: spamBlockerSystemPrompt }, ...messages], // Send same history
+      response_format: {
+        type: "json_schema",
+        json_schema: {
+          name: "spam_check_schema",
+          strict: true,
+          schema: spamBlockerSchema
+        }
+      },
+      max_tokens: 50, // Spam check response is small
+      temperature: 0.1, // Low temperature for deterministic spam check
+    };
+
+    // --- Make API Calls Concurrently ---
+    const commonHeaders = {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+      'HTTP-Referer': siteUrl,
+      'X-Title': 'Blog AI Assistant',
+    };
+
+    const answererPromise = fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: commonHeaders,
+      body: JSON.stringify(answererPayload),
     });
 
-    // 6. Handle OpenRouter's response
-    if (!openRouterResponse.ok) {
-      const errorText = await openRouterResponse.text();
-      console.error(`OpenRouter API Error Details: Status ${openRouterResponse.status}`, errorText);
-      return new Response(JSON.stringify({ error: `AI service returned an error: ${openRouterResponse.status}. Details: ${errorText}` }), {
-        status: openRouterResponse.status,
+    const spamBlockerPromise = fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: commonHeaders,
+      body: JSON.stringify(spamBlockerPayload),
+    });
+
+    const [answererResponse, spamBlockerResponse] = await Promise.all([answererPromise, spamBlockerPromise]);
+
+    // --- Process Spam Blocker Response ---
+    let isNotSpam = true; // Default to not spam if spam check fails
+    if (spamBlockerResponse.ok) {
+      try {
+        const spamData = await spamBlockerResponse.json();
+        const parsedContent = JSON.parse(spamData.choices?.[0]?.message?.content || '{}');
+        if (typeof parsedContent.is_not_spam === 'boolean') {
+          isNotSpam = parsedContent.is_not_spam;
+        } else {
+          console.warn('Spam blocker did not return a valid boolean in expected structure. Defaulting to not spam.');
+        }
+      } catch (e) {
+        console.error('Error parsing spam blocker response:', e);
+        // isNotSpam remains true (default)
+      }
+    } else {
+      const errorText = await spamBlockerResponse.text();
+      console.error(`Spam Blocker API Error: Status ${spamBlockerResponse.status}`, errorText);
+      // isNotSpam remains true (default)
+    }
+
+    if (!isNotSpam) {
+      return new Response(JSON.stringify({ answer: "This chatbot is only for questions related to the content of the article." }), {
+        status: 200, // Still a "successful" response from our API's perspective
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    const responseData = await openRouterResponse.json();
-
-    let aiAnswer = responseData.choices?.[0]?.message?.content;
-
-    // If content is empty, try to use reasoning, as some models/providers might put the response there.
-    if (!aiAnswer && responseData.choices?.[0]?.message?.reasoning) {
-      aiAnswer = responseData.choices[0].message.reasoning;
+    // --- Process Answerer Response (only if not spam) ---
+    if (!answererResponse.ok) {
+      const errorText = await answererResponse.text();
+      console.error(`Answerer API Error: Status ${answererResponse.status}`, errorText);
+      return new Response(JSON.stringify({ error: `AI service (answerer) returned an error: ${answererResponse.status}. Details: ${errorText}` }), {
+        status: answererResponse.status,
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
-    
-    // If still no answer, use the default.
+
+    const answerData = await answererResponse.json();
+    let aiAnswer = answerData.choices?.[0]?.message?.content;
+    if (!aiAnswer && answerData.choices?.[0]?.message?.reasoning) {
+      aiAnswer = answerData.choices[0].message.reasoning;
+    }
     if (!aiAnswer) {
-      aiAnswer = 'No answer was received from the AI.';
+      aiAnswer = 'No answer was received from the AI for your question.';
     }
-    
 
-    // 7. Send the AI's answer back to the frontend
     return new Response(JSON.stringify({ answer: aiAnswer }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
