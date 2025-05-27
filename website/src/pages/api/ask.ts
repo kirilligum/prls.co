@@ -1,15 +1,19 @@
 export const prerender = false; // This ensures the file is treated as a dynamic serverless function
 
-import type { APIRoute } from 'astro';
-import { getCollection } from 'astro:content'; // Astro's way to get content collections
-import type { KVNamespace } from '@cloudflare/workers-types'; // Added for KV
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content"; // Astro's way to get content collections
+import type { KVNamespace } from "@cloudflare/workers-types"; // Added for KV
 
 // CACHE_TTL_SECONDS remains the same
 const CACHE_TTL_SECONDS = 60 * 60 * 24 * 60; // 2 months (60 days)
 
 function normalizeQuestionForCache(question: string): string {
   // Normalize by converting to lowercase, removing punctuation, and collapsing multiple spaces
-  return question.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, ' ').trim();
+  return question
+    .toLowerCase()
+    .replace(/[^\w\s]/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 // Helper function to retrieve API key
@@ -27,8 +31,8 @@ function getApiKey(locals: App.Locals, devMode: boolean): string | undefined {
   return undefined;
 }
 
-const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-const DEFAULT_MODEL = 'qwen/qwen3-32b';
+const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
+const DEFAULT_MODEL = "qwen/qwen3-32b";
 
 export const POST: APIRoute = async ({ request, locals }) => {
   try {
@@ -38,11 +42,19 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const { messages, slug } = body;
 
     // Basic validation
-    if (!messages || !Array.isArray(messages) || messages.length === 0 || !slug) {
-      return new Response(JSON.stringify({ error: 'Missing messages array, or slug parameter' }), {
-        status: 400, // Bad Request
-        headers: { 'Content-Type': 'application/json' },
-      });
+    if (
+      !messages ||
+      !Array.isArray(messages) ||
+      messages.length === 0 ||
+      !slug
+    ) {
+      return new Response(
+        JSON.stringify({ error: "Missing messages array, or slug parameter" }),
+        {
+          status: 400, // Bad Request
+          headers: { "Content-Type": "application/json" },
+        },
+      );
     }
     // Further validation for message structure can be added here if needed
     // e.g., messages.every(m => m.role && m.content)
@@ -50,13 +62,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // 2. Fetch the specific blog post content
     // Note: For a very large number of blog posts, getCollection() might load a lot of data.
     // For v1, this is acceptable. For future optimization, consider other ways to fetch single post content.
-    const posts = await getCollection('blog');
-    const post = posts.find(p => p.slug === slug);
+    const posts = await getCollection("blog");
+    const post = posts.find((p) => p.slug === slug);
 
     if (!post) {
-      return new Response(JSON.stringify({ error: 'Blog post not found' }), {
+      return new Response(JSON.stringify({ error: "Blog post not found" }), {
         status: 404, // Not Found
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
     }
 
@@ -69,75 +81,105 @@ export const POST: APIRoute = async ({ request, locals }) => {
         : "Cloudflare deployment: OPENROUTER_API_KEY not found in environment variables. Ensure it is set in Pages project settings.";
       console.error(`CRITICAL: ${contextMessage}`);
       if (!import.meta.env.DEV && (!locals.runtime || !locals.runtime.env)) {
-        console.error("Additionally, Astro.locals.runtime or Astro.locals.runtime.env was not available, indicating a possible adapter issue.");
+        console.error(
+          "Additionally, Astro.locals.runtime or Astro.locals.runtime.env was not available, indicating a possible adapter issue.",
+        );
       }
-      return new Response(JSON.stringify({ error: 'Server configuration error. API key missing.' }), {
-        status: 500, // Internal Server Error
-        headers: { 'Content-Type': 'application/json' },
-      });
+      return new Response(
+        JSON.stringify({
+          error: "Server configuration error. API key missing.",
+        }),
+        {
+          status: 500, // Internal Server Error
+          headers: { "Content-Type": "application/json" },
+        },
+      );
     }
 
     // 4. Determine cache eligibility and attempt cache read
     const aiCache = locals.runtime?.env?.PRLS_BLOGPOST_AI_CACHE;
     const lastMessage = messages[messages.length - 1];
-    let isCacheableQuestion = false; 
+    let isCacheableQuestion = false;
     let cacheKey = "";
     // let questionContentMatches = false; // REMOVED
 
-    console.log('[DEBUG] Initial cache eligibility check. KV available:', !!aiCache);
+    console.log(
+      "[DEBUG] Initial cache eligibility check. KV available:",
+      !!aiCache,
+    );
     if (lastMessage) {
-      console.log(`[DEBUG] Last message role: "${lastMessage.role}", content (first 100 chars): "${lastMessage.content?.substring(0,100)}"`);
+      console.log(
+        `[DEBUG] Last message role: "${lastMessage.role}", content (first 100 chars): "${lastMessage.content?.substring(0, 100)}"`,
+      );
     } else {
-      console.log('[DEBUG] No last message found in request.');
+      console.log("[DEBUG] No last message found in request.");
     }
     console.log(`[DEBUG] Total messages in history: ${messages.length}`);
 
-    if (aiCache && lastMessage && lastMessage.role === 'user') {
+    if (aiCache && lastMessage && lastMessage.role === "user") {
       const currentUserQuestion = lastMessage.content;
       // It's good practice to normalize the question for the cache key to avoid minor variations
       // (e.g., case, extra spaces) creating different cache entries for essentially the same question.
-      const normalizedCurrentUserQuestion = normalizeQuestionForCache(currentUserQuestion);
-      
-      console.log(`[DEBUG] Current user question (raw, first 100 chars): "${currentUserQuestion?.substring(0,100)}"`);
-      console.log(`[DEBUG] Current user question (normalized): "${normalizedCurrentUserQuestion}"`);
+      const normalizedCurrentUserQuestion =
+        normalizeQuestionForCache(currentUserQuestion);
+
+      console.log(
+        `[DEBUG] Current user question (raw, first 100 chars): "${currentUserQuestion?.substring(0, 100)}"`,
+      );
+      console.log(
+        `[DEBUG] Current user question (normalized): "${normalizedCurrentUserQuestion}"`,
+      );
       // The log for predefined cacheable question is no longer relevant here.
 
       // NEW CACHING LOGIC: Cache if it's the first message in the thread.
       if (messages.length === 1) {
-        console.log('[DEBUG] This is the FIRST message. This question IS cacheable.');
+        console.log(
+          "[DEBUG] This is the FIRST message. This question IS cacheable.",
+        );
         isCacheableQuestion = true; // Mark as cacheable
         // Generate a cache key based on the slug AND the normalized question content
         // to ensure different initial questions for the same slug have different cache entries.
         // Using a prefix like "initial-q::" to distinguish from other potential cache types in the future.
-        cacheKey = `initial-q::${slug}::${normalizedCurrentUserQuestion}`; 
+        cacheKey = `initial-q::${slug}::${normalizedCurrentUserQuestion}`;
         console.log(`[DEBUG] Generated cache key: "${cacheKey}"`);
-        
+
         // Attempt cache read
         try {
           console.log(`[CACHE] Checking cache for key: ${cacheKey}`);
           const cachedAnswer = await aiCache.get(cacheKey);
           if (cachedAnswer) {
-            console.log(`[CACHE] HIT for key: ${cacheKey}. Returning cached answer.`);
-            return new Response(JSON.stringify({ answer: cachedAnswer, source: 'cache' }), {
-              status: 200,
-              headers: { 'Content-Type': 'application/json' },
-            });
+            console.log(
+              `[CACHE] HIT for key: ${cacheKey}. Returning cached answer.`,
+            );
+            return new Response(
+              JSON.stringify({ answer: cachedAnswer, source: "cache" }),
+              {
+                status: 200,
+                headers: { "Content-Type": "application/json" },
+              },
+            );
           } else {
             console.log(`[CACHE] MISS for key: ${cacheKey}`);
           }
         } catch (kvError) {
-          console.error(`[CACHE] KV Cache read error for key ${cacheKey}:`, kvError);
+          console.error(
+            `[CACHE] KV Cache read error for key ${cacheKey}:`,
+            kvError,
+          );
           // If cache read fails, proceed to LLM call. Do not block the request.
         }
       } else {
-        console.log(`[DEBUG] This is NOT the FIRST message (messages.length: ${messages.length}). Not attempting cache read, and will not write to cache later.`);
+        console.log(
+          `[DEBUG] This is NOT the FIRST message (messages.length: ${messages.length}). Not attempting cache read, and will not write to cache later.`,
+        );
       }
       // The old 'if/else' block checking against NORMALIZED_CACHEABLE_QUESTION is removed.
     } else {
-      let reason = '[DEBUG] Initial conditions for caching not met: ';
-      if (!aiCache) reason += 'KV unavailable. ';
-      if (!lastMessage) reason += 'No last message. ';
-      else if (lastMessage.role !== 'user') reason += `Last message not from user (role: ${lastMessage.role}). `;
+      let reason = "[DEBUG] Initial conditions for caching not met: ";
+      if (!aiCache) reason += "KV unavailable. ";
+      if (!lastMessage) reason += "No last message. ";
+      else if (lastMessage.role !== "user")
+        reason += `Last message not from user (role: ${lastMessage.role}). `;
       console.log(reason.trim());
     }
 
@@ -147,36 +189,47 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const siteUrl = new URL(request.url).origin; // Get site's base URL
 
     // --- Define Payload for the Answering LLM ---
-    const answererSystemPrompt = `You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`;
+    const answererSystemPrompt = `/no_think You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${post.body}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`;
     const answererPayload = {
       model: DEFAULT_MODEL,
-      messages: [{ role: 'system', content: answererSystemPrompt }, ...messages],
-      provider: { "order": ["cerebras", "sambanova", "lambda"] },
+      messages: [
+        { role: "system", content: answererSystemPrompt },
+        ...messages,
+      ],
+      provider: { order: ["cerebras", "sambanova", "lambda"] },
       max_tokens: 1000,
       temperature: 0.3,
     };
 
     // --- Prepare and Make Answerer LLM Call ---
     const commonHeaders = {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-      'HTTP-Referer': siteUrl,
-      'X-Title': 'Blog AI Assistant',
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      "HTTP-Referer": siteUrl,
+      "X-Title": "Blog AI Assistant",
     };
 
     const answererResponse = await fetch(OPENROUTER_API_URL, {
-      method: 'POST',
+      method: "POST",
       headers: commonHeaders,
       body: JSON.stringify(answererPayload),
     });
 
     if (!answererResponse.ok) {
       const errorText = await answererResponse.text();
-      console.error(`Answerer API Error: Status ${answererResponse.status}`, errorText);
-      return new Response(JSON.stringify({ error: `AI service (answerer) returned an error: ${answererResponse.status}. Details: ${errorText}` }), {
-        status: answererResponse.status,
-        headers: { 'Content-Type': 'application/json' },
-      });
+      console.error(
+        `Answerer API Error: Status ${answererResponse.status}`,
+        errorText,
+      );
+      return new Response(
+        JSON.stringify({
+          error: `AI service (answerer) returned an error: ${answererResponse.status}. Details: ${errorText}`,
+        }),
+        {
+          status: answererResponse.status,
+          headers: { "Content-Type": "application/json" },
+        },
+      );
     }
 
     const answerData = await answererResponse.json();
@@ -185,50 +238,67 @@ export const POST: APIRoute = async ({ request, locals }) => {
       aiAnswer = answerData.choices[0].message.reasoning;
     }
     if (!aiAnswer) {
-      aiAnswer = 'No answer was received from the AI for your question.';
+      aiAnswer = "No answer was received from the AI for your question.";
     }
 
     // 6. Store in Cache if it was a cacheable question (content matched AND was first message) and LLM call was successful
-    console.log(`[DEBUG] Conditions for cache write: isCacheableQuestion=${isCacheableQuestion}, aiCache=${!!aiCache}, answererResponse.ok=${answererResponse.ok}, aiAnswer exists=${!!aiAnswer}`);
+    console.log(
+      `[DEBUG] Conditions for cache write: isCacheableQuestion=${isCacheableQuestion}, aiCache=${!!aiCache}, answererResponse.ok=${answererResponse.ok}, aiAnswer exists=${!!aiAnswer}`,
+    );
     if (isCacheableQuestion && aiCache && answererResponse.ok && aiAnswer) {
       try {
         // cacheKey would have been set if isCacheableQuestion is true
-        console.log(`[CACHE] Writing to cache for key: ${cacheKey} (LLM answer: "${aiAnswer.substring(0, 50)}...")`);
-        await aiCache.put(cacheKey, aiAnswer, { expirationTtl: CACHE_TTL_SECONDS });
+        console.log(
+          `[CACHE] Writing to cache for key: ${cacheKey} (LLM answer: "${aiAnswer.substring(0, 50)}...")`,
+        );
+        await aiCache.put(cacheKey, aiAnswer, {
+          expirationTtl: CACHE_TTL_SECONDS,
+        });
         console.log(`[CACHE] Successfully wrote to cache for key: ${cacheKey}`);
       } catch (kvError) {
-        console.error(`[CACHE] KV Cache write error for key ${cacheKey}:`, kvError);
+        console.error(
+          `[CACHE] KV Cache write error for key ${cacheKey}:`,
+          kvError,
+        );
       }
-    } else if (answererResponse.ok && aiAnswer) { // Log why write was skipped if LLM call was ok but not cached
-        let skipReason = "[DEBUG] Cache write skipped: ";
-        if (!isCacheableQuestion) {
-            // If it wasn't cacheable, and we got this far, it's likely because it wasn't the first message,
-            // or initial conditions (KV, user message) weren't met.
-            if (lastMessage && lastMessage.role === 'user' && messages.length > 1) {
-                skipReason += "Question was not the first message. ";
-            } else { 
-                skipReason += "Question was not eligible for caching (check earlier logs for specifics like KV availability or message role). ";
-            }
+    } else if (answererResponse.ok && aiAnswer) {
+      // Log why write was skipped if LLM call was ok but not cached
+      let skipReason = "[DEBUG] Cache write skipped: ";
+      if (!isCacheableQuestion) {
+        // If it wasn't cacheable, and we got this far, it's likely because it wasn't the first message,
+        // or initial conditions (KV, user message) weren't met.
+        if (lastMessage && lastMessage.role === "user" && messages.length > 1) {
+          skipReason += "Question was not the first message. ";
+        } else {
+          skipReason +=
+            "Question was not eligible for caching (check earlier logs for specifics like KV availability or message role). ";
         }
-        // The following conditions are less likely if !isCacheableQuestion was the primary reason,
-        // but good to keep for completeness if other parts of the `if` for writing failed.
-        if (!aiCache && isCacheableQuestion) skipReason += "KV unavailable (though question was deemed cacheable). "; // Edge case
-        if (!answererResponse.ok) skipReason += "LLM response not OK. "; // This is already checked by the outer if
-        if (!aiAnswer) skipReason += "No AI answer. "; // This is also checked
-        console.log(skipReason.trim());
+      }
+      // The following conditions are less likely if !isCacheableQuestion was the primary reason,
+      // but good to keep for completeness if other parts of the `if` for writing failed.
+      if (!aiCache && isCacheableQuestion)
+        skipReason += "KV unavailable (though question was deemed cacheable). "; // Edge case
+      if (!answererResponse.ok) skipReason += "LLM response not OK. "; // This is already checked by the outer if
+      if (!aiAnswer) skipReason += "No AI answer. "; // This is also checked
+      console.log(skipReason.trim());
     }
 
-    return new Response(JSON.stringify({ answer: aiAnswer, source: 'llm' }), {
+    return new Response(JSON.stringify({ answer: aiAnswer, source: "llm" }), {
       status: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     });
-
   } catch (error: unknown) {
-    console.error('Error in /api/ask endpoint:', error);
-    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-    return new Response(JSON.stringify({ error: `An unexpected server error occurred: ${errorMessage}` }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    console.error("Error in /api/ask endpoint:", error);
+    const errorMessage =
+      error instanceof Error ? error.message : "An unknown error occurred";
+    return new Response(
+      JSON.stringify({
+        error: `An unexpected server error occurred: ${errorMessage}`,
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   }
 };
