@@ -11,5 +11,10 @@ export default defineConfig({
       enabled: true
     }
   }),
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  vite: {
+    ssr: {
+      external: ['async_hooks', 'fs'],
+    }
+  }
 });
