@@ -127,20 +127,19 @@ User Conversation History (focus on LATEST user query for relevance check):`;
 
     // 2. Spam Blocker LLM call using BAML
     // The 'messages' array (chat history) is what the answererPayload uses.
-    // For BAML, we'll pass a truncated blog body and the stringified 'messages' array.
-    const MAX_SPAM_CHECK_CONTENT_LENGTH = 1500; // Characters, reduced from 4000
-    const truncatedPostBody = post.body.length > MAX_SPAM_CHECK_CONTENT_LENGTH 
-      ? post.body.substring(0, MAX_SPAM_CHECK_CONTENT_LENGTH) + "..."
-      : post.body;
+    // For BAML, we'll pass the full blog body and the stringified 'messages' array.
+    // const MAX_SPAM_CHECK_CONTENT_LENGTH = 1500; // Characters, reduced from 4000 // REMOVED TRUNCATION
+    // const truncatedPostBody = post.body.length > MAX_SPAM_CHECK_CONTENT_LENGTH 
+    //   ? post.body.substring(0, MAX_SPAM_CHECK_CONTENT_LENGTH) + "..."
+    //   : post.body; // REMOVED TRUNCATION
 
-    console.log("Calling BAML CheckRelevance with truncated blog_content and chat_history_json_string:", {
-      original_blog_content_length: post.body.length,
-      truncated_blog_content_length: truncatedPostBody.length,
+    console.log("Calling BAML CheckRelevance with full blog_content and chat_history_json_string:", {
+      blog_content_length: post.body.length,
       chat_history_json_string: JSON.stringify(messages)
     });
     // Pass as positional arguments, not as an object
     const spamBlockerBamlPromise = b.CheckRelevance(
-      truncatedPostBody,
+      post.body, // Use full post.body
       JSON.stringify(messages)
     );
     
