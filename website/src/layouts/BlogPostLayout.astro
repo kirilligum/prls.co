@@ -227,36 +227,166 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
     .fab-ask-ai:hover {
       background-color: var(--prls-text-secondary, #555); /* Match hover state */
     }
+
+    /* Styles for word spans created for click-to-input functionality */
+    .word-span {
+      /* Base style, mostly for identification. Highlighting is done by .clickable-word */
+      display: inline; /* Default span behavior */
+    }
+
+    .word-span.clickable-word {
+      background-color: var(--prls-main-surface-primary); /* Site background color for highlight */
+      color: var(--prls-text-primary); /* Ensure text is readable */
+      cursor: pointer;
+      padding: 0.05em 0.15em; /* Small padding to make background visible */
+      margin: 0 0.05em; /* Small margin between highlighted words */
+      border-radius: 3px;
+      transition: background-color 0.1s ease-in-out;
+    }
+
+    .word-span.clickable-word:hover {
+      background-color: var(--prls-main-surface-secondary); /* A slightly different shade for hover */
+      /* color: var(--prls-text-primary); */ /* Ensure text is still readable */
+    }
   </style>
 
   {/* Floating Action Button to open the AI Assistant */}
   <button id="floating-ask-ai-button" type="button" class="fab-ask-ai">Ask AI</button>
 
   <script>
+    // Constants for word highlighting
+    const CLICKABLE_WORD_CLASS = 'clickable-word';
+    const WORD_SPAN_BASE_CLASS = 'word-span';
+    const BLOG_CONTENT_SELECTOR = '.blog-post-content-wrapper .post-body'; // Target for word wrapping
+
+    let wordsAreWrapped = false;
+
+    // Function to wrap words in spans
+    function wrapWordsInSpans(containerSelector) {
+      if (wordsAreWrapped) return;
+      const container = document.querySelector(containerSelector);
+      if (!container) {
+        console.warn('Blog content container for word wrapping not found:', containerSelector);
+        return;
+      }
+
+      const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      const nodesToProcess = [];
+      while (node = walker.nextNode()) {
+        nodesToProcess.push(node);
+      }
+
+      nodesToProcess.forEach(textNode => {
+        const parent = textNode.parentNode;
+        if (!parent || parent.nodeName === 'A' || parent.nodeName === 'CODE' || parent.nodeName === 'PRE' || parent.nodeName === 'SCRIPT' || parent.nodeName === 'STYLE' || parent.classList.contains(WORD_SPAN_BASE_CLASS)) {
+          return; // Skip text within links, code, or already processed spans
+        }
+        if (!textNode.textContent.trim()) return;
+
+        const fragment = document.createDocumentFragment();
+        // Split by sequences of whitespace, keeping the whitespace as delimiters
+        const parts = textNode.textContent.split(/(\s+)/);
+
+        parts.forEach(part => {
+          if (part.trim().length > 0) { // It's a word
+            const span = document.createElement('span');
+            span.className = WORD_SPAN_BASE_CLASS;
+            span.textContent = part;
+            fragment.appendChild(span);
+          } else { // It's whitespace
+            fragment.appendChild(document.createTextNode(part));
+          }
+        });
+        parent.replaceChild(fragment, textNode);
+      });
+      wordsAreWrapped = true;
+    }
+
+    // Function to handle clicks on words
+    function handleWordClick(event) {
+      const questionInput = document.getElementById('ai-question-input');
+      if (!questionInput || !event.target) return;
+
+      const word = event.target.textContent;
+      const currentValue = questionInput.value.trim();
+      
+      questionInput.value = currentValue ? `${currentValue} ${word}` : word;
+      questionInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true })); // Update button state in BlogAssistant
+      questionInput.focus(); // Keep focus on input
+    }
+
+    // Function to toggle word highlighting and clickability
+    function toggleWordHighlighting(enable) {
+      const wordSpans = document.querySelectorAll(`${BLOG_CONTENT_SELECTOR} .${WORD_SPAN_BASE_CLASS}`);
+      wordSpans.forEach(span => {
+        if (enable) {
+          span.classList.add(CLICKABLE_WORD_CLASS);
+          span.addEventListener('click', handleWordClick);
+        } else {
+          span.classList.remove(CLICKABLE_WORD_CLASS);
+          span.removeEventListener('click', handleWordClick);
+        }
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       const fabButton = document.getElementById('floating-ask-ai-button');
-      // The assistantContainer is rendered by BlogAssistant.astro
       const assistantContainer = document.querySelector('.assistant-ui-container');
-      const questionInput = document.getElementById('ai-question-input'); // Inside BlogAssistant
+      const questionInput = document.getElementById('ai-question-input');
+      const askButton = document.getElementById('ask-ai-button'); // Button next to AI input
 
-      if (fabButton && assistantContainer && questionInput) {
-        // AI Assistant is initially hidden by a class in its own component.
-        // FAB is initially visible.
-
-        fabButton.addEventListener('click', () => {
-          fabButton.classList.add('hidden'); // Hide the FAB
-          assistantContainer.classList.remove('hidden'); // Show the AI assistant
-          
-          questionInput.focus(); // Focus the input field for better UX
-          
-          // Trigger an 'input' event on the questionInput.
-          // This allows the script in BlogAssistant.astro to correctly set
-          // the internal button's text to "Close" if the input is empty.
-          questionInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
-        });
-      } else {
-        console.warn('Required elements for AI Assistant toggle not found in BlogPostLayout.');
+      if (!fabButton || !assistantContainer || !questionInput || !askButton) {
+        console.warn('Required elements for AI Assistant toggle or word highlighting not found.');
+        return;
       }
+
+      // --- Existing FAB Logic ---
+      fabButton.addEventListener('click', () => {
+        fabButton.classList.add('hidden');
+        assistantContainer.classList.remove('hidden');
+        questionInput.focus(); // This will trigger the 'focus' listener below
+        questionInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+      });
+
+      // --- New Word Highlighting Logic ---
+      questionInput.addEventListener('focus', () => {
+        if (!assistantContainer.classList.contains('hidden')) { // Only if assistant is visible
+          if (!wordsAreWrapped) {
+            wrapWordsInSpans(BLOG_CONTENT_SELECTOR);
+          }
+          toggleWordHighlighting(true);
+        }
+      });
+
+      questionInput.addEventListener('blur', () => {
+        // Small delay to allow click on word to register before removing highlights
+        setTimeout(() => {
+            // Check if focus is still outside the input before removing highlights
+            if (document.activeElement !== questionInput) {
+                 toggleWordHighlighting(false);
+            }
+        }, 100);
+      });
+
+      // When "Ask AI" (submit) or "Close" button inside assistant is clicked
+      askButton.addEventListener('click', () => {
+        toggleWordHighlighting(false);
+        // The rest of the click logic (API call or close) is in BlogAssistant.astro
+      });
+
+      // Observe AI assistant visibility changes
+      const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            if (assistantContainer.classList.contains('hidden')) {
+              toggleWordHighlighting(false); // Ensure highlights are off when assistant is hidden
+            }
+          }
+        }
+      });
+      observer.observe(assistantContainer, { attributes: true });
+
     });
   </script>
 </body>
