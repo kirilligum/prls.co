@@ -279,8 +279,8 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
 
       nodesToProcess.forEach(textNode => {
         const parent = textNode.parentNode;
-        if (!parent || parent.nodeName === 'A' || parent.nodeName === 'CODE' || parent.nodeName === 'PRE' || parent.nodeName === 'SCRIPT' || parent.nodeName === 'STYLE' || parent.classList.contains(WORD_SPAN_BASE_CLASS)) {
-          return; // Skip text within links, code, or already processed spans
+        if (!parent || parent.nodeName === 'A' || parent.nodeName === 'PRE' || parent.nodeName === 'SCRIPT' || parent.nodeName === 'STYLE' || parent.classList.contains(WORD_SPAN_BASE_CLASS)) {
+          return; // Skip text within links, preformatted blocks, scripts, styles, or already processed spans
         }
         if (!textNode.textContent.trim()) return;
 
