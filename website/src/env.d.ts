@@ -1,12 +1,13 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
-import type { KVNamespace } from '@cloudflare/workers-types';
+import type { KVNamespace, R2Bucket } from '@cloudflare/workers-types';
 
 // Define the Env interface for Cloudflare bindings
 interface Env {
   OPENROUTER_API_KEY: string; // For Cloudflare runtime
   PRLS_BLOGPOST_AI_CACHE: KVNamespace; // KV namespace binding for "prls blogpost ai"
+  PRLS_AI_LOGS_BUCKET: R2Bucket; // R2 bucket binding for AI conversation logs
   // Add other Cloudflare bindings (D1, R2, etc.) here if you use them
 }
 
