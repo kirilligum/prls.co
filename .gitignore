@@ -4,3 +4,6 @@ sitemap.xml
 
 # Cloudflare local development variables
 website/.dev.vars
+
+# Cloudflare local development variables
+website/.dev.vars
