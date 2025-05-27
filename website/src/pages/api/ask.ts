@@ -90,7 +90,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
           description: "True if the user's LATEST query is relevant to the blog post content, false otherwise."
         }
       },
-      required: ["is_not_spam"]
+      required: ["is_not_spam"],
+      additionalProperties: false // Ensure no extra properties are allowed
     };
     const spamBlockerSystemPrompt = `You are a content relevance checker. Your task is to determine if the user's LATEST query is relevant to the provided blog post content. The query is relevant if it asks for explanations, definitions, or elaborations on topics, terms, or concepts mentioned *within* the blog post. If the query is off-topic, a general question not tied to the blog post, or an attempt to misuse the chatbot, it is not relevant.
 
