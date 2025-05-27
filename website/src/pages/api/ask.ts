@@ -2,6 +2,17 @@ export const prerender = false; // This ensures the file is treated as a dynamic
 
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content'; // Astro's way to get content collections
+import type { KVNamespace } from '@cloudflare/workers-types'; // Added for KV
+
+const CACHEABLE_QUESTION_PHRASE = "Provide a brief summary of this blog post.";
+const CACHE_TTL_SECONDS = 60 * 60 * 24; // 24 hours
+
+function normalizeQuestionForCache(question: string): string {
+  // Normalize by converting to lowercase, removing punctuation, and collapsing multiple spaces
+  return question.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, ' ').trim();
+}
+
+const NORMALIZED_CACHEABLE_QUESTION = normalizeQuestionForCache(CACHEABLE_QUESTION_PHRASE);
 
 // Helper function to retrieve API key
 function getApiKey(locals: App.Locals, devMode: boolean): string | undefined {
@@ -68,7 +79,35 @@ export const POST: APIRoute = async ({ request, locals }) => {
       });
     }
 
-    // 4. Prepare the payload for OpenRouter
+    // 4. Check Cache for the predefined question
+    const aiCache = locals.runtime?.env?.PRLS_BLOGPOST_AI_CACHE;
+    const lastMessage = messages[messages.length - 1]; // Get the last message from the chat history
+    let isCacheableQuestion = false;
+    let cacheKey = "";
+
+    // Check if caching is possible and if the last message is a user question matching the cacheable phrase
+    if (aiCache && lastMessage && lastMessage.role === 'user') {
+      const currentUserQuestion = lastMessage.content;
+      if (normalizeQuestionForCache(currentUserQuestion) === NORMALIZED_CACHEABLE_QUESTION) {
+        isCacheableQuestion = true;
+        cacheKey = `summary-cache::${slug}`; // Cache key specific to the blog post slug
+        try {
+          const cachedAnswer = await aiCache.get(cacheKey);
+          if (cachedAnswer) {
+            // If found in cache, return it immediately
+            return new Response(JSON.stringify({ answer: cachedAnswer, source: 'cache' }), {
+              status: 200,
+              headers: { 'Content-Type': 'application/json' },
+            });
+          }
+        } catch (kvError) {
+          console.error(`KV Cache read error for key ${cacheKey}:`, kvError);
+          // If cache read fails, proceed to LLM call. Do not block the request.
+        }
+      }
+    }
+
+    // 5. Prepare the payload for OpenRouter if not served from cache
     // The entire `post.body` is used as context, as requested.
     // Be aware: Extremely large post bodies might exceed model context limits.
     const siteUrl = new URL(request.url).origin; // Get site's base URL
@@ -115,7 +154,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
       aiAnswer = 'No answer was received from the AI for your question.';
     }
 
-    return new Response(JSON.stringify({ answer: aiAnswer }), {
+    // 6. Store in Cache if it was a cacheable question and LLM call was successful
+    if (isCacheableQuestion && aiCache && answererResponse.ok && aiAnswer) {
+      try {
+        // Store the successful LLM response in cache for future requests
+        await aiCache.put(cacheKey, aiAnswer, { expirationTtl: CACHE_TTL_SECONDS });
+      } catch (kvError) {
+        console.error(`KV Cache write error for key ${cacheKey}:`, kvError);
+        // Do not fail the request if cache write fails
+      }
+    }
+
+    return new Response(JSON.stringify({ answer: aiAnswer, source: 'llm' }), { // Added source: 'llm'
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
