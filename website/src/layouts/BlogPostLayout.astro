@@ -310,7 +310,10 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
       const questionInput = document.getElementById('ai-question-input');
       if (!questionInput || !event.target) return;
 
-      const word = event.target.textContent;
+      let word = event.target.textContent;
+      // Remove common leading/trailing punctuation.
+      // This regex handles various quotes, brackets, and standard punctuation.
+      word = word.replace(/^[\s.,;:!?()"“”«»‹›‚‘‛’–—{\[\]}]+|[\s.,;:!?()"“”«»‹›‚‘‛’–—{\[\]}]+$/g, '');
       const currentValue = questionInput.value.trim();
       
       questionInput.value = currentValue ? `${currentValue} ${word}` : word;
