@@ -37,7 +37,8 @@ function getR2SessionLogKey(slug: string, sessionId: string, turnTimestamp: stri
   const year = date.getUTCFullYear();
   const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
   const day = date.getUTCDate().toString().padStart(2, '0');
-  return `ai-logs/${slug}/${year}/${month}/${day}/${sessionId}/${turnTimestamp}.json`;
+  const formattedDate = `${year}-${month}-${day}`;
+  return `ai-logs/${slug}/${formattedDate}/${sessionId}/${turnTimestamp}.json`;
 }
 
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
