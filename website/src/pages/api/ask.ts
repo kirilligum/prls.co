@@ -140,7 +140,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       // This question is long and has no words from the blog post context.
       // Apply a 1/3 chance to reject it.
       if (Math.random() < (1/3)) {
-        console.log(`[REJECT] Irrelevant query rejected (1/3 chance). Slug: ${slug}, Question: ${currentUserQuestion.substring(0,100)}`);
+        console.log(`[REJECT] Query filtered (1/3 chance). Slug: ${slug}, Question: ${currentUserQuestion.substring(0,100)}`);
         if (aiLogsBucket && r2Key) {
             const logData = { 
                 sessionId, 
@@ -148,21 +148,21 @@ export const POST: APIRoute = async ({ request, locals }) => {
                 blogSlug: slug, 
                 turnTimestampUTC: turnTimestamp, 
                 userQuestion: currentUserQuestion, 
-                rejectionReason: "Query deemed irrelevant to blog content and rejected by 1/3 chance filter.", 
-                source: "rejection_irrelevance" 
+                rejectionReason: "Query did not pass relevance filter (randomized).", 
+                source: "rejection_filter_random" 
             };
             locals.runtime.ctx.waitUntil(
                 aiLogsBucket.put(r2Key, JSON.stringify(logData), { httpMetadata: { contentType: 'application/json' } })
-                .then(() => console.log(`Logged IRRELEVANCE REJECTION to R2: ${r2Key}`))
-                .catch(e => console.error(`Error logging IRRELEVANCE REJECTION to R2 for ${r2Key}:`, e))
+                .then(() => console.log(`Logged FILTER REJECTION to R2: ${r2Key}`))
+                .catch(e => console.error(`Error logging FILTER REJECTION to R2 for ${r2Key}:`, e))
             );
         }
         return new Response(
-            JSON.stringify({ error: "Your query seems unrelated to the blog post content and was not processed. Please ask questions relevant to the article." }),
+            JSON.stringify({ error: "Oh dear! It seems my circuits are a bit fuzzy on that one. Could you try asking something more aligned with this lovely blog post?" }),
             { status: 403, headers: { "Content-Type": "application/json" } }
         );
       } else {
-        console.log(`[PASS] Irrelevant query allowed (2/3 chance). Slug: ${slug}, Question: ${currentUserQuestion.substring(0,100)}`);
+        console.log(`[PASS] Query allowed by filter (2/3 chance). Slug: ${slug}, Question: ${currentUserQuestion.substring(0,100)}`);
       }
     }
     // --- END IRRELEVANCE FILTER ---
