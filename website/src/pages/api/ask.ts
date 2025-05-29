@@ -16,6 +16,42 @@ function normalizeQuestionForCache(question: string): string {
     .trim();
 }
 
+// For blog context: unique words for efficient lookup
+function extractBlogContextWords(text: string): Set<string> {
+  const words = new Set<string>();
+  // Split by sequences of whitespace, keeping delimiters. Then process each part.
+  const parts = text.split(/(\s+)/); 
+  // Regex to remove common leading/trailing punctuation, similar to frontend.
+  const punctuationRegex = /^[\s.,;:!?()"“”«»‹›‚‘‛’–—{\[\]}]+|[\s.,;:!?()"“”«»‹›‚‘‛’–—{\[\]}]+$/g;
+
+  parts.forEach(part => {
+    if (part.trim().length > 0) { // It's a word candidate
+      const cleanedWord = part.replace(punctuationRegex, "").toLowerCase();
+      if (cleanedWord.length > 0) { // Ensure word is not empty after cleaning
+        words.add(cleanedWord);
+      }
+    }
+  });
+  return words;
+}
+
+// For user question: list of words and their count
+function getCleanedQuestionAnalysis(question: string): { wordList: string[], wordCount: number } {
+  const wordList: string[] = [];
+  const parts = question.split(/(\s+)/);
+  const punctuationRegex = /^[\s.,;:!?()"“”«»‹›‚‘‛’–—{\[\]}]+|[\s.,;:!?()"“”«»‹›‚‘‛’–—{\[\]}]+$/g;
+
+  parts.forEach(part => {
+    if (part.trim().length > 0) {
+      const cleanedWord = part.replace(punctuationRegex, "").toLowerCase();
+      if (cleanedWord.length > 0) {
+        wordList.push(cleanedWord);
+      }
+    }
+  });
+  return { wordList, wordCount: wordList.length };
+}
+
 // Helper function to retrieve API key
 function getApiKey(locals: App.Locals, devMode: boolean): string | undefined {
   // Attempt to get API key from Cloudflare runtime environment
@@ -92,6 +128,44 @@ export const POST: APIRoute = async ({ request, locals }) => {
       return new Response(JSON.stringify({ error: "Failed to retrieve blog post context." }), { status: 500 });
     }
     // --- END MODIFIED SECTION ---
+
+    // --- START IRRELEVANCE FILTER ---
+    const blogContextWordSet = extractBlogContextWords(postBodyForContext);
+    const { wordList: questionCleanWords, wordCount: questionWordCount } = getCleanedQuestionAnalysis(currentUserQuestion);
+
+    const isLongQuestion = questionWordCount > 5;
+    const hasRelevantWord = questionCleanWords.some(word => blogContextWordSet.has(word));
+
+    if (isLongQuestion && !hasRelevantWord) {
+      // This question is long and has no words from the blog post context.
+      // Apply a 1/3 chance to reject it.
+      if (Math.random() < (1/3)) {
+        console.log(`[REJECT] Irrelevant query rejected (1/3 chance). Slug: ${slug}, Question: ${currentUserQuestion.substring(0,100)}`);
+        if (aiLogsBucket && r2Key) {
+            const logData = { 
+                sessionId, 
+                readerId, 
+                blogSlug: slug, 
+                turnTimestampUTC: turnTimestamp, 
+                userQuestion: currentUserQuestion, 
+                rejectionReason: "Query deemed irrelevant to blog content and rejected by 1/3 chance filter.", 
+                source: "rejection_irrelevance" 
+            };
+            locals.runtime.ctx.waitUntil(
+                aiLogsBucket.put(r2Key, JSON.stringify(logData), { httpMetadata: { contentType: 'application/json' } })
+                .then(() => console.log(`Logged IRRELEVANCE REJECTION to R2: ${r2Key}`))
+                .catch(e => console.error(`Error logging IRRELEVANCE REJECTION to R2 for ${r2Key}:`, e))
+            );
+        }
+        return new Response(
+            JSON.stringify({ error: "Your query seems unrelated to the blog post content and was not processed. Please ask questions relevant to the article." }),
+            { status: 403, headers: { "Content-Type": "application/json" } }
+        );
+      } else {
+        console.log(`[PASS] Irrelevant query allowed (2/3 chance). Slug: ${slug}, Question: ${currentUserQuestion.substring(0,100)}`);
+      }
+    }
+    // --- END IRRELEVANCE FILTER ---
 
     // 3. Securely access the API key
     const apiKey = getApiKey(locals, import.meta.env.DEV);
