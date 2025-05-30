@@ -288,7 +288,7 @@ No additional text or explanation outside this JSON object.`;
         ...(body.messages || []), // Use body.messages which is the chat history for LLM
       ],
       provider: { order: ["cerebras", "sambanova", "lambda"] }, // This is OpenRouter specific
-      max_tokens: 1500, // Increased slightly to accommodate JSON structure and relation explanation
+      max_tokens: 768, // Adjusted for concise JSON output (relation, related, ~5 line response)
       temperature: 0.3,
       response_format: { // Add this for structured output
         type: "json_schema", // As per Cerebras and OpenAI v2 API
