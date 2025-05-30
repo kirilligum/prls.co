@@ -45,14 +45,29 @@ const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 const DEFAULT_MODEL = "qwen/qwen3-32b";
 
 export const POST: APIRoute = async ({ request, locals }) => {
+  // Define aiLogsBucket at the top of the function scope, before the try block
+  const aiLogsBucket = locals.runtime?.env?.PRLS_AI_LOGS_BUCKET;
+  
+  // Declare variables that might be used in the catch block if an early error occurs
+  let slug: string | undefined;
+  let readerId: string | undefined;
+  let sessionId: string | undefined;
+  let currentUserQuestion: string | undefined;
+  let turnTimestamp: string | undefined;
+  let r2Key: string | undefined;
+
   try {
     // 1. Parse incoming request data
     const body = await request.json();
     // Expect 'messages' array, 'slug', 'readerId', 'sessionId', 'currentUserQuestion'
-    const { messages, slug, readerId, sessionId, currentUserQuestion } = body;
-
-    // Define aiLogsBucket at the top of the function scope
-    const aiLogsBucket = locals.runtime?.env?.PRLS_AI_LOGS_BUCKET;
+    // Assign to the variables declared above
+    ({ 
+      slug, 
+      readerId, 
+      sessionId, 
+      currentUserQuestion 
+    } = body);
+    const messages = body.messages; // messages is also from body
 
     // Basic validation
     if (!slug || !readerId || !sessionId || typeof currentUserQuestion === 'undefined' || !messages || !Array.isArray(messages) /* messages.length === 0 is allowed if currentUserQuestion is primary */) {
@@ -62,10 +77,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
       );
     }
 
-    const turnTimestamp = new Date().toISOString(); // Timestamp for this entire turn
-    let r2Key = ""; 
-    if (aiLogsBucket) {
+    turnTimestamp = new Date().toISOString(); // Timestamp for this entire turn
+    // r2Key is initialized here, ensuring it's defined if slug, sessionId, and turnTimestamp are valid
+    if (aiLogsBucket && slug && sessionId && turnTimestamp) {
       r2Key = getR2SessionLogKey(slug, sessionId, turnTimestamp);
+    } else {
+      r2Key = ""; // Ensure r2Key is initialized even if not fully formed
     }
 
     // User question logging will be combined with the response/error logging later.
@@ -446,7 +463,7 @@ No additional text or explanation outside this JSON object.`;
       console.log(skipReason.trim());
     }
 
-    return new Response(JSON.stringify({ answer: aiAnswer, source: "llm" }), {
+    return new Response(JSON.stringify({ answer: finalAnswer, source: "llm" }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
@@ -457,6 +474,7 @@ No additional text or explanation outside this JSON object.`;
     // Log general error to R2
     // Note: slug, sessionId, readerId, currentUserQuestion might be undefined if error happened before body parsing.
     // r2Key might also be empty.
+    // aiLogsBucket is now guaranteed to be in scope (or undefined if not available in env)
     if (aiLogsBucket) { 
         const logSlug = typeof slug === 'string' ? slug : "unknown_slug_in_error";
         const logSessionId = typeof sessionId === 'string' ? sessionId : "unknown_session_in_error";
@@ -465,13 +483,16 @@ No additional text or explanation outside this JSON object.`;
         
         // Use the initial turnTimestamp for consistency if available, otherwise a new one.
         // r2Key would be based on initial turnTimestamp if it was set.
-        const finalR2Key = r2Key || getR2SessionLogKey(logSlug, logSessionId, new Date().toISOString());
+        const finalR2Key = (r2Key && slug && sessionId && turnTimestamp) 
+          ? r2Key 
+          : getR2SessionLogKey(logSlug, logSessionId, turnTimestamp || new Date().toISOString());
+
 
         const logData = { 
             sessionId: logSessionId, 
             readerId: logReaderId, 
             blogSlug: logSlug, 
-            turnTimestampUTC: r2Key ? turnTimestamp : new Date().toISOString(), // Use original turnTimestamp if r2Key was formed
+            turnTimestampUTC: (r2Key && turnTimestamp) ? turnTimestamp : new Date().toISOString(), // Use original turnTimestamp if r2Key was formed
             userQuestion: logUserQuestion, 
             errorDetails: `Outer API Error: ${errorMessage.substring(0,1000)}`, 
             source: "error_api_catch_all" 
