@@ -383,6 +383,45 @@ const { slug } = Astro.props;
     text-align: center;
   }
 
+  .chip-button-wrapper {
+    position: relative; /* For absolute positioning of legs */
+    flex-shrink: 0; /* Prevent wrapper from shrinking in flex layout */
+    display: inline-flex; /* Sizes to content, participates in parent flex */
+    align-items: stretch; /* Stretches vertically with textarea */
+    margin: 0 4px; /* Space for protruding legs (4px on L/R) */
+  }
+
+  .chip-leg {
+    display: block;
+    position: absolute;
+    background-color: #b0b0b0; /* Silver/grey color for legs */
+    width: 4px;  /* Leg thickness */
+    height: 4px; /* Leg length (making them small squares) */
+    z-index: 0;  /* Behind the button body */
+  }
+
+  /* Positioning for 4 legs on each side */
+  /* Adjust percentages and transforms to fine-tune spacing */
+  .leg-top-1 { top: -4px; left: 15%; }
+  .leg-top-2 { top: -4px; left: 38%; }
+  .leg-top-3 { top: -4px; left: 61%; }
+  .leg-top-4 { top: -4px; left: 84%; }
+
+  .leg-bottom-1 { bottom: -4px; left: 15%; }
+  .leg-bottom-2 { bottom: -4px; left: 38%; }
+  .leg-bottom-3 { bottom: -4px; left: 61%; }
+  .leg-bottom-4 { bottom: -4px; left: 84%; }
+
+  .leg-left-1 { left: -4px; top: 15%; }
+  .leg-left-2 { left: -4px; top: 38%; }
+  .leg-left-3 { left: -4px; top: 61%; }
+  .leg-left-4 { left: -4px; top: 84%; }
+
+  .leg-right-1 { right: -4px; top: 15%; }
+  .leg-right-2 { right: -4px; top: 38%; }
+  .leg-right-3 { right: -4px; top: 61%; }
+  .leg-right-4 { right: -4px; top: 84%; }
+
   #ask-ai-button:hover {
     background-color: var(--prls-text-secondary, #555); /* Darken on hover */
   }
