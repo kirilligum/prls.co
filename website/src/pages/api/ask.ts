@@ -492,7 +492,7 @@ No additional text or explanation outside this JSON object.`;
             sessionId: logSessionId, 
             readerId: logReaderId, 
             blogSlug: logSlug, 
-            turnTimestampUTC: (r2Key && turnTimestamp) ? turnTimestamp : new Date().toISOString(), // Use original turnTimestamp if r2Key was formed
+            turnTimestampUTC: turnTimestamp || new Date().toISOString(), // Use original turnTimestamp if available, else a new one
             userQuestion: logUserQuestion, 
             errorDetails: `Outer API Error: ${errorMessage.substring(0,1000)}`, 
             source: "error_api_catch_all" 
