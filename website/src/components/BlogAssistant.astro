@@ -15,7 +15,29 @@ const { slug } = Astro.props;
         placeholder="E.g., What is 'data curation'?"
         aria-label="Ask the AI assistant a question about this blog post"
       ></textarea>
-      <button id="ask-ai-button" type="button">Ask AI</button>
+      <div class="chip-button-wrapper">
+        <button id="ask-ai-button" type="button">Ask AI</button>
+        {/* Top Legs */}
+        <span class="chip-leg leg-top-1"></span>
+        <span class="chip-leg leg-top-2"></span>
+        <span class="chip-leg leg-top-3"></span>
+        <span class="chip-leg leg-top-4"></span>
+        {/* Bottom Legs */}
+        <span class="chip-leg leg-bottom-1"></span>
+        <span class="chip-leg leg-bottom-2"></span>
+        <span class="chip-leg leg-bottom-3"></span>
+        <span class="chip-leg leg-bottom-4"></span>
+        {/* Left Legs */}
+        <span class="chip-leg leg-left-1"></span>
+        <span class="chip-leg leg-left-2"></span>
+        <span class="chip-leg leg-left-3"></span>
+        <span class="chip-leg leg-left-4"></span>
+        {/* Right Legs */}
+        <span class="chip-leg leg-right-1"></span>
+        <span class="chip-leg leg-right-2"></span>
+        <span class="chip-leg leg-right-3"></span>
+        <span class="chip-leg leg-right-4"></span>
+      </div>
     </div>
   </div>
   <div id="ai-response-pane" class="assistant-pane scrollable-pane">
@@ -339,20 +361,26 @@ const { slug } = Astro.props;
   }
 
   #ask-ai-button {
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem; /* Adjusted padding */
     background-color: var(--prls-text-primary, #333); /* Use a theme color */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 2px; /* Modified for chip look */
     cursor: pointer;
     font-weight: 600;
-    /* align-self: flex-end; Removed, alignment handled by flex parent */
     transition: background-color 0.2s ease;
-    flex-shrink: 0; /* Prevent button from shrinking */
+    /* flex-shrink: 0; /* Removed, moved to .chip-button-wrapper */
     /* Height will be determined by matching textarea due to align-items: stretch on parent */
-    /* Adjust padding for a narrower look */
-    padding-left: 1rem;
-    padding-right: 1rem;
+    
+    position: relative; /* To ensure button body is above legs */
+    z-index: 1;
+    width: 100%; /* Fill the wrapper */
+    height: 100%; /* Fill the wrapper */
+    box-sizing: border-box; /* Padding included in 100% width/height */
+    display: flex; /* For centering text */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   #ask-ai-button:hover {
