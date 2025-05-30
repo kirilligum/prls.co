@@ -219,7 +219,65 @@ export const POST: APIRoute = async ({ request, locals }) => {
     const siteUrl = new URL(request.url).origin; // Get site's base URL
 
     // --- Define Payload for the Answering LLM ---
-    const answererSystemPrompt = `/no_think You are an expert assistant for a technical blog. Your primary goal is to provide short, technically deep answers, often definitions of terms found in the blog post. Aim for responses around 5 lines or less. The user is asking about the following blog post content:\n\n--- BEGIN BLOG POST ---\n${postBodyForContext}\n--- END BLOG POST ---\n\nUse the chat history below for context if relevant to the current question.`;
+    const llmResponseSchema = {
+      name: "blogPostAssistantResponse", // A descriptive name for the schema
+      strict: true, // Enforce schema strictly, as per Cerebras docs for best results
+      schema: {
+        type: "object",
+        properties: {
+          relation: { type: "string", description: "Explanation of how the query relates to the blog post." },
+          related: { type: "boolean", description: "True if the query is related to the blog post, false otherwise." },
+          response: { type: "string", description: "The answer to the query if related, or an empty string if not related." }
+        },
+        required: ["relation", "related", "response"],
+        additionalProperties: false // Disallow properties not defined in the schema
+      }
+    };
+
+    const answererSystemPrompt = `You are an expert assistant for a technical blog.
+Your task is to analyze the user's query in relation to the provided blog post content and respond in a specific JSON format.
+
+Instructions:
+1.  **Explain Relation**: Briefly explain how the user's query relates to the blog post content.
+2.  **Determine Relevance**: State whether the query is related to the blog post content (true/false).
+3.  **Answer if Relevant**: If the query is related, provide a concise, technically deep answer (around 5 lines or less, focusing on definitions or key concepts from the blog post if appropriate). If the query is not related, this part of your response (the 'response' field in the JSON) MUST be an empty string.
+
+The user is asking about the following blog post content:
+--- BEGIN BLOG POST ---
+${postBodyForContext}
+--- END BLOG POST ---
+
+Use the chat history below for context if relevant to the current question.
+
+You MUST output your response as a single JSON object adhering to the following schema:
+{
+  "type": "object",
+  "properties": {
+    "relation": { "type": "string", "description": "Explanation of how the query relates to the blog post." },
+    "related": { "type": "boolean", "description": "True if the query is related to the blog post, false otherwise." },
+    "response": { "type": "string", "description": "The answer to the query if related, or an empty string if not related." }
+  },
+  "required": ["relation", "related", "response"]
+}
+
+Example of a related query:
+User query: "What is Dolma?"
+Your JSON output:
+{
+  "relation": "The query asks about 'Dolma', which is mentioned in the blog post as a large-scale, open, multi-source corpus and toolkit for data curation research.",
+  "related": true,
+  "response": "Dolma is a 3T Llama token dataset from AI2, combining sources like Common Crawl and GitHub. It includes an open-source toolkit for data curation tasks like filtering and deduplication, aiming for transparency in LLM pre-training data preparation."
+}
+
+Example of an unrelated query:
+User query: "What's the best recipe for apple pie?"
+Your JSON output:
+{
+  "relation": "The query asks for an apple pie recipe, which is entirely unrelated to the blog post's content on LLM pre-training data curation.",
+  "related": false,
+  "response": ""
+}
+No additional text or explanation outside this JSON object.`;
 
     const answererPayload = {
       model: DEFAULT_MODEL,
@@ -228,9 +286,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
         // Ensure `messages` here is the chat history from the client, not the one used for cache check
         ...(body.messages || []), // Use body.messages which is the chat history for LLM
       ],
-      provider: { order: ["cerebras", "sambanova", "lambda"] },
-      max_tokens: 1000,
+      provider: { order: ["cerebras", "sambanova", "lambda"] }, // This is OpenRouter specific
+      max_tokens: 1500, // Increased slightly to accommodate JSON structure and relation explanation
       temperature: 0.3,
+      response_format: { // Add this for structured output
+        type: "json_schema", // As per Cerebras and OpenAI v2 API
+        json_schema: llmResponseSchema // The schema defined earlier
+      }
     };
 
     // --- Prepare and Make Answerer LLM Call ---
@@ -270,17 +332,75 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     const answerData = await answererResponse.json();
-    let aiAnswer = answerData.choices?.[0]?.message?.content;
-    if (!aiAnswer && answerData.choices?.[0]?.message?.reasoning) {
-      aiAnswer = answerData.choices[0].message.reasoning;
+    let llmOutputString = answerData.choices?.[0]?.message?.content;
+
+    if (!llmOutputString) {
+        if (answerData.choices?.[0]?.message?.reasoning) {
+            llmOutputString = answerData.choices[0].message.reasoning;
+        } else {
+            console.error("LLM response content is missing or empty:", JSON.stringify(answerData).substring(0, 500));
+            if (aiLogsBucket && r2Key) {
+                const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, errorDetails: "LLM response content was missing or empty.", source: "error_llm_empty_response_content" };
+                locals.runtime.ctx.waitUntil(aiLogsBucket.put(r2Key, JSON.stringify(logData)));
+            }
+            return new Response(JSON.stringify({ error: "AI service returned an empty or malformed response content." }), { status: 500 });
+        }
     }
-    if (!aiAnswer) {
-      aiAnswer = "No answer was received from the AI for your question.";
+
+    let parsedLlmJson;
+    try {
+        parsedLlmJson = JSON.parse(llmOutputString);
+    } catch (e) {
+        console.error("Failed to parse LLM JSON response:", e, "Raw response:", llmOutputString.substring(0, 500));
+        if (aiLogsBucket && r2Key) {
+            const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, errorDetails: `Failed to parse LLM JSON. Error: ${e instanceof Error ? e.message : String(e)}. Raw: ${llmOutputString.substring(0,500)}`, source: "error_llm_json_parse" };
+            locals.runtime.ctx.waitUntil(aiLogsBucket.put(r2Key, JSON.stringify(logData)));
+        }
+        return new Response(JSON.stringify({ error: "AI service returned a response that was not valid JSON." }), { status: 500 });
     }
+
+    const { relation, related, response: llmAnswerFromSchema } = parsedLlmJson;
+
+    if (typeof related !== 'boolean' || typeof llmAnswerFromSchema === 'undefined' || typeof relation === 'undefined') {
+        console.error("LLM JSON response did not match expected schema:", JSON.stringify(parsedLlmJson).substring(0, 500));
+        if (aiLogsBucket && r2Key) {
+            const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, errorDetails: `LLM JSON response did not match expected schema. Received: ${JSON.stringify(parsedLlmJson).substring(0,500)}`, source: "error_llm_schema_mismatch" };
+            locals.runtime.ctx.waitUntil(aiLogsBucket.put(r2Key, JSON.stringify(logData)));
+        }
+        return new Response(JSON.stringify({ error: "AI service returned data in an unexpected format." }), { status: 500 });
+    }
+
+    if (!related) {
+        const funnyResponses = [
+            "My circuits are tingling to chat about the blog post, but your question seems to be exploring a different galaxy! How about we steer back to LLM data curation?",
+            "Hold your horses, thinker! That question's a bit of a wild stallion, off the blog's trail. Let's wrangle it back to AI and data insights!",
+            "I'm geared up to dissect the blog's content! Your query, though, appears to have wandered into a parallel universe. Shall we return to the fascinating realm of LLMs?",
+            "Bleep, blorp! My prime directive is to assist with this blog post. That question is like asking a dictionary for dance moves! Got any queries about data curation strategies?",
+            "While I admire your expansive curiosity, my expertise is finely tuned to the blog post's subject matter. Let's delve into those topics, shall we?"
+        ];
+        const corkyResponse = funnyResponses[Math.floor(Math.random() * funnyResponses.length)];
+        
+        if (aiLogsBucket && r2Key) {
+            const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, aiRawRelation: relation, aiRelatedFlag: related, systemResponse: corkyResponse, source: "system_filter_off_topic" };
+            locals.runtime.ctx.waitUntil(
+                aiLogsBucket.put(r2Key, JSON.stringify(logData), { httpMetadata: { contentType: 'application/json' } })
+                .then(() => console.log(`Logged OFF-TOPIC query to R2: ${r2Key}`))
+                .catch(e => console.error(`Error logging OFF-TOPIC query to R2 for ${r2Key}:`, e))
+            );
+        }
+
+        return new Response(JSON.stringify({ answer: corkyResponse, source: "system_filter_off_topic" }), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+        });
+    }
+
+    // If related is true, proceed with llmAnswerFromSchema
+    const finalAnswer = llmAnswerFromSchema || "The AI indicated this query is related to the blog post but didn't provide a specific answer. You could try rephrasing your question for more details.";
 
     // Log successful LLM response to R2
     if (aiLogsBucket && r2Key) {
-        const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, aiResponse: aiAnswer, source: "llm", modelUsed: DEFAULT_MODEL };
+        const logData = { sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp, userQuestion: currentUserQuestion, aiRawRelation: relation, aiRelatedFlag: related, aiResponse: finalAnswer, source: "llm", modelUsed: DEFAULT_MODEL };
         locals.runtime.ctx.waitUntil(
             aiLogsBucket.put(r2Key, JSON.stringify(logData), { httpMetadata: { contentType: 'application/json' } })
             .then(() => console.log(`Logged LLM response to R2: ${r2Key}`))
@@ -288,17 +408,16 @@ export const POST: APIRoute = async ({ request, locals }) => {
         );
     }
 
-    // 6. Store in Cache if it was a cacheable question (content matched AND was first message) and LLM call was successful
+    // Cache logic: Only cache if the question was cacheable AND related
     console.log(
-      `[DEBUG] Conditions for cache write: isCacheableQuestion=${isCacheableQuestion}, aiCache=${!!aiCache}, answererResponse.ok=${answererResponse.ok}, aiAnswer exists=${!!aiAnswer}`,
+      `[DEBUG] Conditions for cache write: isCacheableQuestion=${isCacheableQuestion}, related=${related}, aiCache=${!!aiCache}, answererResponse.ok=${answererResponse.ok}, finalAnswer exists=${!!finalAnswer}`,
     );
-    if (isCacheableQuestion && aiCache && answererResponse.ok && aiAnswer) {
+    if (isCacheableQuestion && related && aiCache && answererResponse.ok && finalAnswer) {
       try {
-        // cacheKey would have been set if isCacheableQuestion is true
         console.log(
-          `[CACHE] Writing to cache for key: ${cacheKey} (LLM answer: "${aiAnswer.substring(0, 50)}...")`,
+          `[CACHE] Writing to cache for key: ${cacheKey} (LLM answer: "${finalAnswer.substring(0, 50)}...")`,
         );
-        await aiCache.put(cacheKey, aiAnswer, {
+        await aiCache.put(cacheKey, finalAnswer, {
           expirationTtl: CACHE_TTL_SECONDS,
         });
         console.log(`[CACHE] Successfully wrote to cache for key: ${cacheKey}`);
@@ -308,25 +427,22 @@ export const POST: APIRoute = async ({ request, locals }) => {
           kvError,
         );
       }
-    } else if (answererResponse.ok && aiAnswer) {
-      // Log why write was skipped if LLM call was ok but not cached
+    } else if (answererResponse.ok && finalAnswer) {
       let skipReason = "[DEBUG] Cache write skipped: ";
       if (!isCacheableQuestion) {
-        // If it wasn't cacheable, and we got this far, it's likely because it wasn't the first message,
-        // or initial conditions (KV, user message) weren't met.
         if (lastMessage && lastMessage.role === "user" && messages.length > 1) {
           skipReason += "Question was not the first message. ";
         } else {
-          skipReason +=
-            "Question was not eligible for caching (check earlier logs for specifics like KV availability or message role). ";
+          skipReason += "Question was not eligible for caching (check earlier logs for specifics). ";
         }
       }
-      // The following conditions are less likely if !isCacheableQuestion was the primary reason,
-      // but good to keep for completeness if other parts of the `if` for writing failed.
-      if (!aiCache && isCacheableQuestion)
-        skipReason += "KV unavailable (though question was deemed cacheable). "; // Edge case
-      if (!answererResponse.ok) skipReason += "LLM response not OK. "; // This is already checked by the outer if
-      if (!aiAnswer) skipReason += "No AI answer. "; // This is also checked
+      if (isCacheableQuestion && !related) { // Check if it was cacheable but then deemed unrelated
+          skipReason += "Query was not related to blog post. ";
+      }
+      if (!aiCache && isCacheableQuestion && related) // Only log if it would have been cached
+        skipReason += "KV unavailable. ";
+      if (!answererResponse.ok) skipReason += "LLM response not OK. ";
+      if (!finalAnswer && related) skipReason += "No AI answer (but was related). "; // Should be covered by fallback
       console.log(skipReason.trim());
     }
 
