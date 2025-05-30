@@ -188,7 +188,19 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
     .post-body figcaption { text-align: center; font-size: 0.9em; color: var(--prls-text-secondary); margin-top: 0.5rem; font-style: italic; }
     .post-body hr { border: 0; text-align: center; overflow: visible; height: auto; background-color: transparent; margin: 3.5rem auto; }
     .post-body hr::before { content: "..."; display: inline-block; letter-spacing: 0.6em; font-size: 1.5em; color: var(--prls-text-tertiary); }
-    .post-body table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem; box-shadow: none; border-radius: 0; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+    .post-body table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-bottom: 1.5rem; 
+      font-size: 0.9rem; 
+      box-shadow: none; 
+      border-radius: 0; 
+      border-top: 1px solid #e5e5e5; 
+      border-bottom: 1px solid #e5e5e5;
+      /* Add these lines */
+      display: block;
+      overflow-x: auto;
+    }
     .post-body th, .post-body td { border: none; border-bottom: 1px solid #e5e5e5; padding: 0.8rem 0.5rem; text-align: left; line-height: 1.5; }
     .post-body tr:last-child td { border-bottom: none; }
     .post-body th { background-color: transparent; font-weight: 600; color: var(--prls-text-secondary); padding-top: 1rem; padding-bottom: 1rem; }
