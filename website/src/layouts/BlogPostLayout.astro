@@ -4,6 +4,7 @@
 import SiteHeader from "../components/Header.astro"; // Your site's main header component
 import SiteFooter from "../components/Footer.astro"; // Your site's main footer component
 import BlogAIAssistant from "../components/BlogAssistant.astro";
+import ChipButton from "../components/ChipButton.astro"; // Import the new component
 import { formatDate } from '../utils/formatDate';
 
 interface Props {
@@ -201,33 +202,22 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
       display: none !important;
     }
 
-    /* Styles for the Floating Action Button */
-    .fab-ask-ai {
+    /* Styles for the Floating Action Button Container */
+    /* This class now styles a container DIV that will wrap the ChipButton component */
+    .fab-container {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 20px; /* Adjust if legs make it appear too low/high */
+      right: 20px;  /* Adjust if legs make it appear too far left/right */
       z-index: 1000; /* Ensure it's on top of other content */
-      box-sizing: border-box; /* Ensure padding and border are included in height */
-      /* Height calculated to match the textarea + internal button height:
-         (2 rows * 1.4em line-height * 0.95rem font-size) + (2 * 0.75rem vertical padding) + 2px textarea border
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      /* 
+        Removed: height, background-color, color, border, border-radius, cursor, 
+        font-weight, font-size, padding. These are now handled by ChipButton.astro.
+        The effective size will be determined by ChipButton's content and padding,
+        plus the 8px margin for its legs.
       */
-      height: calc( (2 * 1.4 * 0.95rem) + (2 * 0.75rem) + 2px ); /* Approx 4.16rem + 2px */
-      
-      /* Match styling of #ask-ai-button in BlogAssistant.astro */
-      background-color: var(--prls-text-primary, #333);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.2s ease, opacity 0.3s ease, visibility 0.3s ease;
-      font-size: 0.95rem; /* Match textarea or internal button font size */
-      padding: 0.75rem 1rem; /* Match internal button's effective padding */
     }
-
-    .fab-ask-ai:hover {
-      background-color: var(--prls-text-secondary, #555); /* Match hover state */
-    }
+    /* Hover state for the button itself is handled within ChipButton.astro */
 
     /* Styles for word spans created for click-to-input functionality */
     .word-span {
@@ -251,8 +241,10 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
     }
   </style>
 
-  {/* Floating Action Button to open the AI Assistant */}
-  <button id="floating-ask-ai-button" type="button" class="fab-ask-ai">Ask AI</button>
+  {/* Floating Action Button Container using the new ChipButton component */}
+  <div id="fab-container" class="fab-container"> {/* ID for script, class for styling */}
+    <ChipButton id="floating-ask-ai-button" type="button">Ask AI</ChipButton>
+  </div>
 
   <script>
     // Constants for word highlighting
@@ -336,20 +328,34 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const fabButton = document.getElementById('floating-ask-ai-button');
+      const fabContainer = document.getElementById('fab-container'); // Changed to fab-container
       const assistantContainer = document.querySelector('.assistant-ui-container');
       const questionInput = document.getElementById('ai-question-input');
       const askButton = document.getElementById('ask-ai-button'); // Button next to AI input
       const blogContentPane = document.querySelector('.blog-content-pane');
 
-      if (!fabButton || !assistantContainer || !questionInput || !askButton || !blogContentPane) {
+      // Note: floating-ask-ai-button is now the ID of the <button> INSIDE ChipButton.
+      // The container is fabContainer.
+      if (!fabContainer || !assistantContainer || !questionInput || !askButton || !blogContentPane) {
         console.warn('Required elements for AI Assistant toggle, word highlighting, or scroll adjustment not found.');
         return;
       }
+      
+      // The actual button with id="floating-ask-ai-button" is inside fabContainer.
+      // We add the event listener to the container, or directly to the button if preferred.
+      // For simplicity, if ChipButton handles its own click propagation, listening on the button ID is fine.
+      // Let's assume we need to get the button itself if the click logic is specific to it.
+      const fabButtonItself = document.getElementById('floating-ask-ai-button');
+      if (!fabButtonItself) {
+          console.warn('FAB button itself (floating-ask-ai-button) not found within fab-container.');
+          return;
+      }
+
 
       // --- Existing FAB Logic ---
-      fabButton.addEventListener('click', () => {
-        fabButton.classList.add('hidden');
+      // Listen on the button itself, not the container, for the click action.
+      fabButtonItself.addEventListener('click', () => { 
+        fabContainer.classList.add('hidden'); // Hide the container
         assistantContainer.classList.remove('hidden');
         questionInput.focus(); // This will trigger the 'focus' listener below
         questionInput.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
@@ -379,36 +385,37 @@ const pageTitle = `${title} | Pearls of Wisdom`; // Or your actual blog name
       askButton.addEventListener('click', () => {
         toggleWordHighlighting(false);
         // The rest of the click logic (API call or close) is in BlogAssistant.astro
+        // When "Close" is clicked in BlogAssistant, it hides assistantContainer and shows fabContainer.
+        // We need to ensure fabContainer is shown. This is handled by BlogAssistant.astro's script.
       });
 
-      // Observe AI assistant visibility changes
-      const observer = new MutationObserver((mutationsList) => {
+      // Observe AI assistant visibility changes to show/hide FAB container
+      const assistantObserver = new MutationObserver((mutationsList) => {
         for (const mutation of mutationsList) {
           if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
             const isAssistantVisible = !assistantContainer.classList.contains('hidden');
             
             if (isAssistantVisible) {
-              // Assistant just became visible
-              // Ensure the measurement happens after the element is truly visible and has its final height.
-              // Using requestAnimationFrame can help ensure layout is stable.
+              fabContainer.classList.add('hidden'); // Hide FAB when assistant is visible
+              // Scroll adjustment logic
               requestAnimationFrame(() => {
                 lastKnownAssistantHeight = assistantContainer.offsetHeight;
                 if (lastKnownAssistantHeight > 0) {
                   blogContentPane.scrollTop += lastKnownAssistantHeight;
                 }
               });
-              // Word highlighting is handled by the 'focus' event on questionInput
             } else {
-              // Assistant just became hidden
+              fabContainer.classList.remove('hidden'); // Show FAB when assistant is hidden
+              // Scroll adjustment logic
               if (lastKnownAssistantHeight > 0) {
                 blogContentPane.scrollTop = Math.max(0, blogContentPane.scrollTop - lastKnownAssistantHeight);
               }
-              toggleWordHighlighting(false); // Ensure highlights are off
+              toggleWordHighlighting(false);
             }
           }
         }
       });
-      observer.observe(assistantContainer, { attributes: true });
+      assistantObserver.observe(assistantContainer, { attributes: true });
 
     });
   </script>
