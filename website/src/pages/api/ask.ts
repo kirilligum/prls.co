@@ -387,6 +387,7 @@ No additional text or explanation outside this JSON object.`;
       "X-Title": "Blog AI Assistant",
     };
 
+    console.log(`[DEBUG] Calling LLM. Model: ${answererPayload.model}. Provider order: ${answererPayload.provider.order.join(', ')}`);
     const answererResponse = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: commonHeaders,
@@ -399,6 +400,7 @@ No additional text or explanation outside this JSON object.`;
         `Answerer API Error: Status ${answererResponse.status}`,
         errorText,
       );
+      console.log(`[DEBUG] LLM API Error: Status ${answererResponse.status}, Model: ${answererPayload.model}, Details: ${errorText.substring(0, 200)}`);
       // Log LLM error to R2
       if (aiLogsBucket && r2Key) {
         const logData = {
@@ -536,6 +538,7 @@ No additional text or explanation outside this JSON object.`;
       const corkyResponse =
         funnyResponses[Math.floor(Math.random() * funnyResponses.length)];
 
+      console.log(`[DEBUG] Query determined as NOT RELATED by LLM. Relation: "${relation}". User question: "${currentUserQuestion}"`);
       if (aiLogsBucket && r2Key) {
         const logData = {
           sessionId,
