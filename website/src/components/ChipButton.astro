@@ -45,8 +45,8 @@ const {
 <style>
   .chip-button-wrapper {
     position: relative;
-    display: inline-flex; /* Let wrapper size to button content */
-    align-items: stretch; /* Ensure it stretches vertically if its parent is a flex row and stretches items */
+    display: flex; /* Changed from inline-flex */
+    align-items: center; /* Changed from stretch to center the button vertically */
     flex-shrink: 0; /* Prevent wrapper from shrinking in flex layout */
     margin: 0 8px; /* Account for 8px protruding legs on left/right */
     /* Vertical margin for legs (top/bottom 8px) will be naturally handled by line height or parent padding */
@@ -54,7 +54,9 @@ const {
 
   .chip-button-main {
     /* Reverted to original button styling with rounded corners */
-    padding: 0.75rem 1rem;
+    width: 2.8rem; /* Fixed width for square shape */
+    height: 2.8rem; /* Fixed height for square shape */
+    padding: 0.25rem; /* Uniform padding for centered text */
     background-color: var(--prls-text-primary, #333);
     color: white;
     border: none;
@@ -71,9 +73,9 @@ const {
     align-items: center;
     justify-content: center;
     text-align: center;
-    flex-grow: 1; /* Allows button to fill wrapper if wrapper is stretched */
+    /* flex-grow: 1; Removed to maintain fixed size */
     box-sizing: border-box;
-    /* Height is determined by content (text, icon) and padding */
+    /* Height is now fixed */
   }
 
   .chip-button-main:hover {
