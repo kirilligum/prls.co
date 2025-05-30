@@ -17,7 +17,7 @@ const { slug } = Astro.props;
         placeholder="E.g., What is 'data curation'?"
         aria-label="Ask the AI assistant a question about this blog post"
       ></textarea>
-      <ChipButton id="ask-ai-button" type="button">Ask AI</ChipButton>
+      <ChipButton id="ask-ai-button" type="button" wrapperClass="ai-panel-chip-button-wrapper">Ask AI</ChipButton>
     </div>
   </div>
   <div id="ai-response-pane" class="assistant-pane scrollable-pane">
@@ -326,6 +326,11 @@ const { slug } = Astro.props;
     display: flex;
     gap: 0.75rem; /* Space between textarea and button */
     align-items: stretch; /* Make items stretch to fill height */
+  }
+
+  /* New style to control the alignment of the ChipButton's wrapper in this specific context */
+  .ai-panel-chip-button-wrapper {
+    align-self: center; /* Center the fixed-height button wrapper vertically next to the textarea */
   }
 
   #ai-question-input {

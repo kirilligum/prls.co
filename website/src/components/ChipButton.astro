@@ -45,10 +45,12 @@ const {
 <style>
   .chip-button-wrapper {
     position: relative;
-    display: flex; /* Changed from inline-flex */
-    align-items: center; /* Changed from stretch to center the button vertically */
-    flex-shrink: 0; /* Prevent wrapper from shrinking in flex layout */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; /* Ensure button is centered horizontally in wrapper */
+    flex-shrink: 0; 
     margin: 0 6px; /* Account for 6px protruding legs on left/right */
+    height: 4rem; /* Fixed height to match the button */
     /* Vertical margin for legs (top/bottom 6px) will be naturally handled by line height or parent padding */
   }
 
