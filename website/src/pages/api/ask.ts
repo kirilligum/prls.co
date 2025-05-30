@@ -387,47 +387,86 @@ No additional text or explanation outside this JSON object.`;
       "X-Title": "Blog AI Assistant",
     };
 
-    console.log(`[DEBUG] Calling LLM. Model: ${answererPayload.model}. Provider order: ${answererPayload.provider.order.join(', ')}`);
-    const answererResponse = await fetch(OPENROUTER_API_URL, {
+    let answererResponse;
+    let attemptNumber = 1;
+    let providerForLog = answererPayload.provider.order.join(',');
+
+    // Attempt 1: Cerebras preferred
+    console.log(`[DEBUG] Calling LLM (Attempt 1). Model: ${answererPayload.model}. Provider order: ${answererPayload.provider.order.join(', ')}`);
+    answererResponse = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: commonHeaders,
       body: JSON.stringify(answererPayload),
     });
 
     if (!answererResponse.ok) {
-      const errorText = await answererResponse.text();
+      const errorTextAttempt1 = await answererResponse.text();
       console.error(
-        `Answerer API Error: Status ${answererResponse.status}`,
-        errorText,
+        `Answerer API Error (Attempt 1 - Cerebras Preferred): Status ${answererResponse.status}`,
+        errorTextAttempt1.substring(0, 500),
       );
-      console.log(`[DEBUG] LLM API Error: Status ${answererResponse.status}, Model: ${answererPayload.model}, Details: ${errorText.substring(0, 200)}`);
-      // Log LLM error to R2
       if (aiLogsBucket && r2Key) {
-        const logData = {
-          sessionId,
-          readerId,
-          blogSlug: slug,
-          turnTimestampUTC: turnTimestamp,
+        const logDataAttempt1 = {
+          sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp,
           userQuestion: currentUserQuestion,
-          errorDetails: `LLM API Error: Status ${answererResponse.status}. Details: ${errorText.substring(0, 1000)}`,
-          source: "error_llm_api",
+          errorDetails: `LLM API Error (Attempt 1 - Cerebras Preferred): Status ${answererResponse.status}. Details: ${errorTextAttempt1.substring(0, 1000)}`,
+          source: "error_llm_api_attempt1_cerebras",
+          providerRequested: answererPayload.provider.order.join(','),
         };
+        // Use a distinct key for this error log or add attempt info to the object if using the same key
         locals.runtime.ctx.waitUntil(
-          aiLogsBucket.put(r2Key, JSON.stringify(logData)),
+          aiLogsBucket.put(r2Key + "_err_att1", JSON.stringify(logDataAttempt1))
         );
       }
-      return new Response(
-        JSON.stringify({
-          error: `AI service (answerer) returned an error: ${answererResponse.status}. Details: ${errorText}`,
-        }),
-        {
-          status: answererResponse.status,
-          headers: { "Content-Type": "application/json" },
-        },
-      );
+
+      // Attempt 2: Lambda only
+      console.log("[DEBUG] Attempt 1 failed. Retrying with Lambda provider only.");
+      attemptNumber = 2;
+      const retryPayload = { ...answererPayload, provider: { order: ["lambda"] } };
+      providerForLog = retryPayload.provider.order.join(',');
+
+      console.log(`[DEBUG] Calling LLM (Attempt 2 - Lambda Only). Model: ${retryPayload.model}. Provider order: ${retryPayload.provider.order.join(', ')}`);
+      answererResponse = await fetch(OPENROUTER_API_URL, {
+        method: "POST",
+        headers: commonHeaders,
+        body: JSON.stringify(retryPayload),
+      });
+
+      if (!answererResponse.ok) {
+        const errorTextAttempt2 = await answererResponse.text();
+        console.error(
+          `Answerer API Error (Attempt 2 - Lambda Only): Status ${answererResponse.status}`,
+          errorTextAttempt2.substring(0, 500),
+        );
+        if (aiLogsBucket && r2Key) {
+          const logDataAttempt2 = {
+            sessionId, readerId, blogSlug: slug, turnTimestampUTC: turnTimestamp,
+            userQuestion: currentUserQuestion,
+            errorDetails: `LLM API Error (Attempt 2 - Lambda Only): Status ${answererResponse.status}. Details: ${errorTextAttempt2.substring(0, 1000)}`,
+            source: "error_llm_api_attempt2_lambda",
+            providerRequested: retryPayload.provider.order.join(','),
+          };
+          locals.runtime.ctx.waitUntil(
+            aiLogsBucket.put(r2Key + "_err_att2", JSON.stringify(logDataAttempt2))
+          );
+        }
+        return new Response(
+          JSON.stringify({
+            error: `AI service (answerer) returned an error on retry with Lambda: ${answererResponse.status}. Details: ${errorTextAttempt2}`,
+          }),
+          {
+            status: answererResponse.status,
+            headers: { "Content-Type": "application/json" },
+          },
+        );
+      }
+      console.log("[DEBUG] Attempt 2 (Lambda only) successful.");
+    } else {
+      console.log("[DEBUG] Attempt 1 (Cerebras preferred) successful.");
     }
 
     const answerData = await answererResponse.json();
+    const actualProviderUsed = answerData.route?.name || providerForLog; // Get actual provider if available
     let llmOutputString = answerData.choices?.[0]?.message?.content;
 
     if (!llmOutputString) {
@@ -550,6 +589,8 @@ No additional text or explanation outside this JSON object.`;
           aiRelatedFlag: related,
           systemResponse: corkyResponse,
           source: "system_filter_off_topic",
+          attempt: attemptNumber, // Log which attempt led to this
+          providerUsed: actualProviderUsed,
         };
         locals.runtime.ctx.waitUntil(
           aiLogsBucket
@@ -595,7 +636,9 @@ No additional text or explanation outside this JSON object.`;
         aiRelatedFlag: related,
         aiResponse: finalAnswer,
         source: "llm",
-        modelUsed: DEFAULT_MODEL,
+        modelUsed: DEFAULT_MODEL, // Or answerData.choices?.[0]?.model if more specific
+        attempt: attemptNumber,
+        providerUsed: actualProviderUsed,
       };
       locals.runtime.ctx.waitUntil(
         aiLogsBucket
