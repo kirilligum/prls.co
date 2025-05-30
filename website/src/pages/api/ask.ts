@@ -333,8 +333,13 @@ Your task is to analyze the user's query in relation to the provided blog post c
 Instructions:
 1.  **Explain Relation**: Briefly explain how the user's query relates to the provided blog post content, OR to the broader topics, technologies, and concepts discussed or implied within the blog post.
 2.  **Determine Relevance**: Based on the explanation above, state whether the query is relevant (true/false).
-    *   A query is **relevant** if it directly addresses the blog post's content, seeks deeper understanding of topics mentioned, explores closely related concepts or technologies, or asks for clarification on terms used. For example, if the blog post mentions a specific technology (e.g., "fastText") or a general concept (e.g., "text cleaning" in NLP), questions about how to use that technology, its underlying algorithms, or related sub-topics (e.g., "stop words" if NLP is discussed) are considered relevant.
-    *   A query is **not relevant** if it pertains to subjects entirely disconnected from the blog post's domain (e.g., asking for a cooking recipe if the blog is about software, or asking about car performance if the blog is about data science).
+    *   A query is **relevant** if it demonstrates a clear conceptual linkage to, represents a logical pathway of inquiry from, or aligns thematically within the conceptual scope established by the blog post's content. This includes queries that:
+        *   Directly address specific statements, facts, arguments, conclusions, or information explicitly presented in the blog post.
+        *   Seek further detail, explanation, elaboration, background context, functional details, or potential implications for concepts, entities, processes, or terms that are explicitly mentioned or integral to understanding the blog post.
+        *   Explore topics that are integral components of, necessary prerequisites to understanding, or natural extensions and specializations of the primary subjects discussed in the blog post.
+        *   Discuss broader principles, overarching categories, established fields of study, or adjacent areas of inquiry to which the blog post's main subject matter demonstrably belongs and is intrinsically or thematically linked.
+        *   Request clarification of language, terminology, or concepts used within the blog post to ensure accurate comprehension.
+    *   A query is **not relevant** if it introduces subjects or themes that share no discernible conceptual, logical, or hierarchical connection to the blog post's explicit content or its clearly established subject area, thereby falling outside its thematic boundaries and conceptual scope.
 3.  **Answer if Relevant**: If the query is relevant (true), provide a concise, technically deep answer (around 5 lines or less, focusing on definitions or key concepts from the blog post or related topics as appropriate). If the query is not relevant (false), the 'response' field in the JSON MUST be an empty string.
 
 The user is asking about the following blog post content:
