@@ -393,6 +393,7 @@ No additional text or explanation outside this JSON object.`;
 
     // Attempt 1: Cerebras preferred
     console.log(`[DEBUG] Calling LLM (Attempt 1). Model: ${answererPayload.model}. Provider order: ${answererPayload.provider.order.join(', ')}`);
+    console.log("[MOCKING_LOG] LLM Input Payload:", JSON.stringify(answererPayload, null, 2)); // Added for mocking
     answererResponse = await fetch(OPENROUTER_API_URL, {
       method: "POST",
       headers: commonHeaders,
@@ -504,6 +505,7 @@ No additional text or explanation outside this JSON object.`;
     let parsedLlmJson;
     try {
       parsedLlmJson = JSON.parse(llmOutputString);
+      console.log("[MOCKING_LOG] LLM Parsed Output JSON:", JSON.stringify(parsedLlmJson, null, 2)); // Added for mocking
     } catch (e) {
       console.error(
         "Failed to parse LLM JSON response:",
