@@ -14,17 +14,17 @@ graph TB
         end
 
         subgraph aimarketing [AI Marketing]
-            direction TB
+            direction LR
             Chat["Chat<br/>(ChatGPT, Claude, Gemini, Grok)"]
             Search["Search<br/>(GPT-Search, Perplexity, AI-mode)"]
             Generation["Generation<br/>(AI Overview by Google, Blogs, Social)"]
             Visual
-            FLLM((Foundational LLM))
+            FLLM((Foundational LLM<br/>(Google, OpenAI, Anthropics, Meta, X, DeepSeek)))
 
-            Chat --> FLLM
-            Search --> FLLM
-            Generation --> FLLM
-            Visual --> FLLM
+            FLLM --> Chat
+            FLLM --> Search
+            FLLM --> Generation
+            FLLM --> Visual
         end
     end
 
