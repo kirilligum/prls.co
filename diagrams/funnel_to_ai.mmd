@@ -4,13 +4,13 @@ graph LR
 
     subgraph "Yesterday's Marketing Funnel"
         direction TD
-        Awareness[\Awareness/] --> Consideration[\Consideration/] --> Conversion[\Conversion/] --> Loyalty[\Loyalty/]
+        f_Awareness[\Awareness/] --> f_Consideration[\Consideration/] --> f_Conversion[\Conversion/] --> f_Loyalty[\Loyalty/]
     end
 
-    TAM --> Awareness
+    TAM --> f_Awareness
     TAM --> AI
 
-    Awareness --> AI
-    Consideration --> AI
-    Conversion --> AI
-    Loyalty --> AI
+    f_Awareness --> AI
+    f_Consideration --> AI
+    f_Conversion --> AI
+    f_Loyalty --> AI
