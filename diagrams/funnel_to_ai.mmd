@@ -1,21 +1,39 @@
-flowchart TB
+graph TB
     TAM(Total Addressable Market)
-    AI((AI))
 
-    subgraph "Yesterday's Marketing Funnel"
-        direction TB
-        f_Awareness[\Awareness/]
-        f_Consideration[\Consideration/]
-        f_Conversion[\Conversion/]
-        f_Loyalty[\Loyalty/]
+    subgraph container [ ]
+        direction LR
 
-        f_Awareness --> f_Consideration --> f_Conversion --> f_Loyalty
+        subgraph funnel [Yesterday's Marketing Funnel]
+            direction TB
+            f_Awareness[\Awareness/]
+            f_Consideration[\Consideration/]
+            f_Conversion[\Conversion/]
+            f_Loyalty[\Loyalty/]
+            f_Awareness --> f_Consideration --> f_Conversion --> f_Loyalty
+        end
+
+        subgraph aimarketing [AI Marketing]
+            direction TB
+            Chat["Chat<br/>(ChatGPT, Claude, Gemini, Grok)"]
+            Search["Search<br/>(GPT-Search, Perplexity, AI-mode)"]
+            Generation["Generation<br/>(AI Overview by Google, Blogs, Social)"]
+            Visual
+            FLLM((Foundational LLM))
+
+            Chat --> FLLM
+            Search --> FLLM
+            Generation --> FLLM
+            Visual --> FLLM
+        end
     end
 
-    TAM --> f_Awareness
-    TAM --> AI
+    style container stroke-width:0
 
-    f_Awareness --> AI
-    f_Consideration --> AI
-    f_Conversion --> AI
-    f_Loyalty --> AI
+    TAM --> funnel
+    TAM --> aimarketing
+
+    f_Awareness --> aimarketing
+    f_Consideration --> aimarketing
+    f_Conversion --> aimarketing
+    f_Loyalty --> aimarketing
