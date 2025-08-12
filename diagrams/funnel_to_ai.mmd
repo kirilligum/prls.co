@@ -1,9 +1,10 @@
-graph TD
+graph LR
     TAM(Total Addressable Market)
-    AI(AI)
+    AI((AI))
 
-    subgraph Funnel
-        Awareness --> Consideration --> Conversion --> Loyalty
+    subgraph "Yesterday's Marketing Funnel"
+        direction TD
+        Awareness[\Awareness/] --> Consideration[\Consideration/] --> Conversion[\Conversion/] --> Loyalty[\Loyalty/]
     end
 
     TAM --> Awareness
