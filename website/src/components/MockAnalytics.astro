@@ -1,0 +1,104 @@
+---
+import Header from "../components/Header.astro";
+---
+
+<div class="analytics-container">
+  <Header />
+  <h3 class="analytics-title">Your Brand's Analytics Report</h3>
+  <table class="analytics-table">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>First<br />Mention<br />(%)</th>
+        <th>Monthly<br />Change<br />(%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brand A</td>
+        <td>78</td>
+        <td class="positive">+2</td>
+      </tr>
+      <tr>
+        <td>Brand B</td>
+        <td>10</td>
+        <td class="negative">-3</td>
+      </tr>
+      <tr class="highlight">
+        <td class="text-nowrap">Your Brand</td>
+        <td>7</td>
+        <td class="positive">+2</td>
+      </tr>
+      <tr>
+        <td>Brand C</td>
+        <td>3</td>
+        <td class="positive">+1</td>
+      </tr>
+      <tr>
+        <td>Brand D</td>
+        <td>1</td>
+        <td class="negative">-1</td>
+      </tr>
+      <tr>
+        <td>Brand E</td>
+        <td>1</td>
+        <td class="negative">-1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .analytics-container {
+    height: 100%;
+    width: 100%;
+    /* padding: 1.25rem; */
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .analytics-title {
+    padding: 0 0.75rem;
+    padding-top: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    /* margin-bottom: 1rem; */
+    color: var(--prls-text-primary);
+  }
+
+  .analytics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .analytics-table th,
+  .analytics-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .text-nowrap {
+    white-space: nowrap;
+  }
+
+  .analytics-table th {
+    font-weight: bold;
+    color: var(--prls-text-secondary);
+  }
+
+  .highlight {
+    background-color: #ebf5f7;
+    font-weight: 500;
+  }
+
+  .positive {
+    color: #2d8a39;
+  }
+
+  .negative {
+    color: #d14343;
+  }
+</style>
