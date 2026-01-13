@@ -17,7 +17,7 @@ const { items } = Astro.props;
       <li>
         <div class="title-row">
           <Fragment set:html={item.iconHtml} />
-          <h2>{item.title}</h2>
+          <h3>{item.title}</h3>
         </div>
         <p>{item.description}</p>
       </li>
@@ -43,7 +43,7 @@ const { items } = Astro.props;
     padding: 2.5rem 0;
   }
 
-  h2 {
+  h3 {
     font-size: 1.4rem;
     font-family: var(--font-heading);
   }

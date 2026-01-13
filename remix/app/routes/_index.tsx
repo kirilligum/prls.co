@@ -30,7 +30,7 @@ export default function Index() {
           <div className="logo">
             <div className="logo-title-short">
               <div className="title-short">
-                <h2>SEO for LLMs</h2>
+                <h1>SEO for LLMs</h1>
               </div>
             </div>
             <h3>

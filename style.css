@@ -119,6 +119,10 @@ body {
   font-family: "Garamond", serif;
 }
 
+.hero-container h1 {
+  font-size: 4em;
+}
+
 .hero-container h2 {
   color: #000000;
 }

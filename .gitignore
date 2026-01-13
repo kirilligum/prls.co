@@ -1,5 +1,8 @@
 .aider*
 .env
+.gemini/
+firebase-debug.log
+google-analytics-mcp/
 website/.astro/
 website/.dev.vars
 website/.wrangler/
