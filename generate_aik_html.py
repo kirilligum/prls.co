@@ -69,7 +69,7 @@ def update_main_sitemap(company_id, total_pages):
     for page in range(1, total_pages + 1):
         url_element = ET.Element("url")
         loc_element = ET.Element("loc")
-        loc_element.text = f"https://www.prls.co/{company_id}/{page}.html"
+        loc_element.text = f"https://www.prls.co/{company_id}/{page}"
         url_element.append(loc_element)
         root.append(url_element)
 
@@ -85,7 +85,7 @@ def create_client_sitemap(company_id, total_pages):
     for page in range(1, total_pages + 1):
         url_element = ET.Element("url")
         loc_element = ET.Element("loc")
-        loc_element.text = f"https://www.prls.co/{company_id}/{page}.html"
+        loc_element.text = f"https://www.prls.co/{company_id}/{page}"
         url_element.append(loc_element)
         client_root.append(url_element)
 
@@ -145,6 +145,7 @@ if __name__ == "__main__":
 
     remove_existing_pages()
     generate_aik_html(company_name, company_url, company_id, faqs)
-    update_main_sitemap(company_id, total_pages)
-    create_client_sitemap(company_id, total_pages)
-    update_sitemap_index(company_id)
+    # Sitemap generation is now handled by Astro build process
+    # update_main_sitemap(company_id, total_pages)
+    # create_client_sitemap(company_id, total_pages)
+    # update_sitemap_index(company_id)

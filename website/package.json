@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro build && wrangler pages dev",
+    "build": "astro build && node generate-sitemap.js",
+    "preview": "npm run build && wrangler pages dev",
     "astro": "astro",
-    "deploy": "astro build && wrangler pages deploy",
+    "deploy": "npm run build && wrangler pages deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
