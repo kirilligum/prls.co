@@ -1,2 +1,7 @@
 .aider*
 .env
+website/.astro/
+website/.dev.vars
+website/.wrangler/
+website/dist/
+website/node_modules/

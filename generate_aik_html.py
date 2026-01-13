@@ -37,6 +37,7 @@ def generate_aik_html(company_name, company_url, company_id, faqs):
             company_url=company_url,
             company_id=company_id,
             faq_items=faq_items,
+            page_faqs=faqs[start:end],
             current_page=page + 1,
             total_pages=total_pages,
         )

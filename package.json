@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "mcp-server-gsc": "^0.2.1"
+  }
+}
