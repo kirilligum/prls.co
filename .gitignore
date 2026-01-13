@@ -3,6 +3,10 @@
 .gemini/
 firebase-debug.log
 google-analytics-mcp/
+mcp-gsc/
+analyze_seo.py
+test_ga_auth.py
+test_gsc_auth.py
 website/.astro/
 website/.dev.vars
 website/.wrangler/

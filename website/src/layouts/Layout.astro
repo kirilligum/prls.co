@@ -26,8 +26,35 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
     />
     <meta
       name="description"
-      content="We make ChatGPT and Google's AI Overview champion your company FIRST, OFTEN and ACCURATELY."
+      content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs."
     />
+    <link rel="canonical" href="https://www.prls.co/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.prls.co/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs." />
+    <meta property="og:image" content="https://www.prls.co/images/powerup-chatgpt-prls.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.prls.co/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs." />
+    <meta property="twitter:image" content="https://www.prls.co/images/powerup-chatgpt-prls.png" />
+
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Pearls of Wisdom",
+        "url": "https://www.prls.co/",
+        "logo": "https://www.prls.co/images/logo-powerup.png",
+        "description": "Pearls of Wisdom specializes in SEO for LLMs, helping brands rank in ChatGPT and AI answers through semantic knowledge graph technology."
+      }
+    </script>
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
