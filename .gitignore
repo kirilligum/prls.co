@@ -12,3 +12,4 @@ website/.dev.vars
 website/.wrangler/
 website/dist/
 website/node_modules/
+.playwright-mcp/
