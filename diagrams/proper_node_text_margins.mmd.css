@@ -1,11 +1,11 @@
 body {
-  background-color: #212121;
-  color: white;
+  /* background-color: #212121; */
+  /* color: white; */
   /* Sets the text color to white for contrast */
 }
 
 svg {
-  background-color: #212121 !important;
+  /* background-color: #212121 !important; */
 }
 
 .label foreignObject {

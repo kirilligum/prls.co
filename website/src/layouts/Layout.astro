@@ -1,0 +1,123 @@
+---
+interface Props {
+  title: string;
+}
+
+import ColorControls from "../components/ColorControls.astro";
+import Header from "../components/Header.astro";
+
+const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Questrial&family=Spectral:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs."
+    />
+    <link rel="canonical" href="https://www.prls.co/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.prls.co/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs." />
+    <meta property="og:image" content="https://www.prls.co/images/powerup-chatgpt-prls.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.prls.co/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs." />
+    <meta property="twitter:image" content="https://www.prls.co/images/powerup-chatgpt-prls.png" />
+
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Pearls of Wisdom",
+        "url": "https://www.prls.co/",
+        "logo": "https://www.prls.co/images/logo-powerup.png",
+        "description": "Pearls of Wisdom specializes in SEO for LLMs, helping brands rank in ChatGPT and AI answers through semantic knowledge graph technology."
+      }
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <header>
+    <Header>
+      <!-- <a href="#" id="home-link">Contact</a> -->
+    </Header>
+  </header>
+  <ColorControls />
+  <body>
+    <slot />
+  </body>
+  <footer style="background-color: var(--prls-main-surface-primary);">
+    <p>
+      &copy; 2024 Pearls of Wisdom | <a href="prls_co/1.html">AI Knowledge</a>
+    </p>
+  </footer>
+
+  <style is:global>
+    :root {
+      /* Colors */
+      --hf-color: #4d4d4d;
+      --hf-bg-color: #ebf5f7;
+      --prls-main-surface-primary: #f7f5f2;
+      --prls-main-surface-secondary: #e6d9ce;
+      --prls-text-primary: #3d3d3d;
+      --prls-text-secondary: #5d5d5d;
+      --prls-text-tertiary: #b4b4b4;
+      --hero-gradient-start: #f2e6de;
+
+      /* Typography */
+      --font-heading: "Libre Baskerville", serif;
+      --font-body: "Questrial", sans-serif;
+      --font-weight-bold: 700;
+      --line-height-body: 1.6;
+      --text-lg: 1.2em;
+    }
+
+    /* Base styles */
+    html {
+      font-family: var(--font-body);
+      color: var(--prls-text-primary);
+      line-height: 1.6;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--hf-bg-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--prls-main-surface-primary);
+      color: var(--hf-color);
+      padding-top: 4rem;
+    }
+  </style>
+
+
+</html>

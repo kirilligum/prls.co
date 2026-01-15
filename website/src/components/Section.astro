@@ -1,0 +1,74 @@
+---
+import ContactButton from "./ContactButton.astro";
+
+interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<div class="section">
+  <div class="section-header">
+    <h2><Fragment set:html={title} /></h2>
+    {
+      subtitle && (
+        <div class="section-intro">
+          <p>{subtitle}</p>
+        </div>
+      )
+    }
+  </div>
+  <div class="section-content">
+    <slot />
+  </div>
+  <ContactButton />
+</div>
+
+<style>
+  .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    /* max-width: 1280px; */
+    margin: 0 auto;
+    padding: 12rem 0;
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      max-width: 767px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      p {
+        padding-top: 3rem;
+        font-size: 1.2rem;
+        /* margin-bottom: 2rem; */
+      }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: clamp(1.6rem, 6vw, 2.4rem);
+      color: var(--prls-text-primary);
+      font-family: var(--font-heading);
+      /* padding-bottom: 3rem; */
+    }
+
+    .section-content {
+      /* max-width: 800px; */
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .section {
+      min-height: 100vh;
+    }
+  }
+</style>

@@ -1,0 +1,221 @@
+---
+interface Props {
+	query: string;
+	response: string;
+}
+
+const { query, response } = Astro.props;
+---
+
+<div class="google-mock" style="height: 100%; width: 100%;">
+	<div class="google-header">
+		<svg
+			class="google-logo"
+			height="30"
+			viewBox="0 0 92 30"
+			width="92"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				d="M38.9 15.51c0 4.26-3.32 7.39-7.4 7.39s-7.4-3.14-7.4-7.39c0-4.28 3.32-7.39 7.4-7.39s7.4 3.1 7.4 7.39zm-3.24 0c0-2.66-1.93-4.48-4.16-4.48-2.23 0-4.16 1.82-4.16 4.48 0 2.63 1.93 4.48 4.16 4.48 2.23 0 4.16-1.85 4.16-4.48z"
+				fill="#EA4335"></path>
+			<path
+				d="M11.96 22.98C5.63 22.98.31 17.83.31 11.5S5.63.02 11.96.02c3.5 0 5.99 1.37 7.87 3.16L17.62 5.4c-1.34-1.26-3.16-2.24-5.66-2.24-4.62 0-8.23 3.72-8.23 8.34 0 4.62 3.61 8.34 8.23 8.34 3 0 4.7-1.2 5.79-2.3.9-.9 1.49-2.2 1.74-4.17H12v-3.14h10.52c.11.56.17 1.23.17 1.96 0 2.35-.64 5.49-2.72 7.56-2.02 2.11-4.59 3.23-8.01 3.23z"
+				fill="#4285F4"></path>
+			<path
+				d="M54.9 15.51c0 4.26-3.32 7.39-7.4 7.39s-7.4-3.14-7.4-7.39c0-4.28 3.32-7.39 7.4-7.39s7.4 3.1 7.4 7.39zm-3.24 0c0-2.66-1.93-4.48-4.16-4.48-2.23 0-4.16 1.82-4.16 4.48 0 2.63 1.93 4.48 4.16 4.48 2.23 0 4.16-1.85 4.16-4.48z"
+				fill="#FBBC05"></path>
+			<path
+				d="M70 8.56v13.27c0 5.46-3.05 7.7-6.86 7.7-3.58 0-5.74-2.41-6.55-4.37l2.83-1.18c.5 1.2 1.74 2.63 3.72 2.63 2.44 0 3.78-1.51 3.78-4.34v-1.06h-.11c-.73.9-2.04 1.68-3.81 1.68-3.7 0-7-3.22-7-7.36 0-4.17 3.3-7.42 7-7.42 1.76 0 3.08.78 3.81 1.65h.11v-1.2H70zm-2.86 6.97c0-2.6-1.74-4.51-3.95-4.51-2.24 0-3.95 1.9-3.95 4.51 0 2.58 1.71 4.45 3.95 4.45 2.22.01 3.95-1.87 3.95-4.45z"
+				fill="#4285F4"></path>
+			<path d="M75 1.17V22.9h-3V1.17h3z" fill="#34A853"></path>
+			<path
+				d="M87.5 17.94l2.48 1.68c-.8 1.2-2.73 3.28-6.06 3.28-4.13 0-7.22-3.25-7.22-7.39 0-4.4 3.11-7.39 6.86-7.39 3.78 0 5.62 3.05 6.23 4.7l.31.85-9.71 4.08c.74 1.48 1.9 2.24 3.53 2.24s2.76-.82 3.58-2.05zm-7.63-2.66l6.5-2.74c-.36-.92-1.43-1.57-2.7-1.57-1.62 0-3.88 1.46-3.8 4.31z"
+				fill="#EA4335"></path></svg
+		>
+	</div>
+	<div class="search-container">
+		<div class="search-box">
+			<div class="search-input-container">
+				<div class="search-input">
+					<div
+						class="search-textarea"
+						aria-label="Search"
+						role="textbox"
+						contenteditable="true"
+						spellcheck="false"
+						set:html={query}
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="nav-tabs">
+		<div class="nav-tab active">All</div>
+		<div class="nav-tab">Images</div>
+		<div class="nav-tab">Videos</div>
+		<div class="nav-tab">News</div>
+		<div class="nav-tab">Shopping</div>
+		<div class="nav-tab">Maps</div>
+		<div class="nav-tab">More</div>
+	</div>
+	<div class="labs-container">
+		<div class="labs-content">
+			<svg
+				class="labs-icon"
+				height="24"
+				width="24"
+				viewBox="0 -960 960 960"
+				xmlns="http://www.w3.org/2000/svg"
+				><path
+					fill="rgb(49, 121, 237)"
+					d="M209-120q-42 0-70.5-28.5T110-217q0-14 3-25.5t9-21.5l228-341q10-14 15-31t5-34v-110h-20q-13 0-21.5-8.5T320-810q0-13 8.5-21.5T350-840h260q13 0 21.5 8.5T640-810q0 13-8.5 21.5T610-780h-20v110q0 17 5 34t15 31l227 341q6 9 9.5 20.5T850-217q0 41-28 69t-69 28H209Zm221-660v110q0 26-7.5 50.5T401-573L276-385q-6 8-8.5 16t-2.5 16q0 23 17 39.5t42 16.5q28 0 56-12t80-47q69-45 103.5-62.5T633-443q4-1 5.5-4.5t-.5-7.5l-78-117q-15-21-22.5-46t-7.5-52v-110H430Z"
+				></path></svg
+			>
+			<strong>Search Labs | </strong><strong>AI Overview</strong>
+		</div>
+	</div>
+	<div class="response-container" set:html={response} />
+	<div
+		class="search-sections"
+		style="display: inline-block; vertical-align: middle;"
+	>
+		<div class="section-header sponsored-header">
+			<b style="font-size: 0.9em;">Sponsored</b>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				height="18"
+				width="18"
+				viewBox="0 0 20 20"
+				><path
+					d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+				></path></svg
+			>...
+		</div>
+		<div class="section-header py-1 text-lg">Top SEO-optimized result ...</div>
+		<div class="section-header"><b>People also ask</b> ...</div>
+		<div class="section-header"><b>Discussion forums</b>...</div>
+		<div class="section-header py-1 text-lg">Other search results ...</div>
+	</div>
+</div>
+
+<style>
+	.google-mock {
+		background: #fff;
+		padding: 1.25rem;
+		border-radius: 0.5rem;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		font-family: arial, sans-serif;
+	}
+
+	.google-header {
+		text-align: center;
+		margin-bottom: 1.25rem;
+	}
+
+	.google-logo {
+		display: inline-block;
+	}
+
+	.search-container {
+		max-width: 39.5rem;
+		margin: 0 auto;
+	}
+
+	.search-box {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.search-input-container {
+		display: flex;
+		height: 2.75rem;
+		border: 1px solid #dfe1e5;
+		border-radius: 1.5rem;
+		padding: 0.3125rem 0.5rem;
+		gap: 0.5rem;
+		align-items: center;
+		box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+		border-color: transparent;
+		/* transition: */
+		/* 	box-shadow 0.2s, */
+		/* 	border-color 0.2s; */
+	}
+
+	.search-input {
+		flex: 1;
+		display: flex;
+		align-items: center;
+	}
+
+	.search-textarea {
+		width: 100%;
+		border: none;
+		outline: none;
+		font-size: 1rem;
+		background: transparent;
+		color: #202124;
+		padding: 0 0.25rem;
+		font-family: inherit;
+		white-space: nowrap;
+		overflow: hidden;
+		min-height: 24px;
+	}
+
+	.nav-tabs {
+		display: flex;
+		/* margin-top: 1rem; */
+		padding: 0.5rem 1.25rem;
+		border-bottom: 1px solid #dfe1e5;
+		font-size: 0.875rem;
+		margin-left: -1.25rem;
+		margin-right: -1.25rem;
+		margin-bottom: 1.25rem;
+		margin-top: 0.75rem;
+	}
+
+	.nav-tab {
+		color: rgb(112, 117, 122);
+		padding: 0rem 1rem;
+		text-align: center;
+	}
+
+	.nav-tab.active {
+		color: rgb(31, 31, 31);
+		border-bottom: 4px solid rgb(31, 31, 31);
+		font-weight: 500;
+		margin-bottom: -9px;
+	}
+
+	.nav-tab:hover:not(.active) {
+		color: #202124;
+	}
+
+	.labs-container {
+		margin-top: 1.5rem;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.labs-content {
+		display: flex;
+		align-items: center;
+		white-space: nowrap;
+		gap: 0.25rem;
+	}
+
+	.response-container {
+		padding: 1rem 2rem;
+		line-height: 1.5;
+		color: #202124;
+		font-size: 0.875rem;
+	}
+
+	.sponsored-header {
+		white-space: nowrap;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+</style>

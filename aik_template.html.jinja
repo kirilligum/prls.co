@@ -9,6 +9,7 @@
   <meta name="author" content="Pearls of Wisdom Labs, Inc.">
   <title>AI Knowledge - {{company_name}}</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://www.prls.co/{{ company_id }}/{{ current_page }}.html" />
 </head>
 
 <body>
@@ -73,10 +74,24 @@
       License: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
     </p>
   </footer>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for faq in page_faqs %}
+      {
+        "@type": "Question",
+        "name": "{{ faq.question | replace('"', '\\"') }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ faq.answer | replace('"', '\\"') }}"
+        }
+      }{{ "," if not loop.last else "" }}
+      {% endfor %}
+    ]
+  }
+  </script>
 </body>
-
-</html>
-
-</html>
 
 </html>
