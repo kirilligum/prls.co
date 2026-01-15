@@ -26,6 +26,7 @@ Cloudflare Pages (intended):
 
 - Routes/pages: `website/src/pages/`
 - Homepage: `website/src/pages/index.astro`
+- AIK dynamic pages: `website/src/pages/[company_id]/[page].astro`
 - Redirects: `website/public/_redirects`
 - Static assets: `website/public/`
 - Legacy static HTML: `website/public/prls_co/`
@@ -35,3 +36,8 @@ Cloudflare Pages (intended):
 - `/index.html` is not a real file in Astro server output; it must be redirected to `/`.
 - `prls_co/` at repo root is legacy and is not deployed by the Astro build.
 - `remix/` is a separate app and is not used for prls.co unless explicitly configured.
+
+## Astro best practices in this repo
+
+- Use `Astro.site` for absolute URLs (canonical tags and link generation).
+- Treat `website/public/*/*.json` as the content source for AIK pages.

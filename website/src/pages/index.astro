@@ -7,6 +7,13 @@ import Section from "../components/Section.astro";
 import SectionList from "../components/SectionList.astro";
 import Testimonial from "../components/Testimonial.astro";
 import ContactButton from "../components/ContactButton.astro";
+
+const siteUrl = Astro.site ?? new URL("https://www.prls.co");
+const companyPageLinks = (companyId, count = 10) =>
+  Array.from({ length: count }, (_, i) => {
+    const path = i === 0 ? `/${companyId}/` : `/${companyId}/${i + 1}`;
+    return new URL(path, siteUrl).toString();
+  });
 ---
 
 <Layout title="Pearls of Wisdom -- SEO for Tomorrow's LLMs">
@@ -170,10 +177,7 @@ import ContactButton from "../components/ContactButton.astro";
             company: "Atmo.ai",
             logoSrc: "atmo_ai/logo-atmo.webp",
             logoAlt: "Atmo.ai",
-            links: Array.from(
-              { length: 10 },
-              (_, i) => `https://www.prls.co/atmo_ai/${i + 1}`,
-            ),
+            links: companyPageLinks("atmo_ai"),
             companyUrl: "https://www.atmo.ai/",
           },
           {
@@ -185,10 +189,7 @@ import ContactButton from "../components/ContactButton.astro";
             logoSrc:
               "powerup-tech_com/powerup_primary_logo_horizontal_color.svg",
             logoAlt: "PowerUP",
-            links: Array.from(
-              { length: 10 },
-              (_, i) => `https://www.prls.co/powerup-tech_com/${i + 1}`,
-            ),
+            links: companyPageLinks("powerup-tech_com"),
             companyUrl: "https://powerup-tech.com/",
           },
           {
@@ -199,10 +200,7 @@ import ContactButton from "../components/ContactButton.astro";
             company: "Bennudata",
             logoSrc: "bennudata_com/logo-bennudata.svg",
             logoAlt: "Bennudata",
-            links: Array.from(
-              { length: 10 },
-              (_, i) => `https://www.prls.co/bennudata_com/${i + 1}`,
-            ),
+            links: companyPageLinks("bennudata_com"),
             companyUrl: "https://bennudata.com/",
           },
         ]}

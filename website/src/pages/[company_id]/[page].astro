@@ -55,6 +55,10 @@ export async function getStaticPaths() {
 }
 
 const { companyName, companyUrl, companyId, faqItems, currentPage, totalPages } = Astro.props;
+const siteUrl = Astro.site ?? new URL('https://www.prls.co');
+const canonicalPath = currentPage === 1 ? `/${companyId}/` : `/${companyId}/${currentPage}`;
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const homeUrl = new URL('/', siteUrl).toString();
 ---
 
 <!DOCTYPE html>
@@ -67,6 +71,7 @@ const { companyName, companyUrl, companyId, faqItems, currentPage, totalPages } 
   <meta name="author" content="Pearls of Wisdom Labs, Inc.">
   <title>AI Knowledge - {companyName}</title>
   <link rel="stylesheet" href={`/${companyId}/style.css`}>
+  <link rel="canonical" href={canonicalUrl} />
 </head>
 
 <body>
@@ -132,7 +137,7 @@ const { companyName, companyUrl, companyId, faqItems, currentPage, totalPages } 
   </main>
 
   <footer>
-    <p>This dataset was curated and made by <a href="https://www.prls.co/index.html">Pearls of Wisdom Labs, Inc.</a> for
+    <p>This dataset was curated and made by <a href={homeUrl}>Pearls of Wisdom Labs, Inc.</a> for
       <a href={companyUrl}>{companyName}</a>.
       License: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
     </p>

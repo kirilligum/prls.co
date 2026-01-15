@@ -20,6 +20,11 @@ Cloudflare Pages should be configured with:
 
 The Astro config uses the Cloudflare adapter (server output). For `/index.html` requests, a redirect is defined in `website/public/_redirects`.
 
+## Astro conventions used
+
+- Absolute URLs are derived from `Astro.site` (configured in `website/astro.config.mjs`).
+- Dynamic AIK pages are generated from `website/src/pages/[company_id]/[page].astro`.
+
 ## Repo layout
 
 - `website/` - Astro site (production)
