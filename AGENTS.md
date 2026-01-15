@@ -1,0 +1,37 @@
+# AGENTS
+
+This file is for LLM and automation agents working in this repo.
+
+## Source of truth
+
+The production website is the Astro project in `website/`.
+
+## How to run locally
+
+```sh
+cd website
+npm install
+npm run dev
+```
+
+## How to deploy
+
+Cloudflare Pages (intended):
+
+- Root directory: `website`
+- Build command: `npm ci && npm run build`
+- Output directory: `dist`
+
+## Where to change things
+
+- Routes/pages: `website/src/pages/`
+- Homepage: `website/src/pages/index.astro`
+- Redirects: `website/public/_redirects`
+- Static assets: `website/public/`
+- Legacy static HTML: `website/public/prls_co/`
+
+## Known pitfalls
+
+- `/index.html` is not a real file in Astro server output; it must be redirected to `/`.
+- `prls_co/` at repo root is legacy and is not deployed by the Astro build.
+- `remix/` is a separate app and is not used for prls.co unless explicitly configured.
