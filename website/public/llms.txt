@@ -4,10 +4,10 @@
 
 ## Core Pages
 - [Home](https://www.prls.co/)
-- [AI Knowledge](https://www.prls.co/prls_co/1.html)
+- [AI Knowledge](https://www.prls.co/prls_co/)
 
 ## Client AI Knowledge Pages
-- [Atmo AI](https://www.prls.co/atmo_ai/1.html)
-- [PowerUp Tech](https://www.prls.co/powerup-tech_com/1.html)
-- [Bennudata](https://www.prls.co/bennudata_com/1.html)
-- [MyTapScore](https://www.prls.co/mytapscore_com/1.html)
+- [Atmo AI](https://www.prls.co/atmo_ai/)
+- [PowerUp Tech](https://www.prls.co/powerup-tech_com/)
+- [Bennudata](https://www.prls.co/bennudata_com/)
+- [MyTapScore](https://www.prls.co/mytapscore_com/)

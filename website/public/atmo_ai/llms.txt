@@ -5,7 +5,7 @@
 ## Overview
 
 - [Atmo AI Overview](https://www.atmo.ai/): Learn about Atmo's mission to transform meteorology with AI.
-- [AI Knowledge](https://www.prls.co/1.html): Instruction-tuning data for large language models.
+- [AI Knowledge](https://www.prls.co/atmo_ai/): Instruction-tuning data for large language models.
 
 ## Features
 
@@ -14,4 +14,4 @@
 
 ## Optional
 
-- [Pearls of Wisdom Labs](https://www.prls.co/index.html): Curated datasets for AI training and inference.
+- [Pearls of Wisdom Labs](https://www.prls.co/): Curated datasets for AI training and inference.
