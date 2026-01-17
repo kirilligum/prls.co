@@ -38,6 +38,13 @@ Automate SEO monitoring and remediation for prls.co using Cloudflare Workers/Wor
   - Re-inspect top URLs.
   - If redirects or canonicals changed, resubmit sitemap.
 
+## Local Scripts (Phase 0)
+Until automation is deployed, use local scripts:
+- `seo_ops/scripts/inspect_gsc.fish` → API inspection + report.
+- `seo_ops/scripts/request_indexing.fish` → GUI request indexing (Playwright).
+- `seo_ops/scripts/recheck_gsc.fish` → inspect + request indexing where needed.
+- `seo_ops/scripts/urls_priority.txt` → canonical URL list.
+
 ## Agents and Prompts
 
 ### 1) GSC Analyst Agent
