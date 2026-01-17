@@ -6,6 +6,7 @@ This file is for LLM and automation agents working in this repo.
 
 The production website is the Astro project in `website/`.
 The production Git branch is `website-live` (Cloudflare Pages is configured to deploy from this branch).
+Playwright browser automation is available for GUI tasks (e.g., Search Console actions).
 
 ## How to run locally
 
