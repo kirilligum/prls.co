@@ -32,7 +32,16 @@ function generateSitemap() {
     const itemsPerPage = 20;
     const totalPages = Math.ceil(aikData.length / itemsPerPage);
 
-    for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+    if (totalPages >= 1) {
+      urls.push({
+        loc: `https://www.prls.co/${companyId}/`,
+        lastmod: new Date().toISOString().split('T')[0],
+        changefreq: 'weekly',
+        priority: '0.8'
+      });
+    }
+
+    for (let pageNum = 2; pageNum <= totalPages; pageNum++) {
       urls.push({
         loc: `https://www.prls.co/${companyId}/${pageNum}`,
         lastmod: new Date().toISOString().split('T')[0],

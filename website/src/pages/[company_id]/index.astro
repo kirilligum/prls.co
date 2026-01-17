@@ -51,6 +51,8 @@ const { companyName, companyUrl, companyId, totalPages, sampleFaqItems } =
   Astro.props;
 const siteUrl = Astro.site ?? new URL("https://www.prls.co");
 const canonicalUrl = new URL(`/${companyId}/`, siteUrl).toString();
+const pageHref = (pageNum) =>
+  pageNum === 1 ? `/${companyId}/` : `/${companyId}/${pageNum}`;
 ---
 
 <!DOCTYPE html>
@@ -105,7 +107,7 @@ const canonicalUrl = new URL(`/${companyId}/`, siteUrl).toString();
       <div class="pagination">
         <span>Pages:</span>
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-          <a href={`/${companyId}/${pageNum}`}>{pageNum}</a>
+          <a href={pageHref(pageNum)}>{pageNum}</a>
         ))}
       </div>
     </main>
