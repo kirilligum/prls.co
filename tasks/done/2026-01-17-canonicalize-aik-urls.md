@@ -1,0 +1,25 @@
+# Canonicalize AIK URLs and remove legacy HTML
+
+- **Created:** 2026-01-17
+- **Owner:** codex
+- **Status:** done
+- **Context:** Legacy `/*.html` AIK pages and page-1 duplicates were being indexed, causing canonical conflicts.
+- **Result:** Canonical URL set is `/company/` for page 1 and `/company/2+` for deep pages; legacy `.html` files removed; redirects added.
+- **Repro / How:**
+  - Edited `website/src/pages/[company_id]/[page].astro` to stop generating page 1.
+  - Edited `website/src/pages/[company_id]/index.astro` to link page 1 as `/company/`.
+  - Updated `website/generate-sitemap.js` to include `/company/` and exclude `/company/1`.
+  - Updated `website/public/_redirects` to 301:
+    - `https://prls.co/*` → `https://www.prls.co/:splat`
+    - `/*/*.html` → `/:splat`
+    - `/*/*/` → `/:splat`
+    - `/*/1` → `/:splat/`
+  - Deleted `website/public/*/*.html` legacy pages.
+- **Evidence:**
+  - Commit: `85ab2c3` (branch `website-live`).
+  - Build output showed no `/company/1` pages.
+- **Links:**
+  - `website/public/_redirects`
+  - `website/generate-sitemap.js`
+  - `website/src/pages/[company_id]/[page].astro`
+  - `website/src/pages/[company_id]/index.astro`

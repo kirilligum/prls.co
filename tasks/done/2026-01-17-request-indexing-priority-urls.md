@@ -1,0 +1,21 @@
+# Request indexing for priority URLs
+
+- **Created:** 2026-01-17
+- **Owner:** codex
+- **Status:** done
+- **Context:** Priority URLs needed fresh crawl after canonical/redirect changes.
+- **Result:** Indexing requests submitted via GSC UI (Playwright) for key landing pages and one deep page.
+- **Repro / How:**
+  - GSC property: `sc-domain:prls.co`.
+  - Use URL Inspection → Request indexing for each URL:
+    - https://www.prls.co/
+    - https://www.prls.co/prls_co/
+    - https://www.prls.co/atmo_ai/
+    - https://www.prls.co/atmo_ai/2
+    - https://www.prls.co/bennudata_com/
+    - https://www.prls.co/mytapscore_com/
+    - https://www.prls.co/powerup-tech_com/
+- **Evidence:**
+  - Each URL returned “Indexing requested” dialog in GSC UI.
+- **Links:**
+  - https://search.google.com/search-console/inspect?resource_id=sc-domain:prls.co
