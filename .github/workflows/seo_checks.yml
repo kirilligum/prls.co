@@ -1,0 +1,22 @@
+name: SEO checks
+
+on:
+  push:
+    branches:
+      - main
+      - website-live
+  pull_request:
+    branches:
+      - main
+      - website-live
+
+jobs:
+  no-legacy-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for legacy .html references
+        run: |
+          bash seo_ops/scripts/check_no_legacy_html.sh
