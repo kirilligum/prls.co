@@ -5,6 +5,7 @@ This file is for LLM and automation agents working in this repo.
 ## Source of truth
 
 The production website is the Astro project in `website/`.
+The production Git branch is `website-live` (Cloudflare Pages is configured to deploy from this branch).
 
 ## How to run locally
 
