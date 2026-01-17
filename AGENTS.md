@@ -32,6 +32,7 @@ Cloudflare Pages (intended):
 - Redirects: `website/public/_redirects`
 - Static assets: `website/public/`
 - Legacy static HTML: `website/public/prls_co/`
+- Task tracking: `tasks/` (see `tasks/README.md` for structure and usage)
 
 ## Known pitfalls
 
