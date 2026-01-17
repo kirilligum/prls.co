@@ -8,12 +8,16 @@
   - Use Playwright (GUI) to open GSC because reindexing is not available via API.
   - Inspect these URLs in GSC and record status changes:
     - https://www.prls.co/
+    - https://www.prls.co/index.html
     - https://www.prls.co/prls_co/
     - https://www.prls.co/atmo_ai/
     - https://www.prls.co/atmo_ai/2
     - https://www.prls.co/bennudata_com/
     - https://www.prls.co/mytapscore_com/
     - https://www.prls.co/powerup-tech_com/
+  - Verify non-www host is redirecting:
+    - https://prls.co/
+    - https://prls.co/powerup-tech_com/1
   - If any are still “Discovered - currently not indexed” or “Crawled - currently not indexed,” use URL Inspection → “Request indexing.”
   - Check Pages report for “Not indexed” totals.
 - **Links:**

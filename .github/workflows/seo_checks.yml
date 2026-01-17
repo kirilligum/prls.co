@@ -20,3 +20,7 @@ jobs:
       - name: Check for legacy .html references
         run: |
           bash seo_ops/scripts/check_no_legacy_html.sh
+
+      - name: Check for non-canonical host links
+        run: |
+          bash seo_ops/scripts/check_no_nonwww_links.sh
