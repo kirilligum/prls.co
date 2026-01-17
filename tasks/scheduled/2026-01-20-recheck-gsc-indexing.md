@@ -5,6 +5,7 @@
 - **Status:** scheduled
 - **Context:** After redirects + sitemap + indexing requests, verify canonical URLs are indexed and legacy URLs are dropping.
 - **Next action:**
+  - Use Playwright (GUI) to open GSC because reindexing is not available via API.
   - Inspect these URLs in GSC and record status changes:
     - https://www.prls.co/
     - https://www.prls.co/prls_co/
@@ -13,6 +14,7 @@
     - https://www.prls.co/bennudata_com/
     - https://www.prls.co/mytapscore_com/
     - https://www.prls.co/powerup-tech_com/
+  - If any are still “Discovered - currently not indexed” or “Crawled - currently not indexed,” use URL Inspection → “Request indexing.”
   - Check Pages report for “Not indexed” totals.
 - **Links:**
   - https://search.google.com/search-console/inspect?resource_id=sc-domain:prls.co
