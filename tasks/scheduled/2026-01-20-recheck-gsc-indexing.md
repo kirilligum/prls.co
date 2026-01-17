@@ -23,3 +23,9 @@
 - **Links:**
   - https://search.google.com/search-console/inspect?resource_id=sc-domain:prls.co
   - https://search.google.com/search-console/index?resource_id=sc-domain:prls.co
+
+- **Latest check (2026-01-17):**
+  - https://www.prls.co/ -> Indexed (PASS), last crawled 2026-01-17.
+  - https://www.prls.co/index.html -> Page with redirect, last crawled 2026-01-17.
+  - https://prls.co/ -> Alternate page with proper canonical (non-www still appearing in GSC).
+  - Sitemap resubmitted: https://www.prls.co/sitemap.xml (status pending).
