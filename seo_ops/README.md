@@ -17,7 +17,7 @@ To keep indexing stable and avoid legacy URL discovery:
    - `/*/*/` -> `/:splat`
    - `/*/1` -> `/:splat/`
 3. **Only one sitemap should be published and submitted**:
-   - `https://www.prls.co/sitemap.xml` generated at build time by `website/generate-sitemap.js`
+   - `https://www.prls.co/sitemap-index.xml` generated at build time by Astro's sitemap integration
    - Do not publish per-company legacy `website/public/*/sitemap.xml`
 
 ## CI checks

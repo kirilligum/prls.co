@@ -4,32 +4,11 @@ export const prerender = true;
 export async function getStaticPaths() {
   const paths = [];
 
-  const companyInfoFiles = import.meta.glob("/public/*/company_info.json", {
-    eager: true,
-  });
-  const aikFiles = import.meta.glob("/public/*/aik.json", { eager: true });
+  const { loadAikData } = await import("../../utils/aikData.js");
+  const records = loadAikData();
 
-  const companyIds = Object.keys(companyInfoFiles)
-    .map((path) => {
-      const match = path.match(/\/public\/([^\/]+)\/company_info\.json/);
-      return match ? match[1] : null;
-    })
-    .filter(Boolean);
-
-  for (const companyId of companyIds) {
-    const companyInfoKey = `/public/${companyId}/company_info.json`;
-    const aikKey = `/public/${companyId}/aik.json`;
-
-    if (!companyInfoFiles[companyInfoKey] || !aikFiles[aikKey]) {
-      continue;
-    }
-
-    const companyInfo =
-      companyInfoFiles[companyInfoKey].default || companyInfoFiles[companyInfoKey];
-    const aikData = aikFiles[aikKey].default || aikFiles[aikKey];
-
-    const itemsPerPage = 20;
-    const totalPages = Math.ceil(aikData.length / itemsPerPage);
+  for (const record of records) {
+    const { companyId, companyInfo, aikData, totalPages } = record;
     const sampleFaqItems = aikData.slice(0, Math.min(5, aikData.length));
 
     paths.push({
