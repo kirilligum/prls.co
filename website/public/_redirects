@@ -2,6 +2,7 @@ https://pearls.community/* https://www.prls.co/:splat 301
 http://pearls.community/* https://www.prls.co/:splat 301
 https://prls.co/* https://www.prls.co/:splat 301
 http://prls.co/* https://www.prls.co/:splat 301
+/sitemap.xml /sitemap-index.xml 301
 /index.html / 301
 /*/*.html /:splat 301
 /*/*/ /:splat 301

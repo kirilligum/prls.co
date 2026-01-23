@@ -14,6 +14,14 @@ export default defineConfig({
   adapter: cloudflare({
     platformProxy: {
       enabled: true
+    },
+    routes: {
+      extend: {
+        exclude: [
+          { pattern: "/sitemap-index.xml" },
+          { pattern: "/sitemap-0.xml" }
+        ]
+      }
     }
   }),
 
