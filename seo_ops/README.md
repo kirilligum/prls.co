@@ -18,6 +18,11 @@ To keep indexing stable and avoid legacy URL discovery:
    - `/*/1` -> `/:splat/`
 3. **Only one sitemap should be published and submitted**:
    - `https://www.prls.co/sitemap-index.xml` generated at build time by Astro's sitemap integration
+
+4. **Legacy .html URL compatibility**:
+   - A Workers route (`prls-html-redirect`) handles `www.prls.co/*` and 301-redirects any `*.html` URL
+     to the same path without `.html`. This preserves older links (e.g., `/company/1.html`) while keeping
+     canonical URLs clean.
    - Do not publish per-company legacy `website/public/*/sitemap.xml`
 
 ## CI checks
