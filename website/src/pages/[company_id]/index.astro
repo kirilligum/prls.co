@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   const records = loadAikData();
 
   for (const record of records) {
-    const { companyId, companyInfo, aikData, totalPages } = record;
+    const { companyId, companyInfo, aikData, totalPages, hasStyleCss } = record;
     const sampleFaqItems = aikData.slice(0, Math.min(5, aikData.length));
 
     paths.push({
@@ -19,6 +19,7 @@ export async function getStaticPaths() {
         companyId,
         totalPages,
         sampleFaqItems,
+        hasStyleCss
       },
     });
   }
@@ -26,7 +27,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { companyName, companyUrl, companyId, totalPages, sampleFaqItems } =
+const { companyName, companyUrl, companyId, totalPages, sampleFaqItems, hasStyleCss } =
   Astro.props;
 const siteUrl = Astro.site ?? new URL("https://www.prls.co");
 const canonicalUrl = new URL(`/${companyId}/`, siteUrl).toString();
@@ -49,7 +50,8 @@ const pageHref = (pageNum) =>
     />
     <meta name="author" content="Pearls of Wisdom Labs, Inc." />
     <title>AI Knowledge - {companyName}</title>
-    <link rel="stylesheet" href={`/${companyId}/style.css`} />
+    <link rel="stylesheet" href="/dataset.css" />
+    {hasStyleCss && <link rel="stylesheet" href={`/${companyId}/style.css`} />}
     <link rel="canonical" href={canonicalUrl} />
   </head>
 

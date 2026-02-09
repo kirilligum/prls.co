@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 
   // Generate paths for each company's pages
   for (const record of records) {
-    const { companyId, companyInfo, aikData, totalPages, itemsPerPage } = record;
+    const { companyId, companyInfo, aikData, totalPages, itemsPerPage, hasStyleCss } = record;
 
     for (let pageNum = 2; pageNum <= totalPages; pageNum++) {
       const start = (pageNum - 1) * itemsPerPage;
@@ -25,7 +25,8 @@ export async function getStaticPaths() {
           companyId: companyId,
           faqItems: faqItems,
           currentPage: pageNum,
-          totalPages: totalPages
+          totalPages: totalPages,
+          hasStyleCss
         }
       });
     }
@@ -34,7 +35,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { companyName, companyUrl, companyId, faqItems, currentPage, totalPages } = Astro.props;
+const { companyName, companyUrl, companyId, faqItems, currentPage, totalPages, hasStyleCss } = Astro.props;
 const siteUrl = Astro.site ?? new URL('https://www.prls.co');
 const canonicalPath = currentPage === 1 ? `/${companyId}/` : `/${companyId}/${currentPage}`;
 const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
@@ -51,7 +52,8 @@ const pageHref = (pageNum) => (pageNum === 1 ? `/${companyId}/` : `/${companyId}
   <meta name="keywords" content={`AI, Knowledge, ${companyName}, customer inquiries, products, services, problems, llm, llms, training, chatgpt, fine-tuning, instructions, instruction-tuning`}>
   <meta name="author" content="Pearls of Wisdom Labs, Inc.">
   <title>AI Knowledge - {companyName}</title>
-  <link rel="stylesheet" href={`/${companyId}/style.css`}>
+  <link rel="stylesheet" href="/dataset.css">
+  {hasStyleCss && <link rel="stylesheet" href={`/${companyId}/style.css`} />}
   <link rel="canonical" href={canonicalUrl} />
 </head>
 

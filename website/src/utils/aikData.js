@@ -14,6 +14,8 @@ export function loadAikData() {
     eager: true
   });
   const aikFiles = import.meta.glob("/public/*/aik.json", { eager: true });
+  // We only need to know whether the file exists; do not eager-import CSS.
+  const styleFiles = import.meta.glob("/public/*/style.css");
 
   const companyIds = Object.keys(companyInfoFiles)
     .map(getCompanyId)
@@ -24,6 +26,7 @@ export function loadAikData() {
   for (const companyId of companyIds) {
     const companyInfoKey = `/public/${companyId}/company_info.json`;
     const aikKey = `/public/${companyId}/aik.json`;
+    const styleKey = `/public/${companyId}/style.css`;
 
     if (!companyInfoFiles[companyInfoKey] || !aikFiles[aikKey]) {
       continue;
@@ -32,13 +35,15 @@ export function loadAikData() {
     const companyInfo = getRecord(companyInfoFiles[companyInfoKey]);
     const aikData = getRecord(aikFiles[aikKey]);
     const totalPages = Math.ceil(aikData.length / itemsPerPage);
+    const hasStyleCss = Boolean(styleFiles[styleKey]);
 
     records.push({
       companyId,
       companyInfo,
       aikData,
       totalPages,
-      itemsPerPage
+      itemsPerPage,
+      hasStyleCss
     });
   }
 
