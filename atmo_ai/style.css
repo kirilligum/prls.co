@@ -28,3 +28,90 @@ footer {
   background-color: #ebd400;
   color: #000000;
 }
+
+/*
+  When these pages are served from the Astro site, Tailwind preflight resets
+  default HTML element styles (margins, list bullets, etc.). This file restores
+  readable "document" defaults with selectors that override preflight.
+*/
+
+body header,
+body main,
+body footer {
+  padding: 1.5rem;
+}
+
+body header .logo h1,
+body header .logo h2 {
+  margin: 0;
+}
+
+body main {
+  max-width: 56rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+body main h3 {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+body main h4 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+body main p {
+  margin: 0.85rem 0;
+}
+
+body main ul,
+body main ol {
+  margin: 0.85rem 0 1.1rem;
+  padding-left: 1.5rem;
+}
+
+body main ul {
+  list-style: disc;
+}
+
+body main ol {
+  list-style: decimal;
+}
+
+body main li {
+  margin: 0.4rem 0;
+}
+
+body main a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+body .pagination {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+body .pagination .all-pages {
+  width: 100%;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  align-items: center;
+}
+
+body .pagination a,
+body .pagination strong,
+body .pagination span {
+  font-size: 0.95rem;
+}
