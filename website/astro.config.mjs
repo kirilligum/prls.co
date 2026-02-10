@@ -12,6 +12,11 @@ export default defineConfig({
   // Keep this in sync with edge redirects and CI checks.
   site: 'https://prls.co',
   output: 'server',
+  build: {
+    // Prevent Astro from inlining linked CSS into <style> tags during prerender.
+    // Inlined CSS was causing the Atmo theme to be embedded into other datasets.
+    inlineStylesheets: 'never'
+  },
 
   adapter: cloudflare({
     platformProxy: {
