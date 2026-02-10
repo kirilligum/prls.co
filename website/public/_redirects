@@ -1,7 +1,7 @@
 /sitemap.xml /sitemap-index.xml 301
 /index.html / 301
 
-# Minimal compatibility: treat ".../1" as the first page (".../").
-# This keeps old inbound links working without reintroducing broad legacy URL patterns.
-/*/1 /:splat/ 301
-/*/1.html /:splat/ 301
+# Minimal compatibility: treat "/:company/1" as the first page ("/:company/").
+# Use placeholders (not splats) because Pages splats only work at the end of the pattern.
+/:company/1 /:company/ 301
+/:company/1.html /:company/ 301
