@@ -14,8 +14,12 @@ export function loadAikData() {
     eager: true
   });
   const aikFiles = import.meta.glob("/public/*/aik.json", { eager: true });
-  // We only need to know whether the file exists; do not eager-import CSS.
-  const styleFiles = import.meta.glob("/public/*/style.css");
+  // IMPORTANT: use `?url` so Vite doesn't bundle and apply these CSS files globally.
+  // We only need to detect existence.
+  const styleFiles = import.meta.glob("/public/*/style.css", {
+    query: "?url",
+    import: "default"
+  });
 
   const companyIds = Object.keys(companyInfoFiles)
     .map(getCompanyId)
