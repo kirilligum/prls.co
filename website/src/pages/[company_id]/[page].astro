@@ -37,6 +37,7 @@ export async function getStaticPaths() {
 
 const { companyName, companyUrl, companyId, faqItems, currentPage, totalPages, hasStyleCss } = Astro.props;
 const siteUrl = Astro.site ?? new URL('https://prls.co');
+const themeCssUrl = new URL(`/${companyId}/style.css`, siteUrl).toString();
 const canonicalPath = currentPage === 1 ? `/${companyId}/` : `/${companyId}/${currentPage}/`;
 const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 const homeUrl = new URL('/', siteUrl).toString();
@@ -53,7 +54,7 @@ const pageHref = (pageNum) => (pageNum === 1 ? `/${companyId}/` : `/${companyId}
   <meta name="author" content="Pearls of Wisdom Labs, Inc.">
   <title>AI Knowledge - {companyName}</title>
   <link rel="stylesheet" href="/dataset.css">
-  {hasStyleCss && <link rel="stylesheet" href={`/${companyId}/style.css`} />}
+  {hasStyleCss && <link rel="stylesheet" href={themeCssUrl} />}
   <link rel="canonical" href={canonicalUrl} />
 </head>
 

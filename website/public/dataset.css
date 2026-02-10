@@ -108,3 +108,30 @@ body.unthemed h4 {
   font-size: 1em;
   font-weight: 700;
 }
+
+/*
+  Guardrail: if a themed stylesheet gets accidentally bundled into the shared
+  CSS chunk, force unthemed datasets back to the default HTML look.
+*/
+
+body.unthemed {
+  display: block;
+}
+
+body.unthemed header,
+body.unthemed main,
+body.unthemed footer {
+  background: transparent;
+  color: inherit;
+}
+
+body.unthemed header {
+  font-size: initial;
+  letter-spacing: initial;
+  line-height: normal;
+}
+
+body.unthemed h1,
+body.unthemed h2 {
+  color: inherit;
+}
