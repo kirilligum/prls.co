@@ -4,16 +4,25 @@ import MockOpenAI from "../components/Card.astro";
 import MockGoogle from "../components/MockGoogle.astro";
 import MockAnalytics from "../components/MockAnalytics.astro";
 import Section from "../components/Section.astro";
-import SectionList from "../components/SectionList.astro";
-import Testimonial from "../components/Testimonial.astro";
-import ContactButton from "../components/ContactButton.astro";
+	import SectionList from "../components/SectionList.astro";
+	import Testimonial from "../components/Testimonial.astro";
+	import ContactButton from "../components/ContactButton.astro";
+	import { loadAikData } from "../utils/aikData.js";
 
-const siteUrl = Astro.site ?? new URL("https://prls.co");
-const companyPageLinks = (companyId, count = 10) =>
-  Array.from({ length: count }, (_, i) => {
-    const path = i === 0 ? `/${companyId}/` : `/${companyId}/${i + 1}/`;
-    return new URL(path, siteUrl).toString();
-  });
+	const siteUrl = Astro.site ?? new URL("https://prls.co");
+	const totalPagesByCompanyId = Object.fromEntries(
+	  loadAikData().map((record) => [record.companyId, record.totalPages]),
+	);
+
+	const companyPageLinks = (companyId, count = 10) => {
+	  const totalPages = totalPagesByCompanyId[companyId] ?? 1;
+	  const cappedCount = Math.min(count, totalPages);
+
+	  return Array.from({ length: cappedCount }, (_, i) => {
+	    const path = i === 0 ? `/${companyId}/` : `/${companyId}/${i + 1}/`;
+	    return new URL(path, siteUrl).toString();
+	  });
+	};
 ---
 
 <Layout title="Pearls of Wisdom -- SEO for Tomorrow's LLMs">
