@@ -1,3 +1,0 @@
-#:schema ../../node_modules/wrangler/config-schema.json
-name = "prls-html-redirect"
-compatibility_date = "2024-11-12"

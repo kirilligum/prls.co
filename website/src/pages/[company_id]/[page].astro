@@ -36,11 +36,11 @@ export async function getStaticPaths() {
 }
 
 const { companyName, companyUrl, companyId, faqItems, currentPage, totalPages, hasStyleCss } = Astro.props;
-const siteUrl = Astro.site ?? new URL('https://www.prls.co');
-const canonicalPath = currentPage === 1 ? `/${companyId}/` : `/${companyId}/${currentPage}`;
+const siteUrl = Astro.site ?? new URL('https://prls.co');
+const canonicalPath = currentPage === 1 ? `/${companyId}/` : `/${companyId}/${currentPage}/`;
 const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 const homeUrl = new URL('/', siteUrl).toString();
-const pageHref = (pageNum) => (pageNum === 1 ? `/${companyId}/` : `/${companyId}/${pageNum}`);
+const pageHref = (pageNum) => (pageNum === 1 ? `/${companyId}/` : `/${companyId}/${pageNum}/`);
 ---
 
 <!DOCTYPE html>

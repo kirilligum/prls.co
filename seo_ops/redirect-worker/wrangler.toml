@@ -1,3 +1,9 @@
 #:schema ../../node_modules/wrangler/config-schema.json
 name = "prls-host-redirect"
 compatibility_date = "2024-11-12"
+
+# Redirect non-canonical hosts to the canonical host (https://prls.co).
+routes = [
+  { pattern = "www.prls.co/*", zone_name = "prls.co" },
+  { pattern = "pearls.community/*", zone_name = "pearls.community" },
+]

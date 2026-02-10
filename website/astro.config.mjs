@@ -8,7 +8,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.prls.co',
+  // Canonical host (used for sitemap + absolute URL generation).
+  // Keep this in sync with edge redirects and CI checks.
+  site: 'https://prls.co',
   output: 'server',
 
   adapter: cloudflare({

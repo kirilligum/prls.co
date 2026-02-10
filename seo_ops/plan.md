@@ -10,7 +10,7 @@ Automate SEO monitoring and remediation for prls.co using Cloudflare Workers/Wor
   - Deep pages use `/company_id/2+` (no `/company_id/1`).
   - Legacy `/*.html` AIK pages removed and redirected.
 - Redirects (must remain):
-  - `https://prls.co/*` → `https://www.prls.co/:splat`
+  - `https://www.prls.co/*` → `https://prls.co/:splat`
   - `/*/*.html` → `/:splat`
   - `/*/*/` → `/:splat`
   - `/*/1` → `/:splat/`
@@ -72,7 +72,7 @@ You are the Sitemap/Canonical Monitor. Fetch sitemap.xml and validate:
 - Only canonical URL shapes are present.
 - No /company_id/1 URLs.
 - No *.html URLs.
-- All URLs are https://www.prls.co/.
+- All URLs are https://prls.co/.
 Report violations and open tasks with exact URLs.
 ```
 
@@ -85,9 +85,9 @@ Report violations and open tasks with exact URLs.
 ```
 You are the Redirect Verifier. Check a sample of:
 - https://prls.co/*
-- https://www.prls.co/{company}/1
-- https://www.prls.co/{company}/{n}.html
-- https://www.prls.co/{company}/{n}/
+- https://prls.co/{company}/1
+- https://prls.co/{company}/{n}.html
+- https://prls.co/{company}/{n}/
 Confirm 301 → canonical. Log any non-301 or wrong targets.
 ```
 

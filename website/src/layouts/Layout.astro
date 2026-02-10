@@ -7,6 +7,11 @@ import ColorControls from "../components/ColorControls.astro";
 import Header from "../components/Header.astro";
 
 const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
+const siteUrl = Astro.site ?? new URL("https://prls.co");
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogUrl = canonicalUrl;
+const ogImage = new URL("/images/powerup-chatgpt-prls.png", siteUrl).toString();
+const logoUrl = new URL("/images/logo-powerup.png", siteUrl).toString();
 ---
 
 <!doctype html>
@@ -28,29 +33,29 @@ const { title = "Pearls of Wisdom - SEO for LLMs" } = Astro.props;
       name="description"
       content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs."
     />
-    <link rel="canonical" href="https://www.prls.co/" />
+    <link rel="canonical" href={canonicalUrl} />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.prls.co/" />
+    <meta property="og:url" content={ogUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs." />
-    <meta property="og:image" content="https://www.prls.co/images/powerup-chatgpt-prls.png" />
+    <meta property="og:image" content={ogImage} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.prls.co/" />
+    <meta property="twitter:url" content={ogUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content="Pearls of Wisdom helps your brand rank in ChatGPT and AI search results. We create high-quality instruction-tuning datasets to optimize your content for LLMs." />
-    <meta property="twitter:image" content="https://www.prls.co/images/powerup-chatgpt-prls.png" />
+    <meta property="twitter:image" content={ogImage} />
 
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Pearls of Wisdom",
-        "url": "https://www.prls.co/",
-        "logo": "https://www.prls.co/images/logo-powerup.png",
+        "url": "https://prls.co/",
+        "logo": "https://prls.co/images/logo-powerup.png",
         "description": "Pearls of Wisdom specializes in SEO for LLMs, helping brands rank in ChatGPT and AI answers through semantic knowledge graph technology."
       }
     </script>

@@ -15,3 +15,7 @@ website/node_modules/
 node_modules/.cache/
 .playwright-mcp/
 ker/
+
+# Editor backup / temp files (some ended up under website/public in the past).
+*.un~
+*~

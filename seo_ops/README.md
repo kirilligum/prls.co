@@ -9,26 +9,21 @@ To keep indexing stable and avoid legacy URL discovery:
 1. **Host canonicalization must be enforced at Cloudflare**, not in `_redirects`.
    - Cloudflare Pages does not support domain-level redirects in `_redirects`.
    - Create a Cloudflare Redirect Rule (or Bulk Redirect) at the zone level:
-     - **If hostname equals** `prls.co` (and `pearls.community` if desired)
-     - **Then** 301 to `https://www.prls.co${uri}` (preserve path + query)
-2. **Path canonicalization is enforced in `website/public/_redirects`**:
-   - `/index.html` -> `/`
-   - `/*/*.html` -> `/:splat`
-   - `/*/*/` -> `/:splat`
-   - `/*/1` -> `/:splat/`
+     - **If hostname equals** `www.prls.co` (and `pearls.community` if desired)
+     - **Then** 301 to `https://prls.co${uri}` (preserve path + query)
+2. **Path canonicalization is minimal** (only where it avoids duplicate home/sitemap URLs):
+   - `/index.html` -> `/` (avoid duplicate homepage)
+   - `/sitemap.xml` -> `/sitemap-index.xml` (single sitemap entrypoint)
 3. **Only one sitemap should be published and submitted**:
-   - `https://www.prls.co/sitemap-index.xml` generated at build time by Astro's sitemap integration
-
-4. **Legacy .html URL compatibility**:
-   - A Workers route (`prls-html-redirect`) handles `www.prls.co/*` and 301-redirects any `*.html` URL
-     to the same path without `.html`. This preserves older links (e.g., `/company/1.html`) while keeping
-     canonical URLs clean.
-   - Do not publish per-company legacy `website/public/*/sitemap.xml`
+   - `https://prls.co/sitemap-index.xml` generated at build time by Astro's sitemap integration
+4. **No legacy `.html` compatibility**:
+   - Old `*.html` AIK URLs are considered removed. If an external site links to them, ask them to update
+     the link to the canonical, extensionless URL.
 
 ## CI checks
 
 The workflow in `.github/workflows/seo_checks.yml` enforces:
 - No `.html` links inside `website/public` (excluding `_redirects`).
-- No non-canonical host links (`https://prls.co/`) inside `website/public`.
+- No non-canonical host links (`https://www.prls.co/`) inside `website/public`.
 
 If these checks fail, update the references to canonical URLs.

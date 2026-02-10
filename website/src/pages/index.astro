@@ -8,10 +8,10 @@ import SectionList from "../components/SectionList.astro";
 import Testimonial from "../components/Testimonial.astro";
 import ContactButton from "../components/ContactButton.astro";
 
-const siteUrl = Astro.site ?? new URL("https://www.prls.co");
+const siteUrl = Astro.site ?? new URL("https://prls.co");
 const companyPageLinks = (companyId, count = 10) =>
   Array.from({ length: count }, (_, i) => {
-    const path = i === 0 ? `/${companyId}/` : `/${companyId}/${i + 1}`;
+    const path = i === 0 ? `/${companyId}/` : `/${companyId}/${i + 1}/`;
     return new URL(path, siteUrl).toString();
   });
 ---
