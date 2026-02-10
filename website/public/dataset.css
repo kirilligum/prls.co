@@ -81,3 +81,30 @@ body .pagination strong,
 body .pagination span {
   font-size: 0.95rem;
 }
+
+/*
+  Tailwind preflight resets heading sizes. For datasets without a dedicated
+  theme stylesheet, restore something close to the browser defaults.
+*/
+
+body.unthemed h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0.67em 0;
+}
+
+body.unthemed h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0.83em 0;
+}
+
+body.unthemed h3 {
+  font-size: 1.17em;
+  font-weight: 700;
+}
+
+body.unthemed h4 {
+  font-size: 1em;
+  font-weight: 700;
+}
