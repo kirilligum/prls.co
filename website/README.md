@@ -1,54 +1,62 @@
-# Astro Starter Kit: Basics
+# website
+
+This is the production Astro site for `prls.co`.
+
+The repo-level overview lives in the root [`README.md`](../README.md). This file focuses on the app in `website/`.
+
+## Commands
+
+Run all commands from `website/`:
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Available scripts:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- `npm run dev`: start Astro locally
+- `npm run build`: build the Cloudflare-targeted production output
+- `npm run preview`: build and run a local Pages preview with Wrangler
+- `npm run deploy`: build and deploy with Wrangler Pages
+- `npm run cf-typegen`: regenerate Cloudflare types
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Key Files
 
-## 🚀 Project Structure
+- `src/pages/index.astro`: homepage
+- `src/pages/[company_id]/index.astro`: first AI Knowledge page for a company
+- `src/pages/[company_id]/[page].astro`: paginated AI Knowledge pages
+- `src/utils/aikData.js`: loads dataset content from `public/*`
+- `src/middleware.ts`: hostname redirect logic
+- `public/_redirects`: path canonicalization rules
+- `astro.config.mjs`: Astro config, Cloudflare adapter, sitemap, canonical site URL
+- `wrangler.toml`: Pages config for local preview and deploy
 
-Inside of your Astro project, you'll see the following folders and files:
+## Content Source
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+AI Knowledge content is loaded from folders under `public/<company_id>/`.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Each folder should contain:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `company_info.json`
+- `aik.json`
+- optional `style.css`
+- optional assets such as logos
 
-Any static assets, like images, can be placed in the `public/` directory.
+The site paginates `aik.json` into groups of 20 entries:
 
-## 🧞 Commands
+- `/<company_id>/`
+- `/<company_id>/2/`
+- `/<company_id>/3/`
 
-All commands are run from the root of the project, from a terminal:
+## Deployment Notes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Cloudflare Pages is intended to deploy this app from the `website-live` branch with:
 
-## 👀 Want to learn more?
+- Root directory: `website`
+- Build command: `npm ci && npm run build`
+- Output directory: `dist`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Use `Astro.site` for absolute URLs and canonical tags. Do not treat `/index.html` as a real output file; redirect it to `/`.
